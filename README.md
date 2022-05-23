@@ -148,7 +148,7 @@
 
 #### 3.蓝天使/BlueAngel
 
-* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) **(静态提取)**
+* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)(已发布)
 
     &emsp;提取魔改XP3封包
 
@@ -164,7 +164,7 @@
 
     &emsp;MeetInParisDumper (动态提取)(已发布)
 
-    &emsp;&emsp;提取《花都之恋》CG资源**(本人无最新版资源  仅适配Steam 2022.5.1版本)**
+    &emsp;&emsp;提取《花都之恋》CG资源 (本人无最新版资源  仅适配Steam 2022.5.1版本)
 
     &emsp;&emsp;使用方法
 
