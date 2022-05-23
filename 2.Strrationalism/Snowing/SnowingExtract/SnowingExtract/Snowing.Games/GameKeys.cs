@@ -1,0 +1,24 @@
+﻿
+namespace Snowing.Games
+{
+    /// <summary>
+    /// 空梦
+    /// </summary>
+    public class VainRiser
+    {
+        /// <summary>
+        /// Aes128解密Key
+        /// </summary>
+        public static readonly byte[] Aes128Key = new byte[]
+        {
+            0x51, 0x0D, 0x22, 0x5E, 0xD3, 0x8C, 0xC4, 0x89, 0x90, 0xB8, 0x03, 0x83, 0x77, 0xEB, 0x01, 0x10
+        };
+        /// <summary>
+        /// Aes128解密向量
+        /// </summary>
+        public static readonly byte[] Aes128IV = new byte[]
+        {
+            0xA0, 0x11, 0xB0, 0xC7, 0x32, 0x3A, 0xF6, 0xC7, 0xE8, 0xE3, 0xF3, 0x4B, 0x26, 0xC4, 0xA7, 0xEC
+        };
+    }
+}
