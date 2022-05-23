@@ -4,7 +4,7 @@
 
 * BKEngine
 
-    &emsp;BKEngineUnPack**(静态提取)(已发布)**
+    &emsp;BKEngineUnPack (静态提取)(已发布)
 
     &emsp;&emsp;解包.bkarc封包
 
@@ -40,7 +40,7 @@
 
 * NVLKRKR(内部定制收费版本)
 
-    &emsp;NVLKR2Extract**(静态提取)(已发布)**
+    &emsp;NVLKR2Extract (静态提取)(已发布)
 
     &emsp;&emsp;静态解包NVLKR2封包  
 
@@ -80,7 +80,7 @@
 
     &emsp;&emsp;编译环境.Net Framework 4.8
 
-    &emsp;NVLKrkrDump**(动态提取)(正在填坑 优化中)**
+    &emsp;NVLKrkrDump (动态提取)(正在填坑 优化中)
 
     &emsp;&emsp;动态提取NVLKR2游戏资源   资源全路径与资源相对路径
 
@@ -98,7 +98,7 @@
 
  * NVLUnity
 
-    &emsp;NVLUnityDecryptor**(静态解密)(已发布)**
+    &emsp;NVLUnityDecryptor (静态解密)(已发布)
    
     &emsp;&emsp;用于解密.nvldata封包    解密完毕请使用[AssetStudio](https://github.com/Perfare/AssetStudio)解包
    
@@ -130,7 +130,7 @@
 
 * Snowing
 
-    &emsp;SnowingExtract**(静态提取)(已发布)**
+    &emsp;SnowingExtract  (静态提取)(已发布)
 
     &emsp;&emsp;静态解密游戏加密资源
     
@@ -160,7 +160,7 @@
 
 * 自研引擎加密coco2dx-V1
 
-    &emsp;MeetInParisDumper**(动态提取)(已发布)**
+    &emsp;MeetInParisDumper (动态提取)(已发布)
 
     &emsp;&emsp;提取《花都之恋》CG资源**(本人无最新版资源  仅适配Steam 2022.5.1版本)**
 
@@ -174,13 +174,13 @@
 
 #### 5.ZixSolution(国G程序收费外包商)
 
-* ZedraxloRenpy定制加密插件V1 魔改.rpa .rpyc封包 **(静态提取)(正在填坑 优化中)**
+* ZedraxloRenpy定制加密插件V1 魔改.rpa .rpyc封包 (静态提取)(正在填坑 优化中)
 
     解密编译后的pyc, 位于游戏目录/renpy
 
     &emsp;使用方法
 
-    &emsp;&emsp;解密后自行使用**[python-uncompyle6](https://github.com/rocky/python-uncompyle6)** 反编译pyc
+    &emsp;&emsp;解密后自行使用[python-uncompyle6](https://github.com/rocky/python-uncompyle6) 反编译pyc
 
     &emsp;&emsp;阅读反编译后的python代码修改或编写程序解包.rpa .rpyc资源
 
