@@ -1,5 +1,7 @@
 ### 国产Gal工具  Chinese Galgame/Visual Novel  Tools
 
+### 不再发布Release 请自行下载Visual Studio编译工具
+
 #### 1.NVL(国G程序收费外包商)
 
 * BKEngine
