@@ -96,6 +96,10 @@
 
     &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
 
+    &emsp;&emsp;使用方法
+
+    &emsp;&emsp;&emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到NVLKrkrDumpLoader.exe运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表(lst路径文件为GARbro支持用)
+
     &emsp;&emsp;编译环境Visual Studio 2019 x86 AVX2
 
  * NVLUnity
@@ -156,6 +160,12 @@
 
     &emsp;&emsp;《亿万年的星光》 Steam
     
+    &emsp;依赖库
+    
+    &emsp;&emsp;NuGet
+    
+    &emsp;&emsp;&emsp;K4os.Compression.LZ4
+    
     &emsp;编译环境 .Net 5.0
 
 #### 4.Fontainebleau/枫丹白露
@@ -170,21 +180,21 @@
 
     &emsp;&emsp;&emsp;在游戏运行时, 使用DLL注入器注入到目标游戏进程, 即可提取所有出未加密CG资源
 
-    &emsp;&emsp;&emsp;使用TexturePacker转换pvr资源为png
+    &emsp;&emsp;&emsp;使用`TexturePacker`转换`.pvr`资源为`.png`
 
     &emsp;&emsp;编译环境 Visual Studio 2019 x86 AVX2
 
 #### 5.ZixSolution(国G程序收费外包商)
 
-* ZedraxloRenpy定制加密插件V1 魔改.rpa .rpyc封包 (静态提取)(正在填坑 优化中)
+* ZedraxloRenpy定制加密插件V1 魔改`.rpa` `.rpyc`封包 (静态提取)(正在填坑 优化中)
 
-    解密编译后的pyc, 位于游戏目录/renpy
+    解密编译后的`.pyc`文件, 位于`游戏目录/renpy`
 
     &emsp;使用方法
 
-    &emsp;&emsp;解密后自行使用[python-uncompyle6](https://github.com/rocky/python-uncompyle6) 反编译pyc
+    &emsp;&emsp;解密后自行使用[python-uncompyle6](https://github.com/rocky/python-uncompyle6) 反编译`.pyc`
 
-    &emsp;&emsp;阅读反编译后的python代码修改或编写程序解包.rpa .rpyc资源
+    &emsp;&emsp;阅读反编译后的python代码修改或编写程序解包`.rpa` `.rpyc`资源
 
     &emsp;游戏测试
 
