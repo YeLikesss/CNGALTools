@@ -82,7 +82,7 @@
 
     &emsp;&emsp;编译环境.Net Framework 4.8
 
-    &emsp;NVLKrkrDump (动态提取)(正在填坑 优化中)
+    &emsp;NVLKrkrDump (动态提取)(已发布)
 
     &emsp;&emsp;动态提取NVLKR2游戏资源   资源全路径与资源相对路径
 
