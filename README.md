@@ -220,11 +220,11 @@
 
 * 爱与命的彼端  Steam (静态解密)(已发布)
 
-    Visual Novel Maker(Web引擎) 
+    &emsp;Visual Novel Maker(Web引擎) 
 
-    XorEncryption解密
+    &emsp;XorEncryption解密
     
-    编译环境.Net 5.0
+    &emsp;编译环境.Net 5.0
 
 
 
