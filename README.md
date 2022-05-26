@@ -98,7 +98,7 @@
 
     &emsp;&emsp;使用方法
 
-    &emsp;&emsp;&emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到NVLKrkrDumpLoader.exe运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表(lst路径文件为GARbro支持用)
+    &emsp;&emsp;&emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到`NVLKrkrDumpLoader.exe`运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表(lst路径文件为GARbro支持用)
 
     &emsp;&emsp;编译环境Visual Studio 2019 x86 AVX2
 
