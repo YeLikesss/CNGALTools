@@ -233,6 +233,10 @@
 
     &emsp;提取数据库游戏资源
 
+    &emsp;帮助指引/Guide
+
+    &emsp;&emsp;如何寻找数据库Key ? /How To Find DB Key
+
     &emsp;游戏测试
 
     &emsp;&emsp;《茸茸便利店》
@@ -240,9 +244,9 @@
     &emsp;&emsp;《吸血鬼旋律》
 
     &emsp;编译环境 .Net Framework 4.8 x86
-
+    
     &emsp;注意事项
-
+    
     &emsp;&emsp;编译完成之后将`sqlite3.dll`放入编译好的exe目录下方可使用
 
 #### 999.Others/其他
