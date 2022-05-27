@@ -227,6 +227,24 @@
 
     &emsp;编译环境.Net 5.0
 
+#### 7.AsicxArt
+
+* Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)(已发布)
+
+    &emsp;提取数据库游戏资源
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《茸茸便利店》
+
+    &emsp;&emsp;《吸血鬼旋律》
+
+    &emsp;编译环境 .Net Framework 4.8 x86
+
+    &emsp;注意事项
+
+    &emsp;&emsp;编译完成之后将`sqlite3.dll`放入编译好的exe目录下方可使用
+
 #### 999.Others/其他
 
 * 爱与命的彼端  Steam (静态解密)(已发布)
