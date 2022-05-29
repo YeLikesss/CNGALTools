@@ -92,6 +92,10 @@
 
     &emsp;&emsp;&emsp;技术支持 [crsky](https://github.com/crskycode)   [Dir-A](https://github.com/Dir-A)
 
+    &emsp;&emsp;帮助指引/Guide
+
+    &emsp;&emsp;&emsp;[如何修改GARbro ?](https://github.com/Dir-A/TinySnow_filelist) 
+
     &emsp;&emsp;依赖库
 
     &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
