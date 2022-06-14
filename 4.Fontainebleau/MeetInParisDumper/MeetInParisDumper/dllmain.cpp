@@ -153,6 +153,7 @@ void WINAPI Dumper(PVOID ThreadParam)
     } while (FindNextFileW(hListFile, &findFileData));
 
     //释放资源
+    CloseHandle(hListFile);
     HeapFree(GetProcessHeap(), 0, ExtractFolder);
     HeapFree(GetProcessHeap(), 0, ResFolder);
     HeapFree(GetProcessHeap(), 0, ScanFolder);
