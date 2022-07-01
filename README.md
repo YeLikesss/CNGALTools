@@ -40,6 +40,12 @@
 
     &emsp;&emsp;编译环境.Net Framework 4.8
 
+    &emsp;No Protector Executable (个人脱壳主程序)
+
+    &emsp;&emsp;Offical Public Ver
+
+    &emsp;&emsp;&emsp;官方公开版本的主程序 Release+Dev版脱壳  ( Themida 2.x )
+
 * NVLKRKR(内部定制收费版本)
 
     &emsp;NVLKR2Extract (静态提取)(已发布)
