@@ -196,7 +196,7 @@
 
 #### 5.ZixSolution(国G程序收费外包商)
 
-* ZedraxloRenpy定制加密插件V1 魔改`.rpa` `.rpyc`封包 (静态提取)(正在填坑 优化中)
+* ZedraxloRenpy定制加密插件V1 魔改`.rpa` `.rpyc`封包 (静态提取)(已发布)
 
     解密编译后的`.pyc`文件, 位于`游戏目录/renpy`
 
