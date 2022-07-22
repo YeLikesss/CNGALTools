@@ -2,6 +2,19 @@
 namespace NvlUnity.V1.Games
 {
     /// <summary>
+    /// 死亡直播间
+    /// </summary>
+    public static class DeathLive
+    {
+        //Steam 2020.3.21 Last Update
+        public static readonly ArchiveHeader.UnityVersion UnityVer = ArchiveHeader.UnityVersion.V2018_4_0_65448;
+        public static readonly uint Steam_Key1 = 0xA083B53F;
+        public static readonly uint Steam_Key2 = 0xD6F845C5;
+        public static readonly uint Steam_Key3 = 0x9A408E61;
+    }
+
+
+    /// <summary>
     /// 茸雪
     /// </summary>
     public static class TinySnow
