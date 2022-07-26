@@ -90,7 +90,7 @@ namespace ExtractGUI
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.Text = "bkarc Extract By YeLike";
+            this.Text = "bkarc Extractor";
             this.ResumeLayout(false);
 
         }
