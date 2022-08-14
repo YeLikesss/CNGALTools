@@ -403,7 +403,7 @@ namespace BlueAngel.V1
 
             //使用资源长度生成Hash种子
             uint seed = length ^ 0xBFAF8EFD;
-            seedBytes = Encoding.UTF8.GetBytes(seed.ToString("X2").ToUpper()).ToList();
+            seedBytes = Encoding.UTF8.GetBytes(seed.ToString("X8").ToUpper()).ToList();
             seedBytes.Add(0x00);
 
             //生成第一轮Hash表
