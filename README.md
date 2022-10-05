@@ -258,6 +258,8 @@
     &emsp;注意事项
     
     &emsp;&emsp;编译完成之后将`sqlite3.dll`放入编译好的exe目录下方可使用
+    
+    &emsp;&emsp;如需查看文本或其他资源  可以使用SQLiteStudio等工具浏览  加密选项选择WxSQLite3 AES128
 
 #### 999.Others/其他
 
