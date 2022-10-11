@@ -261,6 +261,14 @@
     
     &emsp;&emsp;如需查看文本或其他资源  可以使用SQLiteStudio等工具浏览  加密选项选择WxSQLite3 AES128
 
+#### 8.心愿游戏
+
+* 《十二刻度的月计时》  激活码KeyGen
+
+    &emsp;编译环境 .Net 5.0 x64
+
+* 《蔚蓝月下的回忆~SAPPHIRE MOON-FOREVER MEMORIES》   解包代码  (Unity自带的AssetBundle加密)
+
 #### 999.Others/其他
 
 * 爱与命的彼端  Steam (静态解密)(已发布)
