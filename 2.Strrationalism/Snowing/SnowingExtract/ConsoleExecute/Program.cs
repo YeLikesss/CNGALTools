@@ -41,7 +41,7 @@ namespace ConsoleExecute
             string gameDir = string.Concat(gamePathInfo.DirectoryName, "/");
 
             //获取资源文件夹
-            List<DirectoryInfo> archiveDirs = archiveSubFolder.ConvertAll(subFolder => 
+            List<DirectoryInfo> archiveDirs = archiveSubFolder.ConvertAll(subFolder =>
                 new DirectoryInfo(string.Concat(gameDir, subFolder))
             );
 
@@ -49,7 +49,7 @@ namespace ConsoleExecute
             ArchiveFile archiveFile = new ArchiveFile();
             archiveFile.Aes128Key = VainRiser.Aes128Key;
             archiveFile.Aes128IV = VainRiser.Aes128IV;
-            archiveFile.ExtractOutputDir = string.Concat(gameDir,"Extract/");
+            archiveFile.ExtractOutputDir = string.Concat(gameDir, "Extract/");
 
             //循环解密
             archiveDirs.ForEach(archiveDir =>

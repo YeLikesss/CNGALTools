@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -96,6 +96,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -107,6 +108,7 @@
       <SupportNobindOfDelayLoadedDLL>true</SupportNobindOfDelayLoadedDLL>
       <SupportUnloadOfDelayLoadedDLL>false</SupportUnloadOfDelayLoadedDLL>
       <AdditionalOptions>/FILEALIGN:0x1000 %(AdditionalOptions)</AdditionalOptions>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,6 +127,7 @@
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <Optimization>MaxSpeed</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -138,6 +141,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <SupportNobindOfDelayLoadedDLL>true</SupportNobindOfDelayLoadedDLL>
       <EntryPointSymbol>DllMain</EntryPointSymbol>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
     <Manifest>
       <VerboseOutput>false</VerboseOutput>
