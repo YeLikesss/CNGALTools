@@ -160,7 +160,7 @@
     
     &emsp;&emsp;&emsp;《空梦》 Steam
     
-    &emsp;&emsp;编译环境.Net Framework 4.8
+    &emsp;&emsp;编译环境.Net 6.0
 
 #### 3.蓝天使/BlueAngel
 
@@ -178,7 +178,7 @@
     
     &emsp;&emsp;&emsp;K4os.Compression.LZ4
     
-    &emsp;编译环境 .Net 5.0
+    &emsp;编译环境 .Net 6.0
 
 #### 4.Fontainebleau/枫丹白露
 
@@ -194,7 +194,7 @@
 
     &emsp;&emsp;&emsp;使用`TexturePacker`转换`.pvr`资源为`.png`
 
-    &emsp;&emsp;编译环境 Visual Studio 2019 x86 AVX2
+    &emsp;&emsp;编译环境 Visual Studio 2022 x86 AVX2
 
 #### 5.ZixSolution(国G程序收费外包商)
 
@@ -224,7 +224,7 @@
     
     &emsp;&emsp;&emsp;Razorvine.Pickle
     
-    &emsp;编译环境 .Net 5.0
+    &emsp;编译环境 .Net 6.0
     
 
 #### 6.iFAction (国G程序收费框架商)
@@ -279,7 +279,7 @@
 
     &emsp;XorEncryption解密
     
-    &emsp;编译环境.Net 5.0
+    &emsp;编译环境.Net 6.0
 
 #### SP1.Cracks/游戏硬盘版补丁 (仅发布需要人工修改的游戏   其他游戏自行用Steam通杀)
 
