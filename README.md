@@ -1,6 +1,8 @@
 ### 国产Gal工具  Chinese Galgame/Visual Novel  Tools
 
-### 不再发布Release 请自行下载Visual Studio编译工具
+### 请自行下载Visual Studio编译工具
+
+### 开发环境 Windows 7 SP1 x64 补丁至2022.4
 
 #### 1.NVL(国G程序收费外包商)
 
