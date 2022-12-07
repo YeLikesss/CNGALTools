@@ -235,7 +235,7 @@
 
     &emsp;&emsp;《荧火微光》
 
-    &emsp;编译环境.Net 5.0
+    &emsp;编译环境.Net 6.0
 
 #### 7.AsicxArt
 
@@ -265,7 +265,7 @@
 
 * 《十二刻度的月计时》  激活码KeyGen
 
-    &emsp;编译环境 .Net 5.0 x64
+    &emsp;编译环境 .Net 6.0
 
 * 《蔚蓝月下的回忆~SAPPHIRE MOON-FOREVER MEMORIES》   解包代码  (Unity自带的AssetBundle加密)
 

@@ -1,30 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32428.217
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iFActionExtractor", "iFActionExtractor\iFActionExtractor.csproj", "{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iFActionExtractor", "iFActionExtractor\iFActionExtractor.csproj", "{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{488B5F9F-B688-462D-A412-3E05F9E20AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{488B5F9F-B688-462D-A412-3E05F9E20AB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
-		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}.Debug|x64.ActiveCfg = Debug|x64
 		{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}.Debug|x64.Build.0 = Debug|x64
-		{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}.Release|Any CPU.ActiveCfg = Release|x64
 		{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}.Release|x64.ActiveCfg = Release|x64
 		{82F9EDBD-7AE6-42D2-9ED0-9837B4463C2B}.Release|x64.Build.0 = Release|x64
-		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Debug|x64.ActiveCfg = Debug|x64
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Debug|x64.Build.0 = Debug|x64
-		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Release|Any CPU.ActiveCfg = Release|x64
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Release|x64.ActiveCfg = Release|x64
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
