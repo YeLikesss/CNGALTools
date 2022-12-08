@@ -1,8 +1,8 @@
-### 国产Gal工具  Chinese Galgame/Visual Novel  Tools
+### 国产Gal工具  Chinese Galgame/Visual Novel  Tools   (摸鱼式更新)
 
-### 请自行下载Visual Studio编译工具
+### 开发环境 :Windows 7 SP1 x64 补丁至2022.4		请自行下载Visual Studio编译工具
 
-### 开发环境 Windows 7 SP1 x64 补丁至2022.4
+### 一些教程或者笔记也会在此处发布
 
 #### 1.NVL(国G程序收费外包商)
 
@@ -53,10 +53,6 @@
     &emsp;NVLKR2Extract (静态提取)(已发布)
 
     &emsp;&emsp;静态解包NVLKR2封包  
-
-    &emsp;&emsp;&emsp;帮助指引/Guide
-
-    &emsp;&emsp;&emsp;&emsp;如何寻找解密Key ? /How To Find Decrypt Key
 
     &emsp;&emsp;游戏测试
 
@@ -120,10 +116,6 @@
    
     &emsp;&emsp;用于解密.nvldata封包    解密完毕请使用[AssetStudio](https://github.com/Perfare/AssetStudio)解包
    
-    &emsp;&emsp;&emsp;帮助指引/Guide
-    
-    &emsp;&emsp;&emsp;&emsp;如何寻找解密Key ? /How To Find Decrypt Key
-    
     &emsp;&emsp;游戏测试
     
     &emsp;&emsp;&emsp;《梦末》 Steam
@@ -151,10 +143,6 @@
     &emsp;SnowingExtract  (静态提取)(已发布)
 
     &emsp;&emsp;静态解密游戏加密资源
-    
-    &emsp;&emsp;&emsp;帮助指引/Guide
-    
-    &emsp;&emsp;&emsp;&emsp;如何寻找AesKey ? /How To Find AesKey
     
     &emsp;&emsp;游戏测试
     
@@ -245,10 +233,6 @@
 
     &emsp;提取数据库游戏资源
 
-    &emsp;帮助指引/Guide
-
-    &emsp;&emsp;如何寻找数据库Key ? /How To Find DB Key
-
     &emsp;游戏测试
 
     &emsp;&emsp;《茸茸便利店》
@@ -256,9 +240,9 @@
     &emsp;&emsp;《吸血鬼旋律》
 
     &emsp;编译环境 .Net Framework 4.8 x86
-    
+
     &emsp;注意事项
-    
+
     &emsp;&emsp;编译完成之后将`sqlite3.dll`放入编译好的exe目录下方可使用
     
     &emsp;&emsp;如需查看文本或其他资源  可以使用SQLiteStudio等工具浏览  加密选项选择WxSQLite3 AES128
@@ -281,7 +265,7 @@
     
     &emsp;编译环境.Net 6.0
 
-#### SP1.Cracks/游戏硬盘版补丁 (仅发布需要人工修改的游戏   其他游戏自行用Steam通杀)
+#### SP1.Cracks/游戏硬盘版补丁成品 (仅发布需要人工修改的游戏   其他游戏自行用Steam通杀)
 
 * 1.虹色旋律  Steam2018.7.6
 * 2.雾之本境S  Steam2020.6.26
@@ -292,5 +276,18 @@
 * 7.三色绘恋S V1.11
 * 8.三色绘恋If V3.1
 
+#### SP2.Patch/其他补丁
 
 
+
+#### SP3.Note/笔记与教程
+
+* 1.NVL KR2找Key
+* 2.NVL Unity找key找头
+* 3.Snowing找Key
+* 4.Asicx Art找Key
+* 5.《十二色的季节》(BKEngine)硬盘版补丁制作
+
+#### SP4.IDA DataBase/IDA数据库
+
+* 1.NVL Unity Exe
