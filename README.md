@@ -287,6 +287,7 @@
 * 3.Snowing找Key
 * 4.Asicx Art找Key
 * 5.《十二色的季节》(BKEngine)硬盘版补丁制作
+* 6.Asicx Art 硬盘版补丁制作
 
 #### SP4.IDA DataBase/IDA数据库
 
