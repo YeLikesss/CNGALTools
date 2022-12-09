@@ -27,23 +27,22 @@ namespace Extractor.GUI
 
             if (folderDialog.ShowDialog() == DialogResult.OK)
             {
+                IGameInformation gameInfo = null;
                 string dirPath = folderDialog.SelectedPath;
                 switch (this.cbSelectGame.SelectedIndex)
                 {
                     case 0:
-                        Archive.ExtractImage(dirPath, FluffyStore.Key);
-                        Archive.ExtractL2DImage(dirPath, FluffyStore.Key);
+                        gameInfo = new FluffyStore();
                         break;
                     case 1:
-                        Archive.ExtractImage(dirPath, VampiresMelody.Key);
-                        Archive.ExtractL2DImage(dirPath, VampiresMelody.Key);
+                        gameInfo = new VampiresMelody();
                         break;
                     default:
                         MessageBox.Show("请选择游戏", "错误");
                         return;
                 }
+                new Archive(gameInfo.SqliteAES128Key).Extract(dirPath);
                 MessageBox.Show("提取成功", "Information");
-
             }
         }
     }

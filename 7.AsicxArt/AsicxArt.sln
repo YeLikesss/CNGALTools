@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsicxArtStatic", "AsicxArtStatic\AsicxArtStatic.csproj", "{A52EA04F-DE26-4BC1-987C-8DC1E7B4B741}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtractorGui", "ExtractorGui\ExtractorGui.csproj", "{CE074C82-B549-492F-A0E0-F6FD6CB98783}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A52EA04F-DE26-4BC1-987C-8DC1E7B4B741}.Debug|x86.ActiveCfg = Debug|x86
+		{A52EA04F-DE26-4BC1-987C-8DC1E7B4B741}.Debug|x86.Build.0 = Debug|x86
+		{A52EA04F-DE26-4BC1-987C-8DC1E7B4B741}.Release|x86.ActiveCfg = Release|x86
+		{A52EA04F-DE26-4BC1-987C-8DC1E7B4B741}.Release|x86.Build.0 = Release|x86
+		{CE074C82-B549-492F-A0E0-F6FD6CB98783}.Debug|x86.ActiveCfg = Debug|x86
+		{CE074C82-B549-492F-A0E0-F6FD6CB98783}.Debug|x86.Build.0 = Debug|x86
+		{CE074C82-B549-492F-A0E0-F6FD6CB98783}.Release|x86.ActiveCfg = Release|x86
+		{CE074C82-B549-492F-A0E0-F6FD6CB98783}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DFE4D5F-D38B-4802-AA46-131D98D651D4}
+	EndGlobalSection
+EndGlobal
