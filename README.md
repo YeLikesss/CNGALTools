@@ -239,7 +239,7 @@
 
     &emsp;&emsp;《吸血鬼旋律》
 
-    &emsp;编译环境 .Net Framework 4.8 x86
+    &emsp;编译环境 .Net 6.0 x86
 
     &emsp;注意事项
 
