@@ -134,7 +134,7 @@
     
     &emsp;&emsp;&emsp;《茸雪》 Steam
     
-    &emsp;&emsp;编译环境.Net 5.0
+    &emsp;&emsp;编译环境.Net 6.0
 
 #### 2.Strrationalism/弦语蝶梦
 
