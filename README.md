@@ -292,3 +292,4 @@
 #### SP4.IDA DataBase/IDA数据库
 
 * 1.NVL Unity Exe
+* 2.NVL KR2 Exe
