@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BKEngineStatic", "BKEngineStatic\BKEngineStatic.csproj", "{8C308FAA-EE47-4BF5-A053-97EF2FE15CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractGUI", "ExtractGUI\ExtractGUI.csproj", "{A2BADF91-5DA6-4714-962E-56F843DAAD4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C308FAA-EE47-4BF5-A053-97EF2FE15CD5}.Debug|x64.ActiveCfg = Debug|x64
+		{8C308FAA-EE47-4BF5-A053-97EF2FE15CD5}.Debug|x64.Build.0 = Debug|x64
+		{8C308FAA-EE47-4BF5-A053-97EF2FE15CD5}.Release|x64.ActiveCfg = Release|x64
+		{8C308FAA-EE47-4BF5-A053-97EF2FE15CD5}.Release|x64.Build.0 = Release|x64
+		{A2BADF91-5DA6-4714-962E-56F843DAAD4F}.Debug|x64.ActiveCfg = Debug|x64
+		{A2BADF91-5DA6-4714-962E-56F843DAAD4F}.Debug|x64.Build.0 = Debug|x64
+		{A2BADF91-5DA6-4714-962E-56F843DAAD4F}.Release|x64.ActiveCfg = Release|x64
+		{A2BADF91-5DA6-4714-962E-56F843DAAD4F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF4DF755-C5C3-49F8-A078-030BF5D76523}
+	EndGlobalSection
+EndGlobal
