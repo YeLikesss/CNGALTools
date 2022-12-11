@@ -14,8 +14,6 @@ namespace ExtractorGUI
         [STAThread]
         static void Main()
         {
-            //NvlKr2Extract.V2.Hasher.GetFileNameHash(".avi");
-
             AllocConsole();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

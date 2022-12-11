@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVLKR2Static", "NVLKR2Static\NVLKR2Static.csproj", "{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractGUI", "ExtractGUI\ExtractGUI.csproj", "{4970EFAE-4235-4B22-8AB6-B0783F9E7494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}.Debug|x64.ActiveCfg = Debug|x64
+		{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}.Debug|x64.Build.0 = Debug|x64
+		{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}.Release|x64.ActiveCfg = Release|x64
+		{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}.Release|x64.Build.0 = Release|x64
+		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Debug|x64.ActiveCfg = Debug|x64
+		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Debug|x64.Build.0 = Debug|x64
+		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Release|x64.ActiveCfg = Release|x64
+		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92FEA277-B5DA-45FF-AA67-043128D1623B}
+	EndGlobalSection
+EndGlobal
