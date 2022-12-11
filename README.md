@@ -8,7 +8,7 @@
 
 * BKEngine
 
-    &emsp;BKEngineUnPack (静态提取)(已发布)
+    &emsp;BKEngineExtract (静态提取)(已发布)
 
     &emsp;&emsp;解包.bkarc封包
 
@@ -40,7 +40,7 @@
 
     &emsp;&emsp;&emsp;&emsp;Zstd.Net
 
-    &emsp;&emsp;编译环境.Net Framework 4.8
+    &emsp;&emsp;编译环境.Net 6.0
 
     &emsp;No Protector Executable (个人脱壳主程序)
 
