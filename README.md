@@ -84,7 +84,7 @@
 
     &emsp;&emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
-    &emsp;&emsp;编译环境.Net Framework 4.8
+    &emsp;&emsp;编译环境.Net 6.0
 
     &emsp;NVLKrkrDump (动态提取)(已发布)
 
