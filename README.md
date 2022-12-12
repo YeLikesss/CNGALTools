@@ -288,6 +288,9 @@
 * 4.Asicx Art找Key
 * 5.《十二色的季节》(BKEngine)硬盘版补丁制作
 * 6.Asicx Art 硬盘版补丁制作
+* 7.BKEngine解包分析(纯汇编)
+* 8.NVL KR2硬盘版制作(简单思路)
+* 9.三色绘恋2-3 硬盘版制作
 
 #### SP4.IDA DataBase/IDA数据库
 
