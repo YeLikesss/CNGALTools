@@ -313,8 +313,10 @@
 * 8.NVL KR2硬盘版制作(简单思路)
 * 9.三色绘恋2-3 硬盘版制作
 * 10.《空梦》  硬盘版制作
+* 11.ZixSolution (Renpy8.x Python3.9)V1 找Key找Table
 
 #### SP4.IDA DataBase/IDA数据库
 
 * 1.NVL Unity Exe
 * 2.NVL KR2 Exe
+* 3.ZixSolution (Renpy8.x Python3.9)V1
