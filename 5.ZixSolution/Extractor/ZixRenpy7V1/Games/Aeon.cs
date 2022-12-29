@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Extractor.Games
+namespace Extractor.ZixRenpy7V1.Games
 {
     /// <summary>
     /// Aeon on Mosaic Anemone  时间记忆:碎片
@@ -55,7 +55,7 @@ namespace Extractor.Games
         /// <summary>
         /// 加密常量S盒3 256字节 RVA=0x6480
         /// </summary>
-        public static readonly byte[] SubstitutionBox256_3 = new byte[] 
+        public static readonly byte[] SubstitutionBox256_3 = new byte[]
         {
             0x00, 0x0B, 0x16, 0x1D, 0x2C, 0x27, 0x3A, 0x31, 0x58, 0x53, 0x4E, 0x45, 0x74, 0x7F, 0x62, 0x69,
             0xB0, 0xBB, 0xA6, 0xAD, 0x9C, 0x97, 0x8A, 0x81, 0xE8, 0xE3, 0xFE, 0xF5, 0xC4, 0xCF, 0xD2, 0xD9,
@@ -240,7 +240,7 @@ namespace Extractor.Games
             Span<byte> buffer = stackalloc byte[16];
             header.CopyTo(buffer);
 
-            for(int index = 0; index < 4; index++)
+            for (int index = 0; index < 4; index++)
             {
                 Span<byte> blockBytes = buffer.Slice(index * 4, 4);
                 //大端解密
@@ -266,7 +266,7 @@ namespace Extractor.Games
         /// <param name="fileOffset">文件偏移</param>
         /// <param name="fileSize">文件大小</param>
         /// <param name="key">文件信息key</param>
-        public static void DecryptArchiveInfo(ref long fileOffset, ref long fileSize,uint key)
+        public static void DecryptArchiveInfo(ref long fileOffset, ref long fileSize, uint key)
         {
             fileOffset ^= key;
             fileSize ^= key;

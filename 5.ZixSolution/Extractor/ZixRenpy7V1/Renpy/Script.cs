@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Buffers;
+using Extractor.Untils;
 
-namespace Extractor.Renpy
+namespace Extractor.ZixRenpy7V1.Renpy
 {
     /// <summary>
     /// RPYC脚本相关
@@ -24,7 +25,7 @@ namespace Extractor.Renpy
             using FileStream rpycFS = File.OpenRead(filePath);
             using BinaryReader rpycBR = new(rpycFS);
 
-            
+
             Span<byte> keys = stackalloc byte[4];       //用于存放key
 
             //读取key
@@ -91,7 +92,7 @@ namespace Extractor.Renpy
             FileInfo[] rpycFileInfos = dirPathInfo.GetFiles("*.rpyc");  //枚举脚本文件
 
             //遍历并提取脚本文件
-            foreach(FileInfo rpycFileInfo in rpycFileInfos)
+            foreach (FileInfo rpycFileInfo in rpycFileInfos)
             {
                 RPYCUnpake(rpycFileInfo.FullName);
             }
@@ -99,7 +100,7 @@ namespace Extractor.Renpy
             DirectoryInfo[] subDirInfos = dirPathInfo.GetDirectories(); //枚举子文件夹
 
             //遍历递归子文件夹
-            foreach(DirectoryInfo subdir in subDirInfos)
+            foreach (DirectoryInfo subdir in subDirInfos)
             {
                 RPYCsUnpake(subdir.FullName);
             }

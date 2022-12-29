@@ -4,10 +4,11 @@ using System.Collections;
 using System.Linq;
 using System.IO;
 using System.Text;
-using Extractor;
 using System.Buffers;
+using Extractor.ZixRenpy7V1.Crypto;
+using Extractor.Untils;
 
-namespace Extractor.Renpy
+namespace Extractor.ZixRenpy7V1.Renpy
 {
     /// <summary>
     /// 资源文件
@@ -55,13 +56,13 @@ namespace Extractor.Renpy
         /// <param name="substitutionBox7">S盒7</param>
         /// <param name="substitutionBox8">S盒8</param>
         /// <param name="outDir">导出路径</param>
-        public Archive(byte[] key, byte[] xorVector, 
+        public Archive(byte[] key, byte[] xorVector,
                        byte[] substitutionBox1, byte[] substitutionBox2, byte[] substitutionBox3,
                        byte[] substitutionBox4, byte[] substitutionBox5, byte[] substitutionBox6,
                        byte[] substitutionBox7, byte[] substitutionBox8, string outDir)
         {
-            this.mCrypto = new(key, xorVector);
-            this.mCrypto.Initialize(substitutionBox1, substitutionBox2, substitutionBox3, substitutionBox4, substitutionBox5, substitutionBox6, substitutionBox7, substitutionBox8);
+            mCrypto = new(key, xorVector);
+            mCrypto.Initialize(substitutionBox1, substitutionBox2, substitutionBox3, substitutionBox4, substitutionBox5, substitutionBox6, substitutionBox7, substitutionBox8);
 
             //设置导出文件夹
             outDir = outDir.Trim();
@@ -69,7 +70,7 @@ namespace Extractor.Renpy
             {
                 outDir += "\\";
             }
-            this.ExtractOutputDir = outDir;
+            ExtractOutputDir = outDir;
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace Extractor.Renpy
         public void DecryptFile(string upperDirName, DirectoryInfo directory)
         {
             //设置导出路径
-            string extractDir = string.Concat(this.ExtractOutputDir, upperDirName, directory.Name, "/");
+            string extractDir = string.Concat(ExtractOutputDir, upperDirName, directory.Name, "/");
             //如果不存在则创建文件
             if (Directory.Exists(extractDir) == false)
             {
@@ -94,7 +95,7 @@ namespace Extractor.Renpy
             foreach (FileInfo archiveFile in archiveFiles)
             {
                 using FileStream fs = File.OpenRead(archiveFile.FullName);
-                
+
                 //检查16字节对齐
                 if ((fs.Length & 0xF) != 0)
                 {
@@ -109,15 +110,15 @@ namespace Extractor.Renpy
                 int loopCount = (int)(fs.Length / 16);
 
                 //循环解密
-                for(int loop = 0; loop < loopCount; loop++)
+                for (int loop = 0; loop < loopCount; loop++)
                 {
                     //指向待解密数据指针
                     Span<byte> temp = new Span<byte>(buffer, loop * 16, 16);
                     //一次解密16字节
-                    this.mCrypto.Decrypt16BytesData_1(temp);
+                    mCrypto.Decrypt16BytesData_1(temp);
                 }
 
-                
+
                 //获取导出长度
                 int outLength = (int)(fs.Length - buffer[fs.Length - 1]);
 
@@ -142,7 +143,7 @@ namespace Extractor.Renpy
             //循环递归
             subDirs.ForEach(subdir =>
             {
-                this.DecryptFile(string.Concat(upperDirName, directory.Name, "/"), subdir);
+                DecryptFile(string.Concat(upperDirName, directory.Name, "/"), subdir);
             });
         }
 
@@ -153,8 +154,8 @@ namespace Extractor.Renpy
         /// <param name="decryptTableInfoFunc">资源表解密函数指针</param>
         /// <param name="decryptArchiveInfoFunc">资源信息解密函数指针</param>
         /// <param name="decryptArchiveHeaderFunc">解密资源头函数指针</param>
-        public void RPAExtract(DirectoryInfo archiveDirectory, 
-                               DecryptTableInfoFunc decryptTableInfoFunc, 
+        public void RPAExtract(DirectoryInfo archiveDirectory,
+                               DecryptTableInfoFunc decryptTableInfoFunc,
                                DecryptArchiveInfoFunc decryptArchiveInfoFunc,
                                DecryptArchiveHeaderFunc decryptArchiveHeaderFunc)
         {
@@ -162,7 +163,7 @@ namespace Extractor.Renpy
             List<FileInfo> archiveFiles = archiveDirectory.EnumerateFiles().ToList();
 
             //遍历资源文件
-            foreach(FileInfo archiveFile in archiveFiles)
+            foreach (FileInfo archiveFile in archiveFiles)
             {
                 //过滤掉非资源文件
                 if (archiveFile.Extension.ToLower() != ".rpa")
@@ -201,9 +202,9 @@ namespace Extractor.Renpy
                 //获取文件信息表
                 Hashtable tableInfo = (Hashtable)Pickle.Decode(tableData);
 
-                
+
                 //遍历文件表
-                foreach(DictionaryEntry archiveInfo in tableInfo)
+                foreach (DictionaryEntry archiveInfo in tableInfo)
                 {
                     string fileName = (string)archiveInfo.Key;      //获取文件名
                     object[] fileInfo = (object[])((ArrayList)archiveInfo.Value)[0];       //获取文件信息
@@ -213,17 +214,17 @@ namespace Extractor.Renpy
                     //获取资源大小
                     try
                     {
-                        fileSize = (long)fileInfo[1];              
+                        fileSize = (long)fileInfo[1];
                     }
                     catch (InvalidCastException)
                     {
                         fileSize = (int)fileInfo[1];
                     }
-                    
+
                     decryptArchiveInfoFunc(ref fileOffset, ref fileSize, key);   //解密
 
                     //导出文件路径
-                    string extractPath = string.Concat(this.ExtractOutputDir, fileName);
+                    string extractPath = string.Concat(ExtractOutputDir, fileName);
                     //检查文件夹是否存在
                     if (Directory.Exists(Path.GetDirectoryName(extractPath)) == false)
                     {
@@ -247,7 +248,7 @@ namespace Extractor.Renpy
                         //写入资源头
                         archiveExtractFs.Write(headerData, 0, 16);
                     }
-                   
+
                     //释放资源
                     ArrayPool<byte>.Shared.Return(headerData);
 
@@ -265,7 +266,7 @@ namespace Extractor.Renpy
                     ArrayPool<byte>.Shared.Return(fileData);
 
                     //打印log
-                    Console.WriteLine(string.Concat(fileName,"    提取成功"));
+                    Console.WriteLine(string.Concat(fileName, "    提取成功"));
 
                 }
 

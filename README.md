@@ -8,7 +8,7 @@
 
 * BKEngine
 
-    &emsp;BKEngineExtract (静态提取)(已发布)
+    &emsp;BKEngineExtract (静态提取)
 
     &emsp;&emsp;解包.bkarc封包
 
@@ -50,7 +50,7 @@
 
 * NVLKRKR(内部定制收费版本)
 
-    &emsp;NVLKR2Extract (静态提取)(已发布)
+    &emsp;NVLKR2Extract (静态提取)
 
     &emsp;&emsp;静态解包NVLKR2封包  
 
@@ -86,7 +86,7 @@
 
     &emsp;&emsp;编译环境.Net 6.0
 
-    &emsp;NVLKrkrDump (动态提取)(已发布)
+    &emsp;NVLKrkrDump (动态提取)
 
     &emsp;&emsp;动态提取NVLKR2游戏资源   资源全路径与资源相对路径
 
@@ -140,7 +140,7 @@
 
 * Snowing
 
-    &emsp;SnowingExtract  (静态提取)(已发布)
+    &emsp;SnowingExtract  (静态提取)
 
     &emsp;&emsp;静态解密游戏加密资源
     
@@ -152,7 +152,7 @@
 
 #### 3.蓝天使/BlueAngel
 
-* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)(已发布)
+* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)
 
     &emsp;提取魔改XP3封包
 
@@ -186,7 +186,7 @@
 
 #### 5.ZixSolution(国G程序收费外包商)
 
-* ZedraxloRenpy定制加密插件V1 魔改`.rpa` `.rpyc`封包 (静态提取)(已发布)
+* ZedraxloRenpy定制加密插件V1.0  (Renpy 7.x --- Python2.7) 魔改`.rpa` `.rpyc`封包  (静态提取)
 
     解密编译后的`.pyc`文件, 位于`游戏目录/renpy`
 
@@ -198,11 +198,11 @@
 
     &emsp;游戏测试
 
-    &emsp;&emsp;《忆夏之铃》  Steam
+    &emsp;&emsp;《忆夏之铃》  Steam  (Renpy 7.x --- Python2.7)
 
-    &emsp;&emsp;《夏空的蒲公英》 Steam
+    &emsp;&emsp;《夏空的蒲公英》 Steam  (Renpy 7.x --- Python2.7)
 
-    &emsp;&emsp;《时间碎片 奇迹》 Steam
+    &emsp;&emsp;《时间碎片 奇迹》 Steam  (Renpy 7.x --- Python2.7)
 
     &emsp;依赖库
     
@@ -213,7 +213,28 @@
     &emsp;&emsp;&emsp;Razorvine.Pickle
     
     &emsp;编译环境 .Net 6.0
-    
+
+* ZedraxloRenpy定制加密插件V1.1  (Renpy 8.x --- Python3.9) 魔改`.rpa` 封包  (静态提取)
+
+    解密编译后的`.pye`文件, 位于`游戏目录/renpy`
+
+    &emsp;使用方法
+
+    &emsp;&emsp;(uncompyle6暂时不支持Python 3.9反编译)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《山的桃源乡 海的乌托邦》  Steam  (Renpy 8.x --- Python3.9)
+
+    &emsp;依赖库
+
+    &emsp;&emsp;NuGet
+
+    &emsp;&emsp;&emsp;ICSharpCode
+
+    &emsp;&emsp;&emsp;Razorvine.Pickle
+
+    &emsp;编译环境 .Net 6.0
 
 #### 6.iFAction (国G程序收费框架商)
 
@@ -229,7 +250,7 @@
 
 #### 7.AsicxArt
 
-* Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)(已发布)
+* Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)
 
     &emsp;提取数据库游戏资源
 

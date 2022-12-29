@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Collections;
 using Extractor;
-using Extractor.Games;
-using Extractor.Renpy;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Buffers;
-
+using Extractor.ZixRenpy8V1.Crypto;
+using Extractor.ZixRenpy8V1.Game;
+using Extractor.ZixRenpy8V1.Renpy;
 
 namespace ConsoleExecute
 {
@@ -16,32 +15,40 @@ namespace ConsoleExecute
     {
         static void Main(string[] args)
         {
+            string gameDir = "D:\\#Galgame Reverse\\The Neverland of the Mountain and Sea";
 
+            RenpyPath renpyPath = new(gameDir);
+            string[] modulePaths = renpyPath.GetAllModuleFilesFullPath();
+            string extractPath = renpyPath.GetExtractPath();
+            string[] archiveFilePaths = renpyPath.GetAllArchiveFilesFullPath();
 
-            string gameDir = "你的游戏目录/Your Game Directory";
+            TheNeverlandOfTheMountainAndSea game = new();
+            IRPAExtractor extractor = game;
+            IKeyInformation keyInformation = game;
 
-            string targetPycDir = string.Concat(gameDir, "\\Renpy");
+            //解密模块
+            {
+                Crypto128 crypto = new(keyInformation);
+                foreach(var p in modulePaths)
+                {
+                    string relativePath = renpyPath.GetRelativePath(p);
+                    string extractFulllPath = Path.Combine(extractPath, renpyPath.FixExtension(relativePath));
+                    crypto.Decrypt(p, extractFulllPath);
 
-            string targetArchiveDir = string.Concat(gameDir, "\\game");
+                    Console.WriteLine(relativePath + "---> Decrypt Success");
+                }
+            }
 
-            string rpycDir= string.Concat(gameDir, "\\Extract");
+            //提取封包
+            {
+                foreach(var p in archiveFilePaths)
+                {
+                    extractor.Extract(p, extractPath);
+                }
+            }
 
-            //Archive archive = new(AeonOnMosaicAnemone.Key, AeonOnMosaicAnemone.XorVector, AeonOnMosaicAnemone.SubstitutionBox256_1, AeonOnMosaicAnemone.SubstitutionBox256_2, AeonOnMosaicAnemone.SubstitutionBox256_3, AeonOnMosaicAnemone.SubstitutionBox256_4, AeonOnMosaicAnemone.SubstitutionBox256_5, AeonOnMosaicAnemone.SubstitutionBox256_6, AeonOnMosaicAnemone.SubstitutionBox256_7, AeonOnMosaicAnemone.SubstitutionBox256_8, string.Concat(gameDir, "\\Extract"));
-
-
-            //archive.DecryptFile(string.Empty, new DirectoryInfo(targetPycDir));
-
-            //archive.RPAExtract(new DirectoryInfo(targetArchiveDir), AeonOnMosaicAnemone.DecryptTableInfo,AeonOnMosaicAnemone.DecryptArchiveInfo,AeonOnMosaicAnemone.DecryptArchiveHeader);
-
-
-            //Script.RPYCsUnpake(rpycDir);
-
-
+            Console.WriteLine("Success");
             Console.ReadKey();
-
         }
-
-
-
     }
 }

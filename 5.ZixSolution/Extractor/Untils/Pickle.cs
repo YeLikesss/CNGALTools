@@ -5,7 +5,7 @@ using System.Text;
 using Razorvine.Pickle.Objects;
 using Razorvine.Pickle;
 
-namespace Extractor.Renpy
+namespace Extractor.Untils
 {
     public class Pickle
     {

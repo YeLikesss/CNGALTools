@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Extractor.Games
+namespace Extractor.ZixRenpy7V1.Games
 {
     /// <summary>
     /// Dandelions in the Sky  夏空的蒲公英

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Extractor.Games
+namespace Extractor.ZixRenpy7V1.Games
 {
     /// <summary>
     /// Summer Memory of Bell 忆夏之铃

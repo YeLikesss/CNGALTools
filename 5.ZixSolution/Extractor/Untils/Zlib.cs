@@ -1,7 +1,7 @@
 ﻿using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using System.IO;
 
-namespace Extractor.Renpy
+namespace Extractor.Untils
 {
     /// <summary>
     /// Zlib
