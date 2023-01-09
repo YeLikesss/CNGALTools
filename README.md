@@ -276,6 +276,22 @@
 
 * 《蔚蓝月下的回忆~SAPPHIRE MOON-FOREVER MEMORIES》   解包代码  (Unity自带的AssetBundle加密)
 
+#### 9.SoraPlayer
+
+* 修改了Sign的Krkr2封包
+
+  &emsp;游戏测试
+
+  &emsp;&emsp;《夏花的轨迹 That Summer Of Eternal Eden》
+
+  &emsp;编译环境
+
+  &emsp;&emsp;.Net 6.0
+
+  &emsp;Nuget依赖
+
+  &emsp;&emsp;ICSharpCode
+
 #### 999.Others/其他
 
 * 爱与命的彼端  Steam (静态解密)(已发布)
@@ -312,6 +328,7 @@
 * 9.三色绘恋2-3 硬盘版制作
 * 10.《空梦》  硬盘版制作
 * 11.ZixSolution (Renpy8.x Python3.9)V1 找Key找Table
+* 12.ZixSolution (Renpy7.x Python2.7)硬盘版补丁制作
 
 #### SP4.IDA DataBase/IDA数据库
 
