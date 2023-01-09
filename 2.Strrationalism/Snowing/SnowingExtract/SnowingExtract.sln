@@ -3,30 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowingStatic", "SnowingStatic\SnowingStatic.csproj", "{5565654F-FF1B-438A-B6A3-27C5C9876463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnowingStatic", "SnowingStatic\SnowingStatic.csproj", "{5565654F-FF1B-438A-B6A3-27C5C9876463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
-		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Debug|Any CPU.Build.0 = Debug|x64
 		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Debug|x64.ActiveCfg = Debug|x64
 		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Debug|x64.Build.0 = Debug|x64
-		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Release|Any CPU.ActiveCfg = Release|x64
-		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Release|Any CPU.Build.0 = Release|x64
 		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Release|x64.ActiveCfg = Release|x64
 		{5565654F-FF1B-438A-B6A3-27C5C9876463}.Release|x64.Build.0 = Release|x64
-		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Debug|x64.ActiveCfg = Debug|x64
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Debug|x64.Build.0 = Debug|x64
-		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Release|Any CPU.ActiveCfg = Release|x64
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Release|x64.ActiveCfg = Release|x64
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
