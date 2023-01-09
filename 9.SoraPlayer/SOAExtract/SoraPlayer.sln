@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{89C1D549-4413-4221-8DC9-7D1E50D0789B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoraPlayerStatic", "SoraPlayerStatic\SoraPlayerStatic.csproj", "{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89C1D549-4413-4221-8DC9-7D1E50D0789B}.Debug|x64.ActiveCfg = Debug|x64
+		{89C1D549-4413-4221-8DC9-7D1E50D0789B}.Debug|x64.Build.0 = Debug|x64
+		{89C1D549-4413-4221-8DC9-7D1E50D0789B}.Release|x64.ActiveCfg = Release|x64
+		{89C1D549-4413-4221-8DC9-7D1E50D0789B}.Release|x64.Build.0 = Release|x64
+		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Debug|x64.ActiveCfg = Debug|x64
+		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Debug|x64.Build.0 = Debug|x64
+		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Release|x64.ActiveCfg = Release|x64
+		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCA93038-333C-4032-AD23-3FCAAA0D0AB0}
+	EndGlobalSection
+EndGlobal
