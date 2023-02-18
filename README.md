@@ -134,6 +134,12 @@
     
     &emsp;&emsp;&emsp;《茸雪》 Steam
     
+    &emsp;&emsp;&emsp;《山茶列车》 Steam
+    
+    &emsp;&emsp;&emsp;《青羽》 Steam
+    
+    &emsp;&emsp;&emsp;《死亡直播间》 Steam
+    
     &emsp;&emsp;编译环境.Net 6.0
 
 #### 2.Strrationalism/弦语蝶梦
