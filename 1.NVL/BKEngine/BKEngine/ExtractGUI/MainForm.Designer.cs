@@ -84,13 +84,12 @@ namespace ExtractGUI
             this.Controls.Add(this.cmdExtract);
             this.Controls.Add(this.cmbType);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.ShowIcon = false;
-            this.Text = "bkarc Extractor";
+            this.Text = "BKARC Extractor";
             this.ResumeLayout(false);
 
         }

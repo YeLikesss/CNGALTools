@@ -13,41 +13,24 @@ namespace BKEngine
     public class ZstdHelper
     {
         /// <summary>
-        /// 解压缩
+        /// 创建zstd解压缩流
         /// </summary>
-        /// <param name="data">压缩包数据</param>
+        /// <param name="s"></param>
         /// <returns></returns>
-        public static byte[] Decompress(byte[] data)
+        public static Stream CreateDecompressStream(Stream s)
         {
-            MemoryStream ms = new MemoryStream(data);
-            try
-            {
-                List<byte> metadata = new List<byte>();
-                //输入到zstd库进行解压
-                DecompressionStream zstd = new DecompressionStream(ms);
-                int temp;
-                while (true)
-                {   //循环读取数据
-                    temp = zstd.ReadByte();
-                    if (temp == -1)
-                    {
-                        //读取到-1则为读取完毕
-                        break;
-                    }
-                    metadata.Add((byte)(uint)temp);         //添加数据到数组
-                }
+            MemoryStream ms = new(1024 * 1024 * 16);
+            using DecompressionStream zstd = new(s);
 
-                return metadata.ToArray();                   //解压得到数据
-            }
-            catch
+            int temp = zstd.ReadByte();
+            while (temp != -1)
             {
-                return null;
+                ms.WriteByte((byte)temp);
+                temp = zstd.ReadByte();
             }
-            finally
-            {
-                ms?.Close();                
-                ms?.Dispose();
-            }
+
+            ms.Position = 0;
+            return ms;
         }
     }
 }

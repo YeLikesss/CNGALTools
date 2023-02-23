@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <NoWin32Manifest>true</NoWin32Manifest>
     <Platforms>x64</Platforms>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

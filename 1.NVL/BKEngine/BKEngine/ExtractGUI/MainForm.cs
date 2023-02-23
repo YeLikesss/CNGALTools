@@ -1,7 +1,9 @@
-﻿using System;
+﻿using BKEngine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -55,51 +57,24 @@ namespace ExtractGUI
                 return;
             }
 
-            switch (this.cmbType.SelectedIndex)
+            BKEngineVersion version = this.cmbType.SelectedIndex switch
             {
-                case 0:
+                0 => BKEngineVersion.V20,
+                1 => BKEngineVersion.V21,
+                2 => BKEngineVersion.V40,
+                _ => BKEngineVersion.Unknow,
+            };
 
-                    foreach(string file in files)
-                    {
-                        BKEngine.V20.BKARCFile bkarcV20 = new BKEngine.V20.BKARCFile(file);
-                        if (bkarcV20.IsVaild == false)
-                        {
-                            bkarcV20?.Dispose();
-                            continue;
-                        }
-                        if (bkarcV20.DecryptFile() == false)
-                        {
-                            bkarcV20?.Dispose();
-                            continue;
-                        }
-                    }
+            string outDir = Path.Combine(Path.GetDirectoryName(files[0]), "Static_Extract");
 
-                    break;
-                case 1:
-                    foreach (string file in files)
-                    {
-                        BKEngine.V21.BKARCFile bkarcV21 = new BKEngine.V21.BKARCFile(file);
-                        if (bkarcV21.IsVaild == false)
-                        {
-                            bkarcV21?.Dispose();
-                            continue;
-                        }
-                        if (bkarcV21.DecryptFile() == false)
-                        {
-                            bkarcV21?.Dispose();
-                            continue;
-                        }
-                    }
-                    break;
-                case 2:
-                    foreach (string file in files)
-                    {
-                        BKEngine.V40.BKARCFile bkarcV40 = new BKEngine.V40.BKARCFile(file);
-                        bkarcV40.DecryptArchive(bkarcV40.AnalysisFile());
-                        bkarcV40.OutputArchiveData();
-                    }
-                    break;
+            foreach (string filePath in files)
+            {
+                BKARCFileBase bkarc = BKARCFileBase.CreateInstance(Path.GetFileNameWithoutExtension(filePath), File.OpenRead(filePath), version);
+                bkarc.Extract(outDir);
+                bkarc.Dispose();
             }
+
+            GC.Collect();
             MessageBox.Show("解包完毕", "Information");
         }
 
