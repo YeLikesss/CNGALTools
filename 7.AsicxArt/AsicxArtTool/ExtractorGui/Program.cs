@@ -1,4 +1,4 @@
-using Extractor.GUI;
+﻿using Extractor.GUI;
 using System;
 using System.Windows.Forms;
 
