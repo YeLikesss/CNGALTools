@@ -1,9 +1,4 @@
-﻿
-//项目主程序: crsky
-//技术支持: crsky Dir-A
-//nvl程序支持: YeLike
-
-#include "util.h"
+﻿#include "util.h"
 #include "path.h"
 #include "log.h"
 #include "pe.h"
@@ -25,6 +20,9 @@ static HMODULE g_hDLL;
 
 static std::wstring g_exePath;
 static std::wstring g_dllPath;
+static std::wstring g_currentDirPath;
+
+static std::wstring g_krVFSCurrentDirPath;
 
 static Log::Logger g_logger;
 static Log::Logger g_nvlFullPathLogger;
@@ -73,7 +71,8 @@ tjs_uint64 TJSBinaryStream_GetLength(tTJSBinaryStream* stream)
 
 static std::wstring g_outputPath;
 
-static std::vector<std::wstring> g_regexRules;
+static std::vector<std::wstring> g_regexIncludeRules;
+static std::vector<std::wstring> g_regexExcludeRules;
 
 //检查游戏资源封包路径 并提取文件名
 std::wstring MatchPath(const std::wstring& path)
@@ -82,7 +81,7 @@ std::wstring MatchPath(const std::wstring& path)
 
 	if (path.find(L':') != std::string::npos)
 	{
-		for (auto& rule : g_regexRules)
+		for (auto& rule : g_regexIncludeRules)
 		{
 			std::wregex expr(rule, std::regex_constants::icase);
 			std::wsmatch result;
@@ -104,14 +103,13 @@ std::wstring MatchPath(const std::wstring& path)
 }
 
 //检查游戏资源封包路径
-BOOL MatchPathNVL(const wchar_t* path)
+BOOL MatchPathNVL(const wchar_t* path, std::vector<std::wstring>& regex)
 {
 	BOOL match = FALSE;
 
-	for (auto& rule : g_regexRules)
+	for (auto& rule : regex)
 	{
 		std::wregex expr(rule, std::regex_constants::icase);
-
 		if (std::regex_match(path, expr))
 		{
 			match = TRUE;
@@ -121,50 +119,101 @@ BOOL MatchPathNVL(const wchar_t* path)
 	return match;
 }
 
-//获取资源相对路径
-const wchar_t* GetRelativePath(const wchar_t* path) 
-{
-	int length = 0;
 
-	const wchar_t* newPath = path;
-
-	//获取字符串长度 字符串移到最后
-	while (*newPath != '\0')
-	{
-		length++;
-		newPath++;
-	}
-
-	//小于两个字符
-	if (length < 2) 
-	{
-		return newPath;
-	}
-
-	//扫描封包分割符号
-	while (length != 0)
-	{
-		if (*newPath == '>') 
-		{
-			return newPath + 1;
-		}
-		newPath--;
-		length--;
-	}
-
-	return newPath;
-}
 
 //斜杠转反斜杠
 void FixPath(std::wstring& path)
 {
 	for (size_t i = 0; i < path.length(); i++)
 	{
-		if (path[i] == L'/')
+		if (path[i] == L'\\')
 		{
-			path[i] = L'\\';
+			path[i] = L'/';
+		}
+
+		if (path[i] >= L'A' && path[i] <= L'Z')
+		{
+			path[i] |= 0x20;
 		}
 	}
+}
+
+//将文件夹路径转化封包格式
+std::wstring GetXP3VFSCurrentDirectoryPath(const std::wstring& currentDirPath)
+{
+	wchar_t diskVol[2]{ 0 };
+	diskVol[0] = currentDirPath.c_str()[0];       //获取盘符
+
+	std::wstring xp3CurrentDir(L"file://./");
+	xp3CurrentDir += diskVol;         //添加盘符
+	xp3CurrentDir += &currentDirPath.c_str()[2];        //添加文件夹路径
+
+	FixPath(xp3CurrentDir);
+
+	return xp3CurrentDir;
+}
+
+//获取资源相对路径
+const wchar_t* GetRelativePath(const wchar_t* path)
+{
+	if (MatchPathNVL(path,g_regexIncludeRules)) 
+	{
+		int length = 0;
+
+		const wchar_t* newPath = path;
+
+		//获取字符串长度 字符串移到最后
+		while (*newPath != '\0')
+		{
+			length++;
+			newPath++;
+		}
+
+		//小于两个字符
+		if (length < 2)
+		{
+			return newPath;
+		}
+
+		//扫描封包分割符号
+		while (length != 0)
+		{
+			if (*newPath == '>')
+			{
+				return newPath + 1;
+			}
+			newPath--;
+			length--;
+		}
+
+		return newPath;
+	}
+	else if(!MatchPathNVL(path, g_regexExcludeRules))
+	{
+		int pathLen = lstrlenW(path);
+		int dirLen = g_krVFSCurrentDirPath.length();
+
+		Sleep(1);
+
+		if (dirLen >= pathLen)
+		{
+			return path;
+		}
+
+		if(!memcmp(path, g_krVFSCurrentDirPath.c_str(), dirLen * sizeof(wchar_t)))
+		{
+			return &path[dirLen + 1];
+		}
+		else
+		{
+			return path;
+		}
+	}
+	else
+	{
+		return L"";
+	}
+
 }
 
 //创建文件夹
@@ -347,14 +396,11 @@ BOOLEAN HookKrkr2BcbFastCallFindInTable(ttstr* name)
 	{
 		//封包路径存在
 		const wchar_t* namePtr = TJSStringGetPtr(name);
-		if (MatchPathNVL(namePtr))
-		{
-			g_nvlFullPathLogger.Write(L"%s\n", namePtr);
+		g_nvlFullPathLogger.Write(L"%s\n", namePtr);
 
-			const wchar_t* relativeNamePtr = GetRelativePath(namePtr);
-			g_nvlRelativePathLogger.Write(L"%s\n", relativeNamePtr);		//带文件夹相对路径
-			g_nvlRelativePathLogger.Write(L"%s\n", Path::GetFileName(relativeNamePtr).c_str());		//仅文件名
-		}
+		const wchar_t* relativeNamePtr = GetRelativePath(namePtr);
+		g_nvlRelativePathLogger.Write(L"%s\n", relativeNamePtr);		//带文件夹相对路径
+		g_nvlRelativePathLogger.Write(L"%s\n", Path::GetFileName(relativeNamePtr).c_str());		//仅文件名
 	}
 	return isExist;
 }
@@ -383,8 +429,8 @@ PVOID pfnKrkr2BcbFastCallAddAutoPath = NULL;
 
 void HookKrkr2BcbFastCallAddAutoPath(ttstr* path) 
 {
-	g_nvlAutoPathLogger.Write(L"%s\n", TJSStringGetPtr(path));
-
+	const wchar_t* str = TJSStringGetPtr(path);
+	g_nvlAutoPathLogger.Write(L"%s\n", GetRelativePath(str));
 }
 
 //Borland C++ fastcall转MSVC cdcel
@@ -405,7 +451,8 @@ void Krkr2BcbFastCallFindAddAutoPathDetour()
 void LoadConfiguration()
 {
 	g_outputPath.clear();
-	g_regexRules.clear();
+	g_regexIncludeRules.clear();
+	g_regexExcludeRules.clear();
 
 	//资源导出路径为游戏路径+"/Extract"
 	wchar_t gameDir[MAX_PATH];
@@ -416,7 +463,9 @@ void LoadConfiguration()
 	g_outputPath = std::move(outPutPath);
 
 	//路径筛选器
-	g_regexRules.push_back(L"file://\\./.+?\\.xp3>(.+?\\..+$)");
+	g_regexIncludeRules.push_back(L"file://\\./.+?\\.xp3>(.+?\\..+$)");
+
+	g_regexExcludeRules.push_back(L"file://\\./.+?\\.xp3(>)?");
 }
 
 void InstallHooks() 
@@ -486,6 +535,7 @@ void OnStartup()
 	std::wstring exePath = Util::GetModulePathW(g_hEXE);
 	std::wstring dllPath = Util::GetModulePathW(g_hDLL);
 	std::wstring logPath = Path::ChangeExtension(dllPath, L"log");
+	std::wstring currentDir = Path::GetDirectoryName(exePath);
 
 	Util::WriteDebugMessage(L"[KrkrDump] EXE Path = \"%s\"", exePath.c_str());
 	Util::WriteDebugMessage(L"[KrkrDump] DLL Path = \"%s\"", dllPath.c_str());
@@ -502,6 +552,9 @@ void OnStartup()
 
 	g_exePath = std::move(exePath);
 	g_dllPath = std::move(dllPath);
+	g_currentDirPath = std::move(currentDir);
+
+	g_krVFSCurrentDirPath = std::move(GetXP3VFSCurrentDirectoryPath(g_currentDirPath));
 
 	// Started
 
