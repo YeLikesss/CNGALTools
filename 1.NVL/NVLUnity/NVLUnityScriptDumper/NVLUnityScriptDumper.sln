@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScriptDumper", "ScriptDumper\ScriptDumper.vcxproj", "{154D437B-CE64-4670-BFC3-057C5FAEBA51}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Loader", "Loader\Loader.vcxproj", "{1514DC6A-FF75-4B71-8565-9A721C6B07E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Debug|x64.ActiveCfg = Debug|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Debug|x64.Build.0 = Debug|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Debug|x86.ActiveCfg = Debug|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Debug|x86.Build.0 = Debug|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Release|x64.ActiveCfg = Release|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Release|x64.Build.0 = Release|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Release|x86.ActiveCfg = Release|Win32
+		{154D437B-CE64-4670-BFC3-057C5FAEBA51}.Release|x86.Build.0 = Release|Win32
+		{1514DC6A-FF75-4B71-8565-9A721C6B07E4}.Debug|x64.ActiveCfg = Debug|Win32
+		{1514DC6A-FF75-4B71-8565-9A721C6B07E4}.Debug|x86.ActiveCfg = Debug|Win32
+		{1514DC6A-FF75-4B71-8565-9A721C6B07E4}.Debug|x86.Build.0 = Debug|Win32
+		{1514DC6A-FF75-4B71-8565-9A721C6B07E4}.Release|x64.ActiveCfg = Release|Win32
+		{1514DC6A-FF75-4B71-8565-9A721C6B07E4}.Release|x86.ActiveCfg = Release|Win32
+		{1514DC6A-FF75-4B71-8565-9A721C6B07E4}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE38C5FA-AA39-4B68-9210-89AAEA68F218}
+	EndGlobalSection
+EndGlobal
