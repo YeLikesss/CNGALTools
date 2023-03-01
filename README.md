@@ -126,7 +126,7 @@
 
     &emsp;&emsp;使用方法
 
-    &emsp;&emsp;&emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到`NVLKrkrDumpLoader.exe`运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表,`AutoPath.lst`为游戏自动路径列表,可搭配hash算法进行碰撞还原
+    &emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到`NVLKrkrDumpLoader.exe`运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表,`AutoPath.lst`为游戏自动路径列表,可搭配hash算法进行碰撞还原
 
     &emsp;&emsp;编译环境 MSVC2022 x86
 
@@ -174,15 +174,29 @@
     
     &emsp;&emsp;编译环境 .Net 6.x
 
+    &emsp;NVLUnityScriptDumper (动态提取)
+
+    &emsp;&emsp;将bytecode脚本还原为AST JSON格式
+
+    &emsp;&emsp;游戏测试
+    
+    &emsp;&emsp;&emsp;《梦末》
+
+    &emsp;&emsp;&emsp;《茸雪》
+
+    &emsp;&emsp;依赖库
+
+    &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
+
+    &emsp;&emsp;使用方法
+
+    &emsp;&emsp;&emsp;将待解析脚本(需要提前解包)放在`Dll目录\Script`下, 保证`Loader.exe`与`ScriptDumper.dll`在游戏路径下, 将游戏exe拖到`Loader.exe`运行即可, 会自动生成JSON放在`Dll目录\Script`下, 提前打开debugview观察log输出, 使用vscode去转义格式化json即可
+
+    &emsp;&emsp;编译环境 MSVC2022 x86
+
     &emsp;状态说明
 
-    &emsp;&emsp;1.如有更新会继续跟进
-
-    &emsp;&emsp;2.VM还原暂时有意向, 未开坑状态
-
-    &emsp;&emsp;&emsp;原因
-
-    &emsp;&emsp;&emsp;&emsp;1.游戏质量尚可
+    &emsp;&emsp;1.暂时性完工
 
 #### 2.Strrationalism/弦语蝶梦
 
