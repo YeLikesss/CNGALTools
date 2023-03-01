@@ -174,7 +174,7 @@
     
     &emsp;&emsp;编译环境 .Net 6.x
 
-    &emsp;NVLUnityScriptDumper (动态提取)
+    &emsp;NVLUnityScriptDumper (动态解析脚本)
 
     &emsp;&emsp;将bytecode脚本还原为AST JSON格式
 
