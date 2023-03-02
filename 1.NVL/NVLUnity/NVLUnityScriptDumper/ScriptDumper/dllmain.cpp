@@ -68,12 +68,13 @@ Il2CppObject* StreamWriter_Create(std::wstring& fullpath)
                     {
                         //new StreamWriter(string path, bool append, Encoding encoding)
                         ((void (*)(Il2CppObject*, Il2CppString*, bool, Il2CppObject*, const MethodInfo*))method->methodPointer)(swObject, p, false, enc, nullptr);
+                        return swObject;
                     }
                 }
             }
         }
     }
-    return swObject;
+    return nullptr;
 }
 
 void TextWriter_Dispose(Il2CppObject* writer)
