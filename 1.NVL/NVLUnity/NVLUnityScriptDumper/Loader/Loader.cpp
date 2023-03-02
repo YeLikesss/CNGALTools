@@ -40,8 +40,8 @@ int wmain(int argc, wchar_t* argv[])
 
 	std::string dllPath = Util::GetAppDirectoryA() + "\\ScriptDumper.dll";
 
-	STARTUPINFO startupInfo{};
-	PROCESS_INFORMATION processInfo{};
+	STARTUPINFO startupInfo { 0 };
+	PROCESS_INFORMATION processInfo { 0 };
 
 	startupInfo.cb = sizeof(startupInfo);
 
