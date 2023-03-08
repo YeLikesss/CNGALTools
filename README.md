@@ -130,17 +130,32 @@
 
     &emsp;&emsp;编译环境 MSVC2022 x86
 
+    &emsp;NVLKR2 Hash Decoder (爆破hash文件名)
+
+    &emsp;&emsp;使用方法
+
+    &emsp;&emsp;&emsp;1."选择目标文件夹" -> 你要还原的资源文件名路径
+
+    &emsp;&emsp;&emsp;2."加载自动路径" -> NVLKrkrDump出来的AutoPath.lst (UTF-8)
+
+    &emsp;&emsp;&emsp;3."加载Dump的文件名还原" -> NVLKrkrDump出来的RelativePath.lst (UTF-8)
+
+    &emsp;&emsp;&emsp;4."使用本地路径还原" -> 选择本地路径用于遍历还原(比如相同厂商的游戏)
+
+    &emsp;&emsp;&emsp;5."使用本地路径还原(AutoPath)" -> 选择本地路径用于遍历还原(自动添加AutoPath路径) 
+    (比如使用NVLKrkrDump的Extract文件夹还原)
+
+    &emsp;&emsp;&emsp;6.左侧为字符串生成器  自己找规律生成爆破
+
+    &emsp;&emsp;注意
+
+    &emsp;&emsp;&emsp;1.该Hash算法碰撞率极高  不建议一次性加载太多AutoPath
+
+    &emsp;&emsp;编译环境 .Net 6.x
+
     &emsp;状态说明
 
-    &emsp;&emsp;1.Dumper已经算是最终版
-
-    &emsp;&emsp;2.静态版本正在重构中, Hash爆破GUI正在开发
-
-    &emsp;&emsp;3.该引擎官方半弃用状态, 如有新作更新继续跟进
-
-    &emsp;&emsp;&emsp;原因
-
-    &emsp;&emsp;&emsp;&emsp;1.游戏质量尚可
+    &emsp;&emsp;1.暂时性完工
 
  * NVLUnity (加密资源 VM文本)
 
