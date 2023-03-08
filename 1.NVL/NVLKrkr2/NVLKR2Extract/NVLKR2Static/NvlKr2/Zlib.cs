@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using System.IO;
 
 
-namespace NvlKr2Extract
+namespace NVLKR2Static
 {
 
     public class Zlib
     {
         /// <summary>
-        /// Zlib数据解压
+        /// 创建解压缩流
         /// </summary>
-        /// <param name="compressData">Zlib压缩数据</param>
-        /// <returns>解压后数据</returns>
-        public static byte[] Decompress(byte[] compressData)
+        /// <param name="s">原数据流</param>
+        /// <returns></returns>
+        public static Stream CreateDecompressStream(Stream s)
         {
-            MemoryStream compressed = new MemoryStream(compressData);      //创建压缩数据流
-            MemoryStream decompressed = new MemoryStream();         //创建解压数据流
-            InflaterInputStream zlibInput = new InflaterInputStream(compressed);        //创建输入压缩数据流
-            zlibInput.CopyTo(decompressed);         //获得解压数据流
-            return decompressed.ToArray();          
+            using InflaterInputStream zlibInput = new(s);
+            MemoryStream decompressed = new();
+            zlibInput.CopyTo(decompressed);
+            decompressed.Position = 0;
+            return decompressed;
         }
     }
 }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVLKR2Static", "NVLKR2Static\NVLKR2Static.csproj", "{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NVLKR2Static", "NVLKR2Static\NVLKR2Static.csproj", "{FE97BE8D-9AFF-45FF-8DA8-DD2909D18E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractGUI", "ExtractGUI\ExtractGUI.csproj", "{4970EFAE-4235-4B22-8AB6-B0783F9E7494}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtractGUI", "ExtractGUI\ExtractGUI.csproj", "{4970EFAE-4235-4B22-8AB6-B0783F9E7494}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashDecoder", "HashDecoder\HashDecoder.csproj", "{24D98DE2-6127-45EE-AAE5-025D0EEC343D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Debug|x64.Build.0 = Debug|x64
 		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Release|x64.ActiveCfg = Release|x64
 		{4970EFAE-4235-4B22-8AB6-B0783F9E7494}.Release|x64.Build.0 = Release|x64
+		{24D98DE2-6127-45EE-AAE5-025D0EEC343D}.Debug|x64.ActiveCfg = Debug|x64
+		{24D98DE2-6127-45EE-AAE5-025D0EEC343D}.Debug|x64.Build.0 = Debug|x64
+		{24D98DE2-6127-45EE-AAE5-025D0EEC343D}.Release|x64.ActiveCfg = Release|x64
+		{24D98DE2-6127-45EE-AAE5-025D0EEC343D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
