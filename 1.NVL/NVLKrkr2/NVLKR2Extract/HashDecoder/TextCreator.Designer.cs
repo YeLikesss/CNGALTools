@@ -172,7 +172,14 @@ namespace HashDecoder
             ".ttf",
             ".wmv",
             ".tjs",
-            ".ini"});
+            ".ini",
+            ".wav",
+            ".mp3",
+            ".mp4",
+            ".asd",
+            ".opus",
+            ".json",
+            ".avi"});
             this.cbConstExtension.Location = new System.Drawing.Point(502, 350);
             this.cbConstExtension.Name = "cbConstExtension";
             this.cbConstExtension.Size = new System.Drawing.Size(114, 29);

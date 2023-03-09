@@ -9,6 +9,8 @@ using Utils.PathProcess;
 using System.Threading;
 using NVLKR2Static;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace HashDecoder
 {
@@ -26,7 +28,10 @@ namespace HashDecoder
             this.tCreator.TextProcessCallBack = this.HasherProcess;
         }
 
-        private Regex mRegexHashNameFilter = new("^[0-9,A-F]{8}$");
+        private readonly Regex mRegexHashNameFilter = new("^[0-9,A-F]{8}$");
+
+        private readonly ParallelOptions mMultiThreadOption = new() { MaxDegreeOfParallelism = 8 };     //8线程
+
 
         /// <summary>
         /// hash解码
@@ -38,8 +43,9 @@ namespace HashDecoder
             Dictionary<string, string> maps = XP3Archive.CalculateHashMulit(strings);
 
             Regex filter = this.mRegexHashNameFilter;
+            ParallelOptions options = this.mMultiThreadOption;
 
-            for (int i = 0; i < filePaths.Count; ++i)
+            Parallel.For(0, filePaths.Count, i =>
             {
                 string op = filePaths[i];
 
@@ -49,8 +55,8 @@ namespace HashDecoder
                 if (filter.IsMatch(hashName) && filter.IsMatch(hashExt))
                 {
                     if (maps.TryGetValue(hashName, out string name))
-                    { 
-                        if(XP3Archive.StringHash(Path.GetExtension(name)) == uint.Parse(hashExt, System.Globalization.NumberStyles.HexNumber))
+                    {
+                        if (XP3Archive.StringHash(Path.GetExtension(name)) == uint.Parse(hashExt, System.Globalization.NumberStyles.HexNumber))
                         {
                             string np = Path.Combine(Path.GetDirectoryName(op), name);
                             {
@@ -65,7 +71,12 @@ namespace HashDecoder
                         }
                     }
                 }
-            }
+            });
+
+            //for (int i = 0; i < filePaths.Count; ++i)
+            //{
+
+            //}
         }
 
         /// <summary>
@@ -91,8 +102,8 @@ namespace HashDecoder
                 {
                     this.HasherDecode(filePaths, strings);
                 }
-                this.BeginInvoke(this.SetProcessUIEnable, true);         //解锁UI
             }
+            this.BeginInvoke(this.SetProcessUIEnable, true);         //解锁UI
         }
 
         /// <summary>
@@ -129,7 +140,11 @@ namespace HashDecoder
             this.btnEnumPathWithAutoPath.Enabled = enable;
         }
 
-        private void btnSelectArchiveDirectory_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 选择文件夹路径
+        /// </summary>
+        /// <returns></returns>
+        private static string SelectDirectory()
         {
             FolderBrowserDialog dialog = new()
             {
@@ -140,32 +155,19 @@ namespace HashDecoder
             };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                this.mDecoderPath = dialog.SelectedPath;
+                return dialog.SelectedPath;
+            }
+            else
+            {
+                return null;
             }
         }
 
-        private void btnEnumPath_Click(object sender, EventArgs e)
-        {
-            string path = string.Empty;
-            FolderBrowserDialog dialog = new()
-            {
-                Description = "请选择文件夹",
-                ShowNewFolderButton = false,
-                AutoUpgradeEnabled = true,
-                UseDescriptionForTitle = true
-            };
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                path = dialog.SelectedPath;
-            }
-            if (!string.IsNullOrEmpty(path))
-            {
-                //开一个线程还原
-                new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(PathUtil.EnumerateKirikiriRelativeName(path));
-            }
-        }
-
-        private void btnLoadAutoPath_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 选择dump文件
+        /// </summary>
+        /// <returns></returns>
+        private static string SelectDumpFile()
         {
             OpenFileDialog fileDialog = new()
             {
@@ -179,14 +181,45 @@ namespace HashDecoder
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                string path = fileDialog.FileName;
+                return fileDialog.FileName;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        private void btnSelectArchiveDirectory_Click(object sender, EventArgs e)
+        {
+            string directory = SelectDirectory();
+            if (!string.IsNullOrEmpty(directory))
+            {
+                this.mDecoderPath = directory;
+            }
+        }
+
+        private void btnEnumPath_Click(object sender, EventArgs e)
+        {
+            string directory = SelectDirectory();
+            if (!string.IsNullOrEmpty(directory))
+            {
+                //开一个线程还原
+                new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(PathUtil.EnumerateKirikiriRelativeName(directory));
+            }
+        }
+
+        private void btnLoadAutoPath_Click(object sender, EventArgs e)
+        {
+            string autopathFile = SelectDumpFile();
+            if (!string.IsNullOrEmpty(autopathFile))
+            {
                 List<string> autoPath = new(128);
 
-                using StreamReader reader = new(path, Encoding.UTF8);
+                using StreamReader reader = new(autopathFile, Encoding.UTF8);
                 while (!reader.EndOfStream)
                 {
                     string s = reader.ReadLine();
-
                     if (!autoPath.Contains(s))
                     {
                         autoPath.Add(s);
@@ -201,35 +234,28 @@ namespace HashDecoder
 
         private void btnLoadDumpFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileDialog = new()
+            string dumpfilePath = SelectDumpFile();
+            if (!string.IsNullOrEmpty(dumpfilePath))
             {
-                Multiselect = false,
-                Title = "请选择文件",
-                Filter = "文本文档(*.lst)|*.lst",
-                AutoUpgradeEnabled = true,
-                CheckFileExists = true,
-                CheckPathExists = true,
-            };
-
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string path = fileDialog.FileName;
-                List<string> paths = new(512);
-
-                using StreamReader reader = new(path, Encoding.UTF8);
-                while (!reader.EndOfStream)
+                this.SetProcessUIEnable(false);
+                new Thread(new ThreadStart(() =>
                 {
-                    string s = reader.ReadLine();
+                    List<string> paths = new(512);
 
-                    if (!paths.Contains(s))
+                    using StreamReader reader = new(dumpfilePath, Encoding.UTF8);
+                    while (!reader.EndOfStream)
                     {
-                        paths.Add(s);
+                        string s = reader.ReadLine();
+                        if (!paths.Contains(s))
+                        {
+                            paths.Add(s);
+                        }
                     }
-                }
-                reader.Close();
+                    reader.Close();
 
-                //开一个线程还原
-                new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(paths);
+                    //开一个线程还原
+                    new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(paths);
+                })).Start();
             }
         }
 
@@ -237,35 +263,25 @@ namespace HashDecoder
         {
             if (this.CheckVaild())
             {
-
-                string path = string.Empty;
-                FolderBrowserDialog dialog = new()
+                string directory = SelectDirectory();
+                if (!string.IsNullOrEmpty(directory))
                 {
-                    Description = "请选择文件夹",
-                    ShowNewFolderButton = false,
-                    AutoUpgradeEnabled = true,
-                    UseDescriptionForTitle = true
-                };
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    path = dialog.SelectedPath;
-                }
-                if (!string.IsNullOrEmpty(path))
-                { 
-
-                    List<string> ps = PathUtil.EnumerateKirikiriRelativeName(path);
-
-                    List<string> strings = new(ps.Count * this.tCreator.AutoPath.Count);
-
-                    foreach (var ap in this.tCreator.AutoPath)
+                    this.SetProcessUIEnable(false);
+                    new Thread(new ThreadStart(() =>
                     {
-                        foreach (var p in ps)
+                        List<string> ps = PathUtil.EnumerateKirikiriRelativeName(directory);
+                        List<string> strings = new(ps.Count * this.tCreator.AutoPath.Count);
+
+                        foreach (var ap in this.tCreator.AutoPath)
                         {
-                            strings.Add(ap + p);
+                            foreach (var p in ps)
+                            {
+                                strings.Add(ap + p);
+                            }
                         }
-                    }
-                    //开一个线程还原
-                    new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(strings);
+                        //开一个线程还原
+                        new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(strings);
+                    })).Start();
                 }
             }
         }
