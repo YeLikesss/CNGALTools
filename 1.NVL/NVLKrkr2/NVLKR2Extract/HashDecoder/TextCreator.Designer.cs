@@ -29,314 +29,254 @@ namespace HashDecoder
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.lbNameItems = new System.Windows.Forms.ListBox();
-            this.tbPreview = new System.Windows.Forms.TextBox();
-            this.gbCreator = new System.Windows.Forms.GroupBox();
-            this.btnExtract = new System.Windows.Forms.Button();
-            this.lbStatus = new System.Windows.Forms.Label();
-            this.btnConfirmVar = new System.Windows.Forms.Button();
-            this.rbtConstString = new System.Windows.Forms.RadioButton();
-            this.cbConstExtension = new System.Windows.Forms.ComboBox();
-            this.tbConstString = new System.Windows.Forms.TextBox();
-            this.rbtExtension = new System.Windows.Forms.RadioButton();
-            this.rbtNum = new System.Windows.Forms.RadioButton();
-            this.rbtChar = new System.Windows.Forms.RadioButton();
-            this.numCharCount = new System.Windows.Forms.NumericUpDown();
-            this.numNumCount = new System.Windows.Forms.NumericUpDown();
-            this.lbNameRightClickMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuCleanAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuModify = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuInsertPrev = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuInsertNext = new System.Windows.Forms.ToolStripMenuItem();
-            this.gbCreator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCharCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numNumCount)).BeginInit();
-            this.lbNameRightClickMenuStrip.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            lbNameItems = new System.Windows.Forms.ListBox();
+            tbPreview = new System.Windows.Forms.TextBox();
+            gbCreator = new System.Windows.Forms.GroupBox();
+            btnExtract = new System.Windows.Forms.Button();
+            lbStatus = new System.Windows.Forms.Label();
+            btnConfirmVar = new System.Windows.Forms.Button();
+            rbtConstString = new System.Windows.Forms.RadioButton();
+            cbConstExtension = new System.Windows.Forms.ComboBox();
+            tbConstString = new System.Windows.Forms.TextBox();
+            rbtExtension = new System.Windows.Forms.RadioButton();
+            rbtNum = new System.Windows.Forms.RadioButton();
+            rbtChar = new System.Windows.Forms.RadioButton();
+            numCharCount = new System.Windows.Forms.NumericUpDown();
+            numNumCount = new System.Windows.Forms.NumericUpDown();
+            lbNameRightClickMenuStrip = new System.Windows.Forms.ContextMenuStrip(components);
+            menuCleanAll = new System.Windows.Forms.ToolStripMenuItem();
+            menuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            menuModify = new System.Windows.Forms.ToolStripMenuItem();
+            menuInsertPrev = new System.Windows.Forms.ToolStripMenuItem();
+            menuInsertNext = new System.Windows.Forms.ToolStripMenuItem();
+            gbCreator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numCharCount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numNumCount).BeginInit();
+            lbNameRightClickMenuStrip.SuspendLayout();
+            SuspendLayout();
             // 
             // lbNameItems
             // 
-            this.lbNameItems.HorizontalScrollbar = true;
-            this.lbNameItems.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.lbNameItems.ItemHeight = 21;
-            this.lbNameItems.Location = new System.Drawing.Point(7, 70);
-            this.lbNameItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lbNameItems.Name = "lbNameItems";
-            this.lbNameItems.ScrollAlwaysVisible = true;
-            this.lbNameItems.Size = new System.Drawing.Size(478, 319);
-            this.lbNameItems.TabIndex = 5;
-            this.lbNameItems.TabStop = false;
-            this.lbNameItems.UseTabStops = false;
-            this.lbNameItems.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbNameItems_MouseUp);
+            lbNameItems.HorizontalScrollbar = true;
+            lbNameItems.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            lbNameItems.ItemHeight = 21;
+            lbNameItems.Location = new System.Drawing.Point(7, 70);
+            lbNameItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lbNameItems.Name = "lbNameItems";
+            lbNameItems.ScrollAlwaysVisible = true;
+            lbNameItems.Size = new System.Drawing.Size(478, 319);
+            lbNameItems.TabIndex = 5;
+            lbNameItems.TabStop = false;
+            lbNameItems.UseTabStops = false;
+            lbNameItems.MouseUp += lbNameItems_MouseUp;
             // 
             // tbPreview
             // 
-            this.tbPreview.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.tbPreview.Location = new System.Drawing.Point(7, 29);
-            this.tbPreview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbPreview.Name = "tbPreview";
-            this.tbPreview.ReadOnly = true;
-            this.tbPreview.Size = new System.Drawing.Size(675, 29);
-            this.tbPreview.TabIndex = 4;
+            tbPreview.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            tbPreview.Location = new System.Drawing.Point(7, 29);
+            tbPreview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tbPreview.Name = "tbPreview";
+            tbPreview.ReadOnly = true;
+            tbPreview.Size = new System.Drawing.Size(675, 29);
+            tbPreview.TabIndex = 4;
             // 
             // gbCreator
             // 
-            this.gbCreator.Controls.Add(this.btnExtract);
-            this.gbCreator.Controls.Add(this.lbStatus);
-            this.gbCreator.Controls.Add(this.btnConfirmVar);
-            this.gbCreator.Controls.Add(this.rbtConstString);
-            this.gbCreator.Controls.Add(this.cbConstExtension);
-            this.gbCreator.Controls.Add(this.tbConstString);
-            this.gbCreator.Controls.Add(this.rbtExtension);
-            this.gbCreator.Controls.Add(this.rbtNum);
-            this.gbCreator.Controls.Add(this.rbtChar);
-            this.gbCreator.Controls.Add(this.numCharCount);
-            this.gbCreator.Controls.Add(this.numNumCount);
-            this.gbCreator.Controls.Add(this.lbNameItems);
-            this.gbCreator.Controls.Add(this.tbPreview);
-            this.gbCreator.Location = new System.Drawing.Point(3, 3);
-            this.gbCreator.Name = "gbCreator";
-            this.gbCreator.Size = new System.Drawing.Size(697, 443);
-            this.gbCreator.TabIndex = 6;
-            this.gbCreator.TabStop = false;
-            this.gbCreator.Text = "文本生成器";
+            gbCreator.Controls.Add(btnExtract);
+            gbCreator.Controls.Add(lbStatus);
+            gbCreator.Controls.Add(btnConfirmVar);
+            gbCreator.Controls.Add(rbtConstString);
+            gbCreator.Controls.Add(cbConstExtension);
+            gbCreator.Controls.Add(tbConstString);
+            gbCreator.Controls.Add(rbtExtension);
+            gbCreator.Controls.Add(rbtNum);
+            gbCreator.Controls.Add(rbtChar);
+            gbCreator.Controls.Add(numCharCount);
+            gbCreator.Controls.Add(numNumCount);
+            gbCreator.Controls.Add(lbNameItems);
+            gbCreator.Controls.Add(tbPreview);
+            gbCreator.Location = new System.Drawing.Point(3, 3);
+            gbCreator.Name = "gbCreator";
+            gbCreator.Size = new System.Drawing.Size(697, 443);
+            gbCreator.TabIndex = 6;
+            gbCreator.TabStop = false;
+            gbCreator.Text = "文本生成器";
             // 
             // btnExtract
             // 
-            this.btnExtract.Location = new System.Drawing.Point(502, 70);
-            this.btnExtract.Name = "btnExtract";
-            this.btnExtract.Size = new System.Drawing.Size(180, 42);
-            this.btnExtract.TabIndex = 16;
-            this.btnExtract.Text = "导出并解码Hash";
-            this.btnExtract.UseVisualStyleBackColor = true;
-            this.btnExtract.Click += new System.EventHandler(this.btnExtract_Click);
+            btnExtract.Location = new System.Drawing.Point(502, 70);
+            btnExtract.Name = "btnExtract";
+            btnExtract.Size = new System.Drawing.Size(180, 42);
+            btnExtract.TabIndex = 16;
+            btnExtract.Text = "导出并解码Hash";
+            btnExtract.UseVisualStyleBackColor = true;
+            btnExtract.Click += btnExtract_Click;
             // 
             // lbStatus
             // 
-            this.lbStatus.Location = new System.Drawing.Point(502, 164);
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(180, 36);
-            this.lbStatus.TabIndex = 15;
-            this.lbStatus.Text = "状态";
-            this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbStatus.Location = new System.Drawing.Point(502, 164);
+            lbStatus.Name = "lbStatus";
+            lbStatus.Size = new System.Drawing.Size(180, 36);
+            lbStatus.TabIndex = 15;
+            lbStatus.Text = "状态";
+            lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnConfirmVar
             // 
-            this.btnConfirmVar.Location = new System.Drawing.Point(502, 203);
-            this.btnConfirmVar.Name = "btnConfirmVar";
-            this.btnConfirmVar.Size = new System.Drawing.Size(180, 41);
-            this.btnConfirmVar.TabIndex = 14;
-            this.btnConfirmVar.Text = "确认";
-            this.btnConfirmVar.UseVisualStyleBackColor = true;
-            this.btnConfirmVar.Click += new System.EventHandler(this.btnConfirmVar_Click);
+            btnConfirmVar.Location = new System.Drawing.Point(502, 203);
+            btnConfirmVar.Name = "btnConfirmVar";
+            btnConfirmVar.Size = new System.Drawing.Size(180, 41);
+            btnConfirmVar.TabIndex = 14;
+            btnConfirmVar.Text = "确认";
+            btnConfirmVar.UseVisualStyleBackColor = true;
+            btnConfirmVar.Click += btnConfirmVar_Click;
             // 
             // rbtConstString
             // 
-            this.rbtConstString.AutoSize = true;
-            this.rbtConstString.Checked = true;
-            this.rbtConstString.Location = new System.Drawing.Point(624, 402);
-            this.rbtConstString.Name = "rbtConstString";
-            this.rbtConstString.Size = new System.Drawing.Size(60, 25);
-            this.rbtConstString.TabIndex = 9;
-            this.rbtConstString.TabStop = true;
-            this.rbtConstString.Text = "常量";
-            this.rbtConstString.UseVisualStyleBackColor = true;
+            rbtConstString.AutoSize = true;
+            rbtConstString.Checked = true;
+            rbtConstString.Location = new System.Drawing.Point(624, 402);
+            rbtConstString.Name = "rbtConstString";
+            rbtConstString.Size = new System.Drawing.Size(60, 25);
+            rbtConstString.TabIndex = 9;
+            rbtConstString.TabStop = true;
+            rbtConstString.Text = "常量";
+            rbtConstString.UseVisualStyleBackColor = true;
             // 
             // cbConstExtension
             // 
-            this.cbConstExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbConstExtension.FormattingEnabled = true;
-            this.cbConstExtension.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.cbConstExtension.Items.AddRange(new object[] {
-            "/",
-            ".png",
-            ".jpg",
-            ".bmp",
-            ".tlg",
-            ".pimg",
-            ".ogg",
-            ".ogg.sli",
-            ".pbd",
-            ".sinfo",
-            ".stand",
-            ".txt",
-            ".scn",
-            ".txt.scn",
-            ".func",
-            ".csv",
-            ".stand",
-            ".ks",
-            ".ks.scn",
-            ".ttf",
-            ".wmv",
-            ".tjs",
-            ".ini",
-            ".wav",
-            ".mp3",
-            ".mp4",
-            ".asd",
-            ".opus",
-            ".json",
-            ".avi"});
-            this.cbConstExtension.Location = new System.Drawing.Point(502, 350);
-            this.cbConstExtension.Name = "cbConstExtension";
-            this.cbConstExtension.Size = new System.Drawing.Size(114, 29);
-            this.cbConstExtension.TabIndex = 13;
-            this.cbConstExtension.Enter += new System.EventHandler(this.TypeInput_Enter);
+            cbConstExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbConstExtension.FormattingEnabled = true;
+            cbConstExtension.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            cbConstExtension.Items.AddRange(new object[] { "/", ".png", ".jpg", ".bmp", ".tlg", ".pimg", ".ogg", ".ogg.sli", ".pbd", ".sinfo", ".stand", ".txt", ".scn", ".txt.scn", ".func", ".csv", ".stand", ".ks", ".ks.scn", ".ttf", ".wmv", ".tjs", ".ini", ".wav", ".mp3", ".mp4", ".asd", ".opus", ".json", ".avi", ".jpeg" });
+            cbConstExtension.Location = new System.Drawing.Point(502, 350);
+            cbConstExtension.Name = "cbConstExtension";
+            cbConstExtension.Size = new System.Drawing.Size(114, 29);
+            cbConstExtension.TabIndex = 13;
+            cbConstExtension.Enter += TypeInput_Enter;
             // 
             // tbConstString
             // 
-            this.tbConstString.Location = new System.Drawing.Point(7, 402);
-            this.tbConstString.Name = "tbConstString";
-            this.tbConstString.Size = new System.Drawing.Size(609, 29);
-            this.tbConstString.TabIndex = 6;
-            this.tbConstString.Enter += new System.EventHandler(this.TypeInput_Enter);
+            tbConstString.Location = new System.Drawing.Point(7, 402);
+            tbConstString.Name = "tbConstString";
+            tbConstString.Size = new System.Drawing.Size(609, 29);
+            tbConstString.TabIndex = 6;
+            tbConstString.Enter += TypeInput_Enter;
             // 
             // rbtExtension
             // 
-            this.rbtExtension.AutoSize = true;
-            this.rbtExtension.Location = new System.Drawing.Point(624, 351);
-            this.rbtExtension.Name = "rbtExtension";
-            this.rbtExtension.Size = new System.Drawing.Size(60, 25);
-            this.rbtExtension.TabIndex = 12;
-            this.rbtExtension.Text = "后缀";
-            this.rbtExtension.UseVisualStyleBackColor = true;
+            rbtExtension.AutoSize = true;
+            rbtExtension.Location = new System.Drawing.Point(624, 351);
+            rbtExtension.Name = "rbtExtension";
+            rbtExtension.Size = new System.Drawing.Size(60, 25);
+            rbtExtension.TabIndex = 12;
+            rbtExtension.Text = "后缀";
+            rbtExtension.UseVisualStyleBackColor = true;
             // 
             // rbtNum
             // 
-            this.rbtNum.AutoSize = true;
-            this.rbtNum.Location = new System.Drawing.Point(624, 300);
-            this.rbtNum.Name = "rbtNum";
-            this.rbtNum.Size = new System.Drawing.Size(60, 25);
-            this.rbtNum.TabIndex = 11;
-            this.rbtNum.Text = "数字";
-            this.rbtNum.UseVisualStyleBackColor = true;
+            rbtNum.AutoSize = true;
+            rbtNum.Location = new System.Drawing.Point(624, 300);
+            rbtNum.Name = "rbtNum";
+            rbtNum.Size = new System.Drawing.Size(60, 25);
+            rbtNum.TabIndex = 11;
+            rbtNum.Text = "数字";
+            rbtNum.UseVisualStyleBackColor = true;
             // 
             // rbtChar
             // 
-            this.rbtChar.AutoSize = true;
-            this.rbtChar.Location = new System.Drawing.Point(624, 250);
-            this.rbtChar.Name = "rbtChar";
-            this.rbtChar.Size = new System.Drawing.Size(60, 25);
-            this.rbtChar.TabIndex = 10;
-            this.rbtChar.Text = "字母";
-            this.rbtChar.UseVisualStyleBackColor = true;
+            rbtChar.AutoSize = true;
+            rbtChar.Location = new System.Drawing.Point(624, 250);
+            rbtChar.Name = "rbtChar";
+            rbtChar.Size = new System.Drawing.Size(60, 25);
+            rbtChar.TabIndex = 10;
+            rbtChar.Text = "字母";
+            rbtChar.UseVisualStyleBackColor = true;
             // 
             // numCharCount
             // 
-            this.numCharCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.numCharCount.Location = new System.Drawing.Point(502, 250);
-            this.numCharCount.Maximum = new decimal(new int[] {
-            64,
-            0,
-            0,
-            0});
-            this.numCharCount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numCharCount.Name = "numCharCount";
-            this.numCharCount.Size = new System.Drawing.Size(114, 29);
-            this.numCharCount.TabIndex = 7;
-            this.numCharCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numCharCount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numCharCount.Enter += new System.EventHandler(this.TypeInput_Enter);
+            numCharCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            numCharCount.Location = new System.Drawing.Point(502, 250);
+            numCharCount.Maximum = new decimal(new int[] { 64, 0, 0, 0 });
+            numCharCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numCharCount.Name = "numCharCount";
+            numCharCount.Size = new System.Drawing.Size(114, 29);
+            numCharCount.TabIndex = 7;
+            numCharCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            numCharCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numCharCount.Enter += TypeInput_Enter;
             // 
             // numNumCount
             // 
-            this.numNumCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.numNumCount.Location = new System.Drawing.Point(502, 300);
-            this.numNumCount.Maximum = new decimal(new int[] {
-            64,
-            0,
-            0,
-            0});
-            this.numNumCount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numNumCount.Name = "numNumCount";
-            this.numNumCount.Size = new System.Drawing.Size(114, 29);
-            this.numNumCount.TabIndex = 8;
-            this.numNumCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numNumCount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numNumCount.Enter += new System.EventHandler(this.TypeInput_Enter);
+            numNumCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            numNumCount.Location = new System.Drawing.Point(502, 300);
+            numNumCount.Maximum = new decimal(new int[] { 64, 0, 0, 0 });
+            numNumCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numNumCount.Name = "numNumCount";
+            numNumCount.Size = new System.Drawing.Size(114, 29);
+            numNumCount.TabIndex = 8;
+            numNumCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            numNumCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numNumCount.Enter += TypeInput_Enter;
             // 
             // lbNameRightClickMenuStrip
             // 
-            this.lbNameRightClickMenuStrip.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbNameRightClickMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCleanAll,
-            this.menuDelete,
-            this.menuModify,
-            this.menuInsertPrev,
-            this.menuInsertNext});
-            this.lbNameRightClickMenuStrip.Name = "lbNameRightClickMenuStrip";
-            this.lbNameRightClickMenuStrip.Size = new System.Drawing.Size(177, 134);
+            lbNameRightClickMenuStrip.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbNameRightClickMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menuCleanAll, menuDelete, menuModify, menuInsertPrev, menuInsertNext });
+            lbNameRightClickMenuStrip.Name = "lbNameRightClickMenuStrip";
+            lbNameRightClickMenuStrip.Size = new System.Drawing.Size(177, 134);
             // 
             // menuCleanAll
             // 
-            this.menuCleanAll.Name = "menuCleanAll";
-            this.menuCleanAll.Size = new System.Drawing.Size(176, 26);
-            this.menuCleanAll.Text = "清除全部";
-            this.menuCleanAll.Click += new System.EventHandler(this.listRightClickMenu_Click);
+            menuCleanAll.Name = "menuCleanAll";
+            menuCleanAll.Size = new System.Drawing.Size(176, 26);
+            menuCleanAll.Text = "清除全部";
+            menuCleanAll.Click += listRightClickMenu_Click;
             // 
             // menuDelete
             // 
-            this.menuDelete.Name = "menuDelete";
-            this.menuDelete.Size = new System.Drawing.Size(176, 26);
-            this.menuDelete.Text = "删除";
-            this.menuDelete.Click += new System.EventHandler(this.listRightClickMenu_Click);
+            menuDelete.Name = "menuDelete";
+            menuDelete.Size = new System.Drawing.Size(176, 26);
+            menuDelete.Text = "删除";
+            menuDelete.Click += listRightClickMenu_Click;
             // 
             // menuModify
             // 
-            this.menuModify.Name = "menuModify";
-            this.menuModify.Size = new System.Drawing.Size(176, 26);
-            this.menuModify.Text = "修改";
-            this.menuModify.Click += new System.EventHandler(this.listRightClickMenu_Click);
+            menuModify.Name = "menuModify";
+            menuModify.Size = new System.Drawing.Size(176, 26);
+            menuModify.Text = "修改";
+            menuModify.Click += listRightClickMenu_Click;
             // 
             // menuInsertPrev
             // 
-            this.menuInsertPrev.Name = "menuInsertPrev";
-            this.menuInsertPrev.Size = new System.Drawing.Size(176, 26);
-            this.menuInsertPrev.Text = "在上一行插入";
-            this.menuInsertPrev.Click += new System.EventHandler(this.listRightClickMenu_Click);
+            menuInsertPrev.Name = "menuInsertPrev";
+            menuInsertPrev.Size = new System.Drawing.Size(176, 26);
+            menuInsertPrev.Text = "在上一行插入";
+            menuInsertPrev.Click += listRightClickMenu_Click;
             // 
             // menuInsertNext
             // 
-            this.menuInsertNext.Name = "menuInsertNext";
-            this.menuInsertNext.Size = new System.Drawing.Size(176, 26);
-            this.menuInsertNext.Text = "在下一行插入";
-            this.menuInsertNext.Click += new System.EventHandler(this.listRightClickMenu_Click);
+            menuInsertNext.Name = "menuInsertNext";
+            menuInsertNext.Size = new System.Drawing.Size(176, 26);
+            menuInsertNext.Text = "在下一行插入";
+            menuInsertNext.Click += listRightClickMenu_Click;
             // 
             // TextCreator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gbCreator);
-            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "TextCreator";
-            this.Size = new System.Drawing.Size(703, 453);
-            this.gbCreator.ResumeLayout(false);
-            this.gbCreator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCharCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numNumCount)).EndInit();
-            this.lbNameRightClickMenuStrip.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(gbCreator);
+            Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "TextCreator";
+            Size = new System.Drawing.Size(703, 453);
+            gbCreator.ResumeLayout(false);
+            gbCreator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numCharCount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numNumCount).EndInit();
+            lbNameRightClickMenuStrip.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

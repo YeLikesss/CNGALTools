@@ -157,11 +157,11 @@ namespace HashDecoder
             //获得字符长度
             int bufferLen = StringGenerator.GetCharCount(this.mTexts);
             //用于存放生成的数据
-            char[] buffer = new char[bufferLen];        
+            char[] buffer = new char[bufferLen];
 
             foreach (var res in StringGenerator.GetText(buffer, this.mTexts))
             {
-                if(this.AutoPath is null)
+                if (this.AutoPath is null)
                 {
                     sl.Add(new(buffer));
                     //达到容量则返回
@@ -173,7 +173,7 @@ namespace HashDecoder
                 }
                 else
                 {
-                    foreach(var s in this.AutoPath)
+                    foreach (var s in this.AutoPath)
                     {
                         sl.Add(string.Format("{0}{1}", s, new string(buffer)));
                         //达到容量则返回
@@ -245,7 +245,7 @@ namespace HashDecoder
                 if (this.cbConstExtension.SelectedIndex >= 0)
                 {
                     string nowItem = this.cbConstExtension.SelectedItem.ToString();  //获取选中的名字
-                    ts.TextType = TextType.ConstString; 
+                    ts.TextType = TextType.ConstString;
                     ts.ConstStr = nowItem;
                     ts.Preview = ts.ConstStr;
                     ts.Table = null;
@@ -295,7 +295,7 @@ namespace HashDecoder
         }
 
         //右键菜单点击  切换列表中选项模式
-        private void listRightClickMenu_Click(object sender,EventArgs e)
+        private void listRightClickMenu_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem menu = sender as ToolStripMenuItem;
             this.mMode = this.mModeMap[menu];
@@ -334,231 +334,235 @@ namespace HashDecoder
             Control control = sender as Control;
             this.mTypeBindMaps[control].Checked = true;
         }
-    }
 
-    /// <summary>
-    /// 文本类型
-    /// </summary>
-    public enum TextType
-    {
-        /// <summary>
-        /// 字符常量
-        /// </summary>
-        ConstString,
-        /// <summary>
-        /// 字母
-        /// </summary>
-        Char,
-        /// <summary>
-        /// 数字
-        /// </summary>
-        Number
-    }
-
-    /// <summary>
-    /// 文本结构
-    /// </summary>
-    public class TextStructure
-    {
-        /// <summary>
-        /// 类型
-        /// </summary>
-        public TextType TextType;
-        /// <summary>
-        /// 个数(仅字母与数字有效)
-        /// </summary>
-        public int Count;
-        /// <summary>
-        /// 预览
-        /// </summary>
-        public string Preview;
-        /// <summary>
-        /// 常量 (字母与数字为示例)
-        /// </summary>
-        public string ConstStr;
 
         /// <summary>
-        /// 文字表
+        /// 文本类型
         /// </summary>
-        public string Table;
-
-        /// <summary>
-        /// 缓存起始位置
-        /// </summary>
-        public int StartPos;
-
-        /// <summary>
-        /// 缓存终止位置
-        /// </summary>
-        public int EndPos;
-
-        /// <summary>
-        /// 可生成条目数量
-        /// </summary>
-        public long TextCount;
-    }
-
-    /// <summary>
-    /// 字符串生成器
-    /// </summary>
-    public class StringGenerator
-    {
-        /// <summary>
-        /// 获取字符长度
-        /// </summary>
-        /// <param name="texts">文本类型数组</param>
-        /// <param name="dirMode">True为文件夹模式  False为文件名模式</param>
-        /// <returns></returns>
-        public static int GetCharCount(List<TextStructure> texts)
+        public enum TextType
         {
-            int pos = 0;        //当前位置
-
-            //获取文本长度  并给文本定位
-            Span<TextStructure> tsArray = CollectionsMarshal.AsSpan(texts);
-            for (int i = 0; i < tsArray.Length; ++i)
-            {
-                TextStructure ts = tsArray[i];
-                switch (ts.TextType)
-                {
-                    case TextType.ConstString:
-                        {
-                            ts.StartPos = pos;
-                            pos += ts.ConstStr.Length;
-                            ts.EndPos = pos;
-
-                            break;
-                        }
-                    case TextType.Char:
-                    case TextType.Number:
-                        {
-                            ts.StartPos = pos;
-                            pos += ts.Count;
-                            ts.EndPos = pos;
-                            ts.TextCount = StringGenerator.PowerN(ts.Table.Length, ts.Count);
-
-                            break;
-                        }
-                }
-                //回写
-                tsArray[i] = ts;
-            }
-            return pos;
+            /// <summary>
+            /// 字符常量
+            /// </summary>
+            ConstString,
+            /// <summary>
+            /// 字母
+            /// </summary>
+            Char,
+            /// <summary>
+            /// 数字
+            /// </summary>
+            Number
         }
 
         /// <summary>
-        /// 获取文本
+        /// 文本结构
         /// </summary>
-        /// <param name="buffer">字符缓冲</param>
-        /// <param name="texts">文本结构</param>
-        /// <param name="slashIndex">斜杠位置(生成路径名用)</param>
-        /// <returns></returns>
-        public static IEnumerable<bool> GetText(char[] buffer, List<TextStructure> texts)
+        public class TextStructure
         {
-            long textCount = 1;      //文本总数
+            /// <summary>
+            /// 类型
+            /// </summary>
+            public TextType TextType;
+            /// <summary>
+            /// 个数(仅字母与数字有效)
+            /// </summary>
+            public int Count;
+            /// <summary>
+            /// 预览
+            /// </summary>
+            public string Preview;
+            /// <summary>
+            /// 常量 (字母与数字为示例)
+            /// </summary>
+            public string ConstStr;
 
-            List<TextStructure> varArray = new();       //可变字符
+            /// <summary>
+            /// 文字表
+            /// </summary>
+            public string Table;
 
-            Span<char> textBuffer = buffer.AsSpan();
+            /// <summary>
+            /// 缓存起始位置
+            /// </summary>
+            public int StartPos;
 
-            //获取可变字符
-            Span<TextStructure> tsArray = CollectionsMarshal.AsSpan(texts);
-            for (int i = 0; i < tsArray.Length; ++i)
-            {
-                TextStructure ts = tsArray[i];
-                switch (ts.TextType)
-                {
-                    case TextType.ConstString:
-                        {
-                            break;
-                        }
-                    case TextType.Char:
-                    case TextType.Number:
-                        {
-                            varArray.Add(ts);
-                            textCount *= ts.TextCount;
+            /// <summary>
+            /// 缓存终止位置
+            /// </summary>
+            public int EndPos;
 
-                            break;
-                        }
-                }
-            }
-
-            textBuffer.Fill('\0');
-
-            //填充常量
-            for (int i = 0; i < tsArray.Length; ++i)
-            {
-                TextStructure ts = tsArray[i];
-                if (ts.TextType == TextType.ConstString)
-                {
-                    ts.ConstStr.AsSpan().CopyTo(textBuffer[ts.StartPos..ts.EndPos]);
-                }
-            }
-
-            for (long i = 0; i < textCount; ++i)
-            {
-                StringGenerator.FillCharByIndex(buffer, varArray, i);
-                yield return true;
-            }
+            /// <summary>
+            /// 可生成条目数量
+            /// </summary>
+            public long TextCount;
         }
-
-
 
         /// <summary>
-        /// 使用索引填充缓存区
+        /// 字符串生成器
         /// </summary>
-        /// <param name="buffer"></param>
-        /// <param name="varArray">可变字符</param>
-        /// <param name="index">索引</param>
-        public static void FillCharByIndex(Span<char> buffer, List<TextStructure> varArray, long index)
+        public class StringGenerator
         {
-            //储存各段字符串的索引
-            Dictionary<int, long> varCharIndexMap = new(varArray.Count);
-
-            //找各项位置
-            for (int order = varArray.Count - 1; order != -1; --order)
+            /// <summary>
+            /// 获取字符长度
+            /// </summary>
+            /// <param name="texts">文本类型数组</param>
+            /// <param name="dirMode">True为文件夹模式  False为文件名模式</param>
+            /// <returns></returns>
+            public static int GetCharCount(List<TextStructure> texts)
             {
-                long textCount = varArray[order].TextCount;        //获取文本项数
+                int pos = 0;        //当前位置
 
-                varCharIndexMap.Add(order, index % textCount);
+                //获取文本长度  并给文本定位
+                Span<TextStructure> tsArray = CollectionsMarshal.AsSpan(texts);
+                for (int i = 0; i < tsArray.Length; ++i)
+                {
+                    TextStructure ts = tsArray[i];
+                    switch (ts.TextType)
+                    {
+                        case TextType.ConstString:
+                            {
+                                ts.StartPos = pos;
+                                pos += ts.ConstStr.Length;
+                                ts.EndPos = pos;
 
-                index /= textCount;
+                                break;
+                            }
+                        case TextType.Char:
+                        case TextType.Number:
+                            {
+                                ts.StartPos = pos;
+                                pos += ts.Count;
+                                ts.EndPos = pos;
+                                ts.TextCount = StringGenerator.PowerN(ts.Table.Length, ts.Count);
+
+                                break;
+                            }
+                    }
+                    //回写
+                    tsArray[i] = ts;
+                }
+                return pos;
             }
 
-            //填充字符
-            foreach (var charIndexMap in varCharIndexMap)
+            /// <summary>
+            /// 获取文本
+            /// </summary>
+            /// <param name="buffer">字符缓冲</param>
+            /// <param name="texts">文本结构</param>
+            /// <param name="slashIndex">斜杠位置(生成路径名用)</param>
+            /// <returns></returns>
+            public static IEnumerable<bool> GetText(char[] buffer, List<TextStructure> texts)
             {
-                TextStructure ts = varArray[charIndexMap.Key];
-                ReadOnlySpan<char> table = ts.Table.AsSpan();
-                int tableLength = table.Length;      //表长度
-                int charCount = ts.Count;       //字符长度
-                long charPos = charIndexMap.Value;
+                long textCount = 1;      //文本总数
 
-                //填充
-                for (int offset = 0; offset < charCount; ++offset)
+                List<TextStructure> varArray = new();       //可变字符
+
+                Span<char> textBuffer = buffer.AsSpan();
+
+                //获取可变字符
+                Span<TextStructure> tsArray = CollectionsMarshal.AsSpan(texts);
+                for (int i = 0; i < tsArray.Length; ++i)
                 {
-                    long charIndex = charPos % tableLength;
-                    buffer[ts.StartPos + offset] = table[(int)charIndex];
-                    charPos /= tableLength;
+                    TextStructure ts = tsArray[i];
+                    switch (ts.TextType)
+                    {
+                        case TextType.ConstString:
+                            {
+                                break;
+                            }
+                        case TextType.Char:
+                        case TextType.Number:
+                            {
+                                varArray.Add(ts);
+                                textCount *= ts.TextCount;
+
+                                break;
+                            }
+                    }
+                }
+
+                textBuffer.Fill('\0');
+
+                //填充常量
+                for (int i = 0; i < tsArray.Length; ++i)
+                {
+                    TextStructure ts = tsArray[i];
+                    if (ts.TextType == TextType.ConstString)
+                    {
+                        ts.ConstStr.AsSpan().CopyTo(textBuffer[ts.StartPos..ts.EndPos]);
+                    }
+                }
+
+                for (long i = 0; i < textCount; ++i)
+                {
+                    StringGenerator.FillCharByIndex(buffer, varArray, i);
+                    yield return true;
                 }
             }
-        }
 
 
-        /// <summary>
-        /// 求幂次方
-        /// </summary>
-        /// <param name="baseN"></param>
-        /// <param name="n"></param>
-        /// <returns></returns>
-        public static long PowerN(int baseN, int n)
-        {
-            long res = 1;
-            if (n != 0)
+
+            /// <summary>
+            /// 使用索引填充缓存区
+            /// </summary>
+            /// <param name="buffer"></param>
+            /// <param name="varArray">可变字符</param>
+            /// <param name="index">索引</param>
+            public static void FillCharByIndex(Span<char> buffer, List<TextStructure> varArray, long index)
             {
-                for (int i = 0; i < n; i++) res *= baseN;
+                //储存各段字符串的索引
+                Dictionary<int, long> varCharIndexMap = new(varArray.Count);
+
+                //找各项位置
+                for (int order = varArray.Count - 1; order != -1; --order)
+                {
+                    long textCount = varArray[order].TextCount;        //获取文本项数
+
+                    varCharIndexMap.Add(order, index % textCount);
+
+                    index /= textCount;
+                }
+
+                //填充字符
+                foreach (var charIndexMap in varCharIndexMap)
+                {
+                    TextStructure ts = varArray[charIndexMap.Key];
+                    ReadOnlySpan<char> table = ts.Table.AsSpan();
+                    int tableLength = table.Length;      //表长度
+                    int charCount = ts.Count;       //字符长度
+                    long charPos = charIndexMap.Value;
+
+                    //填充
+                    for (int offset = 0; offset < charCount; ++offset)
+                    {
+                        long charIndex = charPos % tableLength;
+                        buffer[ts.StartPos + offset] = table[(int)charIndex];
+                        charPos /= tableLength;
+                    }
+                }
             }
-            return res;
+
+
+            /// <summary>
+            /// 求幂次方
+            /// </summary>
+            /// <param name="baseN"></param>
+            /// <param name="n"></param>
+            /// <returns></returns>
+            public static long PowerN(int baseN, int n)
+            {
+                long res = 1;
+                if (n != 0)
+                {
+                    for (int i = 0; i < n; i++) res *= baseN;
+                }
+                return res;
+            }
         }
+
     }
+
+
 
 }
