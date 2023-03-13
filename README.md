@@ -8,6 +8,8 @@
 
 ### 其他虚拟机或者框架我也不会 搞定了纯粹赌博歪打正着运气好
 
+### 视频教程 [Telegram频道](https://t.me/cngal_reverse_video)
+
 #### 1.NVL(国G程序收费外包商)
 
 * BKEngine (加密资源 加密文本)
