@@ -8,7 +8,7 @@
 
 ### 其他虚拟机或者框架我也不会 搞定了纯粹赌博歪打正着运气好
 
-### 视频教程 [Telegram频道](https://t.me/cngal_reverse_video)
+### 视频教程与其他资源 [Telegram频道](https://t.me/cngal_reverse_resource)
 
 #### 1.NVL(国G程序收费外包商)
 
@@ -428,36 +428,17 @@
 
 * 2.《墨心》 解包
 
-#### SP1.Cracks/游戏硬盘版补丁成品 (仅发布需要人工修改的游戏   其他游戏自行用Steam通杀)
-
-* 1.虹色旋律  Steam2018.7.6
-* 2.雾之本境S  Steam2020.6.26
-* 3.十二色的季节  Steam2019.3.16
-* 4.空梦  Steam2021.8.25
-* 5.十二刻度的月计时 (过激活码  未测试)
-* 6.余香 Steam
-
-#### SP2.Patch/其他补丁
-
-
-
-#### SP3.Note/笔记与教程
-
-* 1.NVL KR2找Key
-* 2.NVL Unity找key找头
-* 3.Snowing找Key
-* 4.Asicx Art找Key
-* 5.《十二色的季节》(BKEngine)硬盘版补丁制作
-* 6.Asicx Art 硬盘版补丁制作
-* 7.BKEngine解包分析(纯汇编)
-* 8.NVL KR2硬盘版制作(简单思路)
-* 9.三色绘恋2-3 硬盘版制作
-* 10.《空梦》  硬盘版制作
-* 11.ZixSolution (Renpy8.x Python3.9)V1 找Key找Table
-* 12.ZixSolution (Renpy7.x Python2.7)硬盘版补丁制作
-
-#### SP4.IDA DataBase/IDA数据库
+#### SP1.IDA DataBase/IDA数据库
 
 * 1.NVL Unity Exe
 * 2.NVL KR2 Exe
 * 3.ZixSolution (Renpy8.x Python3.9)V1
+
+#### SP2.Note/笔记与教程 (后续会逐步放到TG频道中)
+
+* 3.Snowing找Key
+* 10.《空梦》  硬盘版制作
+* 11.ZixSolution (Renpy8.x Python3.9)V1 找Key找Table
+* 12.ZixSolution (Renpy7.x Python2.7)硬盘版补丁制作
+
+
