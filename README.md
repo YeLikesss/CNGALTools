@@ -221,6 +221,22 @@
 
     &emsp;&emsp;1.暂时性完工
 
+ * NVLWebCloud (加密资源 明文文本)
+
+    &emsp;NVLWeb (静态提取)
+
+    &emsp;&emsp;用于解密修改过的asar封包 图像AES加密
+   
+    &emsp;&emsp;游戏测试
+    
+    &emsp;&emsp;&emsp;《我和她的世界末日》
+    
+    &emsp;&emsp;编译环境 .Net 6.x
+
+    &emsp;状态说明
+
+    &emsp;&emsp;1.官方已弃用 转为NVLUnity
+
 #### 2.Strrationalism/弦语蝶梦
 
 * Snowing (加密资源 明文文本)
