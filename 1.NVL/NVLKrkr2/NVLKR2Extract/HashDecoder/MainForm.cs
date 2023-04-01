@@ -72,11 +72,6 @@ namespace HashDecoder
                     }
                 }
             });
-
-            //for (int i = 0; i < filePaths.Count; ++i)
-            //{
-
-            //}
         }
 
         /// <summary>

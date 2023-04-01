@@ -121,7 +121,7 @@ BOOL MatchPathNVL(const wchar_t* path, std::vector<std::wstring>& regex)
 
 
 
-//斜杠转反斜杠
+//斜杠转反斜杠  大写转小写
 void FixPath(std::wstring& path)
 {
 	for (size_t i = 0; i < path.length(); i++)
@@ -459,7 +459,6 @@ void LoadConfiguration()
 	GetCurrentDirectoryW(256, gameDir);
 	std::wstring outPutPath = std::wstring(gameDir);
 	outPutPath += L"\\Extract\\";
-	FixPath(outPutPath);
 	g_outputPath = std::move(outPutPath);
 
 	//路径筛选器
