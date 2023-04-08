@@ -320,10 +320,9 @@ namespace Extractor.ZixRenpy8V1.Crypto
                 this.mDecryptContext.Decrypt(data.Slice(pos, 16));
             }
 
-            //移除对齐部分
+            //移除对齐部分 PKCS7
             int alignSize = data[dataLen - 1];
             dataLen -= alignSize;
-            data.Slice(0, dataLen);
 
             {
                 string dir = Path.GetDirectoryName(extractpath);
@@ -334,7 +333,7 @@ namespace Extractor.ZixRenpy8V1.Crypto
             }
 
             using FileStream mFs = new(extractpath, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
-            mFs.Write(data);
+            mFs.Write(data.Slice(0, dataLen));
             mFs.Flush();
 
             return true;

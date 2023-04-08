@@ -317,10 +317,6 @@
 
     &emsp;游戏测试
 
-    &emsp;&emsp;《忆夏之铃》  (Renpy 7.x --- Python2.7)
-
-    &emsp;&emsp;《夏空的蒲公英》 (Renpy 7.x --- Python2.7)
-
     &emsp;&emsp;《时间碎片 奇迹》  (Renpy 7.x --- Python2.7)
 
     &emsp;依赖库
@@ -333,6 +329,10 @@
     
     &emsp;编译环境 .Net 6.x
 
+    &emsp;注意
+
+    &emsp;&emsp;官方已全面弃用Renpy7 转为Renpy8版本 代码仅做备份保留
+
 * ZedraxloRenpy加密插件V1.1  (Renpy 8.x --- Python3.9) 魔改`.rpa` 封包  (静态提取)
 
     解密编译后的`.pye`文件, 位于`游戏目录/renpy`
@@ -341,9 +341,23 @@
 
     &emsp;&emsp;(uncompyle6暂时不支持Python 3.9反编译)
 
-    &emsp;游戏测试
+    &emsp;游戏测试 (未测试:手上没有这个游戏)
 
-    &emsp;&emsp;《山的桃源乡 海的乌托邦》 (Renpy 8.x --- Python3.9)
+    &emsp;&emsp;《山的桃源乡 海的乌托邦》
+
+    &emsp;&emsp;《王牌社团》 (未测试)
+
+    &emsp;&emsp;《忆夏之铃》
+
+    &emsp;&emsp;《夏空的蒲公英》
+
+    &emsp;&emsp;《时间碎片 奇迹》 (未测试)
+
+    &emsp;&emsp;《东73 洋红色童话》 (未测试)
+
+    &emsp;&emsp;《百曲》 (未测试)
+
+    &emsp;&emsp;《Blood Code》 (未测试)
 
     &emsp;依赖库
 

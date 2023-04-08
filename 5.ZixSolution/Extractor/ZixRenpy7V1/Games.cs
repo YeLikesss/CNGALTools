@@ -1,17 +1,138 @@
-﻿using System;
+﻿using Extractor.Untils;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace Extractor.ZixRenpy7V1.Games
 {
-    /// <summary>
-    /// Dandelions in the Sky  夏空的蒲公英
-    /// </summary>
-    public class DandelionsInTheSky
+    public interface IKeyInformation
     {
         /// <summary>
-        /// 加密常量S盒1 256字节 RVA=0x6280
+        /// S盒1  256字节
+        /// <para>RVA 0x6280</para>
         /// </summary>
-        public static readonly byte[] SubstitutionBox256_1 = new byte[]
+        public byte[] SubstitutionBox1 { get; }
+        /// <summary>
+        /// S盒2  256字节
+        /// <para>RVA 0x6380</para>
+        /// </summary>
+        public byte[] SubstitutionBox2 { get; }
+        /// <summary>
+        /// S盒3  256字节
+        /// <para>RVA 0x6480</para>
+        /// </summary>
+        public byte[] SubstitutionBox3 { get; }
+        /// <summary>
+        /// S盒4  256字节
+        /// <para>RVA 0x6580</para>
+        /// </summary>
+        public byte[] SubstitutionBox4 { get; }
+        /// <summary>
+        /// S盒5  256字节
+        /// <para>RVA 0x6680</para>
+        /// </summary>
+        public byte[] SubstitutionBox5 { get; }
+        /// <summary>
+        /// S盒6  256字节
+        /// <para>RVA 0x6780</para>
+        /// </summary>
+        public byte[] SubstitutionBox6 { get; }
+        /// <summary>
+        /// S盒7  256字节
+        /// <para>RVA 0x6880</para>
+        /// </summary>
+        public byte[] SubstitutionBox7 { get; }
+        /// <summary>
+        /// S盒8  256字节
+        /// <para>RVA 0x6980</para>
+        /// </summary>
+        public byte[] SubstitutionBox8 { get; }
+
+        /// <summary>
+        /// 游戏Key
+        /// <para>RVA 0x5020</para>
+        /// </summary>
+        public byte[] Key { get; }
+        /// <summary>
+        /// 异或向量
+        /// <para>RVA 0x6A80</para>
+        /// </summary>
+        public byte[] XorVector { get; }
+    }
+
+    public interface IRPAExtractor
+    {
+        /// <summary>
+        /// 提取资源
+        /// </summary>
+        /// <param name="filePath">文件全路径</param>
+        /// <param name="extractPath">导出全路径</param>
+        public void Extract(string filePath, string extractPath);
+    }
+
+    public class FileEntry
+    {
+        /// <summary>
+        /// 资源偏移
+        /// </summary>
+        public long Offset { get; set; }
+        /// <summary>
+        /// 资源大小
+        /// </summary>
+        public long Size { get; set; }
+        /// <summary>
+        /// 资源头
+        /// </summary>
+        public byte[] Header { get; set; }
+
+
+        public FileEntry(object[] fileInfo)
+        {
+
+            if (fileInfo[0] is long)
+            {
+                this.Offset = (long)fileInfo[0];
+            }
+            else if (fileInfo[0] is int)
+            {
+                this.Offset = (int)fileInfo[0];
+            }
+
+            if (fileInfo[1] is long)
+            {
+                this.Size = (long)fileInfo[1];
+            }
+            else if (fileInfo[1] is int)
+            {
+                this.Size = (int)fileInfo[1];
+            }
+
+            {
+                ReadOnlySpan<char> header = fileInfo[2] as string;
+                if (header.Length == 16)
+                {
+                    this.Header = new byte[16];
+                    for (int i = 0; i < 16; ++i)
+                    {
+                        this.Header[i] = (byte)(header[i] & 0xFF);
+                    }
+                }
+                else
+                {
+                    this.Header = Array.Empty<byte>();
+                }
+                
+            }
+
+        }
+    }
+
+    public abstract class KeyInformationBase : IKeyInformation
+    {
+        public virtual byte[] SubstitutionBox1 => new byte[]
         {
             0x00, 0x0E, 0x1C, 0x12, 0x38, 0x36, 0x24, 0x2A, 0x70, 0x7E, 0x6C, 0x62, 0x48, 0x46, 0x54, 0x5A,
             0xE0, 0xEE, 0xFC, 0xF2, 0xD8, 0xD6, 0xC4, 0xCA, 0x90, 0x9E, 0x8C, 0x82, 0xA8, 0xA6, 0xB4, 0xBA,
@@ -30,10 +151,8 @@ namespace Extractor.ZixRenpy7V1.Games
             0x37, 0x39, 0x2B, 0x25, 0x0F, 0x01, 0x13, 0x1D, 0x47, 0x49, 0x5B, 0x55, 0x7F, 0x71, 0x63, 0x6D,
             0xD7, 0xD9, 0xCB, 0xC5, 0xEF, 0xE1, 0xF3, 0xFD, 0xA7, 0xA9, 0xBB, 0xB5, 0x9F, 0x91, 0x83, 0x8D
         };
-        /// <summary>
-        /// 加密常量S盒2 256字节 RVA=0x6380
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_2 = new byte[]
+
+        public virtual byte[] SubstitutionBox2 => new byte[]
         {
             0x00, 0x0D, 0x1A, 0x17, 0x34, 0x39, 0x2E, 0x23, 0x68, 0x65, 0x72, 0x7F, 0x5C, 0x51, 0x46, 0x4B,
             0xD0, 0xDD, 0xCA, 0xC7, 0xE4, 0xE9, 0xFE, 0xF3, 0xB8, 0xB5, 0xA2, 0xAF, 0x8C, 0x81, 0x96, 0x9B,
@@ -52,10 +171,8 @@ namespace Extractor.ZixRenpy7V1.Games
             0x0C, 0x01, 0x16, 0x1B, 0x38, 0x35, 0x22, 0x2F, 0x64, 0x69, 0x7E, 0x73, 0x50, 0x5D, 0x4A, 0x47,
             0xDC, 0xD1, 0xC6, 0xCB, 0xE8, 0xE5, 0xF2, 0xFF, 0xB4, 0xB9, 0xAE, 0xA3, 0x80, 0x8D, 0x9A, 0x97
         };
-        /// <summary>
-        /// 加密常量S盒3 256字节 RVA=0x6480
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_3 = new byte[]
+
+        public virtual byte[] SubstitutionBox3 => new byte[]
         {
             0x00, 0x0B, 0x16, 0x1D, 0x2C, 0x27, 0x3A, 0x31, 0x58, 0x53, 0x4E, 0x45, 0x74, 0x7F, 0x62, 0x69,
             0xB0, 0xBB, 0xA6, 0xAD, 0x9C, 0x97, 0x8A, 0x81, 0xE8, 0xE3, 0xFE, 0xF5, 0xC4, 0xCF, 0xD2, 0xD9,
@@ -74,10 +191,8 @@ namespace Extractor.ZixRenpy7V1.Games
             0x7A, 0x71, 0x6C, 0x67, 0x56, 0x5D, 0x40, 0x4B, 0x22, 0x29, 0x34, 0x3F, 0x0E, 0x05, 0x18, 0x13,
             0xCA, 0xC1, 0xDC, 0xD7, 0xE6, 0xED, 0xF0, 0xFB, 0x92, 0x99, 0x84, 0x8F, 0xBE, 0xB5, 0xA8, 0xA3
         };
-        /// <summary>
-        /// 加密常量S盒4 256字节 RVA=0x6580
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_4 = new byte[]
+
+        public virtual byte[] SubstitutionBox4 => new byte[]
         {
             0x00, 0x09, 0x12, 0x1B, 0x24, 0x2D, 0x36, 0x3F, 0x48, 0x41, 0x5A, 0x53, 0x6C, 0x65, 0x7E, 0x77,
             0x90, 0x99, 0x82, 0x8B, 0xB4, 0xBD, 0xA6, 0xAF, 0xD8, 0xD1, 0xCA, 0xC3, 0xFC, 0xF5, 0xEE, 0xE7,
@@ -96,10 +211,8 @@ namespace Extractor.ZixRenpy7V1.Games
             0xA1, 0xA8, 0xB3, 0xBA, 0x85, 0x8C, 0x97, 0x9E, 0xE9, 0xE0, 0xFB, 0xF2, 0xCD, 0xC4, 0xDF, 0xD6,
             0x31, 0x38, 0x23, 0x2A, 0x15, 0x1C, 0x07, 0x0E, 0x79, 0x70, 0x6B, 0x62, 0x5D, 0x54, 0x4F, 0x46
         };
-        /// <summary>
-        /// 加密常量S盒5 256字节 RVA=0x6680
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_5 = new byte[]
+
+        public virtual byte[] SubstitutionBox5 => new byte[]
         {
             0x00, 0x03, 0x06, 0x05, 0x0C, 0x0F, 0x0A, 0x09, 0x18, 0x1B, 0x1E, 0x1D, 0x14, 0x17, 0x12, 0x11,
             0x30, 0x33, 0x36, 0x35, 0x3C, 0x3F, 0x3A, 0x39, 0x28, 0x2B, 0x2E, 0x2D, 0x24, 0x27, 0x22, 0x21,
@@ -119,10 +232,7 @@ namespace Extractor.ZixRenpy7V1.Games
             0x0B, 0x08, 0x0D, 0x0E, 0x07, 0x04, 0x01, 0x02, 0x13, 0x10, 0x15, 0x16, 0x1F, 0x1C, 0x19, 0x1A
         };
 
-        /// <summary>
-        /// 加密常量S盒6 256字节 RVA=0x6780
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_6 = new byte[]
+        public virtual byte[] SubstitutionBox6 => new byte[]
         {
             0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0E, 0x10, 0x12, 0x14, 0x16, 0x18, 0x1A, 0x1C, 0x1E,
             0x20, 0x22, 0x24, 0x26, 0x28, 0x2A, 0x2C, 0x2E, 0x30, 0x32, 0x34, 0x36, 0x38, 0x3A, 0x3C, 0x3E,
@@ -141,10 +251,8 @@ namespace Extractor.ZixRenpy7V1.Games
             0xDB, 0xD9, 0xDF, 0xDD, 0xD3, 0xD1, 0xD7, 0xD5, 0xCB, 0xC9, 0xCF, 0xCD, 0xC3, 0xC1, 0xC7, 0xC5,
             0xFB, 0xF9, 0xFF, 0xFD, 0xF3, 0xF1, 0xF7, 0xF5, 0xEB, 0xE9, 0xEF, 0xED, 0xE3, 0xE1, 0xE7, 0xE5
         };
-        /// <summary>
-        /// 加密常量S盒7 256字节 RVA=0x6880
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_7 = new byte[]
+
+        public virtual byte[] SubstitutionBox7 => new byte[]
         {
             0x52, 0x09, 0x6A, 0xD5, 0x30, 0x36, 0xA5, 0x38, 0xBF, 0x40, 0xA3, 0x9E, 0x81, 0xF3, 0xD7, 0xFB,
             0x7C, 0xE3, 0x39, 0x82, 0x9B, 0x2F, 0xFF, 0x87, 0x34, 0x8E, 0x43, 0x44, 0xC4, 0xDE, 0xE9, 0xCB,
@@ -163,10 +271,8 @@ namespace Extractor.ZixRenpy7V1.Games
             0xA0, 0xE0, 0x3B, 0x4D, 0xAE, 0x2A, 0xF5, 0xB0, 0xC8, 0xEB, 0xBB, 0x3C, 0x83, 0x53, 0x99, 0x61,
             0x17, 0x2B, 0x04, 0x7E, 0xBA, 0x77, 0xD6, 0x26, 0xE1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0C, 0x7D
         };
-        /// <summary>
-        /// 加密常量S盒8 256字节 RVA=0x6980
-        /// </summary>
-        public static readonly byte[] SubstitutionBox256_8 = new byte[]
+
+        public virtual byte[] SubstitutionBox8 => new byte[]
         {
             0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
             0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4, 0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0,
@@ -185,91 +291,105 @@ namespace Extractor.ZixRenpy7V1.Games
             0xE1, 0xF8, 0x98, 0x11, 0x69, 0xD9, 0x8E, 0x94, 0x9B, 0x1E, 0x87, 0xE9, 0xCE, 0x55, 0x28, 0xDF,
             0x8C, 0xA1, 0x89, 0x0D, 0xBF, 0xE6, 0x42, 0x68, 0x41, 0x99, 0x2D, 0x0F, 0xB0, 0x54, 0xBB, 0x16
         };
-        /// <summary>
-        /// 游戏Key 16字节 RVA=0x5020
-        /// </summary>
-        public static readonly byte[] Key = new byte[]
+
+        public virtual byte[] Key => new byte[]
         {
             0xFC, 0x51, 0xE9, 0x83, 0x4F, 0xA3, 0x7D, 0x35, 0xAF, 0x1C, 0x17, 0xA8, 0x9F, 0x5D, 0x23, 0x74
         };
-        /// <summary>
-        /// 异或向量 RVA=0x6A80
-        /// </summary>
-        public static readonly byte[] XorVector = new byte[]
+
+        public virtual byte[] XorVector => new byte[]
         {
             0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1B, 0x36, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
         };
+    }
 
-
-        /*****************************游戏Python层加密*************************/
-
-        /// <summary>
-        /// 资源表信息key
-        /// </summary>
-        public static readonly uint TableInfoKey = 0x154AEF91;
-
-        /// <summary>
-        /// 资源头Key
-        /// </summary>
-        public static readonly uint[] ArchiveHeaderKey = new uint[]
+    /// <summary>
+    /// 时间记忆:碎片
+    /// </summary>
+    public class AeonOnMosaicAnemone : KeyInformationBase, IRPAExtractor
+    {
+        public void Extract(string filePath, string extractPath)
         {
-            0x16691F64, 0x0740A57E, 0x01D4201E, 0x207AA211
-        };
+            string extractDir = Path.Combine(extractPath, Path.GetFileNameWithoutExtension(filePath));
 
-        /// <summary>
-        /// 解密资源表信息
-        /// </summary>
-        /// <param name="key">表key</param>
-        /// <param name="skey">资源key</param>
-        /// <param name="offset">表文件偏移</param>
-        public static void DecryptTableInfo(ref uint key, ref uint skey, ref uint offset)
-        {
-            key ^= TableInfoKey;
-            skey ^= TableInfoKey;
-            offset ^= TableInfoKey;
-        }
+            //开启流读取
+            using FileStream mFs = File.OpenRead(filePath);
+            using BinaryReader mBr = new(mFs);
 
-        /// <summary>
-        /// 解密资源头
-        /// </summary>
-        /// <param name="header">资源头数据</param>
-        /// <param name="skey">资源key</param>
-        public static void DecryptArchiveHeader(byte[] header, uint skey)
-        {
-            //申请内存
-            Span<byte> buffer = stackalloc byte[16];
-            header.CopyTo(buffer);
+            mFs.Seek(96, SeekOrigin.Begin);
 
-            for (int index = 0; index < 4; index++)
+            //分别读取 文件表key 资源key 文件表offset
+            uint key = mBr.ReadUInt32() ^ 0x154AEF91;
+            uint skey = mBr.ReadUInt32() ^ 0x154AEF91;
+            uint entryOffset = mBr.ReadUInt32() ^ 0x154AEF91;
+
+            //读表
+            byte[] entry = new byte[mFs.Length - entryOffset];
+            mFs.Seek(entryOffset, SeekOrigin.Begin);
+            mFs.Read(entry);
+
+            entry = Zlib.Decompress(entry);
+
+            //获取文件信息表
+            Hashtable entryInfo = (Hashtable)Pickle.Decode(entry);
+
+            //文件头key
+            Span<uint> headerKey = stackalloc uint[4] { 0x641F6916, 0x7EA54007, 0x1E20D401, 0x11A27A20 };
+            
+            //遍历文件表
+            foreach (DictionaryEntry archiveInfo in entryInfo)
             {
-                Span<byte> blockBytes = buffer.Slice(index * 4, 4);
-                //大端解密
-                blockBytes.Reverse();
+                string fileName = (string)archiveInfo.Key;      //获取文件名
+                object[] fileInfo = (object[])((ArrayList)archiveInfo.Value)[0];       //获取文件信息
 
-                uint blockIntValue = BitConverter.ToUInt32(blockBytes);
-                blockIntValue ^= ArchiveHeaderKey[index] ^ skey;
+                FileEntry fileEntry = new(fileInfo);        //获取文件信息
 
-                //回写缓存
-                BitConverter.TryWriteBytes(blockBytes, blockIntValue);
+                fileEntry.Offset ^= key;
+                fileEntry.Size ^= key;
 
-                //大端
-                blockBytes.Reverse();
+                string extractFullPath = Path.Combine(extractDir, fileName);
+                {
+                    string dir = Path.GetDirectoryName(extractFullPath);
+                    if (!Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
+                }
+                using FileStream mFsW = new(extractFullPath, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
 
+                //检测资源头
+                if (fileEntry.Header.Length != 0)
+                {
+                    unsafe
+                    {
+                        Span<byte> headerPtr = fileEntry.Header.AsSpan();
+                        Span<uint> headerPtrPack4 = MemoryMarshal.Cast<byte, uint>(headerPtr);
+
+                        uint hKey = skey;
+                        {
+                            Span<byte> hKeyPtr = new(&hKey, 4);
+                            hKeyPtr.Reverse();      //大端
+                        }
+
+                        for (int index = 0; index < 4; index++)
+                        {
+                            headerPtrPack4[index] ^= headerKey[index] ^ hKey;
+                        }
+                    }
+                    mFsW.Write(fileEntry.Header);         //写入头
+                }
+
+                //提取
+                {
+                    byte[] buffer = new byte[fileEntry.Size];
+                    mFs.Seek(fileEntry.Offset, SeekOrigin.Begin);
+                    mFs.Read(buffer);
+                    mFsW.Write(buffer);         //写入数据
+                    mFsW.Flush();
+                }
+
+                Console.WriteLine(fileName + "---> Extract Success");
             }
-            //回写
-            buffer.CopyTo(header);
-        }
-
-        /// <summary>
-        /// 解密资源信息
-        /// </summary>
-        /// <param name="fileOffset">文件偏移</param>
-        /// <param name="fileSize">文件大小</param>
-        /// <param name="key">文件信息key</param>
-        public static void DecryptArchiveInfo(ref long fileOffset, ref long fileSize, uint key)
-        {
-            fileOffset ^= key;
-            fileSize ^= key;
         }
     }
 }

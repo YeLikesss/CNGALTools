@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
-using Extractor;
 using System.Linq;
 using System.Text;
 using System.IO;
@@ -15,7 +14,7 @@ namespace ConsoleExecute
     {
         static void Main(string[] args)
         {
-            string gameDir = "D:\\#Galgame Reverse\\The Neverland of the Mountain and Sea";
+            string gameDir = "E:\\The Neverland of the Mountain and Sea";
 
             RenpyPath renpyPath = new(gameDir);
             string[] modulePaths = renpyPath.GetAllModuleFilesFullPath();
@@ -29,7 +28,7 @@ namespace ConsoleExecute
             //解密模块
             {
                 Crypto128 crypto = new(keyInformation);
-                foreach(var p in modulePaths)
+                foreach (var p in modulePaths)
                 {
                     string relativePath = renpyPath.GetRelativePath(p);
                     string extractFulllPath = Path.Combine(extractPath, renpyPath.FixExtension(relativePath));
@@ -41,13 +40,13 @@ namespace ConsoleExecute
 
             //提取封包
             {
-                foreach(var p in archiveFilePaths)
+                foreach (var p in archiveFilePaths)
                 {
                     extractor.Extract(p, extractPath);
                 }
             }
 
-            Console.WriteLine("Success");
+            Console.WriteLine("Extract Completed");
             Console.ReadKey();
         }
     }

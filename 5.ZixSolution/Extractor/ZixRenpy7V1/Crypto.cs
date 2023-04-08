@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Buffers;
+using System.IO;
 using System.Numerics;
 using System.Runtime.InteropServices;
 
@@ -164,10 +165,10 @@ namespace Extractor.ZixRenpy7V1.Crypto
         }
 
         /// <summary>
-        /// 解密16字节1
+        /// 变换16字节
         /// </summary>
         /// <param name="data">数据</param>
-        public bool Decrypt16Bytes_1(Span<byte> data)
+        public bool Transform16Bytes(Span<byte> data)
         {
             //检查数据有效性
             if (data == null || data.Length != 16)
@@ -189,13 +190,13 @@ namespace Extractor.ZixRenpy7V1.Crypto
             return true;
         }
         /// <summary>
-        /// 解密8字节1
+        /// 变换1字节
         /// </summary>
         /// <param name="data">数据</param>
         /// <param name="order">序号</param>
         /// <returns>表数据</returns>
         /// <remarks>使用S盒1-6</remarks>
-        public byte Decrypt1Byte_1(byte data, int order)
+        public byte Transform1Byte(byte data, int order)
         {
             //跳转取key
             switch (order)
@@ -230,11 +231,11 @@ namespace Extractor.ZixRenpy7V1.Crypto
             }
         }
         /// <summary>
-        /// 加密4字节数据
+        /// 缓缓4字节数据
         /// </summary>
         /// <param name="data">数据</param>
         /// <param name="offset">偏移</param>
-        public void Decrypt4Bytes_1(Span<byte> data, int offset)
+        public void Transform4Bytes(Span<byte> data, int offset)
         {
             //暂存解密结果
             Span<byte> temp8 = stackalloc byte[4] { 0, 0, 0, 0 };
@@ -247,10 +248,10 @@ namespace Extractor.ZixRenpy7V1.Crypto
             //解密
             for (int index = 0; index < 4; index++)
             {
-                temp8[index] = (byte)(Decrypt1Byte_1(destData[0], orderList[(4 - index + 0) % 4]) ^
-                                      Decrypt1Byte_1(destData[1], orderList[(4 - index + 1) % 4]) ^
-                                      Decrypt1Byte_1(destData[2], orderList[(4 - index + 2) % 4]) ^
-                                      Decrypt1Byte_1(destData[3], orderList[(4 - index + 3) % 4]));
+                temp8[index] = (byte)(Transform1Byte(destData[0], orderList[(4 - index + 0) % 4]) ^
+                                      Transform1Byte(destData[1], orderList[(4 - index + 1) % 4]) ^
+                                      Transform1Byte(destData[2], orderList[(4 - index + 2) % 4]) ^
+                                      Transform1Byte(destData[3], orderList[(4 - index + 3) % 4]));
             }
             //回写覆盖原数据
             temp8.CopyTo(destData);
@@ -261,7 +262,7 @@ namespace Extractor.ZixRenpy7V1.Crypto
         /// <param name="data">数据</param>
         /// <returns></returns>
         /// <remarks>使用S盒7</remarks>
-        public bool Decrypt16BytesData_1(Span<byte> data)
+        public bool Decrypt16BytesData(Span<byte> data)
         {
             //数据检查
             if (data == null || data.Length != 16)
@@ -286,7 +287,7 @@ namespace Extractor.ZixRenpy7V1.Crypto
             while (round >= 0)
             {
                 //16字节解密1
-                Decrypt16Bytes_1(data);
+                Transform16Bytes(data);
                 //取S盒表
                 for (int index = 0; index < 16; index++)
                 {
@@ -307,12 +308,54 @@ namespace Extractor.ZixRenpy7V1.Crypto
                 //2-2解密4*4字节解密
                 for (int index = 0; index < 16; index += 4)
                 {
-                    Decrypt4Bytes_1(data, index);
+                    Transform4Bytes(data, index);
                 }
                 round--;    //轮解密循环-1
             }
             return true;
         }
 
+        /// <summary>
+        /// 解密
+        /// </summary>
+        /// <param name="path">文件路径(全路径)</param>
+        /// <param name="extractpath">导出路径(全路径)</param>
+        /// <returns></returns>
+        public bool Decrypt(string path, string extractpath)
+        {
+            byte[] buffer = File.ReadAllBytes(path);
+
+            //16字节对齐
+            if (buffer.Length % 16 != 0)
+            {
+                return false;
+            }
+
+            Span<byte> data = buffer.AsSpan();
+            int dataLen = data.Length;
+            //每16字节解密
+            for (int pos = 0; pos < dataLen; pos += 16)
+            {
+                this.Decrypt16BytesData(data.Slice(pos, 16));
+            }
+
+            //移除对齐部分 PKCS7
+            int alignSize = data[dataLen - 1];
+            dataLen -= alignSize;
+
+            {
+                string dir = Path.GetDirectoryName(extractpath);
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+            }
+
+            using FileStream mFs = new(extractpath, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
+            mFs.Write(data.Slice(0, dataLen));
+            mFs.Flush();
+
+            return true;
+        }
     }
 }
