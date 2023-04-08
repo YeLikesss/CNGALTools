@@ -469,6 +469,5 @@
 * 3.Snowing找Key
 * 10.《空梦》  硬盘版制作
 * 11.ZixSolution (Renpy8.x Python3.9)V1 找Key找Table
-* 12.ZixSolution (Renpy7.x Python2.7)硬盘版补丁制作
 
 
