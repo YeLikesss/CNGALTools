@@ -1,4 +1,4 @@
-push ebp
+﻿push ebp
 mov ebp,esp
 lea esp,dword ptr ss:[esp-0x808]
 mov eax,dword ptr ds:[0x401A0C]

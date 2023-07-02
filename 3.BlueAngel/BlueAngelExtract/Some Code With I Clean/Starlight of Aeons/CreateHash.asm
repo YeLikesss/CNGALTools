@@ -1,4 +1,4 @@
-push ebp
+﻿push ebp
 mov ebp,esp
 sub esp,0x1D4
 movaps xmm0,xmmword ptr ds:[0xB69690]                     

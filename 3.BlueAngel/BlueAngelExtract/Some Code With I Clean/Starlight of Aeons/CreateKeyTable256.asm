@@ -1,4 +1,4 @@
-;ecx=DrcryptTable*
+﻿;ecx=DrcryptTable*
 ;edx=byte* key  (0x20字节由长度算得的key)
 
 push ebp
