@@ -90,10 +90,6 @@ namespace BlueAngel
             public uint Key;
 
             /// <summary>
-            /// 文件数据
-            /// </summary>
-            public byte[] FileData { get; set; }
-            /// <summary>
             /// 获取文件是否已压缩
             /// </summary>
             public bool IsCompressed => this.Compress == 0x00000001;

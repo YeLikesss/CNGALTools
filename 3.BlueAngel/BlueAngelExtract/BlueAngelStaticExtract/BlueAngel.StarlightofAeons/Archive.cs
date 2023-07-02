@@ -5,15 +5,16 @@ using System.Text;
 using BlueAngel.V1;
 using System.IO;
 using System.Threading.Tasks;
+using System.Buffers;
+using static BlueAngel.XP3Archive;
 
 namespace BlueAngel.StarlightofAeons
 {
-
     public class Archive
     {
+        private string mFilePath;
         private string mFileName;
         private string mExtractDirectory;
-        private FileStream mFileStream;
 
         //public List<uint> mTableKey32_1 = Key.TableKey32_1;
         //public List<uint> mTableKey32_2 = Key.TableKey32_2;
@@ -47,27 +48,20 @@ namespace BlueAngel.StarlightofAeons
         /// 导出文件
         /// </summary>
         /// <returns></returns>
-        public bool Extract()
+        public void Extract()
         {
-            if (this.mFileStream == null || this.mFileStream.Length <= 0)
-            {
-                if (SystemConfig.ConsoleLogEnable)
-                {
-                    Console.WriteLine("文件数据不存在");
-                }
-                return false;
-            }
+            FileStream xp3Stream = File.OpenRead(this.mFilePath);
 
             //初始化读取器
-            BinaryReader binReader = new BinaryReader(this.mFileStream);
+            using BinaryReader binReader = new(xp3Stream);
 
             //读取文件表信息偏移
-            this.mFileStream.Position = 0x10;
+            xp3Stream.Position = 0x10;
             long xp3InfoOffset = BitConverter.ToInt64(this.Decrypt(binReader.ReadBytes(8)));
 
             //读取文件表信息
             XP3Archive.XP3Info xp3Info = new();
-            this.mFileStream.Position = xp3InfoOffset;
+            xp3Stream.Position = xp3InfoOffset;
             xp3Info.Compress = binReader.ReadByte();            //读压缩标记
             xp3Info.CompressedSize = BitConverter.ToUInt64(this.Decrypt(binReader.ReadBytes(8)));       //读压缩后长度
             xp3Info.DecompressedSize = BitConverter.ToUInt64(this.Decrypt(binReader.ReadBytes(8)));     //读解压后的长度
@@ -80,12 +74,12 @@ namespace BlueAngel.StarlightofAeons
             }
 
             //初始化文件表读取器
-            MemoryStream memInfoData = new MemoryStream(infoData);
-            BinaryReader infoDataReader = new BinaryReader(memInfoData,Encoding.Unicode);   
+            using MemoryStream memInfoData = new(infoData, false);
+            using BinaryReader infoDataReader = new(memInfoData,Encoding.Unicode);   
             memInfoData.Position = 0;
 
             //读取分析文件表并读取文件
-            List<XP3Archive.XP3File> xp3Files = new List<XP3Archive.XP3File>();
+            List<XP3Archive.XP3File> xp3Files = new();
             //循环分析
             while (memInfoData.Position < memInfoData.Length)
             {
@@ -111,68 +105,56 @@ namespace BlueAngel.StarlightofAeons
                 mXP3File.FileAdlrSize = infoDataReader.ReadUInt64();
                 mXP3File.Key = infoDataReader.ReadUInt32();
 
-                //读取文件
-                this.mFileStream.Position = (long)mXP3File.FileOffset;
-                mXP3File.FileData = binReader.ReadBytes((int)mXP3File.CompressedSize);
                 //添加到文件表数组
                 xp3Files.Add(mXP3File);
             }
 
-            //释放资源
-            infoDataReader.Close();
-            infoDataReader.Dispose();
-            infoDataReader = null;
-            memInfoData.Close();
-            memInfoData.Dispose();
-            memInfoData = null;
-            binReader.Close();
-            binReader.Dispose();
-            binReader = null;
-            this.mFileStream.Close();
-            this.mFileStream.Dispose();
-            this.mFileStream = null;
-
-            //打印log
-            if (SystemConfig.ConsoleLogEnable)
-            {
-                Console.Write(string.Concat(this.mFileName, "封包"));
-                Console.Write("文件表分析完成    ");
-                Console.WriteLine("文件读取完成");
-            }
+            Console.WriteLine("{0}封包文件表分析完成",this.mFileName);
 
             // 解密并导出文件
-            Parallel.ForEach(xp3Files, mXP3File => 
+            foreach (XP3Archive.XP3File entry in xp3Files)
             {
-                this.Decrypt(mXP3File.FileData);        //解密文件
+                xp3Stream.Position = (long)entry.FileOffset;
+                int fileSize = (int)entry.CompressedSize;
 
-                byte[] buffer;
+                byte[] fileData = ArrayPool<byte>.Shared.Rent(fileSize);
+
+                //读取
+                xp3Stream.Read(fileData, 0, fileSize);
+
+                //解密
+                this.Decrypt(fileData, fileSize);
+
                 //判断是否压缩
-                if (mXP3File.IsCompressed)
+                if (entry.IsCompressed)
                 {
-                    buffer = LZ4Helper.Decompress(mXP3File.FileData, (int)mXP3File.DecompressedSize);
+                    int decompressedSize = (int)entry.DecompressedSize;
+                    byte[] decompressData = ArrayPool<byte>.Shared.Rent(decompressedSize);
+                    LZ4Helper.Decompress(fileData, decompressData);
+                    ArrayPool<byte>.Shared.Return(fileData, true);
+                    fileSize = decompressedSize;
+                    fileData = decompressData;
                 }
-                else
-                {
-                    buffer = mXP3File.FileData;
-                }
+
 
                 //合并获得文件全路径
-                string mExtractFileFullPath = string.Concat(this.mExtractDirectory, mXP3File.FileNameUTF16LE);
-                //检查文件夹是否存在  不存在则创建
-                if (Directory.Exists(Path.GetDirectoryName(mExtractFileFullPath)) == false)
-                {
-                    Directory.CreateDirectory(Path.GetDirectoryName(mExtractFileFullPath));
-                }
-                //写入文件
-                File.WriteAllBytes(mExtractFileFullPath, buffer);
-                //打印log
-                if (SystemConfig.ConsoleLogEnable)
-                {
-                    Console.WriteLine(string.Concat(this.mFileName, "/",mXP3File.FileNameUTF16LE, "    提取成功"));
-                }
-            });
+                string extractFileFullPath = Path.Combine(this.mExtractDirectory, entry.FileNameUTF16LE);
 
-            return true;
+                //检查文件夹是否存在  不存在则创建
+                string directory = Path.GetDirectoryName(extractFileFullPath);
+                if (directory is not null && Directory.Exists(directory) is false)
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                //写入文件
+                using FileStream exportFs = File.OpenWrite(extractFileFullPath);
+                exportFs.Write(fileData, 0, fileSize);
+
+                ArrayPool<byte>.Shared.Return(fileData, true);
+
+                Console.WriteLine("{0}/{1}   提取成功", this.mFileName, entry.FileNameUTF16LE);
+            }
         }
 
 
@@ -183,29 +165,40 @@ namespace BlueAngel.StarlightofAeons
         /// <param name="archiveData">资源数据</param>
         public byte[] Decrypt(byte[] archiveData)
         {
+            return this.Decrypt(archiveData, archiveData.Length);
+        }
+
+        /// <summary>
+        /// 资源解密
+        /// </summary>
+        /// <param name="archiveData">资源数据</param>
+        /// <param name="dataLen">数据长度</param>
+        public byte[] Decrypt(byte[] archiveData, int dataLen)
+        {
             //获取初始key
-            byte[] key = ArchiveCrypto.CreateOriginalKey16((uint)archiveData.Length);
+            byte[] key = ArchiveCrypto.CreateOriginalKey16((uint)dataLen);
 
             //生成256解密表
-            List<uint> key256 = ArchiveCrypto.CreateDecryptTable256((uint)archiveData.Length, mRound, this.mTableKey8_1, this.mTableKey32_2);
+            List<uint> key256 = ArchiveCrypto.CreateDecryptTable256((uint)dataLen, mRound, this.mTableKey8_1, this.mTableKey32_2);
 
             //解密数据
-            ArchiveCrypto.DecryptArchive(archiveData, archiveData.Length,
+            ArchiveCrypto.DecryptArchive(archiveData, dataLen,
                                          mRound, key, key256,
                                          this.mTableKey32_3, this.mTableKey32_4,
                                          this.mTableKey32_7, this.mTableKey32_8,
                                          this.mTableKey8_1);
             return archiveData;
         }
+
         /// <summary>
-        /// 
+        /// 构造函数
         /// </summary>
         /// <param name="path">文件路径</param>
         public Archive(string path)
         {
-            this.mFileStream = new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.Read);
+            this.mFilePath = path;
             this.mFileName = Path.GetFileNameWithoutExtension(path);
-            this.mExtractDirectory = string.Concat(Path.GetDirectoryName(path), "/Extract/", this.mFileName, "/");
+            this.mExtractDirectory = Path.Combine(Path.GetDirectoryName(path), "Extract", this.mFileName);
         }
 
     }

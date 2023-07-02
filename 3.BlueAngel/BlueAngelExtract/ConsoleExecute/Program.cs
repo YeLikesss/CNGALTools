@@ -14,8 +14,6 @@ namespace ConsoleExecute
     {
         static void Main(string[] args)
         {
-
-
             //获取exe启动参数
             List<string> filePaths = Environment.GetCommandLineArgs().ToList();
             if (filePaths.Count < 2)

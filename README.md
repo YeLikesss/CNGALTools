@@ -1,6 +1,6 @@
 ### 国产Gal工具  Chinese Galgame/Visual Novel  Tools   (摸鱼式更新)
 
-### 开发环境 :Windows 7 SP1 x64 补丁至2022.9
+### 开发环境 :Windows 7 SP1 x64 补丁至2023.4
 
 ### 一些教程或者笔记也会在此处发布
 
@@ -157,7 +157,7 @@
 
     &emsp;状态说明
 
-    &emsp;&emsp;1.暂时性完工
+    &emsp;&emsp;1.该引擎官方已弃用, 转为NVLUnity
 
  * NVLUnity (加密资源 VM文本)
 
@@ -281,7 +281,11 @@
 
 * 状态说明
   
-    &emsp;1.其他游戏没人放流, 有放流会跟进
+    &emsp;1.《亿万年的星光》不打算继续维护(游戏质量一般)
+
+    &emsp;2.如需要动态解《亿万年的星光》 可以自行寻找TVPCreateStream接口调用
+
+    &emsp;3.《刻痕》系列没人放流, 有放流再看看
 
 #### 4.Fontainebleau/枫丹白露
 
@@ -301,7 +305,7 @@
 
 * 状态说明
   
-    &emsp;1.游戏暂未体验, 可能会继续跟进
+    &emsp;1.官方已放弃自研 改为Unity
 
 #### 5.ZixSolution(国G程序收费外包商)
 

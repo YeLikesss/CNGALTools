@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Numerics;
 
 namespace BlueAngel.V1
 {
@@ -36,18 +37,18 @@ namespace BlueAngel.V1
                                                      out List<byte> SBox8_1, out List<byte> SBox8_2)
         {
             //初始化S盒空间
-            SBox32_1 = new List<uint>();
-            SBox32_2 = new List<uint>();
-            SBox32_3 = new List<uint>();
-            SBox32_4 = new List<uint>();
-            SBox32_5 = new List<uint>();
-            SBox32_6 = new List<uint>();
-            SBox32_7 = new List<uint>();
-            SBox32_8 = new List<uint>();
-            SBox32_9 = new List<uint>();
+            SBox32_1 = new List<uint>(256);
+            SBox32_2 = new List<uint>(256);
+            SBox32_3 = new List<uint>(256);
+            SBox32_4 = new List<uint>(256);
+            SBox32_5 = new List<uint>(256);
+            SBox32_6 = new List<uint>(256);
+            SBox32_7 = new List<uint>(256);
+            SBox32_8 = new List<uint>(256);
+            SBox32_9 = new List<uint>(256);
 
-            SBox8_1 = new List<byte>();
-            SBox8_2 = new List<byte>();
+            SBox8_1 = new List<byte>(256);
+            SBox8_2 = new List<byte>(256);
 
             for(int loop = 0; loop < 256; loop++)
             {
@@ -185,11 +186,14 @@ namespace BlueAngel.V1
                 keySB1 ^= tempSB1;
 
                 SBox32_8[loop] = keySB1;
-                AssemblyEmulator.ROL(ref keySB1, 8);
+                keySB1 = BitOperations.RotateLeft(keySB1, 8);
+                //AssemblyEmulator.ROL(ref keySB1, 8);
                 SBox32_7[loop] = keySB1;
-                AssemblyEmulator.ROL(ref keySB1, 8);
+                //AssemblyEmulator.ROL(ref keySB1, 8);
+                keySB1 = BitOperations.RotateLeft(keySB1, 8);
                 SBox32_4[loop] = keySB1;
-                AssemblyEmulator.ROL(ref keySB1, 8);
+                //AssemblyEmulator.ROL(ref keySB1, 8);
+                keySB1 = BitOperations.RotateLeft(keySB1, 8);
                 SBox32_3[loop] = keySB1;
 
                 //使用第二张S盒作为Seed
@@ -210,11 +214,14 @@ namespace BlueAngel.V1
                     keySB2 ^= tempSB2_0;
 
                     SBox32_6[loop] = keySB2;
-                    AssemblyEmulator.ROL(ref keySB2, 8);
+                    keySB2 = BitOperations.RotateLeft(keySB2, 8);
+                    //AssemblyEmulator.ROL(ref keySB2, 8);
                     SBox32_5[loop] = keySB2;
-                    AssemblyEmulator.ROL(ref keySB2, 8);
+                    //AssemblyEmulator.ROL(ref keySB2, 8);
+                    keySB2 = BitOperations.RotateLeft(keySB2, 8);
                     SBox32_9[loop] = keySB2;
-                    AssemblyEmulator.ROL(ref keySB2, 8);
+                    //AssemblyEmulator.ROL(ref keySB2, 8);
+                    keySB2 = BitOperations.RotateLeft(keySB2, 8);
                     SBox32_1[loop] = keySB2;
 
                     Stack[EBP - 0x202] = tempSB2_0;
@@ -231,7 +238,7 @@ namespace BlueAngel.V1
             //4字节S盒2与4字节S盒3有重合
             for(int loop = 36; loop < 256; loop++)
             {
-                SBox32_2[loop] = SBox32_3.ElementAt(loop - 36);
+                SBox32_2[loop] = SBox32_3[loop - 36];
             }
         }
         /// <summary>
@@ -330,10 +337,10 @@ namespace BlueAngel.V1
             int Key256Index = 0;
 
             //第一轮解密
-            Parallel.For(0, key16bytes.Count, index =>
+            for(int index = 0; index < key16bytes.Count; index++)
             {
                 key16bytes[index] ^= key256bytes[Key256Index + index];
-            });
+            }
 
             Key256Index += 4;   //第一轮解密完毕
             round--;
@@ -342,21 +349,21 @@ namespace BlueAngel.V1
             while (round > 0)
             {
                 List<uint> tempKey16 = new List<uint>() { 0, 0, 0, 0 };     //存放临时生成的key
-                Parallel.For(0, key16bytes.Count, index =>
-                {
 
+                for (int index = 0; index < key16bytes.Count; index++)
+                {
                     //获取key表索引
-                    int tableIndex4 = (int)((key16bytes.ElementAt((index + 0) % key16bytes.Count) & 0x000000FF) >> 0x00);
-                    int tableIndex3 = (int)((key16bytes.ElementAt((index + 1) % key16bytes.Count) & 0x0000FF00) >> 0x08);
-                    int tableIndex2 = (int)((key16bytes.ElementAt((index + 2) % key16bytes.Count) & 0x00FF0000) >> 0x10);
-                    int tableIndex1 = (int)((key16bytes.ElementAt((index + 3) % key16bytes.Count) & 0xFF000000) >> 0x18);
+                    int tableIndex4 = (int)((key16bytes[(index + 0) % key16bytes.Count] & 0x000000FF) >> 0x00);
+                    int tableIndex3 = (int)((key16bytes[(index + 1) % key16bytes.Count] & 0x0000FF00) >> 0x08);
+                    int tableIndex2 = (int)((key16bytes[(index + 2) % key16bytes.Count] & 0x00FF0000) >> 0x10);
+                    int tableIndex1 = (int)((key16bytes[(index + 3) % key16bytes.Count] & 0xFF000000) >> 0x18);
                     //使用key表解密
-                    tempKey16[index] = key32Table4.ElementAt(tableIndex4) ^
-                                       key32Table3.ElementAt(tableIndex3) ^
-                                       key32Table2.ElementAt(tableIndex2) ^
-                                       key32Table1.ElementAt(tableIndex1) ^
-                                       key256bytes.ElementAt(Key256Index + index);
-                });
+                    tempKey16[index] = key32Table4[tableIndex4] ^
+                                       key32Table3[tableIndex3] ^
+                                       key32Table2[tableIndex2] ^
+                                       key32Table1[tableIndex1] ^
+                                       key256bytes[Key256Index + index];
+                }
 
                 key16bytes = tempKey16;
                 Key256Index += 4;      //一次轮解密完毕
@@ -366,20 +373,20 @@ namespace BlueAngel.V1
             //最后一轮解密
             List<uint> tempLastKey16 = new List<uint>() { 0, 0, 0, 0 };
 
-            Parallel.For(0, key16bytes.Count, index =>
+            for (int index = 0; index < key16bytes.Count; index++)
             {
                 //获取key表索引
-                int tableIndex4 = (int)((key16bytes.ElementAt((index + 0) % key16bytes.Count) & 0x000000FF) >> 0x00);
-                int tableIndex3 = (int)((key16bytes.ElementAt((index + 1) % key16bytes.Count) & 0x0000FF00) >> 0x08);
-                int tableIndex2 = (int)((key16bytes.ElementAt((index + 2) % key16bytes.Count) & 0x00FF0000) >> 0x10);
-                int tableIndex1 = (int)((key16bytes.ElementAt((index + 3) % key16bytes.Count) & 0xFF000000) >> 0x18);
+                int tableIndex4 = (int)((key16bytes[(index + 0) % key16bytes.Count] & 0x000000FF) >> 0x00);
+                int tableIndex3 = (int)((key16bytes[(index + 1) % key16bytes.Count] & 0x0000FF00) >> 0x08);
+                int tableIndex2 = (int)((key16bytes[(index + 2) % key16bytes.Count] & 0x00FF0000) >> 0x10);
+                int tableIndex1 = (int)((key16bytes[(index + 3) % key16bytes.Count] & 0xFF000000) >> 0x18);
 
-                tempLastKey16[index] = (((uint)key8Table1.ElementAt(tableIndex4)) << 0x00) ^
-                                       (((uint)key8Table1.ElementAt(tableIndex3)) << 0x08) ^
-                                       (((uint)key8Table1.ElementAt(tableIndex2)) << 0x10) ^
-                                       (((uint)key8Table1.ElementAt(tableIndex1)) << 0x18) ^
-                                       key256bytes.ElementAt(Key256Index + index);
-            });
+                tempLastKey16[index] = (((uint)key8Table1[tableIndex4]) << 0x00) ^
+                                       (((uint)key8Table1[tableIndex3]) << 0x08) ^
+                                       (((uint)key8Table1[tableIndex2]) << 0x10) ^
+                                       (((uint)key8Table1[tableIndex1]) << 0x18) ^
+                                       key256bytes[Key256Index + index];
+            }
             Key256Index += 4;      //最后一轮解密完毕
 
             //获取解密key数组
@@ -434,7 +441,7 @@ namespace BlueAngel.V1
 
             //使用资源长度生成Hash种子
             uint seed = length ^ 0xBFAF8EFD;
-            seedBytes = Encoding.UTF8.GetBytes(seed.ToString("X2").ToUpper()).ToList();
+            seedBytes = Encoding.UTF8.GetBytes(seed.ToString("X8").ToUpper()).ToList();
             seedBytes.Add(0x00);
 
             //生成第一轮Hash表
@@ -500,24 +507,24 @@ namespace BlueAngel.V1
             if (round == 10)
             {
                 int pointer = 0;
-                uint key = KeyTable256.ElementAt(pointer);      //mov ecx, dword ptr ds:[edx]
+                uint key = KeyTable256[pointer];      //mov ecx, dword ptr ds:[edx]
                 pointer += 4;           //lea edi,dword ptr ds:[edx+0x10]
                 for(int loop = 0; loop < 0x28; loop += 4)
                 {
-                    uint index = KeyTable256.ElementAt(pointer - 1);        //mov edx,dword ptr ds:[edi-0x4]
-                    uint tempKey = (uint)(substitutionBox8.ElementAt((int)((index & 0x000000FF) >> 0x00)) << 0x18) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0xFF000000) >> 0x18)) << 0x10) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0x00FF0000) >> 0x10)) << 0x08) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0x0000FF00) >> 0x08)) << 0x00);
-                    tempKey ^= substitutionBox32.ElementAt(loop / 4);
+                    uint index = KeyTable256[pointer - 1];        //mov edx,dword ptr ds:[edi-0x4]
+                    uint tempKey = (uint)(substitutionBox8[(int)((index & 0x000000FF) >> 0x00)] << 0x18) ^
+                                   (uint)(substitutionBox8[(int)((index & 0xFF000000) >> 0x18)] << 0x10) ^
+                                   (uint)(substitutionBox8[(int)((index & 0x00FF0000) >> 0x10)] << 0x08) ^
+                                   (uint)(substitutionBox8[(int)((index & 0x0000FF00) >> 0x08)] << 0x00);
+                    tempKey ^= substitutionBox32[loop / 4];
                     tempKey ^= key;
 
                     key = tempKey;
 
                     KeyTable256[pointer + 0] = tempKey;
-                    KeyTable256[pointer + 1] = KeyTable256.ElementAt(pointer + 0) ^ KeyTable256.ElementAt(pointer - 3);
-                    KeyTable256[pointer + 2] = KeyTable256.ElementAt(pointer + 1) ^ KeyTable256.ElementAt(pointer - 2);
-                    KeyTable256[pointer + 3] = KeyTable256.ElementAt(pointer + 2) ^ KeyTable256.ElementAt(pointer - 1);
+                    KeyTable256[pointer + 1] = KeyTable256[pointer + 0] ^ KeyTable256[pointer - 3];
+                    KeyTable256[pointer + 2] = KeyTable256[pointer + 1] ^ KeyTable256[pointer - 2];
+                    KeyTable256[pointer + 3] = KeyTable256[pointer + 2] ^ KeyTable256[pointer - 1];
 
                     pointer += 4;
                 }
@@ -525,27 +532,27 @@ namespace BlueAngel.V1
             else if (round == 12)
             {
                 int pointer = 0;
-                uint key = KeyTable256.ElementAt(pointer);      //mov ecx, dword ptr ds:[edx]
+                uint key = KeyTable256[pointer];      //mov ecx, dword ptr ds:[edx]
                 pointer += 6;           //lea edi,dword ptr ds:[edx+0x18]
 
                 for(int loop = 0; loop < 0x20; loop += 4)
                 {
-                    uint index = KeyTable256.ElementAt(pointer - 1);        //mov edx,dword ptr ds:[edi-0x4]
-                    uint tempKey = (uint)(substitutionBox8.ElementAt((int)((index & 0x000000FF) >> 0x00)) << 0x18) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0xFF000000) >> 0x18)) << 0x10) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0x00FF0000) >> 0x10)) << 0x08) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0x0000FF00) >> 0x08)) << 0x00);
-                    tempKey ^= substitutionBox32.ElementAt(loop / 4);
+                    uint index = KeyTable256[pointer - 1];        //mov edx,dword ptr ds:[edi-0x4]
+                    uint tempKey = (uint)(substitutionBox8[(int)((index & 0x000000FF) >> 0x00)] << 0x18) ^
+                                   (uint)(substitutionBox8[(int)((index & 0xFF000000) >> 0x18)] << 0x10) ^
+                                   (uint)(substitutionBox8[(int)((index & 0x00FF0000) >> 0x10)] << 0x08) ^
+                                   (uint)(substitutionBox8[(int)((index & 0x0000FF00) >> 0x08)] << 0x00);
+                    tempKey ^= substitutionBox32[loop / 4];
                     tempKey ^= key;
 
                     key = tempKey;
 
                     KeyTable256[pointer + 0] = tempKey;
-                    KeyTable256[pointer + 1] = KeyTable256.ElementAt(pointer + 0) ^ KeyTable256.ElementAt(pointer - 5);
-                    KeyTable256[pointer + 2] = KeyTable256.ElementAt(pointer + 1) ^ KeyTable256.ElementAt(pointer - 4);
-                    KeyTable256[pointer + 3] = KeyTable256.ElementAt(pointer + 2) ^ KeyTable256.ElementAt(pointer - 3);
-                    KeyTable256[pointer + 4] = KeyTable256.ElementAt(pointer + 3) ^ KeyTable256.ElementAt(pointer - 2);
-                    KeyTable256[pointer + 5] = KeyTable256.ElementAt(pointer + 4) ^ KeyTable256.ElementAt(pointer - 1);
+                    KeyTable256[pointer + 1] = KeyTable256[pointer + 0] ^ KeyTable256[pointer - 5];
+                    KeyTable256[pointer + 2] = KeyTable256[pointer + 1] ^ KeyTable256[pointer - 4];
+                    KeyTable256[pointer + 3] = KeyTable256[pointer + 2] ^ KeyTable256[pointer - 3];
+                    KeyTable256[pointer + 4] = KeyTable256[pointer + 3] ^ KeyTable256[pointer - 2];
+                    KeyTable256[pointer + 5] = KeyTable256[pointer + 4] ^ KeyTable256[pointer - 1];
 
                     pointer += 6;
                 }
@@ -554,36 +561,36 @@ namespace BlueAngel.V1
             else if (round == 14)
             {
                 int pointer = 0;
-                uint key = KeyTable256.ElementAt(pointer);      //mov ecx, dword ptr ds:[edx]
+                uint key = KeyTable256[pointer];      //mov ecx, dword ptr ds:[edx]
                 pointer += 8;           //add edx,0x20
                 for (int loop = 0; loop < 0x1C; loop += 4)
                 {
-                    uint index = KeyTable256.ElementAt(pointer - 1);        //mov ebx,dword ptr ds:[edx-0x4]
-                    uint tempKey = (uint)(substitutionBox8.ElementAt((int)((index & 0x000000FF) >> 0x00)) << 0x18) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0xFF000000) >> 0x18)) << 0x10) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0x00FF0000) >> 0x10)) << 0x08) ^
-                                   (uint)(substitutionBox8.ElementAt((int)((index & 0x0000FF00) >> 0x08)) << 0x00);
-                    tempKey ^= substitutionBox32.ElementAt(loop / 4);
+                    uint index = KeyTable256[pointer - 1];        //mov ebx,dword ptr ds:[edx-0x4]
+                    uint tempKey = (uint)(substitutionBox8[(int)((index & 0x000000FF) >> 0x00)] << 0x18) ^
+                                   (uint)(substitutionBox8[(int)((index & 0xFF000000) >> 0x18)] << 0x10) ^
+                                   (uint)(substitutionBox8[(int)((index & 0x00FF0000) >> 0x10)] << 0x08) ^
+                                   (uint)(substitutionBox8[(int)((index & 0x0000FF00) >> 0x08)] << 0x00);
+                    tempKey ^= substitutionBox32[loop / 4];
                     tempKey ^= key;
 
                     key = tempKey;
 
                     KeyTable256[pointer + 0] = tempKey;
-                    KeyTable256[pointer + 1] = KeyTable256.ElementAt(pointer + 0) ^ KeyTable256.ElementAt(pointer - 7);
-                    KeyTable256[pointer + 2] = KeyTable256.ElementAt(pointer + 1) ^ KeyTable256.ElementAt(pointer - 6);
-                    KeyTable256[pointer + 3] = KeyTable256.ElementAt(pointer + 2) ^ KeyTable256.ElementAt(pointer - 5);
+                    KeyTable256[pointer + 1] = KeyTable256[pointer + 0] ^ KeyTable256[pointer - 7];
+                    KeyTable256[pointer + 2] = KeyTable256[pointer + 1] ^ KeyTable256[pointer - 6];
+                    KeyTable256[pointer + 3] = KeyTable256[pointer + 2] ^ KeyTable256[pointer - 5];
 
 
-                    index = KeyTable256.ElementAt(pointer + 3);
-                    tempKey = (uint)(substitutionBox8.ElementAt((int)((index & 0xFF000000) >> 0x18)) << 0x18) ^
-                              (uint)(substitutionBox8.ElementAt((int)((index & 0x00FF0000) >> 0x10)) << 0x10) ^
-                              (uint)(substitutionBox8.ElementAt((int)((index & 0x0000FF00) >> 0x08)) << 0x08) ^
-                              (uint)(substitutionBox8.ElementAt((int)((index & 0x000000FF) >> 0x00)) << 0x00);
+                    index = KeyTable256[pointer + 3];
+                    tempKey = (uint)(substitutionBox8[(int)((index & 0xFF000000) >> 0x18)] << 0x18) ^
+                              (uint)(substitutionBox8[(int)((index & 0x00FF0000) >> 0x10)] << 0x10) ^
+                              (uint)(substitutionBox8[(int)((index & 0x0000FF00) >> 0x08)] << 0x08) ^
+                              (uint)(substitutionBox8[(int)((index & 0x000000FF) >> 0x00)] << 0x00);
 
-                    KeyTable256[pointer + 4] = KeyTable256.ElementAt(pointer - 4) ^ tempKey;
-                    KeyTable256[pointer + 5] = KeyTable256.ElementAt(pointer + 4) ^ KeyTable256.ElementAt(pointer - 3);
-                    KeyTable256[pointer + 6] = KeyTable256.ElementAt(pointer + 5) ^ KeyTable256.ElementAt(pointer - 2);
-                    KeyTable256[pointer + 7] = KeyTable256.ElementAt(pointer + 6) ^ KeyTable256.ElementAt(pointer - 1);
+                    KeyTable256[pointer + 4] = KeyTable256[pointer - 4] ^ tempKey;
+                    KeyTable256[pointer + 5] = KeyTable256[pointer + 4] ^ KeyTable256[pointer - 3];
+                    KeyTable256[pointer + 6] = KeyTable256[pointer + 5] ^ KeyTable256[pointer - 2];
+                    KeyTable256[pointer + 7] = KeyTable256[pointer + 6] ^ KeyTable256[pointer - 1];
 
                     pointer += 8;
                 }
@@ -598,7 +605,7 @@ namespace BlueAngel.V1
         public static HashTable AllocHashTable(int needLength)
         {
             //生成Hash表
-            HashTable hashTable = new HashTable
+            HashTable hashTable = new()
             {
                 NeedLength = needLength,
                 MaxSeedLength = (0x64 - needLength) << 1,
@@ -620,7 +627,7 @@ namespace BlueAngel.V1
             int hashTablePointer = hashTable.ActualSeedLength;   //hash指针
             while (seedPointer < seed.Count)
             {
-                hashTable.Hash[hashTablePointer] ^= seed.ElementAt(seedPointer);
+                hashTable.Hash[hashTablePointer] ^= seed[seedPointer];
 
                 //判断种子长度是否超过最大长度
                 hashTablePointer++;
