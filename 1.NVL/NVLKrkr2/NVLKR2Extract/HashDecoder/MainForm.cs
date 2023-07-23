@@ -214,7 +214,7 @@ namespace HashDecoder
                 using StreamReader reader = new(autopathFile, Encoding.UTF8);
                 while (!reader.EndOfStream)
                 {
-                    string s = reader.ReadLine();
+                    string s = reader.ReadLine().ToLower();
                     if (!autoPath.Contains(s))
                     {
                         autoPath.Add(s);
