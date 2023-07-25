@@ -460,6 +460,30 @@
   
     &emsp;1.游戏暂未体验, 可能会继续跟进
 
+#### 10.UniversalXP3DecFilter
+
+* 通用XP3加密接口 XP3ArchiveExtractionFilter
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《雪之本境》 光盘版(2010)
+
+    &emsp;&emsp;《雪之本境解境篇》 光盘版
+
+    &emsp;&emsp;《雪之本境EX》 光盘版
+
+    &emsp;&emsp;《雾之本境》 光盘版
+
+    &emsp;&emsp;《雨港基隆》 Steam
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+    &emsp;Nuget依赖
+
+    &emsp;&emsp;ICSharpCode
+
 #### 999.Others (其他平台或虚拟机部分 纯粹运气好赌对的技巧 可能不具备参考价值)
 
 * 1.《爱与命的彼端》 解包
