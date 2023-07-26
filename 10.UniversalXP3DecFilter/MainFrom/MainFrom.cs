@@ -15,17 +15,20 @@ namespace MainFrom
         {
             InitializeComponent();
 
-
+            //添加游戏加密对象
             {
                 ComboBox titles = this.cbTitles;
                 titles.BeginUpdate();
                 titles.Items.Clear();
 
+                titles.Items.Add(new JadeMoon());
                 titles.Items.Add(new ConspiracyFieldSnowTrapCh1());
                 titles.Items.Add(new ConspiracyFieldSnowTrapCh2());
                 titles.Items.Add(new ConspiracyFieldSnowTrapEx());
                 titles.Items.Add(new ConspiracyFieldFogShadow());
                 titles.Items.Add(new TheRainyPortKeelung());
+                titles.Items.Add(new YveZhuoEP1());
+                titles.Items.Add(new YveZhuoOrange());
 
                 titles.EndUpdate();
             }

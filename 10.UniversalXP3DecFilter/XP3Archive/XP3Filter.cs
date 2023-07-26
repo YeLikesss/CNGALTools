@@ -7,6 +7,21 @@ namespace XP3Archive
         public void Decrypt(Span<byte> data, uint hash, long offset = 0);
     }
 
+    public class JadeMoon : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] ^= (byte)(hash >> 3);
+            }
+        }
+        public override string ToString()
+        {
+            return "翡翠月";
+        }
+    }
+
     public class ConspiracyFieldSnowTrapCh1 : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -86,6 +101,36 @@ namespace XP3Archive
         public override string ToString()
         {
             return "雨港基隆";
+        }
+    }
+
+    public class YveZhuoEP1 : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] = (byte)~(data[i] ^ (hash + 1));
+            }
+        }
+        public override string ToString()
+        {
+            return "鸑鷟 镜花水月";
+        }
+    }
+
+    public class YveZhuoOrange : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] = (byte)~(data[i] ^ (hash + 1));
+            }
+        }
+        public override string ToString()
+        {
+            return "鸑鷟 橘子传";
         }
     }
 }

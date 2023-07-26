@@ -466,6 +466,10 @@
 
     &emsp;游戏测试
 
+    &emsp;&emsp;注:部分游戏使用molebox打包 请先使用demoleition解包
+
+    &emsp;&emsp;《翡翠月》
+
     &emsp;&emsp;《雪之本境》 光盘版(2010)
 
     &emsp;&emsp;《雪之本境解境篇》 光盘版
@@ -475,6 +479,10 @@
     &emsp;&emsp;《雾之本境》 光盘版
 
     &emsp;&emsp;《雨港基隆》 Steam
+
+    &emsp;&emsp;《鸑鷟 镜花水月》
+
+    &emsp;&emsp;《鸑鷟 橘子传》
 
     &emsp;编译环境
 
