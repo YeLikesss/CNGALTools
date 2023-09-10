@@ -78,7 +78,7 @@ namespace Snowing
                 header = StructureConvert.GetStructure<Header>(decryptData);
             }
 
-            Archive.DataInfo newDataInfo = new Archive.DataInfo();
+            Archive.DataInfo newDataInfo = new();
             //转化为图像
             switch (header.Format)
             {
@@ -86,7 +86,7 @@ namespace Snowing
                     //设置数据起始点
                     int indexPNG = decryptData.Length - (header.Width * header.Heigth*4);
                     //创建图片
-                    Bitmap bitmapPNG = new Bitmap(header.Width, header.Heigth, PixelFormat.Format32bppPArgb);
+                    Bitmap bitmapPNG = new(header.Width, header.Heigth, PixelFormat.Format32bppPArgb);
                     //设置像素
                     for (int y = 0; y < header.Heigth; y++)
                     {
@@ -101,12 +101,12 @@ namespace Snowing
 
                     //保存为png格式
                     Image imagePNG = bitmapPNG;
-                    MemoryStream msPNG = new MemoryStream();
+                    MemoryStream msPNG = new();
                     imagePNG.Save(msPNG, ImageFormat.Png);
 
                     //保存数据并设置路径
                     newDataInfo.Data = msPNG.ToArray();
-                    newDataInfo.FileName = string.Concat(dataInfo.FileName.Split('.').ElementAt(0), ".png");
+                    newDataInfo.FileName = Path.ChangeExtension(dataInfo.FileName, ".png");
 
                     break;
 
@@ -114,7 +114,7 @@ namespace Snowing
                     //设置数据起始点
                     int indexPNGR8 = decryptData.Length - (header.Width * header.Heigth*5);
                     //创建图片
-                    Bitmap bitmapPNGR8 = new Bitmap(header.Width, header.Heigth, PixelFormat.Format32bppPArgb);
+                    Bitmap bitmapPNGR8 = new(header.Width, header.Heigth, PixelFormat.Format32bppPArgb);
                     //设置像素
                     for (int y = 0; y < header.Heigth; y++)
                     {
@@ -129,12 +129,12 @@ namespace Snowing
 
                     //保存为png格式
                     Image imagePNGR8 = bitmapPNGR8;
-                    MemoryStream msPNGR8 = new MemoryStream();
+                    MemoryStream msPNGR8 = new();
                     imagePNGR8.Save(msPNGR8, ImageFormat.Png);
 
                     //保存数据并设置路径
                     newDataInfo.Data = msPNGR8.ToArray();
-                    newDataInfo.FileName = string.Concat(dataInfo.FileName.Split('.').ElementAt(0), ".png");
+                    newDataInfo.FileName = Path.ChangeExtension(dataInfo.FileName, ".png");
 
                     break;
 
@@ -149,7 +149,7 @@ namespace Snowing
 
                     //保存数据并设置路径
                     newDataInfo.Data = bufferDDS.ToArray();
-                    newDataInfo.FileName = string.Concat(dataInfo.FileName.Split('.').ElementAt(0), ".dds");
+                    newDataInfo.FileName = Path.ChangeExtension(dataInfo.FileName, ".dds");
 
                     break;
             }

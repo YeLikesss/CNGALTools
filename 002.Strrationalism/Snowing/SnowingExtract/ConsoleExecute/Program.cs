@@ -31,31 +31,23 @@ namespace ConsoleExecute
                 return;
             }
 
-            List<string> gamePathList = arguments.ToList();
-            //移除自身路径
-            gamePathList.RemoveAt(0);
-
-            //获取游戏exe目录
-            FileInfo gamePathInfo = new FileInfo(gamePathList[0]);
-            //获取游戏文件夹
-            string gameDir = string.Concat(gamePathInfo.DirectoryName, "/");
-
-            //获取资源文件夹
-            List<DirectoryInfo> archiveDirs = archiveSubFolder.ConvertAll(subFolder =>
-                new DirectoryInfo(string.Concat(gameDir, subFolder))
-            );
-
-            //设置资源文件解密key与导出路径
-            ArchiveFile archiveFile = new ArchiveFile();
-            archiveFile.Aes128Key = VainRiser.Aes128Key;
-            archiveFile.Aes128IV = VainRiser.Aes128IV;
-            archiveFile.ExtractOutputDir = string.Concat(gameDir, "Extract/");
-
-            //循环解密
-            archiveDirs.ForEach(archiveDir =>
+            if(Path.GetDirectoryName(arguments[1]) is string gameDir)
             {
-                archiveFile.Extract(string.Empty, archiveDir);
-            });
+                //设置资源文件解密key与导出路径
+                ArchiveFile archiveFile = new()
+                {
+                    Aes128Key = VainRiser.Aes128Key,
+                    Aes128IV = VainRiser.Aes128IV,
+                    ExtractOutputDir = Path.Combine(gameDir, "Extract")
+                };
+
+                //循环解密
+                archiveSubFolder.ForEach(folder =>
+                {
+                    archiveFile.Extract(string.Empty, new(Path.Combine(gameDir, folder)));
+                });
+
+            }
 
             Console.WriteLine("\n========请按任意键退出程序========");
             Console.ReadKey();

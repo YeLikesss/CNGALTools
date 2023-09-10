@@ -34,7 +34,7 @@ namespace ConsoleExecute
                     string extractFulllPath = Path.Combine(extractPath, renpyPath.FixExtension(relativePath));
                     crypto.Decrypt(p, extractFulllPath);
 
-                    Console.WriteLine(relativePath + "---> Decrypt Success");
+                    Console.WriteLine("{0}  ---> Decrypt Success", relativePath);
                 }
             }
 
