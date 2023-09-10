@@ -492,6 +492,19 @@
 
     &emsp;&emsp;ICSharpCode
 
+#### 11.Irregulars
+
+* Irregulars Engine
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《MOBIUS BAND*》
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+
 #### 999.Others (其他平台或虚拟机部分 纯粹运气好赌对的技巧 可能不具备参考价值)
 
 * 1.《爱与命的彼端》 解包
