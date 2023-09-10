@@ -50,6 +50,9 @@ namespace MainFrom
         private void listBoxFiles_DragDrop(object sender, DragEventArgs e)
         {
             ListBox lb = (ListBox)sender;
+
+            lb.BeginUpdate();
+
             lb.Items.Clear();
             if (e.Data is IDataObject obj)
             {
@@ -59,6 +62,8 @@ namespace MainFrom
                     lb.Items.Add(path);
                 }
             }
+
+            lb.EndUpdate();
         }
 
         private void btnExtract_Click(object sender, EventArgs e)

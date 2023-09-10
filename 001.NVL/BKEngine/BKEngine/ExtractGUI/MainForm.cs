@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,11 +11,11 @@ namespace ExtractGUI
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
         }
+
         private void FileList_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
@@ -29,16 +28,21 @@ namespace ExtractGUI
 
         private void FileList_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop, false))
+            ListBox lb = (ListBox)sender;
+
+            lb.BeginUpdate();
+
+            lb.Items.Clear();
+            if (e.Data is IDataObject obj)
             {
-                List<string> filepaths = ((string[])e.Data.GetData(DataFormats.FileDrop)).ToList();
-                ListBox filelistbox = sender as ListBox;
-                filelistbox.Items.Clear();
-                filepaths.ForEach(filepath => 
+                string[] resPaths = (string[])obj.GetData(DataFormats.FileDrop);
+                foreach (string path in resPaths)
                 {
-                    filelistbox.Items.Add(filepath);
-                });
+                    lb.Items.Add(path);
+                }
             }
+
+            lb.EndUpdate();
         }
 
         private void cmdExtract_Click(object sender, EventArgs e)
@@ -49,9 +53,10 @@ namespace ExtractGUI
                 return;
             }
 
-            List<string> files = this.GetFilePath(this.listBoxFile);
+            ListBox lb = this.listBoxFile;
 
-            if (files.Count <= 0)
+            int count = lb.Items.Count;
+            if (count <= 0)
             {
                 MessageBox.Show("请拖拽待处理的文件", "Error");
                 return;
@@ -65,29 +70,20 @@ namespace ExtractGUI
                 _ => BKEngineVersion.Unknow,
             };
 
-            string outDir = Path.Combine(Path.GetDirectoryName(files[0]), "Static_Extract");
-
-            foreach (string filePath in files)
+            for (int i = 0; i < count; ++i)
             {
-                BKARCFileBase bkarc = BKARCFileBase.CreateInstance(Path.GetFileNameWithoutExtension(filePath), File.OpenRead(filePath), version);
-                bkarc.Extract(outDir);
-                bkarc.Dispose();
-            }
+                if (lb.Items[i] is string filePath)
+                {
+                    if (File.Exists(filePath))
+                    {
+                        string outDir = Path.Combine(Path.GetDirectoryName(filePath), "Static_Extract");
 
-            GC.Collect();
+                        using BKARCFileBase bkarc = BKARCFileBase.CreateInstance(Path.GetFileNameWithoutExtension(filePath), File.OpenRead(filePath), version);
+                        bkarc.Extract(outDir);
+                    }
+                }
+            }
             MessageBox.Show("解包完毕", "Information");
         }
-
-        private List<string> GetFilePath(ListBox listBox)
-        {
-            List<string> files = new List<string>();
-            for(int i = 0; i < listBox.Items.Count; i++)
-            {
-                files.Add(listBox.Items[i].ToString());
-            }
-            return files;
-        }
-
     }
-
 }
