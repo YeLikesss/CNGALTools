@@ -4,18 +4,13 @@
 #include "Il2CppAPI.h"
 
 #include "path.h"
+#include "file.h"
 #include "util.h"
 
 static Il2CppDomain* g_Il2CppDomain = nullptr;
 static Il2CppThread* g_Il2CppThread = nullptr;
 
-static HMODULE g_DllBase = nullptr;
-static std::wstring g_DllPath;
-static std::wstring g_DllDirectory;
-
-static std::wstring g_GamePath;
-static std::wstring g_GameDirectory;
-
+__declspec(noinline)
 const Il2CppAssembly* GetAssemblyByName(const char* name)
 {
     size_t count = 0;
@@ -31,6 +26,7 @@ const Il2CppAssembly* GetAssemblyByName(const char* name)
     return nullptr;
 }
 
+__declspec(noinline)
 Il2CppObject* Encoding_GetUTF8()
 {
     Il2CppClass* encodingClass = Il2CppClassFromName(Il2CppGetCorlib(), "System.Text", "Encoding");
@@ -41,6 +37,7 @@ Il2CppObject* Encoding_GetUTF8()
     return ((Il2CppObject * (*)(void))utf8EncoderPropGet->methodPointer)();
 }
 
+__declspec(noinline)
 Il2CppObject* StreamWriter_Create(std::wstring& fullpath)
 {
     Il2CppClass* streamWriterClass = Il2CppClassFromName(Il2CppGetCorlib(), "System.IO", "StreamWriter");
@@ -77,6 +74,7 @@ Il2CppObject* StreamWriter_Create(std::wstring& fullpath)
     return nullptr;
 }
 
+__declspec(noinline)
 void TextWriter_Dispose(Il2CppObject* writer)
 {
     Il2CppClass* textWriterClass = Il2CppClassFromName(Il2CppGetCorlib(), "System.IO", "TextWriter");
@@ -86,7 +84,7 @@ void TextWriter_Dispose(Il2CppObject* writer)
     ((void (*)(Il2CppObject*, const MethodInfo*))textWriterDispose->methodPointer)(writer, nullptr);
 }
 
-
+__declspec(noinline)
 Il2CppObject* JsonTextWriter_Create(Il2CppObject* textWriter)
 {
     Il2CppImage* newtonImage = Il2CppAssaemblyGetImage(GetAssemblyByName("Newtonsoft.Json"));
@@ -101,6 +99,7 @@ Il2CppObject* JsonTextWriter_Create(Il2CppObject* textWriter)
     return jtwObject;
 }
 
+__declspec(noinline)
 void JsonTextWriter_Close(Il2CppObject* jsonWriter)
 {
     Il2CppImage* newtonImage = Il2CppAssaemblyGetImage(GetAssemblyByName("Newtonsoft.Json"));
@@ -112,6 +111,7 @@ void JsonTextWriter_Close(Il2CppObject* jsonWriter)
     ((void (*)(Il2CppObject*, const MethodInfo*))jsonTextWriterClose->methodPointer)(jsonWriter, nullptr);
 }
 
+__declspec(noinline)
 Il2CppArray* File_ReadAllBytes(std::wstring& fullpath)
 {
     HANDLE hFile = CreateFileW(fullpath.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_ARCHIVE, NULL);
@@ -133,6 +133,7 @@ Il2CppArray* File_ReadAllBytes(std::wstring& fullpath)
     return nullptr;
 }
 
+__declspec(noinline)
 Il2CppObject* LoadScriptBinary(Il2CppArray* buffer)
 {
     Il2CppImage* mainImage = Il2CppAssaemblyGetImage(GetAssemblyByName("Assembly-CSharp"));
@@ -153,6 +154,7 @@ Il2CppObject* LoadScriptBinary(Il2CppArray* buffer)
     return nullptr;
 }
 
+__declspec(noinline)
 void SaveScriptJSON(Il2CppObject* ast, Il2CppObject* jsonWriter)
 {
     Il2CppImage* mainImage = Il2CppAssaemblyGetImage(GetAssemblyByName("Assembly-CSharp"));
@@ -165,67 +167,31 @@ void SaveScriptJSON(Il2CppObject* ast, Il2CppObject* jsonWriter)
 }
 
 
-
-void ProcessScript()
+__declspec(dllexport)
+void WINAPI DumpScript(const wchar_t* fullpath) 
 {
-    WIN32_FIND_DATAW findFileData;
-    HANDLE hListFile;
+    std::wstring inPutPath(fullpath);
+    std::wstring outPutPath = Path::ChangeExtension(inPutPath, L".json");
+    File::Delete(outPutPath);
 
-    std::wstring dirPath = g_DllDirectory + L"\\Script";
-    std::wstring scanPath = dirPath + L"\\*.compiled.bytes";
+    //动态调用转化为json格式
+    Il2CppArray* fileBuffer = File_ReadAllBytes(inPutPath);
+    Il2CppObject* ast = LoadScriptBinary(fileBuffer);
 
-    //查找第一个文件
-    hListFile = FindFirstFileW(scanPath.c_str(), &findFileData);
-    if(hListFile != INVALID_HANDLE_VALUE)
-    {
-        //遍历提取json格式的脚本ast
-        do 
-        {
-            if (findFileData.dwFileAttributes & FILE_ATTRIBUTE_ARCHIVE) 
-            {
-                std::wstring inPutPath = dirPath + L"\\" + findFileData.cFileName;
-                std::wstring outPutPath = Path::ChangeExtension(inPutPath, L".json");
+    Il2CppObject* sw = StreamWriter_Create(outPutPath);
+    Il2CppObject* jsonsw = JsonTextWriter_Create(sw);
 
-                //动态调用转化为json格式
-                Il2CppArray* fileBuffer = File_ReadAllBytes(inPutPath);
-                Il2CppObject* ast = LoadScriptBinary(fileBuffer);
+    SaveScriptJSON(ast, jsonsw);
 
-                Il2CppObject* sw = StreamWriter_Create(outPutPath);
-                Il2CppObject* jsonsw = JsonTextWriter_Create(sw);
+    JsonTextWriter_Close(jsonsw);
+    TextWriter_Dispose(sw);
 
-                SaveScriptJSON(ast, jsonsw);
-
-                JsonTextWriter_Close(jsonsw);
-                TextWriter_Dispose(sw);
-
-                Util::WriteDebugMessage(L"Dump Success ---> %s", findFileData.cFileName);
-            }
-        } 
-        while (FindNextFileW(hListFile, &findFileData));
-        FindClose(hListFile);
-
-        Util::WriteDebugMessage(L"Script Bytecode Dump Completed");
-    }
-    else
-    {
-        Util::WriteDebugMessage(L"Script File Can not Find");
-    }
+    Util::WriteDebugMessage(L"Dump Success ---> %s", Path::GetFileName(inPutPath).c_str());
 }
 
-
-void Initialize()
+__declspec(dllexport)
+void WINAPI Initialize()
 {
-    {
-        std::wstring dllpath = Util::GetModulePathW(g_DllBase);
-        std::wstring gamepath = Util::GetModulePathW(NULL);
-
-        g_DllDirectory = std::move(Path::GetDirectoryName(dllpath));
-        g_DllPath = std::move(dllpath);
-
-        g_GameDirectory = std::move(Path::GetDirectoryName(gamepath));
-        g_GamePath = std::move(gamepath);
-    }
-
     while (!GetModuleHandleW(L"GameAssembly.dll"))
     {
         Sleep(1000);
@@ -236,17 +202,8 @@ void Initialize()
     {
         Util::WriteDebugMessage(L"Il2Cpp Initialized Success");
 
-        Sleep(5000);  //等待游戏il2cpp代码初始化完毕
-
         g_Il2CppDomain = Il2CppDomainGet();
         g_Il2CppThread = Il2CppThreadAttach(g_Il2CppDomain);
-
-        ProcessScript();
-
-        Il2CppThreadDettach(g_Il2CppThread);
-
-        g_Il2CppDomain = nullptr;
-        g_Il2CppThread = nullptr;
     }
     else
     {
@@ -254,25 +211,39 @@ void Initialize()
     }
 }
 
+__declspec(dllexport)
+void WINAPI UnInitialize()
+{
+    if (g_Il2CppThread) 
+    {
+        Il2CppThreadDettach(g_Il2CppThread);
 
+        g_Il2CppDomain = nullptr;
+        g_Il2CppThread = nullptr;
+    }
+}
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
     UNREFERENCED_PARAMETER(lpReserved);
     switch (ul_reason_for_call)
     {
-    case DLL_PROCESS_ATTACH:
-    {
-        g_DllBase = hModule;
-        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Initialize, NULL, 0, NULL);
-        break;
-    }
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
-        break;
+        case DLL_PROCESS_ATTACH:
+        {
+            break;
+        }
+        case DLL_THREAD_ATTACH:
+        {
+            break;
+        }
+        case DLL_THREAD_DETACH:
+        {
+            break;
+        }
+        case DLL_PROCESS_DETACH:
+        {
+            break;
+        }
     }
     return TRUE;
 }
-
-extern "C" __declspec(dllexport) void Dummy() { }

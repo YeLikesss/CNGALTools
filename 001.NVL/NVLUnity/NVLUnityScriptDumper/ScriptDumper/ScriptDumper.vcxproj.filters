@@ -78,4 +78,9 @@
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Export.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>

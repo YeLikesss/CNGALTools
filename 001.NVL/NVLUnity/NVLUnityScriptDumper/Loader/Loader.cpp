@@ -38,7 +38,7 @@ int wmain(int argc, wchar_t* argv[])
 		commandLine += L' ';
 	}
 
-	std::string dllPath = Util::GetAppDirectoryA() + "\\ScriptDumper.dll";
+	std::string dllPath = Util::GetAppDirectoryA() + "\\DumperGUI.dll";
 
 	STARTUPINFO startupInfo { 0 };
 	PROCESS_INFORMATION processInfo { 0 };
