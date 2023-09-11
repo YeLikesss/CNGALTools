@@ -54,12 +54,7 @@ namespace IFAction.V1
             }
 
             //提取目标文件夹路径
-            string outputDirPath = Path.GetDirectoryName(archivePath) + "\\Extract\\" + Path.GetFileNameWithoutExtension(archivePath) + "\\";
-            //检查文件夹是否存在 不存在创建
-            if (Directory.Exists(outputDirPath) == false)
-            {
-                Directory.CreateDirectory(outputDirPath);
-            }
+            string outputDirPath = Path.Combine(Path.GetDirectoryName(archivePath), "Extract_Static", Path.GetFileNameWithoutExtension(archivePath));
 
             //数据段偏移
             long dataAreaPos = archiveStream.Position;
@@ -72,8 +67,8 @@ namespace IFAction.V1
                 archiveStream.Seek(dataAreaPos + archiveInfo.Offset, SeekOrigin.Begin);  //数据段偏移+文件偏移
                 archiveStream.Read(buffer, 0, archiveInfo.Size);    //读取资源
 
-                
-                string outputArchivePath = outputDirPath + archiveInfo.Name;  //导出文件路径
+
+                string outputArchivePath = Path.Combine(outputDirPath, archiveInfo.Name);  //导出文件路径
                 string outputArchiveDir = Path.GetDirectoryName(outputArchivePath);     //导出文件文件夹路径
                 //检查导出文件夹是否存在 不存在创建
                 if (Directory.Exists(outputArchiveDir) == false)
