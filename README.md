@@ -213,7 +213,7 @@
 
     &emsp;&emsp;使用方法
 
-    &emsp;&emsp;&emsp;将待解析脚本(需要提前解包)放在`Dll目录\Script`下, 保证`Loader.exe`与`ScriptDumper.dll`在游戏路径下, 将游戏exe拖到`Loader.exe`运行即可, 会自动生成JSON放在`Dll目录\Script`下, 提前打开debugview观察log输出, 使用vscode去转义格式化json即可
+    &emsp;&emsp;&emsp; 保证`Loader.exe`与`ScriptDumper.dll`与`DumperGUI.dll`在同一路径下, 将游戏exe拖到`Loader.exe`运行即可, 打开debugview观察log输出, 脚本拖拽到指定位置即可解出, 使用vscode去转义格式化json即可
 
     &emsp;&emsp;编译环境 MSVC2022 x86
 
