@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureRadioStatic", "FutureRadioStatic\FutureRadioStatic.csproj", "{AF93CEF1-2944-49AE-AD89-3BD89E04E759}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{59887A72-979B-48A3-B5AD-65C3A057BFE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF93CEF1-2944-49AE-AD89-3BD89E04E759}.Debug|x64.ActiveCfg = Debug|x64
+		{AF93CEF1-2944-49AE-AD89-3BD89E04E759}.Debug|x64.Build.0 = Debug|x64
+		{AF93CEF1-2944-49AE-AD89-3BD89E04E759}.Release|x64.ActiveCfg = Release|x64
+		{AF93CEF1-2944-49AE-AD89-3BD89E04E759}.Release|x64.Build.0 = Release|x64
+		{59887A72-979B-48A3-B5AD-65C3A057BFE3}.Debug|x64.ActiveCfg = Debug|x64
+		{59887A72-979B-48A3-B5AD-65C3A057BFE3}.Debug|x64.Build.0 = Debug|x64
+		{59887A72-979B-48A3-B5AD-65C3A057BFE3}.Release|x64.ActiveCfg = Release|x64
+		{59887A72-979B-48A3-B5AD-65C3A057BFE3}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAF18EB3-4C40-473B-9702-91CC96C2A592}
+	EndGlobalSection
+EndGlobal

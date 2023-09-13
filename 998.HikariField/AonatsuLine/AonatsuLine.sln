@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AonatsuLineStatic", "AonatsuLineStatic\AonatsuLineStatic.csproj", "{11507478-901F-433B-B87C-2FC4C4AA0BBF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{62A76CEA-70DE-4399-BB76-93235F983441}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11507478-901F-433B-B87C-2FC4C4AA0BBF}.Debug|x64.ActiveCfg = Debug|x64
+		{11507478-901F-433B-B87C-2FC4C4AA0BBF}.Debug|x64.Build.0 = Debug|x64
+		{11507478-901F-433B-B87C-2FC4C4AA0BBF}.Release|x64.ActiveCfg = Release|x64
+		{11507478-901F-433B-B87C-2FC4C4AA0BBF}.Release|x64.Build.0 = Release|x64
+		{62A76CEA-70DE-4399-BB76-93235F983441}.Debug|x64.ActiveCfg = Debug|x64
+		{62A76CEA-70DE-4399-BB76-93235F983441}.Debug|x64.Build.0 = Debug|x64
+		{62A76CEA-70DE-4399-BB76-93235F983441}.Release|x64.ActiveCfg = Release|x64
+		{62A76CEA-70DE-4399-BB76-93235F983441}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3ECA1952-8C03-4FE5-B242-6DC860193950}
+	EndGlobalSection
+EndGlobal

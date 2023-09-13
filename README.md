@@ -1,4 +1,6 @@
-### 国产Gal工具  Chinese Galgame/Visual Novel  Tools   (摸鱼式更新)
+### 国产Gal工具 Chinese Galgame/Visual Novel Tools   (摸鱼式更新)
+
+### 部分官中代理Gal合并在此发布
 
 ### 开发环境 :Windows 7 SP1 x64 补丁至2023.4
 
@@ -436,10 +438,6 @@
 
     &emsp;游戏Key : 41394A3542384D4A50554D3539464B57
 
-* 状态说明
-  
-    &emsp;
-
 #### 9.SoraPlayer
 
 * 修改了Sign的Krkr2封包  (未加密)
@@ -455,10 +453,6 @@
     &emsp;Nuget依赖
 
     &emsp;&emsp;ICSharpCode
-
-* 状态说明
-  
-    &emsp;1.游戏暂未体验, 可能会继续跟进
 
 #### 10.UniversalXP3DecFilter
 
@@ -504,6 +498,41 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 998.HikariField (官中发行商)
+
+* AonatsuLine (Giga Unity)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《アオナツライン》 Chs-Cht-Jpn Release
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+* FutureRadio (CatSystem2 Unity)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《未来ラジオと人工鳩》 Chs-Cht-Jpn-Eng Release
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+* NekoNyan (NekoNyan Unity)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《蒼の彼方のフォーリズム PE/EXTRA1/EXTRA2》 Chs-Cht-Jpn-Eng Release
+
+    &emsp;&emsp;《金色ラブリッチェ》 Chs-Cht-Jpn-Eng Release
+
+    &emsp;&emsp;《Clover Day's Plus》 Chs-Cht-Jpn-Eng Release
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
 
 #### 999.Others (其他平台或虚拟机部分 纯粹运气好赌对的技巧 可能不具备参考价值)
 
