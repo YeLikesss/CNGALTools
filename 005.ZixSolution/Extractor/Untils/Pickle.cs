@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Razorvine.Pickle.Objects;
 using Razorvine.Pickle;
 
 namespace Extractor.Untils

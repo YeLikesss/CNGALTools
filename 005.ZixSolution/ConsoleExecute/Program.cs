@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Linq;
 using System.Text;
 using System.IO;
+
+//using Extractor.ZixRenpy7V1.Crypto;
+//using Extractor.ZixRenpy7V1.Renpy;
 using Extractor.ZixRenpy8V1.Crypto;
-using Extractor.ZixRenpy8V1.Game;
 using Extractor.ZixRenpy8V1.Renpy;
 
 namespace ConsoleExecute
@@ -22,7 +23,7 @@ namespace ConsoleExecute
             string[] archiveFilePaths = renpyPath.GetAllArchiveFilesFullPath();
 
             TheNeverlandOfTheMountainAndSea game = new();
-            IRPAExtractor extractor = game;
+            IExtractor extractor = game;
             IKeyInformation keyInformation = game;
 
             //解密模块
@@ -44,6 +45,7 @@ namespace ConsoleExecute
                 {
                     extractor.Extract(p, extractPath);
                 }
+                extractor.ExtractScript(extractPath);
             }
 
             Console.WriteLine("Extract Completed");

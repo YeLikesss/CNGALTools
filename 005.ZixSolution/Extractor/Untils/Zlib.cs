@@ -1,5 +1,5 @@
-﻿using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
-using System.IO;
+﻿using System.IO;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
 namespace Extractor.Untils
 {

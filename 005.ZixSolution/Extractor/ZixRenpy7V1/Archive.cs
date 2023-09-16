@@ -1,131 +1,355 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.IO;
-using System.Text;
 using System.Buffers;
-using Extractor.ZixRenpy7V1.Crypto;
+using System.Collections;
+using System.IO;
+using System.Runtime.InteropServices;
 using Extractor.Untils;
+using Extractor.ZixRenpy7V1.Crypto;
 
 namespace Extractor.ZixRenpy7V1.Renpy
 {
     /// <summary>
-    /// 资源文件
+    /// 文件表
     /// </summary>
-    public class Archive
+    public class FileEntry
     {
         /// <summary>
-        /// 获取或设置导出主路径文件夹
+        /// 资源偏移
         /// </summary>
-        public string ExtractOutputDir { get; set; }
-
-        private Crypto128 mCrypto;  //加密插件相关
+        public long Offset { get; set; }
+        /// <summary>
+        /// 资源大小
+        /// </summary>
+        public long Size { get; set; }
+        /// <summary>
+        /// 资源头
+        /// </summary>
+        public byte[] Header { get; }
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="key">游戏key</param>
-        /// <param name="xorVector">异或向量</param>
-        /// <param name="substitutionBox1">S盒1</param>
-        /// <param name="substitutionBox2">S盒2</param>
-        /// <param name="substitutionBox3">S盒3</param>
-        /// <param name="substitutionBox4">S盒4</param>
-        /// <param name="substitutionBox5">S盒5</param>
-        /// <param name="substitutionBox6">S盒6</param>
-        /// <param name="substitutionBox7">S盒7</param>
-        /// <param name="substitutionBox8">S盒8</param>
-        /// <param name="outDir">导出路径</param>
-        public Archive(byte[] key, byte[] xorVector,
-                       byte[] substitutionBox1, byte[] substitutionBox2, byte[] substitutionBox3,
-                       byte[] substitutionBox4, byte[] substitutionBox5, byte[] substitutionBox6,
-                       byte[] substitutionBox7, byte[] substitutionBox8, string outDir)
+        /// <param name="fileInfo">文件表信息</param>
+        public FileEntry(object[] fileInfo)
         {
-            mCrypto = new(key, xorVector);
-            mCrypto.Initialize(substitutionBox1, substitutionBox2, substitutionBox3, substitutionBox4, substitutionBox5, substitutionBox6, substitutionBox7, substitutionBox8);
-
-            //设置导出文件夹
-            outDir = outDir.Trim();
-            if (outDir.Last() != '\\' || outDir.Last() != '/')
             {
-                outDir += "\\";
+                if (fileInfo[0] is long i64)
+                {
+                    this.Offset = i64;
+                }
+                else if (fileInfo[0] is int i32)
+                {
+                    this.Offset = i32;
+                }
             }
-            ExtractOutputDir = outDir;
+
+            {
+                if (fileInfo[1] is long i64)
+                {
+                    this.Size = i64;
+                }
+                else if (fileInfo[1] is int i32)
+                {
+                    this.Size = i32;
+                }
+            }
+
+            if(fileInfo[2] is string strHeader)
+            {
+                ReadOnlySpan<char> header = strHeader.AsSpan();
+                if (header.Length == 16)
+                {
+                    this.Header = new byte[16];
+                    for (int i = 0; i < 16; ++i)
+                    {
+                        this.Header[i] = (byte)(header[i] & 0xFF);
+                    }
+                }
+                else
+                {
+                    this.Header = Array.Empty<byte>();
+                }
+            }
+            else
+            {
+                this.Header = Array.Empty<byte>();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Renpy各种路径
+    /// </summary>
+    public class RenpyPath
+    {
+        private readonly string mPath;
+
+        /// <summary>
+        /// 获取资源路径
+        /// </summary>
+        /// <returns></returns>
+        public string GetArchivePath()
+        {
+            return Path.Combine(this.mPath, "game");
         }
 
         /// <summary>
-        /// 解密文件
+        /// 获取py模块路径
         /// </summary>
-        /// <param name="upperDirName">上级文件夹名字</param>
-        /// <param name="directory">文件夹信息</param>
-        public void DecryptFile(string upperDirName, DirectoryInfo directory)
+        /// <returns></returns>
+        public string GetModulePath()
         {
-            //设置导出路径
-            string extractDir = string.Concat(ExtractOutputDir, upperDirName, directory.Name, "/");
-            //如果不存在则创建文件
-            if (Directory.Exists(extractDir) == false)
-            {
-                Directory.CreateDirectory(extractDir);
-            }
-
-            //获取目录子文件
-            List<FileInfo> archiveFiles = directory.EnumerateFiles().ToList();
-
-            //遍历文件
-            foreach (FileInfo archiveFile in archiveFiles)
-            {
-                using FileStream fs = File.OpenRead(archiveFile.FullName);
-
-                //检查16字节对齐
-                if ((fs.Length & 0xF) != 0)
-                {
-                    continue;
-                }
-                //申请内存
-                byte[] buffer = ArrayPool<byte>.Shared.Rent((int)fs.Length);
-                //读取文件
-                fs.Read(buffer, 0, (int)fs.Length);
-
-                //设置循环次数
-                int loopCount = (int)(fs.Length / 16);
-
-                //循环解密
-                for (int loop = 0; loop < loopCount; loop++)
-                {
-                    //指向待解密数据指针
-                    Span<byte> temp = new Span<byte>(buffer, loop * 16, 16);
-                    //一次解密16字节
-                    mCrypto.Decrypt16BytesData(temp);
-                }
-
-
-                //获取导出长度
-                int outLength = (int)(fs.Length - buffer[fs.Length - 1]);
-
-                //获取导出路径
-                string outPath = string.Concat(extractDir, archiveFile.Name);
-
-                //写出文件
-                using FileStream fsw = new(outPath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                fsw.Write(buffer, 0, outLength);
-
-                //释放
-                ArrayPool<byte>.Shared.Return(buffer);
-
-                //打印log
-                Console.WriteLine(string.Concat(archiveFile.Name, "    解密成功"));
-
-            }
-
-            //获取子文件夹
-            List<DirectoryInfo> subDirs = directory.EnumerateDirectories().ToList();
-
-            //循环递归
-            subDirs.ForEach(subdir =>
-            {
-                DecryptFile(string.Concat(upperDirName, directory.Name, "/"), subdir);
-            });
+            return Path.Combine(this.mPath, "renpy");
         }
 
+
+        /// <summary>
+        /// 获取所有资源文件全路径
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetAllArchiveFilesFullPath()
+        {
+            return Directory.GetFiles(this.GetArchivePath(), "*.rpa", SearchOption.AllDirectories);
+        }
+
+        /// <summary>
+        /// 获取所有模块文件全路径 (加密的)
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetAllModuleFilesFullPath()
+        {
+            return Directory.GetFiles(this.GetModulePath(), "*.pyc", SearchOption.AllDirectories);
+        }
+
+        /// <summary>
+        /// 获取提取目录
+        /// </summary>
+        /// <returns></returns>
+        public string GetExtractPath()
+        {
+            return Path.Combine(this.mPath, "Static_Extract");
+        }
+
+        /// <summary>
+        /// 获取相对路径
+        /// </summary>
+        /// <returns></returns>
+        public string GetRelativePath(string path)
+        {
+            if (this.mPath == path.Substring(0, this.mPath.Length))
+            {
+                ReadOnlySpan<char> str = path.AsSpan().Slice(this.mPath.Length);
+
+                int pos = 0;
+                for (int i = 0; i < str.Length; ++i)
+                {
+                    if (str[i] == '\\' || str[i] == '/')
+                    {
+                        pos++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                return str.Slice(pos).ToString();
+            }
+            else
+            {
+                return path;
+            }
+        }
+
+        /// <summary>
+        /// 恢复扩展名
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public string FixExtension(string path)
+        {
+            return Path.ChangeExtension(path, ".pyc");
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="gamePath">游戏路径</param>
+        public RenpyPath(string gamePath)
+        {
+            this.mPath = gamePath;
+        }
     }
+
+    /// <summary>
+    /// 提取接口
+    /// </summary>
+    public interface IExtractor
+    {
+        /// <summary>
+        /// 提取资源
+        /// </summary>
+        /// <param name="filePath">文件全路径</param>
+        /// <param name="extractPath">导出全路径</param>
+        public void Extract(string filePath, string extractPath);
+
+        /// <summary>
+        /// 解压解析脚本
+        /// <para>在提取资源完毕后调用</para>
+        /// </summary>
+        /// <param name="extractPath">导出全路径</param>
+        public void ExtractScript(string extractPath);
+    }
+
+    /// <summary>
+    /// 时间记忆:碎片 Renpy7.3.5
+    /// </summary>
+    public class AeonOnMosaicAnemone : KeyInformationBase, IExtractor
+    {
+        public void Extract(string filePath, string extractPath)
+        {
+            string extractDir = Path.Combine(extractPath, Path.GetFileNameWithoutExtension(filePath));
+
+            //开启流读取
+            using FileStream mFs = File.OpenRead(filePath);
+            using BinaryReader mBr = new(mFs);
+
+            mFs.Seek(96, SeekOrigin.Begin);
+
+            //分别读取 文件表key 资源key 文件表offset
+            uint key = mBr.ReadUInt32() ^ 0x154AEF91;
+            uint skey = mBr.ReadUInt32() ^ 0x154AEF91;
+            uint entryOffset = mBr.ReadUInt32() ^ 0x154AEF91;
+
+            //读表
+            byte[] entry = new byte[mFs.Length - entryOffset];
+            mFs.Seek(entryOffset, SeekOrigin.Begin);
+            mFs.Read(entry);
+
+            entry = Zlib.Decompress(entry);
+
+            //获取文件信息表
+            Hashtable entryInfo = (Hashtable)Pickle.Decode(entry);
+
+            //文件头key
+            Span<uint> headerKey = stackalloc uint[4] { 0x641F6916, 0x7EA54007, 0x1E20D401, 0x11A27A20 };
+
+            //遍历文件表
+            foreach (DictionaryEntry archiveInfo in entryInfo)
+            {
+                string fileName = (string)archiveInfo.Key;      //获取文件名
+
+                object[]? fileInfo = (object[])((ArrayList)archiveInfo.Value)[0];       //获取文件信息
+                FileEntry fileEntry = new(fileInfo);        //获取文件信息
+
+                fileEntry.Offset ^= key;
+                fileEntry.Size ^= key;
+
+                string extractFullPath = Path.Combine(extractDir, fileName);
+                {
+                    if (Path.GetDirectoryName(extractFullPath) is string dir)
+                    {
+                        if (!Directory.Exists(dir))
+                        {
+                            Directory.CreateDirectory(dir);
+                        }
+                    }
+                }
+                using FileStream mFsW = new(extractFullPath, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
+
+                //检测资源头
+                if (fileEntry.Header.Length != 0)
+                {
+                    unsafe
+                    {
+                        Span<byte> headerPtr = fileEntry.Header.AsSpan();
+                        Span<uint> headerPtrPack4 = MemoryMarshal.Cast<byte, uint>(headerPtr);
+
+                        uint hKey = skey;
+                        {
+                            Span<byte> hKeyPtr = new(&hKey, 4);
+                            hKeyPtr.Reverse();      //大端
+                        }
+
+                        for (int index = 0; index < 4; index++)
+                        {
+                            headerPtrPack4[index] ^= headerKey[index] ^ hKey;
+                        }
+                    }
+                    mFsW.Write(fileEntry.Header);         //写入头
+                }
+
+                //提取
+                {
+                    byte[] buffer = new byte[fileEntry.Size];
+                    mFs.Seek(fileEntry.Offset, SeekOrigin.Begin);
+                    mFs.Read(buffer);
+                    mFsW.Write(buffer);         //写入数据
+                    mFsW.Flush();
+                }
+
+                Console.WriteLine("{0} ---> Extract Success", fileName);
+            }
+        }
+
+        public void ExtractScript(string extractPath)
+        {
+            string[] scriptPaths = Directory.GetFiles(extractPath, "*.rpyc", SearchOption.AllDirectories);
+
+            Span<byte> keys = stackalloc byte[4];
+
+            for (int i = 0; i < scriptPaths.Length; ++i)
+            {
+                string path = scriptPaths[i];
+
+                string extractDir = Path.ChangeExtension(path, string.Empty);
+                if (!Directory.Exists(extractDir))
+                {
+                    Directory.CreateDirectory(extractDir);
+                }
+
+                using FileStream rpycFS = File.OpenRead(path);
+                using BinaryReader rpycBR = new(rpycFS);
+
+                //读key
+                rpycFS.Position = 0x30;
+                rpycFS.Read(keys);
+
+                rpycFS.Position = 0xA;
+                //读表
+                long tablePosition;
+                int slot, start, length;
+                while (true)
+                {
+                    slot = rpycBR.ReadInt32();
+                    start = rpycBR.ReadInt32();
+                    length = rpycBR.ReadInt32();
+
+                    tablePosition = rpycFS.Position;    //保存当前表位置
+
+                    if (slot == 0)
+                    {
+                        break;
+                    }
+
+                    //解密信息
+                    start = start ^ keys[0] ^ keys[3];
+                    length = length ^ keys[1] ^ keys[2];
+                    //读取封包
+                    byte[] compressedData = ArrayPool<byte>.Shared.Rent(length);
+                    rpycFS.Seek(start, SeekOrigin.Begin);
+                    rpycBR.Read(compressedData, 0, length);
+                    //解压导出
+                    byte[] rawData = Zlib.Decompress(compressedData);
+
+                    File.WriteAllBytes(Path.Combine(extractDir, $"{slot}.bin"), rawData);
+
+                    ArrayPool<byte>.Shared.Return(compressedData);  //释放
+                    rpycFS.Seek(tablePosition, SeekOrigin.Begin);   //回到下一个表的起始点
+                }
+            }
+        }
+    }
+
+
 }
