@@ -466,7 +466,7 @@
 
 * 《蔚蓝月下的回忆~SAPPHIRE MOON-FOREVER MEMORIES》   解包代码  (Unity自带的AssetBundle加密)
 
-    &emsp;可以使用[CNStudio](https://github.com/Razmoth/CNStudio)提取 
+    &emsp;可以使用[CNStudio](https://github.com/RazTools/Studio)提取 
 
     &emsp;游戏Key : 41394A3542384D4A50554D3539464B57
 
