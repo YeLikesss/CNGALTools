@@ -35,11 +35,11 @@ namespace ConsoleExecute
                 PacArchive arc = new(Path.Combine(gameDirectory, pck.Item1), pck.Item2, pck.Item3);
                 if (arc.Extract(extractdirectory))
                 {
-                    Console.WriteLine(pck.Item1 + "    解包成功");
+                    Console.WriteLine("{0}    解包成功", pck.Item1);
                 }
                 else
                 {
-                    Console.WriteLine(pck.Item1 + "    解包失败");
+                    Console.WriteLine("{0}    解包失败", pck.Item1);
                 }
             }
         }

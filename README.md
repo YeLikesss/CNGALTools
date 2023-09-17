@@ -48,7 +48,9 @@
 
     &emsp;&emsp;&emsp;&emsp;Zstd.Net
 
-    &emsp;&emsp;编译环境 .Net 6.x
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;BKEFileNameDumper  (Dump V21Hash文件名)
 
@@ -58,7 +60,9 @@
 
     &emsp;&emsp;&emsp;&emsp;《十二色季节》  (仅此一部游戏)
 
-    &emsp;&emsp;编译环境 MSVC2022 x86
+    &emsp;&emsp;编译环境
+    
+    &emsp;&emsp;&emsp;MSVC2022 x86
 
     &emsp;No Protector Executable (个人脱壳主程序)
 
@@ -114,7 +118,9 @@
 
     &emsp;&emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
-    &emsp;&emsp;编译环境 .Net 6.x
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;NVLKrkrDump (动态提取) (Dump资源 Hash文件名)
 
@@ -132,7 +138,9 @@
 
     &emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到`NVLKrkrDumpLoader.exe`运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表,`AutoPath.lst`为游戏自动路径列表,可搭配hash算法进行碰撞还原
 
-    &emsp;&emsp;编译环境 MSVC2022 x86
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;MSVC2022 x86
 
     &emsp;NVLKR2 Hash Decoder (爆破hash文件名)
 
@@ -155,7 +163,9 @@
 
     &emsp;&emsp;&emsp;1.该Hash算法碰撞率极高  不建议一次性加载太多AutoPath
 
-    &emsp;&emsp;编译环境 .Net 6.x
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;状态说明
 
@@ -191,7 +201,9 @@
     
     &emsp;&emsp;&emsp;《死亡直播间》
     
-    &emsp;&emsp;编译环境 .Net 6.x
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;NVLUnityScriptDumper (动态解析脚本)
 
@@ -217,7 +229,9 @@
 
     &emsp;&emsp;&emsp; 保证`Loader.exe`与`ScriptDumper.dll`与`DumperGUI.dll`在同一路径下, 将游戏exe拖到`Loader.exe`运行即可, 打开debugview观察log输出, 脚本拖拽到指定位置即可解出, 使用vscode去转义格式化json即可
 
-    &emsp;&emsp;编译环境 MSVC2022 x86
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;MSVC2022 x86
 
     &emsp;状态说明
 
@@ -233,7 +247,9 @@
     
     &emsp;&emsp;&emsp;《我和她的世界末日》
     
-    &emsp;&emsp;编译环境 .Net 6.x
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;状态说明
 
@@ -251,7 +267,9 @@
     
     &emsp;&emsp;&emsp;《空梦》
     
-    &emsp;&emsp;编译环境 .Net 6.x
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;状态说明
 
@@ -279,7 +297,9 @@
     
     &emsp;&emsp;&emsp;K4os.Compression.LZ4
     
-    &emsp;编译环境 .Net 6.x
+    &emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
 * 状态说明
   
@@ -303,7 +323,9 @@
 
     &emsp;&emsp;&emsp;使用`TexturePacker`转换`.pvr`资源为`.png`
 
-    &emsp;&emsp;编译环境 MSVC2022 x86
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;MSVC2022 x86
 
 * 状态说明
   
@@ -333,7 +355,9 @@
     
     &emsp;&emsp;&emsp;Razorvine.Pickle
     
-    &emsp;编译环境 .Net 6.x
+    &emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;注意
 
@@ -373,7 +397,9 @@
 
     &emsp;&emsp;&emsp;Razorvine.Pickle
 
-    &emsp;编译环境 .Net 6.x
+    &emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
 * 状态说明
   
@@ -389,7 +415,9 @@
 
     &emsp;&emsp;《荧火微光》
 
-    &emsp;编译环境 .Net 6.x
+    &emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
 * 状态说明
   
@@ -413,7 +441,9 @@
 
     &emsp;&emsp;《吸血鬼旋律》
 
-    &emsp;编译环境 .Net 6.x x86
+    &emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x x86
 
     &emsp;注意事项
 
@@ -430,7 +460,9 @@
 
 * 《十二刻度的月计时》  激活码KeyGen
 
-    &emsp;编译环境 .Net 6.0
+    &emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;.Net 6.x
 
 * 《蔚蓝月下的回忆~SAPPHIRE MOON-FOREVER MEMORIES》   解包代码  (Unity自带的AssetBundle加密)
 
@@ -450,9 +482,11 @@
 
     &emsp;&emsp;.Net 6.x
 
-    &emsp;Nuget依赖
+    &emsp;依赖库
 
-    &emsp;&emsp;ICSharpCode
+    &emsp;&emsp;Nuget
+
+    &emsp;&emsp;&emsp;ICSharpCode
 
 #### 10.UniversalXP3DecFilter
 
@@ -482,9 +516,11 @@
 
     &emsp;&emsp;.Net 6.x
 
-    &emsp;Nuget依赖
+    &emsp;依赖库
 
-    &emsp;&emsp;ICSharpCode
+    &emsp;&emsp;Nuget
+
+    &emsp;&emsp;&emsp;ICSharpCode
 
 #### 11.Irregulars
 
@@ -498,9 +534,39 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 997.SyawaseWorks (官中发行商)
+
+* HamidashiCreative (Cracker/Dumper)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《ハミダシクリエイティブ》 Chs Release
+
+    &emsp;依赖库
+
+    &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
+
+    &emsp;编译环境 
+    
+    &emsp;&emsp;MSVC2022 x86
+
+* HappyLiveShowUp (Cracker)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《ハッピーライヴ ショウアップ！》 Chs Release
+
+    &emsp;依赖库
+
+    &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
+
+    &emsp;编译环境 
+    
+    &emsp;&emsp;MSVC2022 x86
+
 #### 998.HikariField (官中发行商)
 
-* AonatsuLine (Giga Unity)
+* AonatsuLine (Giga Unity) (Extractor)
 
     &emsp;游戏测试
 
@@ -510,7 +576,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-* FutureRadio (CatSystem2 Unity)
+* FutureRadio (CatSystem2 Unity) (Extractor)
 
     &emsp;游戏测试
 
@@ -520,7 +586,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-* NekoNyan (NekoNyan Unity)
+* NekoNyan (NekoNyan Unity) (Extractor)
 
     &emsp;游戏测试
 
