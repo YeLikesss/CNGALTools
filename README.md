@@ -494,6 +494,8 @@
 
     &emsp;&emsp;注:部分游戏使用molebox打包 请先使用demoleition解包
 
+    &emsp;&emsp;《彼岸花葬》
+
     &emsp;&emsp;《翡翠月》
 
     &emsp;&emsp;《雪之本境》 光盘版(2010)

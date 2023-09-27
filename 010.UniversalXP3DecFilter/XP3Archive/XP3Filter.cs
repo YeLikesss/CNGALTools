@@ -7,6 +7,21 @@ namespace XP3Archive
         public void Decrypt(Span<byte> data, uint hash, long offset = 0);
     }
 
+    public class BiAnHuaZang : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] ^= (byte)(hash >> 3);
+            }
+        }
+        public override string ToString()
+        {
+            return "彼岸花葬";
+        }
+    }
+
     public class JadeMoon : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)

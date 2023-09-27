@@ -21,6 +21,7 @@ namespace MainFrom
                 titles.BeginUpdate();
                 titles.Items.Clear();
 
+                titles.Items.Add(new BiAnHuaZang());
                 titles.Items.Add(new JadeMoon());
                 titles.Items.Add(new ConspiracyFieldSnowTrapCh1());
                 titles.Items.Add(new ConspiracyFieldSnowTrapCh2());
