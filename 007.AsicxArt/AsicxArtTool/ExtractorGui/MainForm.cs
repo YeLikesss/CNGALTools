@@ -17,32 +17,41 @@ namespace Extractor.GUI
         public MainForm()
         {
             InitializeComponent();
+
+            {
+                ComboBox cb = this.cbTitle;
+
+                cb.BeginUpdate();
+                cb.Items.Clear();
+                cb.Items.Add(new FluffyStore());
+                cb.Items.Add(new VampiresMelody());
+                cb.Items.Add(new VampiresMelody2());
+                cb.SelectedIndex = 0;
+                cb.EndUpdate();
+            }
+
         }
 
-        private void btnExtract_Click(object sender, EventArgs e)
+        private async void btnExtract_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            folderDialog.Description = "请选择游戏资源文件夹";
-            folderDialog.ShowNewFolderButton = false;
+            using FolderBrowserDialog fbd = new();
+            fbd.Description = "请选择游戏资源文件夹";
+            fbd.ShowNewFolderButton = false;
 
-            if (folderDialog.ShowDialog() == DialogResult.OK)
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
-                IGameInformation gameInfo = null;
-                string dirPath = folderDialog.SelectedPath;
-                switch (this.cbSelectGame.SelectedIndex)
+                if (this.cbTitle.SelectedItem is IGameInformation gameInfo)
                 {
-                    case 0:
-                        gameInfo = new FluffyStore();
-                        break;
-                    case 1:
-                        gameInfo = new VampiresMelody();
-                        break;
-                    default:
-                        MessageBox.Show("请选择游戏", "错误");
-                        return;
+                    Button btn = (Button)sender;
+                    btn.Enabled = false;
+
+                    await Task.Run(() =>
+                    {
+                        new Archive(gameInfo.SqliteAES128Key).Extract(fbd.SelectedPath);
+                    });
+                    MessageBox.Show("提取成功", "Information");
+                    btn.Enabled = true;
                 }
-                new Archive(gameInfo.SqliteAES128Key).Extract(dirPath);
-                MessageBox.Show("提取成功", "Information");
             }
         }
     }

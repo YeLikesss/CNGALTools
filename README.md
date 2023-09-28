@@ -441,9 +441,11 @@
 
     &emsp;&emsp;《吸血鬼旋律》
 
+    &emsp;&emsp;《吸血鬼旋律 2》
+
     &emsp;编译环境 
     
-    &emsp;&emsp;&emsp;.Net 6.x x86
+    &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;注意事项
     

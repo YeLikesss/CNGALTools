@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.IO;
 
@@ -23,7 +22,7 @@ namespace AsicxArt.V1
 
     public class Archive
     {
-        private byte[] mKey;        //游戏数据库key
+        private readonly byte[] mKey;        //游戏数据库key
 
         /// <summary>
         /// 提取资源
@@ -71,7 +70,7 @@ namespace AsicxArt.V1
                         for (int id = 0; id < rowCount; id++)
                         {
                             //准备sql执行语句
-                            string sql = string.Format("select * from {0} where id={1}", tableName, id.ToString());
+                            string sql = $"select * from {tableName} where id={id}";
                             IntPtr statementPtr;
                             statementPtr = SQLite3.Prepare2(hDB, sql);
                             //执行
@@ -85,12 +84,13 @@ namespace AsicxArt.V1
                             //释放
                             SQLite3.Finalize(statementPtr);
 
-
                             {
-                                string extractDir = Path.GetDirectoryName(extractFileFullPath);
-                                if (!Directory.Exists(extractDir))
+                                if(Path.GetDirectoryName(extractFileFullPath) is string dir)
                                 {
-                                    Directory.CreateDirectory(extractDir);
+                                    if (!Directory.Exists(dir))
+                                    {
+                                        Directory.CreateDirectory(dir);
+                                    }
                                 }
                             }
                             File.WriteAllBytes(extractFileFullPath, data);
@@ -173,7 +173,7 @@ namespace AsicxArt.V1
         /// <returns></returns>
         private byte[] GetResourceData(IntPtr statementPtr, ArchiveType arcType)
         {
-            byte[] data = null;
+            byte[] data = Array.Empty<byte>();
             switch (arcType)
             {
                 case ArchiveType.Gallery:
