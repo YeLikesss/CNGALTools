@@ -27,11 +27,11 @@ void UnInlineHook(PVOID* OriginalFunction, PVOID DetourFunction)
     DetourTransactionCommit();
 }
 
+#define EnableDumper 0          //设置为1启用文件Dump
+
 #define MainExe_CreateWindowExW_IAT_RVA 0x24D34C        //主程序CreateWindowExW函数 IAT RVA
 #define MainExe_SetWindowTextW_IAT_RVA 0x24D384         //主程序SetWindowTextW函数 IAT RVA
-#define EncryptDll_Original_CreateWindowExW_Addr_RVA 0x42C28    //加密DLL存放原CreateWindowExW函数地址的RVA
-#define EncryptDll_Original_SetWindowTextW_Addr_RVA 0x42C38   //加密DLL存放原SetWindowTextW函数地址的RVA
-#define EncryptDll_CrashThreadStartAddress_RVA 0x26903      //加密DLL报错线程地址RVA
+
 #define Xbundler_SteamApi_ImageSize 0x42000     //壳VFS内steam_api.dll模块大小
 #define Xbundler_SteamApi_Kernel32ImportName_RVA 0x3B80A     //壳VFS内steam_api.dll导入kernel32.dll的名称RVA
 #define Xbundler_SteamApi_Advapi32ImportName_RVA 0x3B84A     //壳VFS内steam_api.dll导入Advapi32.dll的名称RVA
@@ -156,11 +156,6 @@ BOOL __stdcall MatchPath(const wchar_t* path, std::vector<std::wstring>& regex)
         }
     }
     return match;
-}
-
-__declspec(noinline)
-void* __cdecl HookFopen(const char* fileName, const char* mode) 
-{
 }
 
 __declspec(noinline)
@@ -294,6 +289,7 @@ BOOL WINAPI ExtractFile(const wchar_t* fileName)
 
 NTSTATUS NTAPI HookNtAllocateVirtualMemory(HANDLE ProcessHandle, PVOID* BaseAddress, ULONG_PTR ZeroBits, PSIZE_T RegionSize, ULONG AllocationType, ULONG Protect);
 NTSTATUS NTAPI HookNtCreateThreadEx(PHANDLE ThreadHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes, HANDLE ProcessHandle, PUSER_THREAD_START_ROUTINE StartRoutine, PVOID Argument, ULONG CreateFlags, SIZE_T ZeroBits, SIZE_T StackSize, SIZE_T MaximumStackSize, PPS_ATTRIBUTE_LIST AttributeList);
+BOOL NTAPI BypassThreadDetector(SIZE_T threadEPRva);
 
 NTSTATUS NTAPI HookNtAllocateVirtualMemory(HANDLE ProcessHandle, PVOID* BaseAddress, ULONG_PTR ZeroBits, PSIZE_T RegionSize, ULONG AllocationType, ULONG Protect) 
 {
@@ -350,29 +346,63 @@ NTSTATUS NTAPI HookNtCreateThreadEx
 {
     if ((SIZE_T)ProcessHandle == MAXSIZE_T)
     {
-        PVOID encryptDllImagebase = GetModuleHandleW(L"hamidashi.dll");
-        if (encryptDllImagebase) 
+        if (PVOID encryptDllImagebase = GetModuleHandleW(L"hamidashi.dll"))
         {
             //检测创建线程是否为 定时检测函数
-            if ((SIZE_T)encryptDllImagebase + EncryptDll_CrashThreadStartAddress_RVA == (SIZE_T)StartRoutine) 
+            if (BypassThreadDetector((SIZE_T)StartRoutine - (SIZE_T)encryptDllImagebase))
             {
                 StartRoutine = (PUSER_THREAD_START_ROUTINE)Dummy;       //替换目标地址
-
-                PVOID mainExeImageBase = GetModuleHandleW(NULL);
-                DWORD oldProtect = 0;
-
-                //解除加密Dll SetWindowTextW Hook
-                PVOID mainExe_SetWindowTextW_IAT_Va = (PVOID)((SIZE_T)mainExeImageBase + MainExe_SetWindowTextW_IAT_RVA);
-
-                VirtualProtect(mainExe_SetWindowTextW_IAT_Va, 4, PAGE_READWRITE, &oldProtect);
-                *(SIZE_T*)mainExe_SetWindowTextW_IAT_Va = *(SIZE_T*)((SIZE_T)encryptDllImagebase + EncryptDll_Original_SetWindowTextW_Addr_RVA);
-                VirtualProtect(mainExe_SetWindowTextW_IAT_Va, 4, oldProtect, &oldProtect);
-
             }
         }
     }
     return g_orgNtCreateThreadEx(ThreadHandle, DesiredAccess, ObjectAttributes, ProcessHandle, StartRoutine, Argument, CreateFlags, ZeroBits, StackSize, MaximumStackSize, AttributeList);
 }
+
+BOOL NTAPI BypassThreadDetector(SIZE_T threadEPRva)
+{
+    SIZE_T encDllOrgCreateWindowExW_RVA = 0;    //加密DLL存放原CreateWindowExW函数地址的RVA
+    SIZE_T encDllOrgSetWindowTextW_RVA = 0;     //加密DLL存放原SetWindowTextW函数地址的RVA
+
+    if (0x26903 == threadEPRva)   //V102  Steam 2022.10.1
+    {
+        g_Logger.WriteLine(L"Hamidashi V102 Hit");
+
+        encDllOrgCreateWindowExW_RVA = 0x42C28;
+        encDllOrgSetWindowTextW_RVA = 0x42C38;
+    }
+    else if(0x27A03 == threadEPRva)    //V105  Steam 2022.10.11
+    {
+        g_Logger.WriteLine(L"Hamidashi V105 Hit");
+
+        encDllOrgCreateWindowExW_RVA = 0x43C70;
+        encDllOrgSetWindowTextW_RVA = 0x43C80;
+    }
+    else
+    {
+        return FALSE;
+    }
+
+    PVOID mainExeImageBase = GetModuleHandleW(NULL);
+    PVOID encryptDllImagebase = GetModuleHandleW(L"hamidashi.dll");
+    DWORD oldProtect = 0;
+
+    if (encDllOrgCreateWindowExW_RVA) 
+    {
+    }
+
+    //还原SetWindowTextW Hook
+    if (encDllOrgSetWindowTextW_RVA)
+    {
+        PVOID mainExe_SetWindowTextW_IAT_Va = (PVOID)((SIZE_T)mainExeImageBase + MainExe_SetWindowTextW_IAT_RVA);
+
+        VirtualProtect(mainExe_SetWindowTextW_IAT_Va, 4, PAGE_READWRITE, &oldProtect);
+        *(SIZE_T*)mainExe_SetWindowTextW_IAT_Va = *(SIZE_T*)((SIZE_T)encryptDllImagebase + encDllOrgSetWindowTextW_RVA);
+        VirtualProtect(mainExe_SetWindowTextW_IAT_Va, 4, oldProtect, &oldProtect);
+    }
+
+    return TRUE;
+}
+
 
 void StartUp() 
 {
@@ -395,9 +425,13 @@ void StartUp()
     //初始化文件读写
     InitializeFileStream();
 
-    //Hook
-    //InlineHook(&g_MainExeFopenFunc, HookFopen);
+    //Dumper Hook
+#if EnableDumper
     InlineHook(&g_MainExeWFopenFunc, HookWFopen);
+    g_Logger.WriteLine(L"Dumper Enable");
+#else
+    g_Logger.WriteLine(L"Dumper Disable");
+#endif 
 
     //dump筛选器
     g_regexExcludeRules.clear();
