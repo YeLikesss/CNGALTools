@@ -536,6 +536,20 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 996.LightVN
+
+* LightVN Engine
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《U-ena 空焰火少女》
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+    &emsp;似乎有人逆过这个引擎了 此处仅做备份代码参考
+
 #### 997.SyawaseWorks (官中发行商)
 
 * HamidashiCreative (Cracker/Dumper)
