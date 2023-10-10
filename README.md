@@ -552,7 +552,7 @@
 
 #### 997.SyawaseWorks (官中发行商)
 
-* HamidashiCreative (Cracker/Dumper)
+* HamidashiCreative (Cracker/Dumper/Extractor)
 
     &emsp;游戏测试
 
@@ -564,7 +564,9 @@
 
     &emsp;编译环境 
     
-    &emsp;&emsp;MSVC2022 x86
+    &emsp;&emsp;MSVC2022 x86 (破解/Dump)
+
+    &emsp;&emsp;.Net 7.x (静态解包)
 
 * HappyLiveShowUp (Cracker)
 
