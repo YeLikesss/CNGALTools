@@ -536,6 +536,18 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 12.OPAI
+
+* Visual Novel Maker(?)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《执谕者：坠月之兆》
+
+    编译环境
+
+    &emsp;.Net 6.x
+
 #### 996.LightVN
 
 * LightVN Engine
