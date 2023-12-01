@@ -641,6 +641,7 @@
 * 1.NVL Unity Exe
 * 2.NVL KR2 Exe
 * 3.ZixSolution (Renpy8.x Python3.9)V1
+* 4.Syawase Works
 
 #### SP2.Note/笔记与教程 (后续会逐步放到TG频道中)
 
