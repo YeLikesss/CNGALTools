@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{430A8523-EB34-4B0E-AF96-2DCA5AED14A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GebulinStatic", "GebulinStatic\GebulinStatic.csproj", "{DEEB789E-2C7B-48E6-B918-4951DB424DCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{430A8523-EB34-4B0E-AF96-2DCA5AED14A1}.Debug|x64.ActiveCfg = Debug|x64
+		{430A8523-EB34-4B0E-AF96-2DCA5AED14A1}.Debug|x64.Build.0 = Debug|x64
+		{430A8523-EB34-4B0E-AF96-2DCA5AED14A1}.Release|x64.ActiveCfg = Release|x64
+		{430A8523-EB34-4B0E-AF96-2DCA5AED14A1}.Release|x64.Build.0 = Release|x64
+		{DEEB789E-2C7B-48E6-B918-4951DB424DCA}.Debug|x64.ActiveCfg = Debug|x64
+		{DEEB789E-2C7B-48E6-B918-4951DB424DCA}.Debug|x64.Build.0 = Debug|x64
+		{DEEB789E-2C7B-48E6-B918-4951DB424DCA}.Release|x64.ActiveCfg = Release|x64
+		{DEEB789E-2C7B-48E6-B918-4951DB424DCA}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {340B5748-05EA-47A7-9423-2F77FBF7A37C}
+	EndGlobalSection
+EndGlobal

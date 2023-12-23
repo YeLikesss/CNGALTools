@@ -544,7 +544,19 @@
 
     &emsp;&emsp;《执谕者：坠月之兆》
 
-    编译环境
+    &emsp;编译环境
+
+    &emsp;.Net 6.x
+
+#### 13.哥布林软件
+
+* Game Creator
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《令和罕见物语》
+
+    &emsp;编译环境
 
     &emsp;.Net 6.x
 
