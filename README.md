@@ -560,6 +560,14 @@
 
     &emsp;.Net 6.x
 
+#### 995.Chatte Noire
+
+* Nie no Hakoniwa(贄の匣庭)
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
 #### 996.LightVN
 
 * LightVN Engine
