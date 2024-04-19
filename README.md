@@ -616,11 +616,13 @@
 
 #### 998.HikariField (官中发行商)
 
-* AonatsuLine (Giga Unity) (Extractor)
+* HFUnityV1 (HFUnityV1) (Extractor)
 
     &emsp;游戏测试
 
-    &emsp;&emsp;《アオナツライン》 Chs-Cht-Jpn Release
+    &emsp;&emsp;《アオナツライン》 Chs-Cht Release
+
+    &emsp;&emsp;《Making Lovers FHD》 Chs-ChtRelease
 
     &emsp;编译环境
 

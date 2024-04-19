@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace AonatsuLineStatic
+namespace EngineCore
 {
     public class PacArchive
     {
@@ -152,12 +152,13 @@ namespace AonatsuLineStatic
         /// 构造函数
         /// </summary>
         /// <param name="packageFullPath">封包全路径</param>
+        /// <param name="packageRelativePath">封包相对路径</param>
         /// <param name="entrymode">索引读取方式</param>
         /// <param name="isCompressed">压缩标记</param>
-        public PacArchive(string packageFullPath, EntryMode entrymode, bool isCompressed = false)
+        public PacArchive(string packageFullPath, string packageRelativePath, EntryMode entrymode, bool isCompressed = false)
         {
             this.mPackageFullPath = packageFullPath;
-            this.PackageName = Path.GetFileNameWithoutExtension(packageFullPath);
+            this.PackageName = packageRelativePath;
             this.IsCompressed = isCompressed;
             this.FileEntryMode = entrymode;
         }

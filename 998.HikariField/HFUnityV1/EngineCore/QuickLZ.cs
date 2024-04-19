@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace AonatsuLineStatic
+namespace EngineCore
 {
     public class QuickLZ
     {

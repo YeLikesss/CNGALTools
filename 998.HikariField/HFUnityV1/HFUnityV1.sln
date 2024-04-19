@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineCore", "EngineCore\EngineCore.csproj", "{E0B16131-22F4-4D98-AF26-777291FCE5B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AonatsuLine", "AonatsuLine\AonatsuLine.csproj", "{0B2DD796-6FF2-4F26-B204-D2CC0E8A6085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakingLoverFHD", "MakingLoverFHD\MakingLoverFHD.csproj", "{DCD35DC0-FD0B-4693-B2A4-3227C3BF1D7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0B16131-22F4-4D98-AF26-777291FCE5B7}.Debug|x64.ActiveCfg = Debug|x64
+		{E0B16131-22F4-4D98-AF26-777291FCE5B7}.Debug|x64.Build.0 = Debug|x64
+		{E0B16131-22F4-4D98-AF26-777291FCE5B7}.Release|x64.ActiveCfg = Release|x64
+		{E0B16131-22F4-4D98-AF26-777291FCE5B7}.Release|x64.Build.0 = Release|x64
+		{0B2DD796-6FF2-4F26-B204-D2CC0E8A6085}.Debug|x64.ActiveCfg = Debug|x64
+		{0B2DD796-6FF2-4F26-B204-D2CC0E8A6085}.Debug|x64.Build.0 = Debug|x64
+		{0B2DD796-6FF2-4F26-B204-D2CC0E8A6085}.Release|x64.ActiveCfg = Release|x64
+		{0B2DD796-6FF2-4F26-B204-D2CC0E8A6085}.Release|x64.Build.0 = Release|x64
+		{DCD35DC0-FD0B-4693-B2A4-3227C3BF1D7A}.Debug|x64.ActiveCfg = Debug|x64
+		{DCD35DC0-FD0B-4693-B2A4-3227C3BF1D7A}.Debug|x64.Build.0 = Debug|x64
+		{DCD35DC0-FD0B-4693-B2A4-3227C3BF1D7A}.Release|x64.ActiveCfg = Release|x64
+		{DCD35DC0-FD0B-4693-B2A4-3227C3BF1D7A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF632B77-E6DB-4B00-B9A7-4B28EC5CF5DC}
+	EndGlobalSection
+EndGlobal
