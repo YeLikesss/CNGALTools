@@ -34,23 +34,62 @@ namespace IrregularsStatic
         }
 
         /// <summary>
-        /// 创建资源流
+        /// 创建加密流
         /// </summary>
-        /// <param name="fileName">文件全路径</param>
+        /// <param name="fileName"></param>
         /// <returns></returns>
-        public Stream CreateStream(string fileName)
+        public Stream CreateEncryptStream(string fileName)
         {
-            return GameInformationBase.CreateStream(fileName, this.Key, this.IV);
+            return GameInformationBase.CreateEncryptStream(fileName, this.Key, this.IV);
         }
 
         /// <summary>
-        /// 创建资源流
+        /// 创建解密流
+        /// </summary>
+        /// <param name="fileName">文件全路径</param>
+        /// <returns></returns>
+        public Stream CreateDecryptStream(string fileName)
+        {
+            return GameInformationBase.CreateDecryptStream(fileName, this.Key, this.IV);
+        }
+
+        /// <summary>
+        /// 创建加密流
         /// </summary>
         /// <param name="fileName">文件全路径</param>
         /// <param name="key"></param>
         /// <param name="iv"></param>
         /// <returns></returns>
-        public static Stream CreateStream(string fileName, byte[] key, byte[] iv)
+        public static Stream CreateEncryptStream(string fileName, byte[] key, byte[] iv)
+        {
+            if (File.Exists(fileName))
+            {
+                Aes aes = Aes.Create();
+                aes.Key = key;
+                aes.IV = iv;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.PKCS7;
+
+                ICryptoTransform decryptor = aes.CreateEncryptor();
+                FileStream inFs = File.OpenRead(fileName);
+                CryptoStream cryptoStream = new(inFs, decryptor, CryptoStreamMode.Read);
+
+                return cryptoStream;
+            }
+            else
+            {
+                return Stream.Null;
+            }
+        }
+
+        /// <summary>
+        /// 创建解密流
+        /// </summary>
+        /// <param name="fileName">文件全路径</param>
+        /// <param name="key"></param>
+        /// <param name="iv"></param>
+        /// <returns></returns>
+        public static Stream CreateDecryptStream(string fileName, byte[] key, byte[] iv)
         {
             if (File.Exists(fileName))
             {
