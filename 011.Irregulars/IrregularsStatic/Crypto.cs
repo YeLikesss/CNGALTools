@@ -70,9 +70,9 @@ namespace IrregularsStatic
                 aes.Mode = CipherMode.CBC;
                 aes.Padding = PaddingMode.PKCS7;
 
-                ICryptoTransform decryptor = aes.CreateEncryptor();
+                ICryptoTransform encryptor = aes.CreateEncryptor();
                 FileStream inFs = File.OpenRead(fileName);
-                CryptoStream cryptoStream = new(inFs, decryptor, CryptoStreamMode.Read);
+                CryptoStream cryptoStream = new(inFs, encryptor, CryptoStreamMode.Read);
 
                 return cryptoStream;
             }
