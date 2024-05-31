@@ -30,6 +30,7 @@ namespace MainFrom
                 titles.Items.Add(new TheRainyPortKeelung());
                 titles.Items.Add(new YveZhuoEP1());
                 titles.Items.Add(new YveZhuoOrange());
+                titles.Items.Add(new LeaveSLeaveIfLeavesToDust_Demo());
 
                 titles.EndUpdate();
             }

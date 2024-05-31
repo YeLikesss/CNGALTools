@@ -148,4 +148,25 @@ namespace XP3Archive
             return "鸑鷟 橘子传";
         }
     }
+
+    public class LeaveSLeaveIfLeavesToDust_Demo : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                byte b = (byte)(data[i] ^ (byte)hash);
+
+                // rol/ror reg8,4
+                b = (byte)((b << 4) | (b >> 4));
+
+                data[i] = b;
+            }
+        }
+
+        public override string ToString()
+        {
+            return "叶之离别:若叶归尘 (Demo)";
+        }
+    }
 }
