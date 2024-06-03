@@ -31,6 +31,10 @@ namespace MainFrom
                 titles.Items.Add(new YveZhuoEP1());
                 titles.Items.Add(new YveZhuoOrange());
                 titles.Items.Add(new LeaveSLeaveIfLeavesToDust_Demo());
+                titles.Items.Add(new Rain());
+                titles.Items.Add(new Ring());
+                titles.Items.Add(new SummerInWaterDroplets());
+                titles.Items.Add(new WanRuoZhaoYang());
 
                 titles.EndUpdate();
             }

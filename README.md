@@ -516,7 +516,15 @@
 
     &emsp;&emsp;《鸑鷟 橘子传》
 
-    &emsp;&emsp;《叶之离别:若叶归尘》  (Demo)
+    &emsp;&emsp;《叶之离别:若叶归尘》
+
+    &emsp;&emsp;《雨夜》
+
+    &emsp;&emsp;《吉祥铃》
+
+    &emsp;&emsp;《水滴里的夏天》
+
+    &emsp;&emsp;《宛若朝阳》
 
     &emsp;编译环境
 

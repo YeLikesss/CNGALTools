@@ -169,4 +169,64 @@ namespace XP3Archive
             return "叶之离别:若叶归尘 (Demo)";
         }
     }
+
+    public class Rain : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] ^= (byte)(hash >> 3);
+            }
+        }
+        public override string ToString()
+        {
+            return "雨夜";
+        }
+    }
+
+    public class Ring : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] ^= (byte)(hash >> 3);
+            }
+        }
+        public override string ToString()
+        {
+            return "吉祥铃";
+        }
+    }
+
+    public class SummerInWaterDroplets : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] ^= (byte)(hash >> 3);
+            }
+        }
+        public override string ToString()
+        {
+            return "水滴里的夏天";
+        }
+    }
+
+    public class WanRuoZhaoYang : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] ^= (byte)(hash >> 3);
+            }
+        }
+        public override string ToString()
+        {
+            return "宛若朝阳";
+        }
+    }
 }
