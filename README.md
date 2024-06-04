@@ -558,7 +558,7 @@
 
     &emsp;编译环境
 
-    &emsp;.Net 6.x
+    &emsp;&emsp;.Net 6.x
 
 #### 13.哥布林软件
 
@@ -570,7 +570,15 @@
 
     &emsp;编译环境
 
-    &emsp;.Net 6.x
+    &emsp;&emsp;.Net 6.x
+
+#### 14.橙汁工作室
+
+*  Lover (情人节:不见不散)
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
 
 #### 995.Chatte Noire
 
