@@ -1,16 +1,6 @@
-### 国产Gal工具 Chinese Galgame/Visual Novel Tools   (摸鱼式更新)
+### 国产/官中代理Galgame工具 Chinese Galgame/Visual Novel Tools
 
-### 部分官中代理Gal合并在此发布
-
-### 开发环境 :Windows 7 SP1 x64 补丁至2023.4
-
-### 一些教程或者笔记也会在此处发布
-
-### 仅分析C/C++(Native x86/64)和.Net虚拟机部分
-
-### 其他虚拟机或者框架我也不会 搞定了纯粹赌博歪打正着运气好
-
-### 视频教程与其他资源 [Telegram频道](https://t.me/cngal_reverse_resource)
+### 游戏分析笔记 [点此处](https://github.com/YeLikesss/CNGALReverseNote)
 
 #### 1.NVL(国G程序收费外包商)
 
@@ -696,32 +686,5 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 999.Others (其他平台或虚拟机部分 纯粹运气好赌对的技巧 可能不具备参考价值)
-
-* 1.《爱与命的彼端》 解包
-
-* 2.《墨心》 解包
-
-#### SP1.IDA DataBase/IDA数据库
-
-* 1.NVL Unity Exe
-
-* 2.NVL KR2 Exe
-
-* 3.ZixSolution (Renpy8.x Python3.9)V1
-
-* 4.Syawase Works
-
-    &emsp;&emsp;Artemis Extend(Hamidashi)
-
-* 5.NekoNyan
-
-    &emsp;&emsp;Unity il2cpp(Clover Days)
-
-#### SP2.Note/笔记与教程 (后续会逐步放到TG频道中)
-
-* 3.Snowing找Key
-* 10.《空梦》  硬盘版制作
-* 11.ZixSolution (Renpy8.x Python3.9)V1 找Key找Table
-
+#### 999.Others
 
