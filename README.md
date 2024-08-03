@@ -353,7 +353,7 @@
     
     &emsp;&emsp;NuGet
     
-    &emsp;&emsp;&emsp;ICSharpCode
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
     
     &emsp;&emsp;&emsp;Razorvine.Pickle
     
@@ -395,7 +395,7 @@
 
     &emsp;&emsp;NuGet
 
-    &emsp;&emsp;&emsp;ICSharpCode
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
     &emsp;&emsp;&emsp;Razorvine.Pickle
 
@@ -480,15 +480,15 @@
 
     &emsp;&emsp;《夏花的轨迹 That Summer Of Eternal Eden》
 
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
     &emsp;依赖库
 
     &emsp;&emsp;Nuget
 
-    &emsp;&emsp;&emsp;ICSharpCode
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
 
 #### 10.UniversalXP3DecFilter
 
@@ -526,15 +526,15 @@
 
     &emsp;&emsp;《宛若朝阳》
 
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
     &emsp;依赖库
 
     &emsp;&emsp;Nuget
 
-    &emsp;&emsp;&emsp;ICSharpCode
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
 
 #### 11.Irregulars
 
@@ -575,6 +575,30 @@
 #### 14.橙汁工作室
 
 *  Lover (情人节:不见不散)
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+#### 15.SeparateHearts
+
+*   SeparateHearts Engine(Hac解包/Tex解码/Hgp解码)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《红楼梦》
+
+    &emsp;&emsp;《红楼梦: 林黛玉与北静王》
+
+    &emsp;&emsp;《楼兰: 轮回之轨迹》
+
+    &emsp;依赖库
+
+    &emsp;&emsp;Nuget
+
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
+
+    &emsp;&emsp;&emsp;LZMA-SDK
 
     &emsp;编译环境
 

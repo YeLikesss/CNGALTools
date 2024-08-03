@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{3116AE0C-A4B5-49BB-A294-5E03E025A95B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineCoreStatic", "EngineCoreStatic\EngineCoreStatic.csproj", "{92B56D91-99DA-483C-A127-1B5E4A9287F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3116AE0C-A4B5-49BB-A294-5E03E025A95B}.Debug|x64.ActiveCfg = Debug|x64
+		{3116AE0C-A4B5-49BB-A294-5E03E025A95B}.Debug|x64.Build.0 = Debug|x64
+		{3116AE0C-A4B5-49BB-A294-5E03E025A95B}.Release|x64.ActiveCfg = Release|x64
+		{3116AE0C-A4B5-49BB-A294-5E03E025A95B}.Release|x64.Build.0 = Release|x64
+		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Debug|x64.ActiveCfg = Debug|x64
+		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Debug|x64.Build.0 = Debug|x64
+		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Release|x64.ActiveCfg = Release|x64
+		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68A3A6FB-0C2D-4314-864E-C012F202EAED}
+	EndGlobalSection
+EndGlobal
