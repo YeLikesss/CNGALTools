@@ -22,6 +22,7 @@ namespace NVLKR2Static
             { "真恋寄语枫秋 Steam", new TrueLoveSteam() },
             { "回忆忘却之匣 Steam", new MemoryOblivionBoxSteam() },
             { "回忆忘却之匣 Package", new MemoryOblivionBoxPackage() },
+            { "丑小鸭的天鹅湖 Package", new ChouXiaoYaDeTianEHu() }
         };
     }
 
@@ -182,4 +183,14 @@ namespace NVLKR2Static
         };
     }
 
+    /// <summary>
+    /// 丑小鸭与天鹅湖
+    /// </summary>
+    public class ChouXiaoYaDeTianEHu : IKeyInformation
+    {
+        public byte[] Key { get; } = new byte[]
+        {
+            0xE5, 0xE2, 0x45, 0x78, 0x00, 0x28, 0x12, 0x00
+        };
+    }
 }
