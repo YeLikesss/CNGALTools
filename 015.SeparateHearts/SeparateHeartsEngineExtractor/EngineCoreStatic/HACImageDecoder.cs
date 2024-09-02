@@ -692,8 +692,8 @@ namespace EngineCoreStatic
                     {
                         //输出散装图片
                         {
-                            string layerPath = Path.Combine(baseDir, layer.Name + ".png");
-
+                            string layerPath = Path.Combine(baseDir, HACStreamExtend.CleanFileName(layer.Name) + ".png");
+                            
                             {
                                 if(Path.GetDirectoryName(layerPath) is string dir && !Directory.Exists(dir))
                                 {
