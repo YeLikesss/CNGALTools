@@ -692,7 +692,7 @@ namespace EngineCoreStatic
                     {
                         //输出散装图片
                         {
-                            string layerPath = Path.Combine(baseDir, layer.Name + ".png");
+                            string layerPath = Path.Combine(baseDir, HACHgpImageDecoder.NormalizeLayerName(layer.Name) + ".png");
 
                             {
                                 if(Path.GetDirectoryName(layerPath) is string dir && !Directory.Exists(dir))
@@ -944,6 +944,35 @@ namespace EngineCoreStatic
                 }
                 
                 layers.Add(layer);
+            }
+        }
+
+        /// <summary>
+        /// 规范化图层名
+        /// <para>部分图层疑似乱码</para>
+        /// <para>暂未发现图层名加密地方</para>
+        /// <para>临时方案: 不符合Windows字符则以16进制呈现</para>
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static string NormalizeLayerName(string name)
+        {
+            char[] invaidChars = Path.GetInvalidFileNameChars();
+
+            if (name.Any(c => invaidChars.Contains(c)))
+            {
+                ReadOnlySpan<byte> ptr = MemoryMarshal.Cast<char, byte>(name.AsSpan());
+
+                StringBuilder sb = new(ptr.Length * 2);
+                for (int i = 0; i < ptr.Length; ++i)
+                {
+                    sb.Append(ptr[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
+            else
+            {
+                return name;
             }
         }
     }
