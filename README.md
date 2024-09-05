@@ -578,6 +578,8 @@
 
     &emsp;游戏测试
 
+    &emsp;&emsp;《夏梦夜话》
+
     &emsp;&emsp;《红楼梦》
 
     &emsp;&emsp;《红楼梦: 林黛玉与北静王》
@@ -591,6 +593,24 @@
     &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
     &emsp;&emsp;&emsp;LZMA-SDK
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
+#### 16.NekoNovel
+
+*   NekoNovel Package
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《Lucy -The Eternity She Wished For-》
+
+    &emsp;依赖库
+
+    &emsp;&emsp;Nuget
+
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
     &emsp;编译环境
 
