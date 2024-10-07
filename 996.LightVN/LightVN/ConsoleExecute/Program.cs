@@ -9,22 +9,42 @@ namespace ConsoleExecute
     {
         static void Main(string[] args)
         {
+            string gameExe = "D:\\Galgame Reverse\\Putrika_1st\\Putrika1st.exe";
+            ExtractDemoV2(gameExe);
+
+            Console.WriteLine("=========提取完成=========");
+            Console.Read();
+        }
+
+
+        private static void ExtractDemoV1(string[] pkgPaths)
+        {
             ICryptoFilter filter = new UenaFarFireworks();
-            for (int i = 0; i < args.Length; ++i)
+            for (int i = 0; i < pkgPaths.Length; ++i)
             {
-                string pkgPath = args[i];
+                string pkgPath = pkgPaths[i];
                 string fileName = Path.GetFileName(pkgPath);
                 PackageV1 package = new(pkgPath, filter);
                 if (package.Extract())
                 {
-                    Console.WriteLine("Extract Success:{0}",fileName);
+                    Console.WriteLine("成功:{0}", fileName);
                 }
                 else
                 {
-                    Console.WriteLine("Extract Faild:{0}", fileName);
+                    Console.WriteLine("失败:{0}", fileName);
                 }
             }
-            Console.Read();
+        }
+
+        private static void ExtractDemoV2(string gameExePath)
+        {
+            if(Path.GetDirectoryName(gameExePath) is string dir)
+            {
+                PutrikaFirst game = new();
+
+                PackageV2 package = new(dir, game.FileListRelativePath, game);
+                package.Extract();
+            }
         }
     }
 }

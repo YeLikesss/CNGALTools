@@ -632,11 +632,11 @@
 
     &emsp;&emsp;《U-ena 空焰火少女》
 
+    &emsp;&emsp;《プトリカ 1st.cut》
+
     &emsp;编译环境
 
-    &emsp;&emsp;.Net 6.x
-
-    &emsp;似乎有人逆过这个引擎了 此处仅做备份代码参考
+    &emsp;&emsp;.Net 7.x
 
 #### 997.SyawaseWorks (官中发行商)
 

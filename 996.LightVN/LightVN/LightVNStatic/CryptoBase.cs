@@ -15,5 +15,12 @@ namespace LightVNStatic
         /// </summary>
         /// <param name="data">资源数据  长度必须为文件长度</param>
         public void Decrypt(Span<byte> data);
+
+        /// <summary>
+        /// 解密资源
+        /// </summary>
+        /// <param name="data">资源数据  长度必须为文件长度</param>
+        /// <param name="declength">解码大小</param>
+        public void Decrypt(Span<byte> data, int declength);
     } 
 }
