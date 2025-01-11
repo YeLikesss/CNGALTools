@@ -2,7 +2,7 @@
 
 ### 游戏分析笔记 [点此处](https://github.com/YeLikesss/CNGALReverseNote)
 
-#### 1.NVL(国G程序收费外包商)
+#### 1.NVL(国G程序收费外包商)(Navila Software Japan)
 
 * BKEngine (加密资源 加密文本)
 
@@ -19,6 +19,8 @@
     &emsp;&emsp;&emsp;V2.1(V2.0 HashVer)
 
     &emsp;&emsp;&emsp;&emsp;《十二色季节》
+
+    &emsp;&emsp;&emsp;&emsp;《灭魂·误佳期》
 
     &emsp;&emsp;&emsp;V4.0
 
@@ -48,7 +50,7 @@
 
     &emsp;&emsp;&emsp;V2.1(V2.0 HashVer)
 
-    &emsp;&emsp;&emsp;&emsp;《十二色季节》  (仅此一部游戏)
+    &emsp;&emsp;&emsp;&emsp;《十二色季节》
 
     &emsp;&emsp;编译环境
     
@@ -64,13 +66,9 @@
 
     &emsp;&emsp;1.Ver2.0已经算是最终版, 仅仅解密除文本外的所有资源
 
-    &emsp;&emsp;2.文本解密打不算研究
+    &emsp;&emsp;2.游戏质量垃圾, 文本解密打不算研究
 
-    &emsp;&emsp;&emsp;原因
-
-    &emsp;&emsp;&emsp;&emsp;1.该引擎官方已弃用, 转为NVLUnity
-
-    &emsp;&emsp;&emsp;&emsp;2.游戏质量垃圾
+    &emsp;&emsp;3.该引擎官方已弃用, 转为NVLUnity
 
 * NVLKRKR(内部定制收费版本) (加密资源 明文文本)
 
@@ -229,7 +227,7 @@
 
     &emsp;状态说明
 
-    &emsp;&emsp;1.暂时性完工
+    &emsp;&emsp;1.NVL目前主要使用该引擎
 
  * NVLWebCloud (加密资源 明文文本)
 
@@ -267,13 +265,9 @@
 
     &emsp;状态说明
 
-    &emsp;&emsp;1.代码不再更新或重构
+    &emsp;&emsp;1.游戏质量垃圾, 代码不再更新或重构
 
-    &emsp;&emsp;&emsp;原因
-
-    &emsp;&emsp;&emsp;&emsp;1.官方只做了一作就弃用
-
-    &emsp;&emsp;&emsp;&emsp;2.游戏质量垃圾
+    &emsp;&emsp;2.官方只做了一作就弃用
 
 #### 3.蓝天使/BlueAngel
 
