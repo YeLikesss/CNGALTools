@@ -37,6 +37,7 @@ namespace EndOfTheWorldExtractor
                 fix.DecodeAsset();
 
                 Console.WriteLine("===== 我和她的世界末日 --- 提取成功 =====");
+                Console.Read();
             }
         }
     }
