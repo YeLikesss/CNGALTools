@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+using System.IO.Compression;
 
 namespace Extractor.Untils
 {
@@ -15,10 +15,10 @@ namespace Extractor.Untils
         /// <returns></returns>
         public static byte[] Decompress(byte[] data)
         {
-            MemoryStream compressed = new(data);
-            MemoryStream decompressed = new();
-            InflaterInputStream zlibInput = new(compressed);
-            zlibInput.CopyTo(decompressed);
+            using MemoryStream compressed = new(data, false);
+            using MemoryStream decompressed = new();
+            using ZLibStream zlib = new(compressed, CompressionMode.Decompress);
+            zlib.CopyTo(decompressed);
             return decompressed.ToArray();
         }
     }

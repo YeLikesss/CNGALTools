@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extractor", "Extractor\Extr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{4E5CE167-44D4-469C-A05B-58276C3D77FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZixExtractorR7", "ZixExtractorR7\ZixExtractorR7.csproj", "{BC6897CD-28B6-4023-893D-BED142B6AE6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZixExtractorR8", "ZixExtractorR8\ZixExtractorR8.csproj", "{40746D31-AC4B-4132-90F4-029558274169}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +25,14 @@ Global
 		{4E5CE167-44D4-469C-A05B-58276C3D77FE}.Debug|x64.Build.0 = Debug|x64
 		{4E5CE167-44D4-469C-A05B-58276C3D77FE}.Release|x64.ActiveCfg = Release|x64
 		{4E5CE167-44D4-469C-A05B-58276C3D77FE}.Release|x64.Build.0 = Release|x64
+		{BC6897CD-28B6-4023-893D-BED142B6AE6B}.Debug|x64.ActiveCfg = Debug|x64
+		{BC6897CD-28B6-4023-893D-BED142B6AE6B}.Debug|x64.Build.0 = Debug|x64
+		{BC6897CD-28B6-4023-893D-BED142B6AE6B}.Release|x64.ActiveCfg = Release|x64
+		{BC6897CD-28B6-4023-893D-BED142B6AE6B}.Release|x64.Build.0 = Release|x64
+		{40746D31-AC4B-4132-90F4-029558274169}.Debug|x64.ActiveCfg = Debug|x64
+		{40746D31-AC4B-4132-90F4-029558274169}.Debug|x64.Build.0 = Debug|x64
+		{40746D31-AC4B-4132-90F4-029558274169}.Release|x64.ActiveCfg = Release|x64
+		{40746D31-AC4B-4132-90F4-029558274169}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

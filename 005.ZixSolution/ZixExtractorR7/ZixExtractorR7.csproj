@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Platforms>x64</Platforms>
+		<NoWin32Manifest>true</NoWin32Manifest>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<FileAlignment>8192</FileAlignment>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<FileAlignment>8192</FileAlignment>
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Extractor\Extractor.csproj" />
+	</ItemGroup>
+
+</Project>
