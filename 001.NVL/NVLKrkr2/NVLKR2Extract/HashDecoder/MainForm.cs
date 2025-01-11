@@ -81,8 +81,6 @@ namespace HashDecoder
         {
             if (this.Invoke(this.CheckVaild))
             {
-                this.Invoke(this.SetProcessUIEnable, false);         //锁定UI
-
                 List<string> filePaths = PathUtil.EnumerateFullName(this.mDecoderPath);
 
                 //文本处理
@@ -98,7 +96,6 @@ namespace HashDecoder
                     this.HasherDecode(filePaths, strings);
                 }
             }
-            this.BeginInvoke(this.SetProcessUIEnable, true);         //解锁UI
         }
 
         /// <summary>
@@ -194,13 +191,19 @@ namespace HashDecoder
             }
         }
 
-        private void btnEnumPath_Click(object sender, EventArgs e)
+        private async void btnEnumPath_Click(object sender, EventArgs e)
         {
             string directory = SelectDirectory();
             if (!string.IsNullOrEmpty(directory))
             {
-                //开一个线程还原
-                new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(PathUtil.EnumerateKirikiriRelativeName(directory));
+                this.SetProcessUIEnable(false);
+                
+                await Task.Factory.StartNew(() =>
+                {
+                    this.HasherProcess(PathUtil.EnumerateKirikiriRelativeName(directory));
+                }, TaskCreationOptions.LongRunning);
+
+                this.SetProcessUIEnable(true);
             }
         }
 
@@ -227,13 +230,14 @@ namespace HashDecoder
             }
         }
 
-        private void btnLoadDumpFile_Click(object sender, EventArgs e)
+        private async void btnLoadDumpFile_Click(object sender, EventArgs e)
         {
             string dumpfilePath = SelectDumpFile();
             if (!string.IsNullOrEmpty(dumpfilePath))
             {
                 this.SetProcessUIEnable(false);
-                new Thread(new ThreadStart(() =>
+
+                await Task.Factory.StartNew(() =>
                 {
                     List<string> paths = new(512);
 
@@ -248,13 +252,14 @@ namespace HashDecoder
                     }
                     reader.Close();
 
-                    //开一个线程还原
-                    new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(paths);
-                })).Start();
+                    this.HasherProcess(paths);
+                }, TaskCreationOptions.LongRunning);
+
+                this.SetProcessUIEnable(true);
             }
         }
 
-        private void btnEnumPathWithAutoPath_Click(object sender, EventArgs e)
+        private async void btnEnumPathWithAutoPath_Click(object sender, EventArgs e)
         {
             if (this.CheckVaild())
             {
@@ -262,7 +267,8 @@ namespace HashDecoder
                 if (!string.IsNullOrEmpty(directory))
                 {
                     this.SetProcessUIEnable(false);
-                    new Thread(new ThreadStart(() =>
+
+                    await Task.Factory.StartNew(() =>
                     {
                         List<string> ps = PathUtil.EnumerateKirikiriRelativeName(directory);
                         List<string> strings = new(ps.Count * this.tCreator.AutoPath.Count);
@@ -274,9 +280,10 @@ namespace HashDecoder
                                 strings.Add(ap + p);
                             }
                         }
-                        //开一个线程还原
-                        new Thread(new ParameterizedThreadStart(this.HasherProcess)).Start(strings);
-                    })).Start();
+                        this.HasherProcess(strings);
+                    }, TaskCreationOptions.LongRunning);
+
+                    this.SetProcessUIEnable(true);
                 }
             }
         }

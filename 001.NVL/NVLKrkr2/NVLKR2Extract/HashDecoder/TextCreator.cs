@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace HashDecoder
 {
@@ -320,11 +321,16 @@ namespace HashDecoder
         }
 
         //提取按钮
-        private void btnExtract_Click(object sender, EventArgs e)
+        private async void btnExtract_Click(object sender, EventArgs e)
         {
             if (this.mTexts.Count > 0)
             {
-                new Thread(new ParameterizedThreadStart(this.TextProcessCallBack)).Start(new Func<IEnumerable<List<string>>>(this.TextGenerator));
+                this.Enabled = false;
+                await Task.Factory.StartNew(() =>
+                {
+                    this.TextProcessCallBack(new Func<IEnumerable<List<string>>>(this.TextGenerator));
+                }, TaskCreationOptions.LongRunning);
+                this.Enabled = true;
             }
         }
 
