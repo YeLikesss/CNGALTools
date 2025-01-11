@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using System.IO;
-
+using System.IO.Compression;
 
 namespace NVLKR2Static
 {
@@ -16,10 +14,10 @@ namespace NVLKR2Static
         /// <returns></returns>
         public static Stream CreateDecompressStream(Stream s)
         {
-            using InflaterInputStream zlibInput = new(s);
+            using ZLibStream zlib = new(s, CompressionMode.Decompress);
             MemoryStream decompressed = new();
-            zlibInput.CopyTo(decompressed);
-            decompressed.Position = 0;
+            zlib.CopyTo(decompressed);
+            decompressed.Position = 0L;
             return decompressed;
         }
     }
