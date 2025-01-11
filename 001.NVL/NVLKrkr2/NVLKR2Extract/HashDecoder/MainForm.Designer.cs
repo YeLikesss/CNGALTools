@@ -28,95 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tCreator = new HashDecoder.TextCreator();
-            this.btnLoadAutoPath = new System.Windows.Forms.Button();
-            this.btnLoadDumpFile = new System.Windows.Forms.Button();
-            this.btnSelectArchiveDirectory = new System.Windows.Forms.Button();
-            this.btnEnumPath = new System.Windows.Forms.Button();
-            this.btnEnumPathWithAutoPath = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            tCreator = new TextCreator();
+            btnLoadAutoPath = new System.Windows.Forms.Button();
+            btnLoadDumpFile = new System.Windows.Forms.Button();
+            btnSelectArchiveDirectory = new System.Windows.Forms.Button();
+            btnEnumPath = new System.Windows.Forms.Button();
+            btnEnumPathWithAutoPath = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // tCreator
             // 
-            this.tCreator.AutoPath = null;
-            this.tCreator.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tCreator.Location = new System.Drawing.Point(13, 12);
-            this.tCreator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tCreator.Name = "tCreator";
-            this.tCreator.Size = new System.Drawing.Size(703, 453);
-            this.tCreator.TabIndex = 0;
-            this.tCreator.TextProcessCallBack = null;
+            tCreator.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            tCreator.AutoPath = null;
+            tCreator.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            tCreator.Location = new System.Drawing.Point(13, 12);
+            tCreator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tCreator.Name = "tCreator";
+            tCreator.Size = new System.Drawing.Size(703, 538);
+            tCreator.TabIndex = 0;
+            tCreator.TextProcessCallBack = null;
             // 
             // btnLoadAutoPath
             // 
-            this.btnLoadAutoPath.Location = new System.Drawing.Point(723, 57);
-            this.btnLoadAutoPath.Name = "btnLoadAutoPath";
-            this.btnLoadAutoPath.Size = new System.Drawing.Size(162, 39);
-            this.btnLoadAutoPath.TabIndex = 3;
-            this.btnLoadAutoPath.Text = "加载自动路径";
-            this.btnLoadAutoPath.UseVisualStyleBackColor = true;
-            this.btnLoadAutoPath.Click += new System.EventHandler(this.btnLoadAutoPath_Click);
+            btnLoadAutoPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnLoadAutoPath.Location = new System.Drawing.Point(723, 57);
+            btnLoadAutoPath.Name = "btnLoadAutoPath";
+            btnLoadAutoPath.Size = new System.Drawing.Size(162, 39);
+            btnLoadAutoPath.TabIndex = 3;
+            btnLoadAutoPath.Text = "加载自动路径";
+            btnLoadAutoPath.UseVisualStyleBackColor = true;
+            btnLoadAutoPath.Click += btnLoadAutoPath_Click;
             // 
             // btnLoadDumpFile
             // 
-            this.btnLoadDumpFile.Location = new System.Drawing.Point(908, 12);
-            this.btnLoadDumpFile.Name = "btnLoadDumpFile";
-            this.btnLoadDumpFile.Size = new System.Drawing.Size(162, 57);
-            this.btnLoadDumpFile.TabIndex = 5;
-            this.btnLoadDumpFile.Text = "加载Dump的文件名还原";
-            this.btnLoadDumpFile.UseVisualStyleBackColor = true;
-            this.btnLoadDumpFile.Click += new System.EventHandler(this.btnLoadDumpFile_Click);
+            btnLoadDumpFile.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnLoadDumpFile.Location = new System.Drawing.Point(908, 12);
+            btnLoadDumpFile.Name = "btnLoadDumpFile";
+            btnLoadDumpFile.Size = new System.Drawing.Size(162, 57);
+            btnLoadDumpFile.TabIndex = 5;
+            btnLoadDumpFile.Text = "加载Dump的文件名还原";
+            btnLoadDumpFile.UseVisualStyleBackColor = true;
+            btnLoadDumpFile.Click += btnLoadDumpFile_Click;
             // 
             // btnSelectArchiveDirectory
             // 
-            this.btnSelectArchiveDirectory.Location = new System.Drawing.Point(723, 12);
-            this.btnSelectArchiveDirectory.Name = "btnSelectArchiveDirectory";
-            this.btnSelectArchiveDirectory.Size = new System.Drawing.Size(162, 39);
-            this.btnSelectArchiveDirectory.TabIndex = 6;
-            this.btnSelectArchiveDirectory.Text = "选择目标文件夹";
-            this.btnSelectArchiveDirectory.UseVisualStyleBackColor = true;
-            this.btnSelectArchiveDirectory.Click += new System.EventHandler(this.btnSelectArchiveDirectory_Click);
+            btnSelectArchiveDirectory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSelectArchiveDirectory.Location = new System.Drawing.Point(723, 12);
+            btnSelectArchiveDirectory.Name = "btnSelectArchiveDirectory";
+            btnSelectArchiveDirectory.Size = new System.Drawing.Size(162, 39);
+            btnSelectArchiveDirectory.TabIndex = 6;
+            btnSelectArchiveDirectory.Text = "选择目标文件夹";
+            btnSelectArchiveDirectory.UseVisualStyleBackColor = true;
+            btnSelectArchiveDirectory.Click += btnSelectArchiveDirectory_Click;
             // 
             // btnEnumPath
             // 
-            this.btnEnumPath.Location = new System.Drawing.Point(908, 75);
-            this.btnEnumPath.Name = "btnEnumPath";
-            this.btnEnumPath.Size = new System.Drawing.Size(162, 56);
-            this.btnEnumPath.TabIndex = 7;
-            this.btnEnumPath.Text = "使用本地路径还原";
-            this.btnEnumPath.UseVisualStyleBackColor = true;
-            this.btnEnumPath.Click += new System.EventHandler(this.btnEnumPath_Click);
+            btnEnumPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnEnumPath.Location = new System.Drawing.Point(908, 75);
+            btnEnumPath.Name = "btnEnumPath";
+            btnEnumPath.Size = new System.Drawing.Size(162, 56);
+            btnEnumPath.TabIndex = 7;
+            btnEnumPath.Text = "使用本地路径还原";
+            btnEnumPath.UseVisualStyleBackColor = true;
+            btnEnumPath.Click += btnEnumPath_Click;
             // 
             // btnEnumPathWithAutoPath
             // 
-            this.btnEnumPathWithAutoPath.Location = new System.Drawing.Point(908, 137);
-            this.btnEnumPathWithAutoPath.Name = "btnEnumPathWithAutoPath";
-            this.btnEnumPathWithAutoPath.Size = new System.Drawing.Size(162, 54);
-            this.btnEnumPathWithAutoPath.TabIndex = 8;
-            this.btnEnumPathWithAutoPath.Text = "使用本地路径还原(AutoPath)";
-            this.btnEnumPathWithAutoPath.UseVisualStyleBackColor = true;
-            this.btnEnumPathWithAutoPath.Click += new System.EventHandler(this.btnEnumPathWithAutoPath_Click);
+            btnEnumPathWithAutoPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnEnumPathWithAutoPath.Location = new System.Drawing.Point(908, 137);
+            btnEnumPathWithAutoPath.Name = "btnEnumPathWithAutoPath";
+            btnEnumPathWithAutoPath.Size = new System.Drawing.Size(162, 54);
+            btnEnumPathWithAutoPath.TabIndex = 8;
+            btnEnumPathWithAutoPath.Text = "使用本地路径还原(AutoPath)";
+            btnEnumPathWithAutoPath.UseVisualStyleBackColor = true;
+            btnEnumPathWithAutoPath.Click += btnEnumPathWithAutoPath_Click;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1093, 475);
-            this.Controls.Add(this.btnEnumPathWithAutoPath);
-            this.Controls.Add(this.btnEnumPath);
-            this.Controls.Add(this.btnSelectArchiveDirectory);
-            this.Controls.Add(this.btnLoadDumpFile);
-            this.Controls.Add(this.btnLoadAutoPath);
-            this.Controls.Add(this.tCreator);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.Text = "NVLKR2 Hash Decoder";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1093, 562);
+            Controls.Add(btnEnumPathWithAutoPath);
+            Controls.Add(btnEnumPath);
+            Controls.Add(btnSelectArchiveDirectory);
+            Controls.Add(btnLoadDumpFile);
+            Controls.Add(btnLoadAutoPath);
+            Controls.Add(tCreator);
+            DoubleBuffered = true;
+            Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Margin = new System.Windows.Forms.Padding(4);
+            MinimumSize = new System.Drawing.Size(800, 600);
+            Name = "MainForm";
+            Text = "NVLKR2 Hash Decoder";
+            ResumeLayout(false);
         }
 
         #endregion

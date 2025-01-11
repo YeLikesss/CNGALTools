@@ -17,7 +17,7 @@ namespace ExtractorGUI
             InitializeComponent();
 
             this.cbTitles.Items.Clear();
-            foreach(var title in DataManager.GameMaps.Keys)
+            foreach (var title in DataManager.GameMaps.Keys)
             {
                 this.cbTitles.Items.Add(title);
             }

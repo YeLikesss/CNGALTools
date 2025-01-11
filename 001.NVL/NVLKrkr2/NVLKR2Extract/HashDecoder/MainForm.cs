@@ -38,7 +38,7 @@ namespace HashDecoder
         /// </summary>
         /// <param name="filePaths">文件名列表</param>
         /// <param name="strings">字符串列表</param>
-        private void HasherDecode(List<string> filePaths,List<string> strings)
+        private void HasherDecode(List<string> filePaths, List<string> strings)
         {
             Dictionary<string, string> maps = XP3Archive.CalculateHashMulit(strings);
 
@@ -93,7 +93,7 @@ namespace HashDecoder
                         this.HasherDecode(filePaths, strings);
                     }
                 }
-                else if(callback is List<string> strings)
+                else if (callback is List<string> strings)
                 {
                     this.HasherDecode(filePaths, strings);
                 }
@@ -112,7 +112,7 @@ namespace HashDecoder
                 return false;
             }
 
-            if(this.tCreator.AutoPath is null)
+            if (this.tCreator.AutoPath is null)
             {
                 MessageBox.Show("自动路径未设置", "Error");
                 return false;

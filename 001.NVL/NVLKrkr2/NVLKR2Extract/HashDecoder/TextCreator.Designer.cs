@@ -58,8 +58,10 @@ namespace HashDecoder
             // 
             // lbNameItems
             // 
+            lbNameItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lbNameItems.HorizontalScrollbar = true;
             lbNameItems.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            lbNameItems.IntegralHeight = false;
             lbNameItems.ItemHeight = 21;
             lbNameItems.Location = new System.Drawing.Point(7, 70);
             lbNameItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -73,6 +75,7 @@ namespace HashDecoder
             // 
             // tbPreview
             // 
+            tbPreview.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             tbPreview.ImeMode = System.Windows.Forms.ImeMode.Disable;
             tbPreview.Location = new System.Drawing.Point(7, 29);
             tbPreview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -83,6 +86,7 @@ namespace HashDecoder
             // 
             // gbCreator
             // 
+            gbCreator.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             gbCreator.Controls.Add(btnExtract);
             gbCreator.Controls.Add(lbStatus);
             gbCreator.Controls.Add(btnConfirmVar);
@@ -105,6 +109,7 @@ namespace HashDecoder
             // 
             // btnExtract
             // 
+            btnExtract.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnExtract.Location = new System.Drawing.Point(502, 70);
             btnExtract.Name = "btnExtract";
             btnExtract.Size = new System.Drawing.Size(180, 42);
@@ -115,6 +120,7 @@ namespace HashDecoder
             // 
             // lbStatus
             // 
+            lbStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lbStatus.Location = new System.Drawing.Point(502, 164);
             lbStatus.Name = "lbStatus";
             lbStatus.Size = new System.Drawing.Size(180, 36);
@@ -124,6 +130,7 @@ namespace HashDecoder
             // 
             // btnConfirmVar
             // 
+            btnConfirmVar.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnConfirmVar.Location = new System.Drawing.Point(502, 203);
             btnConfirmVar.Name = "btnConfirmVar";
             btnConfirmVar.Size = new System.Drawing.Size(180, 41);
@@ -134,6 +141,7 @@ namespace HashDecoder
             // 
             // rbtConstString
             // 
+            rbtConstString.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             rbtConstString.AutoSize = true;
             rbtConstString.Checked = true;
             rbtConstString.Location = new System.Drawing.Point(624, 402);
@@ -146,6 +154,7 @@ namespace HashDecoder
             // 
             // cbConstExtension
             // 
+            cbConstExtension.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cbConstExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cbConstExtension.FormattingEnabled = true;
             cbConstExtension.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -158,6 +167,7 @@ namespace HashDecoder
             // 
             // tbConstString
             // 
+            tbConstString.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             tbConstString.Location = new System.Drawing.Point(7, 402);
             tbConstString.Name = "tbConstString";
             tbConstString.Size = new System.Drawing.Size(609, 29);
@@ -166,6 +176,7 @@ namespace HashDecoder
             // 
             // rbtExtension
             // 
+            rbtExtension.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             rbtExtension.AutoSize = true;
             rbtExtension.Location = new System.Drawing.Point(624, 351);
             rbtExtension.Name = "rbtExtension";
@@ -176,6 +187,7 @@ namespace HashDecoder
             // 
             // rbtNum
             // 
+            rbtNum.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             rbtNum.AutoSize = true;
             rbtNum.Location = new System.Drawing.Point(624, 300);
             rbtNum.Name = "rbtNum";
@@ -186,6 +198,7 @@ namespace HashDecoder
             // 
             // rbtChar
             // 
+            rbtChar.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             rbtChar.AutoSize = true;
             rbtChar.Location = new System.Drawing.Point(624, 250);
             rbtChar.Name = "rbtChar";
@@ -196,6 +209,7 @@ namespace HashDecoder
             // 
             // numCharCount
             // 
+            numCharCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             numCharCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
             numCharCount.Location = new System.Drawing.Point(502, 250);
             numCharCount.Maximum = new decimal(new int[] { 64, 0, 0, 0 });
@@ -209,6 +223,7 @@ namespace HashDecoder
             // 
             // numNumCount
             // 
+            numNumCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             numNumCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
             numNumCount.Location = new System.Drawing.Point(502, 300);
             numNumCount.Maximum = new decimal(new int[] { 64, 0, 0, 0 });

@@ -101,25 +101,25 @@ namespace HashDecoder
             switch (this.mMode)
             {
                 case EditorMode.Add:
-                    {
-                        this.mTexts.Add(ts);
-                        break;
-                    }
+                {
+                    this.mTexts.Add(ts);
+                    break;
+                }
                 case EditorMode.Modify:
-                    {
-                        this.mTexts[this.mSelectIndex] = ts;
-                        break;
-                    }
+                {
+                    this.mTexts[this.mSelectIndex] = ts;
+                    break;
+                }
                 case EditorMode.InsertPrev:
-                    {
-                        this.mTexts.Insert(this.mSelectIndex, ts);
-                        break;
-                    }
+                {
+                    this.mTexts.Insert(this.mSelectIndex, ts);
+                    break;
+                }
                 case EditorMode.InsertNext:
-                    {
-                        this.mTexts.Insert(this.mSelectIndex + 1, ts);
-                        break;
-                    }
+                {
+                    this.mTexts.Insert(this.mSelectIndex + 1, ts);
+                    break;
+                }
             }
             this.UpdateUI();
         }
@@ -304,17 +304,17 @@ namespace HashDecoder
             switch (menu.Name)
             {
                 case "menuCleanAll":
-                    {
-                        this.mTexts.Clear();
-                        this.UpdateUI();
-                        break;
-                    }
+                {
+                    this.mTexts.Clear();
+                    this.UpdateUI();
+                    break;
+                }
                 case "menuDelete":
-                    {
-                        this.mTexts.RemoveAt(this.mSelectIndex);
-                        this.UpdateUI();
-                        break;
-                    }
+                {
+                    this.mTexts.RemoveAt(this.mSelectIndex);
+                    this.UpdateUI();
+                    break;
+                }
             }
             this.UpdateStatus();
         }
@@ -421,23 +421,23 @@ namespace HashDecoder
                     switch (ts.TextType)
                     {
                         case TextType.ConstString:
-                            {
-                                ts.StartPos = pos;
-                                pos += ts.ConstStr.Length;
-                                ts.EndPos = pos;
+                        {
+                            ts.StartPos = pos;
+                            pos += ts.ConstStr.Length;
+                            ts.EndPos = pos;
 
-                                break;
-                            }
+                            break;
+                        }
                         case TextType.Char:
                         case TextType.Number:
-                            {
-                                ts.StartPos = pos;
-                                pos += ts.Count;
-                                ts.EndPos = pos;
-                                ts.TextCount = StringGenerator.PowerN(ts.Table.Length, ts.Count);
+                        {
+                            ts.StartPos = pos;
+                            pos += ts.Count;
+                            ts.EndPos = pos;
+                            ts.TextCount = StringGenerator.PowerN(ts.Table.Length, ts.Count);
 
-                                break;
-                            }
+                            break;
+                        }
                     }
                     //回写
                     tsArray[i] = ts;
@@ -468,17 +468,17 @@ namespace HashDecoder
                     switch (ts.TextType)
                     {
                         case TextType.ConstString:
-                            {
-                                break;
-                            }
+                        {
+                            break;
+                        }
                         case TextType.Char:
                         case TextType.Number:
-                            {
-                                varArray.Add(ts);
-                                textCount *= ts.TextCount;
+                        {
+                            varArray.Add(ts);
+                            textCount *= ts.TextCount;
 
-                                break;
-                            }
+                            break;
+                        }
                     }
                 }
 
