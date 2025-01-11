@@ -114,7 +114,7 @@ namespace NVLWebStatic
 
 
         /// <summary>
-        /// 
+        /// 构造函数
         /// </summary>
         /// <param name="currentDirectory">游戏资源目录</param>
         public EndOfTheWorld(string currentDirectory)

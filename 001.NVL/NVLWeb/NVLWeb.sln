@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVLWebStatic", "NVLWebStatic\NVLWebStatic.csproj", "{9C9509E4-0278-46E4-97B2-F5D8A073D067}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NVLWebStatic", "NVLWebStatic\NVLWebStatic.csproj", "{9C9509E4-0278-46E4-97B2-F5D8A073D067}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{88CF694A-AEB3-46E4-AB0B-8BCCB18D1C01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{88CF694A-AEB3-46E4-AB0B-8BCCB18D1C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndOfTheWorldExtractor", "EndOfTheWorldExtractor\EndOfTheWorldExtractor.csproj", "{0C7C33F4-FCC6-4441-B616-D58188BEA849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{88CF694A-AEB3-46E4-AB0B-8BCCB18D1C01}.Debug|x64.Build.0 = Debug|x64
 		{88CF694A-AEB3-46E4-AB0B-8BCCB18D1C01}.Release|x64.ActiveCfg = Release|x64
 		{88CF694A-AEB3-46E4-AB0B-8BCCB18D1C01}.Release|x64.Build.0 = Release|x64
+		{0C7C33F4-FCC6-4441-B616-D58188BEA849}.Debug|x64.ActiveCfg = Debug|x64
+		{0C7C33F4-FCC6-4441-B616-D58188BEA849}.Debug|x64.Build.0 = Debug|x64
+		{0C7C33F4-FCC6-4441-B616-D58188BEA849}.Release|x64.ActiveCfg = Release|x64
+		{0C7C33F4-FCC6-4441-B616-D58188BEA849}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
