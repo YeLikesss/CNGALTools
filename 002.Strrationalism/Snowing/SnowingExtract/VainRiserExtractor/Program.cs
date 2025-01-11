@@ -25,7 +25,7 @@ namespace VainRiserExtractor
 
             FolderBrowserDialog fbd = new()
             {
-                Description = "请选择游戏文件夹",
+                Description = "空梦 - 请选择游戏文件夹",
                 ShowNewFolderButton = false,
                 AutoUpgradeEnabled = true,
                 UseDescriptionForTitle = true
