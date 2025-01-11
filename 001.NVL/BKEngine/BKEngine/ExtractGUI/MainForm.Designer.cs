@@ -29,69 +29,65 @@ namespace ExtractGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.cmdExtract = new System.Windows.Forms.Button();
-            this.listBoxFile = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
+            cmbType = new System.Windows.Forms.ComboBox();
+            cmdExtract = new System.Windows.Forms.Button();
+            listBoxFile = new System.Windows.Forms.ListBox();
+            SuspendLayout();
             // 
             // cmbType
             // 
-            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Items.AddRange(new object[] {
-            "BKARC.V20(官方工具)",
-            "BKARC.V21(十二色的季节)",
-            "BKARC.V40(内部收费定制 2018-?)"});
-            this.cmbType.Location = new System.Drawing.Point(12, 12);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(319, 29);
-            this.cmbType.TabIndex = 0;
-            this.cmbType.TabStop = false;
+            cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cmbType.FormattingEnabled = true;
+            cmbType.Items.AddRange(new object[] { "BKARC.V20", "BKARC.V21", "BKARC.V40" });
+            cmbType.Location = new System.Drawing.Point(12, 12);
+            cmbType.Name = "cmbType";
+            cmbType.Size = new System.Drawing.Size(319, 29);
+            cmbType.TabIndex = 0;
+            cmbType.TabStop = false;
             // 
             // cmdExtract
             // 
-            this.cmdExtract.Location = new System.Drawing.Point(534, 4);
-            this.cmdExtract.Name = "cmdExtract";
-            this.cmdExtract.Size = new System.Drawing.Size(116, 37);
-            this.cmdExtract.TabIndex = 1;
-            this.cmdExtract.Text = "解包";
-            this.cmdExtract.UseVisualStyleBackColor = true;
-            this.cmdExtract.Click += new System.EventHandler(this.cmdExtract_Click);
+            cmdExtract.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cmdExtract.Location = new System.Drawing.Point(534, 4);
+            cmdExtract.Name = "cmdExtract";
+            cmdExtract.Size = new System.Drawing.Size(116, 37);
+            cmdExtract.TabIndex = 1;
+            cmdExtract.Text = "解包";
+            cmdExtract.UseVisualStyleBackColor = true;
+            cmdExtract.Click += cmdExtract_Click;
             // 
             // listBoxFile
             // 
-            this.listBoxFile.AllowDrop = true;
-            this.listBoxFile.FormattingEnabled = true;
-            this.listBoxFile.HorizontalScrollbar = true;
-            this.listBoxFile.ItemHeight = 21;
-            this.listBoxFile.Location = new System.Drawing.Point(12, 47);
-            this.listBoxFile.MultiColumn = true;
-            this.listBoxFile.Name = "listBoxFile";
-            this.listBoxFile.Size = new System.Drawing.Size(638, 151);
-            this.listBoxFile.TabIndex = 2;
-            this.listBoxFile.TabStop = false;
-            this.listBoxFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileList_DragDrop);
-            this.listBoxFile.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileList_DragEnter);
-            this.listBoxFile.DragOver += new System.Windows.Forms.DragEventHandler(this.FileList_DragOver);
+            listBoxFile.AllowDrop = true;
+            listBoxFile.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            listBoxFile.HorizontalScrollbar = true;
+            listBoxFile.IntegralHeight = false;
+            listBoxFile.ItemHeight = 21;
+            listBoxFile.Location = new System.Drawing.Point(12, 47);
+            listBoxFile.Name = "listBoxFile";
+            listBoxFile.Size = new System.Drawing.Size(638, 151);
+            listBoxFile.TabIndex = 2;
+            listBoxFile.TabStop = false;
+            listBoxFile.DragDrop += FileList_DragDrop;
+            listBoxFile.DragEnter += FileList_DragEnter;
+            listBoxFile.DragOver += FileList_DragOver;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(662, 207);
-            this.Controls.Add(this.listBoxFile);
-            this.Controls.Add(this.cmdExtract);
-            this.Controls.Add(this.cmbType);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.Text = "BKARC Extractor";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(662, 207);
+            Controls.Add(listBoxFile);
+            Controls.Add(cmdExtract);
+            Controls.Add(cmbType);
+            DoubleBuffered = true;
+            Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ImeMode = System.Windows.Forms.ImeMode.Disable;
+            Margin = new System.Windows.Forms.Padding(5);
+            MinimumSize = new System.Drawing.Size(600, 240);
+            Name = "MainForm";
+            Text = "BKARC Extractor";
+            ResumeLayout(false);
         }
 
         #endregion
