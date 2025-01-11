@@ -102,12 +102,6 @@
 
     &emsp;&emsp;&emsp;《丑小鸭的天鹅湖》
 
-    &emsp;&emsp;依赖库
-
-    &emsp;&emsp;&emsp;NuGet
-
-    &emsp;&emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
-
     &emsp;&emsp;编译环境 
     
     &emsp;&emsp;&emsp;.Net 6.x
@@ -339,8 +333,6 @@
     
     &emsp;&emsp;NuGet
     
-    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
-    
     &emsp;&emsp;&emsp;Razorvine.Pickle
     
     &emsp;编译环境 
@@ -380,8 +372,6 @@
     &emsp;依赖库
 
     &emsp;&emsp;NuGet
-
-    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
     &emsp;&emsp;&emsp;Razorvine.Pickle
 
