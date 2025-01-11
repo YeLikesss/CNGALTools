@@ -56,12 +56,6 @@
     
     &emsp;&emsp;&emsp;MSVC2022 x86
 
-    &emsp;No Protector Executable (个人脱壳主程序)
-
-    &emsp;&emsp;Offical Public Ver
-
-    &emsp;&emsp;&emsp;官方公开版本的主程序 Release+Dev版脱壳  ( Themida 2.x )
-
     &emsp;状态说明
 
     &emsp;&emsp;1.Ver2.0已经算是最终版, 仅仅解密除文本外的所有资源
