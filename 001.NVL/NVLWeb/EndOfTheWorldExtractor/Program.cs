@@ -7,6 +7,7 @@ namespace EndOfTheWorldExtractor
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             using OpenFileDialog ofd = new()
