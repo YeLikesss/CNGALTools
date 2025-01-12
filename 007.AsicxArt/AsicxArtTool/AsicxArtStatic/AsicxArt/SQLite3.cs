@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace AsicxArt
 {
-    public class SQLite3
+	/// <summary>
+	/// SQLite3
+	/// </summary>
+    internal class SQLite3
     {
 		/// <summary>
 		/// Sqlite3函数执行结果
@@ -199,7 +201,7 @@ namespace AsicxArt
 		/// <param name="vfsModuleName">虚拟文件模块名</param>
 		/// <returns></returns>
 		[DllImport("sqlite3.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "sqlite3_open_v2")]
-		public static extern SQLite3.Result OpenA([MarshalAs(UnmanagedType.LPUTF8Str)] string fileName, out IntPtr hDB, SQLiteOpenFlags flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string vfsModuleName);
+		public static extern SQLite3.Result OpenA([MarshalAs(UnmanagedType.LPUTF8Str)] string fileName, out IntPtr hDB, SQLiteOpenFlags flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string? vfsModuleName);
 
 		/// <summary>
 		/// 打开数据库 Unicode版
@@ -342,7 +344,7 @@ namespace AsicxArt
 		/// <returns></returns>
 		public static string GetErrorMessage(IntPtr hDB)
 		{
-			return Marshal.PtrToStringUni(SQLite3.GetErrorMessageW(hDB));
+			return SQLite3.GetErrorMessageW(hDB).AsUnicodeString();
 		}
 
 		/// <summary>
@@ -451,7 +453,7 @@ namespace AsicxArt
 		/// <returns></returns>
 		public static string GetColumnName(IntPtr statementPtr, int index)
 		{
-			return Marshal.PtrToStringUni(SQLite3.GetColumnNameW(statementPtr, index));
+			return SQLite3.GetColumnNameW(statementPtr, index).AsUnicodeString();
 		}
 
 		/// <summary>
@@ -515,7 +517,7 @@ namespace AsicxArt
 		/// <param name="index">列序号</param>
 		public static string GetColumnString(IntPtr statementPtr, int index)
 		{
-			return Marshal.PtrToStringUni(SQLite3.GetColumnTextW(statementPtr, index));
+			return SQLite3.GetColumnTextW(statementPtr, index).AsUnicodeString();
 		}
 
 		/// <summary>
@@ -590,8 +592,10 @@ namespace AsicxArt
 
 	}
 
-
-	public class SQLiteException : Exception
+	/// <summary>
+	/// SQLite异常
+	/// </summary>
+	internal class SQLiteException : Exception
 	{
 		protected SQLiteException(SQLite3.Result result, string message) : base(message)
 		{

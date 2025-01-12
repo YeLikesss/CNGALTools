@@ -8,7 +8,7 @@ namespace AsicxArt.V1
     /// <summary>
     /// 资源类型
     /// </summary>
-    public enum ArchiveType
+    public enum ArchiveTypeV1
     {
         /// <summary>
         /// CG
@@ -20,7 +20,7 @@ namespace AsicxArt.V1
         Live2DTexture = 1
     }
 
-    public class Archive
+    public class ArchiveV1
     {
         private readonly byte[] mKey;        //游戏数据库key
 
@@ -30,8 +30,8 @@ namespace AsicxArt.V1
         /// <param name="resDirPath">资源路径</param>
         public void Extract(string resDirPath)
         {
-            this.Extract(resDirPath, ArchiveType.Gallery);
-            this.Extract(resDirPath, ArchiveType.Live2DTexture);
+            this.Extract(resDirPath, ArchiveTypeV1.Gallery);
+            this.Extract(resDirPath, ArchiveTypeV1.Live2DTexture);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace AsicxArt.V1
         /// </summary>
         /// <param name="resDirPath">资源路径</param>
         /// <param name="arcType">资源类型</param>
-        public void Extract(string resDirPath, ArchiveType arcType)
+        public void Extract(string resDirPath, ArchiveTypeV1 arcType)
         {
             List<string> dbNameList = this.GetDBNameList(arcType);
             List<string> tableNameList = this.GetTableNameList(arcType);
@@ -71,8 +71,8 @@ namespace AsicxArt.V1
                         {
                             //准备sql执行语句
                             string sql = $"select * from {tableName} where id={id}";
-                            IntPtr statementPtr;
-                            statementPtr = SQLite3.Prepare2(hDB, sql);
+
+                            IntPtr statementPtr = SQLite3.Prepare2(hDB, sql);
                             //执行
                             SQLite3.Step(statementPtr);
 
@@ -85,17 +85,13 @@ namespace AsicxArt.V1
                             SQLite3.Finalize(statementPtr);
 
                             {
-                                if(Path.GetDirectoryName(extractFileFullPath) is string dir)
+                                if(Path.GetDirectoryName(extractFileFullPath) is string dir && !Directory.Exists(dir))
                                 {
-                                    if (!Directory.Exists(dir))
-                                    {
-                                        Directory.CreateDirectory(dir);
-                                    }
+                                    Directory.CreateDirectory(dir);
                                 }
                             }
                             File.WriteAllBytes(extractFileFullPath, data);
                         }
-
                     }
                 }
             }
@@ -105,17 +101,21 @@ namespace AsicxArt.V1
         /// </summary>
         /// <param name="arcType">资源类型</param>
         /// <returns></returns>
-        private List<string> GetDBNameList(ArchiveType arcType)
+        private List<string> GetDBNameList(ArchiveTypeV1 arcType)
         {
             List<string> dbNameList = new(32);
             switch (arcType)
             {
-                case ArchiveType.Gallery:
+                case ArchiveTypeV1.Gallery:
+                {
                     dbNameList.Add("rsinfo.db");
                     break;
-                case ArchiveType.Live2DTexture:
+                }
+                case ArchiveTypeV1.Live2DTexture:
+                {
                     dbNameList.Add("rsinfo2.db");
                     break;
+                }
             }
             return dbNameList;
         }
@@ -125,18 +125,22 @@ namespace AsicxArt.V1
         /// </summary>
         /// <param name="arcType">资源类型</param>
         /// <returns></returns>
-        private List<string> GetTableNameList(ArchiveType arcType)
+        private List<string> GetTableNameList(ArchiveTypeV1 arcType)
         {
             List<string> tableNameList = new(32);
             switch (arcType)
             {
-                case ArchiveType.Gallery:
+                case ArchiveTypeV1.Gallery:
+                {
                     tableNameList.Add("RsBGInfo");
                     tableNameList.Add("RsCGInfo");
                     break;
-                case ArchiveType.Live2DTexture:
+                }
+                case ArchiveTypeV1.Live2DTexture:
+                {
                     tableNameList.Add("RsLive2DInfo");
                     break;
+                }
             }
             return tableNameList;
         }
@@ -147,20 +151,24 @@ namespace AsicxArt.V1
         /// <param name="statementPtr">sqlite二进制执行语句</param>
         /// <param name="arcType">资源类型</param>
         /// <returns></returns>
-        private string GetResourceRelativePath(IntPtr statementPtr, ArchiveType arcType)
+        private string GetResourceRelativePath(IntPtr statementPtr, ArchiveTypeV1 arcType)
         {
             string filePath = string.Empty;
             switch (arcType)
             {
-                case ArchiveType.Gallery:
+                case ArchiveTypeV1.Gallery:
+                {
                     filePath = SQLite3.GetColumnString(statementPtr, 1);   //Name=1
                     filePath += ".png";
                     break;
-                case ArchiveType.Live2DTexture:
+                } 
+                case ArchiveTypeV1.Live2DTexture:
+                {
                     filePath = SQLite3.GetColumnString(statementPtr, 1);   //Path=1
                     filePath += SQLite3.GetColumnString(statementPtr, 2);  //TextureName=2
                     filePath += ".png";
                     break;
+                }
             }
             return filePath;
         }
@@ -171,22 +179,30 @@ namespace AsicxArt.V1
         /// <param name="statementPtr">sqlite二进制执行语句</param>
         /// <param name="arcType">资源类型</param>
         /// <returns></returns>
-        private byte[] GetResourceData(IntPtr statementPtr, ArchiveType arcType)
+        private byte[] GetResourceData(IntPtr statementPtr, ArchiveTypeV1 arcType)
         {
             byte[] data = Array.Empty<byte>();
             switch (arcType)
             {
-                case ArchiveType.Gallery:
+                case ArchiveTypeV1.Gallery:
+                {
                     data = SQLite3.GetColumnByteArray(statementPtr, 4);   //blob=4
                     break;
-                case ArchiveType.Live2DTexture:
+                }
+                case ArchiveTypeV1.Live2DTexture:
+                {
                     data = SQLite3.GetColumnByteArray(statementPtr, 5);   //blob=5
                     break;
+                }
             }
             return data;
         }
 
-        public Archive(byte[] key)
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="key">解密Key</param>
+        public ArchiveV1(byte[] key)
         {
             this.mKey = key;
         }

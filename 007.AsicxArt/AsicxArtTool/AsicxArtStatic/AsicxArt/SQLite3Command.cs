@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace AsicxArt
 {
-    public class SQLite3Command
+    internal class SQLite3Command
     {
         /// <summary>
         /// 获取表中项数
@@ -46,7 +45,7 @@ namespace AsicxArt
         /// <returns>数据库句柄</returns>
         public static IntPtr OpenDBWithKey(string dbPath, SQLite3.SQLiteOpenFlags flags, byte[] key)
         {
-            IntPtr hDB = new IntPtr(-1);
+            IntPtr hDB = new(-1);
             //打开数据库
             if(SQLite3.OpenA(dbPath, out hDB, SQLite3.SQLiteOpenFlags.ReadWrite, null) == SQLite3.Result.OK)
             {

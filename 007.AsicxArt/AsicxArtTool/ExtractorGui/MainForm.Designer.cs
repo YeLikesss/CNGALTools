@@ -36,20 +36,22 @@ namespace Extractor.GUI
             // 
             // btnExtract
             // 
-            btnExtract.Location = new System.Drawing.Point(283, 80);
+            btnExtract.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnExtract.Location = new System.Drawing.Point(353, 20);
             btnExtract.Name = "btnExtract";
-            btnExtract.Size = new System.Drawing.Size(148, 43);
+            btnExtract.Size = new System.Drawing.Size(148, 29);
             btnExtract.TabIndex = 0;
             btnExtract.Text = "解包";
             btnExtract.UseVisualStyleBackColor = true;
-            btnExtract.Click += btnExtract_Click;
+            btnExtract.Click += BtnExtract_OnClick;
             // 
             // cbTitle
             // 
+            cbTitle.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             cbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cbTitle.Location = new System.Drawing.Point(12, 20);
+            cbTitle.Location = new System.Drawing.Point(21, 20);
             cbTitle.Name = "cbTitle";
-            cbTitle.Size = new System.Drawing.Size(711, 29);
+            cbTitle.Size = new System.Drawing.Size(305, 29);
             cbTitle.TabIndex = 1;
             cbTitle.TabStop = false;
             // 
@@ -57,16 +59,15 @@ namespace Extractor.GUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size(735, 147);
+            ClientSize = new System.Drawing.Size(525, 70);
             Controls.Add(cbTitle);
             Controls.Add(btnExtract);
             DoubleBuffered = true;
             Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             ImeMode = System.Windows.Forms.ImeMode.Disable;
             Margin = new System.Windows.Forms.Padding(5);
-            MaximizeBox = false;
             Name = "MainForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "AsicxArtExtractor";
             ResumeLayout(false);
         }
