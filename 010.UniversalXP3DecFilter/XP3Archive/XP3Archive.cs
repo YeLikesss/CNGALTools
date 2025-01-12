@@ -101,7 +101,7 @@ namespace XP3
             /// <summary>
             /// 获取文件是否已压缩
             /// </summary>
-            public bool IsCompressed => this.Compress == 0x00000001;
+            public readonly bool IsCompressed => this.Compress == 0x00000001;
         }
 
 
@@ -130,7 +130,7 @@ namespace XP3
             /// <summary>
             /// 获取表是否已压缩
             /// </summary>
-            public bool IsCompressed => this.Compress == 0x01;
+            public readonly bool IsCompressed => this.Compress == 0x01;
         }
     }
 }

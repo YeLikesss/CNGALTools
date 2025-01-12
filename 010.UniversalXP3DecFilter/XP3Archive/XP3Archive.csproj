@@ -18,8 +18,4 @@
 	    <DebugType>none</DebugType>
     </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="SharpZipLib" Version="1.4.2" />
-    </ItemGroup>
-
 </Project>

@@ -26,7 +26,7 @@ namespace XP3
 
                 //读取文件表信息偏移
                 {
-                    mStream.Position = 11;
+                    mStream.Position = 11L;
                     mStream.Position = fileReader.ReadInt64();
                 }
 
@@ -35,12 +35,12 @@ namespace XP3
                     byte flag = fileReader.ReadByte();
                     if (flag == 0x80)
                     {
-                        mStream.Position += 8;
+                        mStream.Position += 8L;
                         mStream.Position = fileReader.ReadInt64();
                     }
                     else
                     {
-                        mStream.Position -= 1;
+                        mStream.Position -= 1L;
                     }
                 }
 
@@ -64,7 +64,7 @@ namespace XP3
                     //初始化文件表读取器
                     using MemoryStream memIndexData = new(indexData, false);
                     using BinaryReader indexDataReader = new(memIndexData);
-                    memIndexData.Position = 0;
+                    memIndexData.Position = 0L;
 
                     //循环分析
                     while (memIndexData.Position < memIndexData.Length)
@@ -155,7 +155,7 @@ namespace XP3
 
                     string mExtractFileFullPath = Path.Combine(this.mExtractDirectory, mXP3File.FileNameUTF16LE);
                     {
-                        if(Path.GetDirectoryName(mExtractFileFullPath) is string dir)
+                        if(Path.GetDirectoryName(mExtractFileFullPath) is string dir && !Directory.Exists(dir))
                         {
                             Directory.CreateDirectory(dir);
                         }

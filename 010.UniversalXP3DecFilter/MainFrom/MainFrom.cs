@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using XP3;
 using XP3Archive;
@@ -74,7 +70,7 @@ namespace MainFrom
 
         private void btnExtract_Click(object sender, EventArgs e)
         {
-            if(this.cbTitles.SelectedItem is IXP3Filter filter)
+            if (this.cbTitles.SelectedItem is IXP3Filter filter)
             {
                 int pkgCount = this.listBoxFiles.Items.Count;
                 if (pkgCount > 0)
@@ -84,7 +80,7 @@ namespace MainFrom
 
                     for (int i = 0; i < pkgCount; i++)
                     {
-                        if(this.listBoxFiles.Items[i] is string path)
+                        if (this.listBoxFiles.Items[i] is string path)
                         {
                             Archive arc = new(path, filter);
                             arc.Extract();

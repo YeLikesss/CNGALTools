@@ -44,7 +44,7 @@ namespace MainFrom
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Location = new System.Drawing.Point(9, 12);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(51, 21);
             label1.TabIndex = 13;
@@ -52,9 +52,10 @@ namespace MainFrom
             // 
             // btnExtract
             // 
-            btnExtract.Location = new System.Drawing.Point(637, 12);
+            btnExtract.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExtract.Location = new System.Drawing.Point(638, 9);
             btnExtract.Name = "btnExtract";
-            btnExtract.Size = new System.Drawing.Size(137, 40);
+            btnExtract.Size = new System.Drawing.Size(137, 49);
             btnExtract.TabIndex = 12;
             btnExtract.Text = "解包";
             btnExtract.UseVisualStyleBackColor = true;
@@ -63,7 +64,7 @@ namespace MainFrom
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(12, 40);
+            label4.Location = new System.Drawing.Point(9, 41);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(167, 21);
             label4.TabIndex = 10;
@@ -73,7 +74,7 @@ namespace MainFrom
             // 
             cbTitles.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTitles.FormattingEnabled = true;
-            cbTitles.Location = new System.Drawing.Point(69, 9);
+            cbTitles.Location = new System.Drawing.Point(66, 9);
             cbTitles.Name = "cbTitles";
             cbTitles.Size = new System.Drawing.Size(319, 29);
             cbTitles.TabIndex = 14;
@@ -81,13 +82,15 @@ namespace MainFrom
             // listBoxFiles
             // 
             listBoxFiles.AllowDrop = true;
+            listBoxFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listBoxFiles.FormattingEnabled = true;
             listBoxFiles.HorizontalScrollbar = true;
+            listBoxFiles.IntegralHeight = false;
             listBoxFiles.ItemHeight = 21;
-            listBoxFiles.Location = new System.Drawing.Point(12, 64);
+            listBoxFiles.Location = new System.Drawing.Point(9, 64);
             listBoxFiles.Name = "listBoxFiles";
             listBoxFiles.ScrollAlwaysVisible = true;
-            listBoxFiles.Size = new System.Drawing.Size(762, 235);
+            listBoxFiles.Size = new System.Drawing.Size(766, 289);
             listBoxFiles.TabIndex = 11;
             listBoxFiles.TabStop = false;
             listBoxFiles.DragDrop += listBoxFiles_DragDrop;
@@ -97,8 +100,7 @@ namespace MainFrom
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size(783, 308);
+            ClientSize = new System.Drawing.Size(784, 362);
             Controls.Add(cbTitles);
             Controls.Add(label1);
             Controls.Add(btnExtract);
@@ -108,7 +110,7 @@ namespace MainFrom
             Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             ImeMode = ImeMode.Disable;
             Margin = new Padding(4);
-            MaximizeBox = false;
+            MinimumSize = new System.Drawing.Size(800, 400);
             Name = "MainFrom";
             Text = "XP3DecTPM GUI";
             ResumeLayout(false);
