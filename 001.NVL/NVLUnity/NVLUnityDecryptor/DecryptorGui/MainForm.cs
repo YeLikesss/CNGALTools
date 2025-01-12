@@ -36,7 +36,7 @@ namespace DecryptorGui
             lb.Items.Clear();
             string[] resPaths = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-            foreach(string path in resPaths)
+            foreach (string path in resPaths)
             {
                 lb.Items.Add(path);
             }
@@ -44,7 +44,7 @@ namespace DecryptorGui
         }
 
 
-        private void btnDecrypt_Click(object sender, EventArgs e)
+        private async void btnDecrypt_Click(object sender, EventArgs e)
         {
             if (this.listBoxFilePath.Items.Count <= 0)
             {
@@ -66,27 +66,24 @@ namespace DecryptorGui
             IEnumerable<string> filePaths = this.listBoxFilePath.Items.Cast<string>();
             string title = this.cbGameTitle.SelectedItem.ToString();
             string outDir = Path.Combine(Path.GetDirectoryName(listBoxFilePath.Items[0].ToString()), "Static_Extract");
-            new Thread(() =>
+
+            await Task.Factory.StartNew(() =>
             {
                 ArchiveDecryptorBase decryptor = ArchiveDecryptorBase.Create(outDir, title);
-
                 foreach (var path in filePaths)
                 {
                     decryptor.Extract(path);
                 }
+            }, TaskCreationOptions.LongRunning);
 
-                this.BeginInvoke(() =>
-                {
-                    btn.Enabled = true;
-                    System.Diagnostics.Process.Start("explorer.exe", outDir);
-                });
-            }).Start();
+            btn.Enabled = true;
+            System.Diagnostics.Process.Start("explorer.exe", outDir);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.cbGameTitle.Items.Clear();
-            foreach(var title in DataManager.Instance.GameTitles)
+            foreach (var title in DataManager.Instance.GameTitles)
             {
                 this.cbGameTitle.Items.Add(title);
             }

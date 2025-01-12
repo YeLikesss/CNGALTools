@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace NvlUnity.V1
 {
@@ -25,7 +23,7 @@ namespace NvlUnity.V1
     /// </summary>
     internal class NVLFilterV1
     {
-        private IKeyInformationV1 mFilterKey;
+        private readonly IKeyInformationV1 mFilterKey;
 
         /// <summary>
         /// 解密

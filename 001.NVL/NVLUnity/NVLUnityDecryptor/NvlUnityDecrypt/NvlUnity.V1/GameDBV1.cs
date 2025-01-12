@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace NvlUnity.V1
 {
@@ -119,7 +117,6 @@ namespace NvlUnity.V1
         };
     }
 
-
     /// <summary>
     /// 雪中花
     /// </summary>
@@ -186,10 +183,20 @@ namespace NvlUnity.V1
         };
     }
 
+    /// <summary>
+    /// 写真偶像 Demo
+    /// </summary>
+    internal class SnowAlbum_Demo : NVLUnityV102
+    {
+        public override byte[] XorKey { get; } = new byte[]
+        {
+            0x96, 0x88, 0xF9, 0x3A, 0x0F, 0xD4, 0xC7, 0xD3, 0xA5, 0x4A, 0x31, 0x18
+        };
+    }
 
     internal class DataManagerV1
     {
-        private static Dictionary<string, NVLUnityV1> mSGameInformation = new(16)
+        private static readonly Dictionary<string, NVLUnityV1> mSGameInformation = new(16)
         {
             { "昙花", new EpiphyllumInLove() },
             { "梦末", new DreamEnding() },
@@ -203,6 +210,7 @@ namespace NvlUnity.V1
             { "山茶列车", new CamelliaTrain() },
             { "流浪小猫单身狗", new CrossMaid() },
             { "贝果爱情故事", new BagelLoveStory() },
+            { "写真偶像 [Demo]", new SnowAlbum_Demo()},
         };
         /// <summary>
         /// 游戏信息

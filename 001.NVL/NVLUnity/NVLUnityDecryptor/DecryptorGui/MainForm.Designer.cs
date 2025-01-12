@@ -29,114 +29,117 @@ namespace DecryptorGui
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
-            this.listBoxFilePath = new System.Windows.Forms.ListBox();
-            this.btnDecrypt = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbGameTitle = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbLog = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            label5 = new System.Windows.Forms.Label();
+            listBoxFilePath = new System.Windows.Forms.ListBox();
+            btnDecrypt = new System.Windows.Forms.Button();
+            label6 = new System.Windows.Forms.Label();
+            cbGameTitle = new System.Windows.Forms.ComboBox();
+            label1 = new System.Windows.Forms.Label();
+            tbLog = new System.Windows.Forms.TextBox();
+            SuspendLayout();
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(210, 21);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "请拖拽nvldata文件到此下方";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(12, 54);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(210, 21);
+            label5.TabIndex = 7;
+            label5.Text = "请拖拽nvldata文件到此下方";
             // 
             // listBoxFilePath
             // 
-            this.listBoxFilePath.AllowDrop = true;
-            this.listBoxFilePath.FormattingEnabled = true;
-            this.listBoxFilePath.HorizontalScrollbar = true;
-            this.listBoxFilePath.ItemHeight = 21;
-            this.listBoxFilePath.Location = new System.Drawing.Point(12, 78);
-            this.listBoxFilePath.Name = "listBoxFilePath";
-            this.listBoxFilePath.ScrollAlwaysVisible = true;
-            this.listBoxFilePath.Size = new System.Drawing.Size(845, 172);
-            this.listBoxFilePath.TabIndex = 8;
-            this.listBoxFilePath.TabStop = false;
-            this.listBoxFilePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.listBoxFilePath_DragDrop);
-            this.listBoxFilePath.DragEnter += new System.Windows.Forms.DragEventHandler(this.listBoxFilePath_DragEnter);
+            listBoxFilePath.AllowDrop = true;
+            listBoxFilePath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            listBoxFilePath.FormattingEnabled = true;
+            listBoxFilePath.HorizontalScrollbar = true;
+            listBoxFilePath.IntegralHeight = false;
+            listBoxFilePath.ItemHeight = 21;
+            listBoxFilePath.Location = new System.Drawing.Point(12, 78);
+            listBoxFilePath.Name = "listBoxFilePath";
+            listBoxFilePath.ScrollAlwaysVisible = true;
+            listBoxFilePath.Size = new System.Drawing.Size(845, 235);
+            listBoxFilePath.TabIndex = 8;
+            listBoxFilePath.TabStop = false;
+            listBoxFilePath.DragDrop += listBoxFilePath_DragDrop;
+            listBoxFilePath.DragEnter += listBoxFilePath_DragEnter;
             // 
             // btnDecrypt
             // 
-            this.btnDecrypt.Location = new System.Drawing.Point(664, 11);
-            this.btnDecrypt.Name = "btnDecrypt";
-            this.btnDecrypt.Size = new System.Drawing.Size(193, 35);
-            this.btnDecrypt.TabIndex = 10;
-            this.btnDecrypt.Text = "一键解密";
-            this.btnDecrypt.UseVisualStyleBackColor = true;
-            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
+            btnDecrypt.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnDecrypt.Location = new System.Drawing.Point(664, 11);
+            btnDecrypt.Name = "btnDecrypt";
+            btnDecrypt.Size = new System.Drawing.Size(193, 35);
+            btnDecrypt.TabIndex = 10;
+            btnDecrypt.Text = "一键解密";
+            btnDecrypt.UseVisualStyleBackColor = true;
+            btnDecrypt.Click += btnDecrypt_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 21);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "请选择游戏";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(12, 14);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(90, 21);
+            label6.TabIndex = 11;
+            label6.Text = "请选择游戏";
             // 
             // cbGameTitle
             // 
-            this.cbGameTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGameTitle.FormattingEnabled = true;
-            this.cbGameTitle.Location = new System.Drawing.Point(108, 11);
-            this.cbGameTitle.Name = "cbGameTitle";
-            this.cbGameTitle.Size = new System.Drawing.Size(257, 29);
-            this.cbGameTitle.TabIndex = 12;
-            this.cbGameTitle.TabStop = false;
+            cbGameTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbGameTitle.FormattingEnabled = true;
+            cbGameTitle.Location = new System.Drawing.Point(108, 11);
+            cbGameTitle.Name = "cbGameTitle";
+            cbGameTitle.Size = new System.Drawing.Size(257, 29);
+            cbGameTitle.TabIndex = 12;
+            cbGameTitle.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 253);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 21);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "日志Log";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 316);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(70, 21);
+            label1.TabIndex = 13;
+            label1.Text = "日志Log";
             // 
             // tbLog
             // 
-            this.tbLog.Location = new System.Drawing.Point(12, 277);
-            this.tbLog.MaxLength = 65536;
-            this.tbLog.Multiline = true;
-            this.tbLog.Name = "tbLog";
-            this.tbLog.ReadOnly = true;
-            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbLog.ShortcutsEnabled = false;
-            this.tbLog.Size = new System.Drawing.Size(845, 161);
-            this.tbLog.TabIndex = 14;
-            this.tbLog.TabStop = false;
-            this.tbLog.WordWrap = false;
+            tbLog.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            tbLog.Location = new System.Drawing.Point(12, 340);
+            tbLog.MaxLength = 65536;
+            tbLog.Multiline = true;
+            tbLog.Name = "tbLog";
+            tbLog.ReadOnly = true;
+            tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            tbLog.ShortcutsEnabled = false;
+            tbLog.Size = new System.Drawing.Size(845, 210);
+            tbLog.TabIndex = 14;
+            tbLog.TabStop = false;
+            tbLog.WordWrap = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(877, 450);
-            this.Controls.Add(this.tbLog);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbGameTitle);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnDecrypt);
-            this.Controls.Add(this.listBoxFilePath);
-            this.Controls.Add(this.label5);
-            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "MainForm";
-            this.Text = "NVL Unity Decryptor";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            ClientSize = new System.Drawing.Size(877, 562);
+            Controls.Add(tbLog);
+            Controls.Add(label1);
+            Controls.Add(cbGameTitle);
+            Controls.Add(label6);
+            Controls.Add(btnDecrypt);
+            Controls.Add(listBoxFilePath);
+            Controls.Add(label5);
+            Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ImeMode = System.Windows.Forms.ImeMode.Disable;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(800, 600);
+            Name = "MainForm";
+            Text = "NVL Unity Decryptor";
+            Load += MainForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
