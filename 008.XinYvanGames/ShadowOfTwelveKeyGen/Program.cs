@@ -1,15 +1,34 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ShadowOfTwelveKeyGen
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            //code.txt在游戏目录 ./ShiErKe_Data/StreamingAssets/ 下
-            KeyGen(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "code.txt"));
+            using OpenFileDialog ofd = new()
+            {
+                AddExtension = true,
+                AutoUpgradeEnabled = true,
+                CheckFileExists = true,
+                CheckPathExists = true,
+                DefaultExt = ".txt",
+                Filter = "验证文档(*.txt)|*.txt|所有文件(*.*)|*.*",
+                Multiselect = false,
+                RestoreDirectory = true,
+                ShowHelp = false,
+                Title = "十二刻度月计时 - 选择验证Key文档",
+            };
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                KeyGen(ofd.FileName);
+                Console.WriteLine("====== 十二刻度月计时 KeyGen ======");
+                Console.Read();
+            }
         }
 
         private static void KeyGen(string codePath)
@@ -39,11 +58,8 @@ namespace ShadowOfTwelveKeyGen
                 keySW.WriteLine(key);
             }
 
-            codeSR.Close();
             keySW.Flush();
             keySW.Close();
         }
-
-
     }
 }
