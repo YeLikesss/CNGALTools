@@ -11,12 +11,14 @@ namespace NVLKR2Static
         {
             { "茸雪 Steam", new TinySnowSteam() },
             { "余香 Steam", new LingeringFragranceSteam() },
+            { "花落冬阳 Steam [Demo]", new SnowDreamsSteam_Demo() },
             { "花落冬阳 Steam", new SnowDreamsSteam() },
             { "雪之本境S Steam", new ConspiracyFieldSnowTrapSteam() },
             { "橘子班短篇合集 Steam", new ClassTangerineShortStoriesSteam() },
             { "高考恋爱100天 Steam", new GaoKaoLoveSteam() },
             { "高考恋爱100天 Package", new GaoKaoLovePackage() },
             { "虹色旋律 Steam", new MelodyofIrisSteam() },
+            { "祈風 Steam [Demo]", new InoriKazeSteam_Demo() },
             { "祈風 Steam", new InoriKazeSteam() },
             { "雾之本境S Steam", new ConspiracyFieldFogShadowSteam() },
             { "真恋寄语枫秋 Steam", new TrueLoveSteam() },
@@ -58,6 +60,17 @@ namespace NVLKR2Static
         public byte[] Key { get; } = new byte[]
         {
             0x7B, 0x98, 0x63, 0x8B, 0x00, 0x70, 0x42, 0x00
+        };
+    }
+
+    /// <summary>
+    /// 花落冬阳 Steam Demo
+    /// </summary>
+    public class SnowDreamsSteam_Demo : IKeyInformation
+    {
+        public byte[] Key { get; } = new byte[]
+        {
+            0xA2, 0x0D, 0xE0, 0x7B, 0x5F, 0xA6, 0x1F, 0x3A
         };
     }
 
@@ -125,6 +138,17 @@ namespace NVLKR2Static
         public byte[] Key { get; } = new byte[]
         {
             0x9A, 0xDE, 0x37, 0x3E, 0x00, 0x22, 0x48, 0x00
+        };
+    }
+
+    /// <summary>
+    /// 祈風 Steam_Demo
+    /// </summary>
+    public class InoriKazeSteam_Demo : IKeyInformation
+    {
+        public byte[] Key { get; } = new byte[]
+        {
+            0x92, 0x44, 0x4B, 0x6D, 0xF2, 0xA4, 0x3D, 0x00
         };
     }
 
