@@ -281,9 +281,7 @@
   
     &emsp;1.《亿万年的星光》不打算继续维护(游戏质量一般)
 
-    &emsp;2.如需要动态解《亿万年的星光》 可以自行寻找TVPCreateStream接口调用
-
-    &emsp;3.《刻痕》系列没人放流, 有放流再看看
+    &emsp;2.《刻痕0》《绯色的记忆之痕》系列没人放流, 有放流再看看
 
 #### 4.Fontainebleau/枫丹白露
 
@@ -449,12 +447,6 @@
     &emsp;游戏测试
 
     &emsp;&emsp;《夏花的轨迹 That Summer Of Eternal Eden》
-
-    &emsp;依赖库
-
-    &emsp;&emsp;Nuget
-
-    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
 
     &emsp;编译环境
 
