@@ -580,6 +580,18 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 17.Ourshow Games
+
+*   AGP封包
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《李雷和韩梅梅:与你同在》
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
 #### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)
