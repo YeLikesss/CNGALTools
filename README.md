@@ -570,12 +570,6 @@
 
     &emsp;&emsp;《Lucy -The Eternity She Wished For-》
 
-    &emsp;依赖库
-
-    &emsp;&emsp;Nuget
-
-    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
-
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
