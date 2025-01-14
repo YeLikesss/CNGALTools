@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+using System.IO.Compression;
 
 namespace NekoNovelStatic
 {
@@ -17,10 +16,10 @@ namespace NekoNovelStatic
         /// <returns>解压后数据</returns>
         public static byte[] Decompress(byte[] data, int offset, int length)
         {
-            MemoryStream compressed = new(data, offset, length);
-            MemoryStream decompressed = new();
-            InflaterInputStream zlibInput = new(compressed);
-            zlibInput.CopyTo(decompressed);
+            using MemoryStream compressed = new(data, offset, length, false);
+            using MemoryStream decompressed = new();
+            using ZLibStream zlib = new(compressed, CompressionMode.Decompress);
+            zlib.CopyTo(decompressed);
             return decompressed.ToArray();
         }
     }

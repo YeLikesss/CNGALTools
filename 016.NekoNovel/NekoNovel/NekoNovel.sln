@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{553FC664-AA96-4E31-82F5-137252FA4716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{553FC664-AA96-4E31-82F5-137252FA4716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoNovelStatic", "NekoNovelStatic\NekoNovelStatic.csproj", "{74B0CA6C-D035-4FD8-97F9-053B1ED7083D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NekoNovelStatic", "NekoNovelStatic\NekoNovelStatic.csproj", "{74B0CA6C-D035-4FD8-97F9-053B1ED7083D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoNovelExtractorV1", "NekoNovelExtractorV1\NekoNovelExtractorV1.csproj", "{2D305930-214A-4F44-936A-F28A85EE9A9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{74B0CA6C-D035-4FD8-97F9-053B1ED7083D}.Debug|x64.Build.0 = Debug|x64
 		{74B0CA6C-D035-4FD8-97F9-053B1ED7083D}.Release|x64.ActiveCfg = Release|x64
 		{74B0CA6C-D035-4FD8-97F9-053B1ED7083D}.Release|x64.Build.0 = Release|x64
+		{2D305930-214A-4F44-936A-F28A85EE9A9F}.Debug|x64.ActiveCfg = Debug|x64
+		{2D305930-214A-4F44-936A-F28A85EE9A9F}.Debug|x64.Build.0 = Debug|x64
+		{2D305930-214A-4F44-936A-F28A85EE9A9F}.Release|x64.ActiveCfg = Release|x64
+		{2D305930-214A-4F44-936A-F28A85EE9A9F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
