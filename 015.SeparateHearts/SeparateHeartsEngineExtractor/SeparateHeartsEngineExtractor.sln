@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{3116AE0C-A4B5-49BB-A294-5E03E025A95B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{3116AE0C-A4B5-49BB-A294-5E03E025A95B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineCoreStatic", "EngineCoreStatic\EngineCoreStatic.csproj", "{92B56D91-99DA-483C-A127-1B5E4A9287F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineCoreStatic", "EngineCoreStatic\EngineCoreStatic.csproj", "{92B56D91-99DA-483C-A127-1B5E4A9287F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeparateHeartsExtractorV1", "SeparateHeartsExtractorV1\SeparateHeartsExtractorV1.csproj", "{CC541CFE-5208-461D-A052-239488DEAAF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Debug|x64.Build.0 = Debug|x64
 		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Release|x64.ActiveCfg = Release|x64
 		{92B56D91-99DA-483C-A127-1B5E4A9287F0}.Release|x64.Build.0 = Release|x64
+		{CC541CFE-5208-461D-A052-239488DEAAF0}.Debug|x64.ActiveCfg = Debug|x64
+		{CC541CFE-5208-461D-A052-239488DEAAF0}.Debug|x64.Build.0 = Debug|x64
+		{CC541CFE-5208-461D-A052-239488DEAAF0}.Release|x64.ActiveCfg = Release|x64
+		{CC541CFE-5208-461D-A052-239488DEAAF0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
