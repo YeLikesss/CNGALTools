@@ -31,6 +31,7 @@ namespace MainFrom
                 titles.Items.Add(new Ring());
                 titles.Items.Add(new SummerInWaterDroplets());
                 titles.Items.Add(new WanRuoZhaoYang());
+                titles.Items.Add(new ObliviousGarden());
 
                 titles.EndUpdate();
             }

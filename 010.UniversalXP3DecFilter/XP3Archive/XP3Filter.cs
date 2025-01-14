@@ -7,6 +7,9 @@ namespace XP3Archive
         public void Decrypt(Span<byte> data, uint hash, long offset = 0);
     }
 
+    /// <summary>
+    /// 彼岸花葬
+    /// </summary>
     public class BiAnHuaZang : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -22,6 +25,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 翡翠月
+    /// </summary>
     public class JadeMoon : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -37,6 +43,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 雪之本境 2010 光盘版
+    /// </summary>
     public class ConspiracyFieldSnowTrapCh1 : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -52,6 +61,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 雪之本境 解境篇 光盘版
+    /// </summary>
     public class ConspiracyFieldSnowTrapCh2 : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -67,6 +79,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 雪之本境Ex 光盘版
+    /// </summary>
     public class ConspiracyFieldSnowTrapEx : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -82,6 +97,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 雾之本境 光盘版
+    /// </summary>
     public class ConspiracyFieldFogShadow : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -104,6 +122,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 雨港基隆
+    /// </summary>
     public class TheRainyPortKeelung : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -119,6 +140,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 鸑鷟 镜花水月
+    /// </summary>
     public class YveZhuoEP1 : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -134,6 +158,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 鸑鷟 橘子传
+    /// </summary>
     public class YveZhuoOrange : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -149,6 +176,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 叶之离别:若叶归尘 (Demo)
+    /// </summary>
     public class LeaveSLeaveIfLeavesToDust_Demo : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -170,6 +200,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 雨夜
+    /// </summary>
     public class Rain : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -185,6 +218,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 吉祥铃
+    /// </summary>
     public class Ring : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -215,6 +251,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 宛若朝阳
+    /// </summary>
     public class WanRuoZhaoYang : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -227,6 +266,32 @@ namespace XP3Archive
         public override string ToString()
         {
             return "宛若朝阳";
+        }
+    }
+
+    /// <summary>
+    /// 遗忘花园 光盘版
+    /// </summary>
+    public class ObliviousGarden : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                if ((offset + i) % 2 == 0)
+                {
+                    data[i] ^= 0x53;
+                }
+                else
+                {
+                    data[i] ^= 0x3A;
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            return "遗忘花园 光盘版";
         }
     }
 }

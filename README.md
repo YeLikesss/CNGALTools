@@ -488,6 +488,8 @@
 
     &emsp;&emsp;《宛若朝阳》
 
+    &emsp;&emsp;《遗忘花园》 光盘版
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
