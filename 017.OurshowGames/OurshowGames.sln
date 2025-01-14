@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{C483ABDA-51F8-492A-9757-FBE2285B81B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OurshowStatic", "OurshowStatic\OurshowStatic.csproj", "{D440E266-C760-410C-B3D1-9A464EA84200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OurshowExtractorV1", "OurshowExtractorV1\OurshowExtractorV1.csproj", "{45DDF1CD-A58C-4C66-A635-D0BF43D80F82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C483ABDA-51F8-492A-9757-FBE2285B81B7}.Debug|x64.ActiveCfg = Debug|x64
+		{C483ABDA-51F8-492A-9757-FBE2285B81B7}.Debug|x64.Build.0 = Debug|x64
+		{C483ABDA-51F8-492A-9757-FBE2285B81B7}.Release|x64.ActiveCfg = Release|x64
+		{C483ABDA-51F8-492A-9757-FBE2285B81B7}.Release|x64.Build.0 = Release|x64
+		{D440E266-C760-410C-B3D1-9A464EA84200}.Debug|x64.ActiveCfg = Debug|x64
+		{D440E266-C760-410C-B3D1-9A464EA84200}.Debug|x64.Build.0 = Debug|x64
+		{D440E266-C760-410C-B3D1-9A464EA84200}.Release|x64.ActiveCfg = Release|x64
+		{D440E266-C760-410C-B3D1-9A464EA84200}.Release|x64.Build.0 = Release|x64
+		{45DDF1CD-A58C-4C66-A635-D0BF43D80F82}.Debug|x64.ActiveCfg = Debug|x64
+		{45DDF1CD-A58C-4C66-A635-D0BF43D80F82}.Debug|x64.Build.0 = Debug|x64
+		{45DDF1CD-A58C-4C66-A635-D0BF43D80F82}.Release|x64.ActiveCfg = Release|x64
+		{45DDF1CD-A58C-4C66-A635-D0BF43D80F82}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {408DD576-F69F-43DB-965A-66D34F0F9144}
+	EndGlobalSection
+EndGlobal
