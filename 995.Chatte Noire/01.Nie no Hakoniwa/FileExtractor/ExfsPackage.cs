@@ -2,7 +2,6 @@
 using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -80,7 +79,7 @@ namespace FileExtractor
             /// <summary>
             /// 获取封包合法
             /// </summary>
-            public bool IsVaild => this.Signature == 0x53465845u && this.ReaderVersion != 0u;
+            public readonly bool IsVaild => this.Signature == 0x53465845u && this.ReaderVersion != 0u;
         }
 
         /// <summary>
