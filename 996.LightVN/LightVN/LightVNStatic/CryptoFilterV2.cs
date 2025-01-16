@@ -5,19 +5,24 @@ namespace LightVNStatic
     /// <summary>
     /// 解密V2版
     /// </summary>
-    public abstract class CryptoFilterV2 : CryptoFilterV1
+    public abstract class CryptoFilterV2 
     {
-        public override void Decrypt(Span<byte> data)
-        {
-            throw new NotImplementedException();
-        }
+        /// <summary>
+        /// 解密key
+        /// </summary>
+        public abstract byte[] Key { get; }
 
-        public override void Decrypt(Span<byte> data, int decLength)
+        /// <summary>
+        /// 解密
+        /// </summary>
+        /// <param name="data">完整文件数据</param>
+        /// <param name="decLength">解码长度 (-1 完整长度)</param>
+        public virtual void Decrypt(Span<byte> data, int decLength)
         {
             byte[] key = this.Key;
             int dataLen = data.Length;
 
-            int decLen = 0;
+            int decLen;
             if (decLength == -1)
             {
                 decLen = dataLen;

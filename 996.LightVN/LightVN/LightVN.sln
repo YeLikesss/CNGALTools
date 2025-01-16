@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{4A1FD0B3-2E53-484A-BB8E-4B19260384EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{4A1FD0B3-2E53-484A-BB8E-4B19260384EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightVNStatic", "LightVNStatic\LightVNStatic.csproj", "{1E35E833-77B2-4F13-B6DF-51E495B5A152}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightVNStatic", "LightVNStatic\LightVNStatic.csproj", "{1E35E833-77B2-4F13-B6DF-51E495B5A152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightVNExtractorV1", "LightVNExtractorV1\LightVNExtractorV1.csproj", "{29D4A5D3-BDAE-4B5F-A687-A3F5C158B7FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightVNExtractorV2", "LightVNExtractorV2\LightVNExtractorV2.csproj", "{EB3052FF-28D1-42F3-B62E-B3A55DAAE857}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{1E35E833-77B2-4F13-B6DF-51E495B5A152}.Debug|x64.Build.0 = Debug|x64
 		{1E35E833-77B2-4F13-B6DF-51E495B5A152}.Release|x64.ActiveCfg = Release|x64
 		{1E35E833-77B2-4F13-B6DF-51E495B5A152}.Release|x64.Build.0 = Release|x64
+		{29D4A5D3-BDAE-4B5F-A687-A3F5C158B7FC}.Debug|x64.ActiveCfg = Debug|x64
+		{29D4A5D3-BDAE-4B5F-A687-A3F5C158B7FC}.Debug|x64.Build.0 = Debug|x64
+		{29D4A5D3-BDAE-4B5F-A687-A3F5C158B7FC}.Release|x64.ActiveCfg = Release|x64
+		{29D4A5D3-BDAE-4B5F-A687-A3F5C158B7FC}.Release|x64.Build.0 = Release|x64
+		{EB3052FF-28D1-42F3-B62E-B3A55DAAE857}.Debug|x64.ActiveCfg = Debug|x64
+		{EB3052FF-28D1-42F3-B62E-B3A55DAAE857}.Debug|x64.Build.0 = Debug|x64
+		{EB3052FF-28D1-42F3-B62E-B3A55DAAE857}.Release|x64.ActiveCfg = Release|x64
+		{EB3052FF-28D1-42F3-B62E-B3A55DAAE857}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
