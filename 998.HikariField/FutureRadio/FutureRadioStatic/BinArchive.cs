@@ -16,7 +16,7 @@ namespace FutureRadioStatic
         /// <summary>
         /// 文件名
         /// </summary>
-        public string FileName;
+        public string FileName = string.Empty;
         /// <summary>
         /// 文件偏移
         /// </summary>
@@ -30,10 +30,10 @@ namespace FutureRadioStatic
     /// <summary>
     /// 文件封包
     /// </summary>
-    public class BinArchive
+    public class BinArchive : IDisposable
     {
         private Stream mStream;
-        private List<FileEntry> mFileEntries;
+        private List<FileEntry> mFileEntries = new();
 
         /// <summary>
         /// 封包名称
@@ -216,7 +216,7 @@ namespace FutureRadioStatic
         /// </summary>
         /// <param name="filePath">文件全路径</param>
         /// <returns></returns>
-        public static BinArchive CreateInstance(string filePath)
+        public static BinArchive? CreateInstance(string filePath)
         {
             if (File.Exists(filePath))
             {

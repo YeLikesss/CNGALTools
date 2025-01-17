@@ -2,33 +2,41 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using FutureRadioStatic;
 
 namespace ConsoleExecute
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            List<string> pckNames = new(16)
+            using OpenFileDialog ofd = new()
             {
-                "adult.bin",
-                "bgm.bin",
-                "def.bin",
-                "image.bin",
-                "scripts.bin",
-                "sound.bin",
+                AddExtension = true,
+                AutoUpgradeEnabled = true,
+                CheckFileExists = true,
+                CheckPathExists = true,
+                DefaultExt = ".bin",
+                Filter = "bin封包(*.bin)|*.bin|所有文件(*.*)|*.*",
+                Multiselect = true,
+                RestoreDirectory = true,
+                ShowHelp = false,
+                Title = "未来ラジオと人工鳩 [官中Steam版] - 选择封包",
             };
 
-            //此处填入你的游戏封包文件夹路径  Your Game Archives Directory Path
-            string pckDirectoryPath = "E:\\Future Radio\\The Future Radio and the Artificial Pigeons_Data\\StreamingAssets";
-
-            string extractDirectory = Path.Combine(pckDirectoryPath, "Static_Extract");
-            foreach(string pck in pckNames)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                BinArchive binArchive = BinArchive.CreateInstance(Path.Combine(pckDirectoryPath, pck));
-                binArchive?.Extract(extractDirectory);
-                binArchive?.Dispose();
+                foreach(string path in ofd.FileNames)
+                {
+                    string extractDirectory = Path.Combine(Path.GetDirectoryName(path), "Static_Extract");
+                    using BinArchive? binArchive = BinArchive.CreateInstance(path);
+                    binArchive?.Extract(extractDirectory);
+                }
+
+                Console.WriteLine("==== 未来ラジオと人工鳩 [官中Steam版] - 解包成功 ====");
+                Console.Read();
             }
         }
     }

@@ -4,9 +4,11 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Platforms>x64</Platforms>
+		<UseWindowsForms>true</UseWindowsForms>
 		<NoWin32Manifest>true</NoWin32Manifest>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<FileAlignment>8192</FileAlignment>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
