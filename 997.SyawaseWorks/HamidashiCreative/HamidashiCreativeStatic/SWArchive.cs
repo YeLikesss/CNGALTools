@@ -243,7 +243,7 @@ namespace HamidashiCreativeStatic
     /// <summary>
     /// 封包信息
     /// </summary>
-    public class SWArtemisArchive : IDisposable
+    public class SWArtemisArchive
     {
         /// <summary>
         /// 封包路径
@@ -333,10 +333,6 @@ namespace HamidashiCreativeStatic
                 return true;
             }
             return false;
-        }
-
-        public void Dispose()
-        {
         }
 
         private SWArtemisArchive()

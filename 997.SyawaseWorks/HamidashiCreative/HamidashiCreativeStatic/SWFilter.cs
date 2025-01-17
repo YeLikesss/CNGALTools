@@ -9,13 +9,19 @@ namespace HamidashiCreativeStatic
     /// </summary>
     public interface IFilter
     {
+        /// <summary>
+        /// 解密
+        /// </summary>
+        /// <param name="data">输入</param>
+        /// <param name="offset">偏移</param>
+        /// <param name="length">长度</param>
         public void Decrypt(byte[] data, long offset, int length);
     }
 
     /// <summary>
     /// 加密类
     /// </summary>
-    public class SWFilterV1:IFilter
+    public class SWFilterV1 : IFilter
     {
         private readonly uint mKey;
         public void Decrypt(byte[] data, long offset, int length)
