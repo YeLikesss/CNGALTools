@@ -1,46 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 using EngineCore;
 
 namespace AonatsuLine
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            List<Tuple<string, PacArchive.EntryMode, bool>> pckInfos = new()
+            List<(string, PacArchive.EntryMode, bool)> pckInfos = new()
             {
-                { new("SPM.pac", PacArchive.EntryMode.EightByteMode, false) },
-                { new("Stand_c.pac", PacArchive.EntryMode.TenByteMode, true) },
-                { new("Stand.pac", PacArchive.EntryMode.TenByteMode, false) },
-                { new("Thumbnail.pac", PacArchive.EntryMode.TenByteMode, false) },
-                { new("Visual.pac", PacArchive.EntryMode.TenByteMode, false) },
-                { new("Voice.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("SPM.pac", PacArchive.EntryMode.EightByteMode, false) },
+                { ("Stand_c.pac", PacArchive.EntryMode.TenByteMode, true) },
+                { ("Stand.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("Thumbnail.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("Visual.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("Voice.pac", PacArchive.EntryMode.TenByteMode, false) },
 
-                { new("Update\\SystemUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) },
-                { new("Update\\ThumbnailUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) },
-                { new("Update\\VisualUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) },
-                { new("Update\\VoiceUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) }
+                { ("Update\\SystemUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("Update\\ThumbnailUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("Update\\VisualUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) },
+                { ("Update\\VoiceUpdate1.pac", PacArchive.EntryMode.TenByteMode, false) }
             };
 
-            string gameDirectory = "D:\\Galgame Reverse\\Aonatsu_Line";        //此处填写你的游戏目录
-
-            string extractdirectory = Path.Combine(gameDirectory, "Extract_Static");
-            foreach (var pck in pckInfos)
+            using FolderBrowserDialog fbd = new()
             {
-                PacArchive arc = new(Path.Combine(gameDirectory, pck.Item1), pck.Item1, pck.Item2, pck.Item3);
-                if (arc.Extract(extractdirectory))
+                Description = "アオナツライン [官中版] - 请选择游戏文件夹",
+                ShowNewFolderButton = false,
+                AutoUpgradeEnabled = true,
+                UseDescriptionForTitle = true
+            };
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string gameDirectory = fbd.SelectedPath;
+                string extractDirectory = Path.Combine(gameDirectory, "Extract_Static");
+
+                foreach (var pck in pckInfos)
                 {
-                    Console.WriteLine("{0}  解包成功", pck.Item1);
+                    PacArchive arc = new(Path.Combine(gameDirectory, pck.Item1), pck.Item1, pck.Item2, pck.Item3);
+                    if (arc.Extract(extractDirectory))
+                    {
+                        Console.WriteLine("{0} 解包成功", pck.Item1);
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0} 解包失败", pck.Item1);
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("{0}  解包失败", pck.Item1);
-                }
+                Console.WriteLine("\n===== アオナツライン [官中版] - 提取完成 =====");
+                Console.Read();
             }
-            Console.WriteLine("\n========请按任意键退出========");
-            Console.Read();
         }
     }
 }

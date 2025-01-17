@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace EngineCore
 {
+    /// <summary>
+    /// QuickLz压缩
+    /// </summary>
     public class QuickLZ
     {
         /// <summary>
         /// Lz4解压
         /// </summary>
         /// <param name="data">数据</param>
-        /// <returns></returns>
+        /// <returns>解压后数据</returns>
         public static byte[] Decompress(Span<byte> data)
         {
             bool isCompress = (data[0] & 1) == 1;
@@ -133,8 +135,6 @@ namespace EngineCore
                     }
                 }
             }
-            
-
         }
     }
 }

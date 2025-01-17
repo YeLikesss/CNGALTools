@@ -7,6 +7,9 @@ using System.Text;
 
 namespace EngineCore
 {
+    /// <summary>
+    /// Pac封包
+    /// </summary>
     public class PacArchive
     {
         /// <summary>
@@ -37,21 +40,10 @@ namespace EngineCore
             TenByteMode = 1
         }
 
-        /// <summary>
-        /// 封包名
-        /// </summary>
-        public string PackageName { get; private set; }
-        /// <summary>
-        /// 压缩标记
-        /// </summary>
-        public bool IsCompressed { get; private set; }
-        /// <summary>
-        /// 文件表模式
-        /// </summary>
-        public EntryMode FileEntryMode { get; private set; }
-
-        private string mPackageFullPath;
-
+        private readonly string mPackageName;
+        private readonly string mPackageFullPath;
+        private readonly EntryMode mFileEntryMode;
+        private readonly bool mIsCompressed;
 
         /// <summary>
         /// 提取资源
@@ -65,14 +57,14 @@ namespace EngineCore
                 return false;
             }
 
-            extractDirectory = Path.Combine(extractDirectory, this.PackageName);
+            extractDirectory = Path.Combine(extractDirectory, this.mPackageName);
 
             using FileStream mFileStream = File.OpenRead(this.mPackageFullPath);
             using BinaryReader mBinaryReader = new(mFileStream);
             List<FileEntry> fileEntries = new(256);
 
             {
-                mFileStream.Position = 16;
+                mFileStream.Position = 16L;
                 Span<byte> nameBuffer = stackalloc byte[32];
                 //循环读取文件表
                 while (mFileStream.Position < mFileStream.Length)
@@ -82,33 +74,29 @@ namespace EngineCore
                     mFileStream.Read(nameBuffer);
 
                     //获取文件名长度
-                    int strLen = 0;
-                    for (; strLen < 32; ++strLen)
+                    int strLen = nameBuffer.IndexOf((byte)0);
+                    if(strLen == -1)
                     {
-                        if (nameBuffer[strLen] == 0)
-                        {
-                            break;
-                        }
+                        strLen = 0;
                     }
 
-                    entry.FileName = Encoding.UTF8.GetString(nameBuffer.Slice(0, strLen));
+                    entry.FileName = Encoding.UTF8.GetString(nameBuffer[..strLen]);
 
-                    if (this.FileEntryMode == EntryMode.TenByteMode)
+                    if (this.mFileEntryMode == EntryMode.TenByteMode)
                     {
                         //10字节保存偏移
-                        entry.Offset = mBinaryReader.ReadInt64() + 20;          //文件位置位于entry后20字节处
-                        mFileStream.Position += 2;
+                        entry.Offset = mBinaryReader.ReadInt64() + 20L;          //文件位置位于entry后20字节处
+                        mFileStream.Position += 2L;
                         //10字节保存大小
                         entry.Length = mBinaryReader.ReadInt64();
-                        mFileStream.Position += 2;
+                        mFileStream.Position += 2L;
                     }
-                    else if (this.FileEntryMode == EntryMode.EightByteMode)
+                    else if (this.mFileEntryMode == EntryMode.EightByteMode)
                     {
                         //8字节保存偏移与大小
-                        entry.Offset = mBinaryReader.ReadInt64() + 16;      //文件位置位于entry后16字节处
+                        entry.Offset = mBinaryReader.ReadInt64() + 16L;      //文件位置位于entry后16字节处
                         entry.Length = mBinaryReader.ReadInt64();
                     }
-
 
                     mFileStream.Seek(entry.Length, SeekOrigin.Current);
 
@@ -116,33 +104,27 @@ namespace EngineCore
                 }
             }
 
-
             //读取并提取文件
             foreach(FileEntry entry in CollectionsMarshal.AsSpan(fileEntries))
             {
-
-
                 mFileStream.Position = entry.Offset;
                 byte[] data = new byte[entry.Length];
                 mFileStream.Read(data);
 
-                if (this.IsCompressed)
+                if (this.mIsCompressed)
                 {
                     data = QuickLZ.Decompress(data);
                 }
 
                 string extractPath = Path.Combine(extractDirectory, Until.TryDetectFileType(data, entry.FileName));
-
                 {
-                    string dir = Path.GetDirectoryName(extractPath);
-                    if (!Directory.Exists(dir))
+                    if (Path.GetDirectoryName(extractPath) is string dir && !Directory.Exists(dir))
                     {
                         Directory.CreateDirectory(dir);
                     }
                 }
 
                 File.WriteAllBytes(extractPath, data);
-
             }
             return true;
         }
@@ -158,9 +140,9 @@ namespace EngineCore
         public PacArchive(string packageFullPath, string packageRelativePath, EntryMode entrymode, bool isCompressed = false)
         {
             this.mPackageFullPath = packageFullPath;
-            this.PackageName = packageRelativePath;
-            this.IsCompressed = isCompressed;
-            this.FileEntryMode = entrymode;
+            this.mPackageName = packageRelativePath;
+            this.mFileEntryMode = entrymode;
+            this.mIsCompressed = isCompressed;
         }
     }
 }
