@@ -180,6 +180,8 @@
     &emsp;&emsp;&emsp;《死亡直播间》
 
     &emsp;&emsp;&emsp;《贝果爱情故事》
+
+    &emsp;&emsp;&emsp;《写真偶像》
     
     &emsp;&emsp;编译环境 
     

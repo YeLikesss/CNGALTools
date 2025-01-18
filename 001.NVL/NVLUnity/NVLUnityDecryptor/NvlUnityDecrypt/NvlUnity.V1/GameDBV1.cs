@@ -194,6 +194,17 @@ namespace NvlUnity.V1
         };
     }
 
+    /// <summary>
+    /// 写真偶像
+    /// </summary>
+    internal class SnowAlbum : NVLUnityV102
+    {
+        public override byte[] XorKey { get; } = new byte[]
+        {
+            0x16, 0x77, 0xD7, 0x55, 0x07, 0x3D, 0x88, 0x92, 0x44, 0xA0, 0x17, 0x85
+        };
+    }
+
     internal class DataManagerV1
     {
         private static readonly Dictionary<string, NVLUnityV1> mSGameInformation = new(16)
@@ -211,6 +222,7 @@ namespace NvlUnity.V1
             { "流浪小猫单身狗", new CrossMaid() },
             { "贝果爱情故事", new BagelLoveStory() },
             { "写真偶像 [Demo]", new SnowAlbum_Demo()},
+            { "写真偶像", new SnowAlbum()},
         };
         /// <summary>
         /// 游戏信息
