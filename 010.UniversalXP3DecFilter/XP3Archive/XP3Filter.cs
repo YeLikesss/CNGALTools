@@ -294,4 +294,30 @@ namespace XP3Archive
             return "遗忘花园 光盘版";
         }
     }
+
+    /// <summary>
+    /// 紫罗兰-里: 水中倒影
+    /// </summary>
+    public class VioletInsideSummer : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                if ((offset + i) % 2 == 0)
+                {
+                    data[i] ^= 0x3D;
+                }
+                else
+                {
+                    data[i] ^= 0xE5;
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            return "紫罗兰-里: 水中倒影";
+        }
+    }
 }
