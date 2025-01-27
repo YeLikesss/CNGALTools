@@ -5,16 +5,28 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MeetInParisDumper", "MeetInParisDumper\MeetInParisDumper.vcxproj", "{2F669034-9061-40EE-AFA0-A4D421871233}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rename", "Rename\Rename.csproj", "{D0A7F720-EE75-4202-88DA-9A8692812D31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F669034-9061-40EE-AFA0-A4D421871233}.Debug|x64.ActiveCfg = Debug|Win32
 		{2F669034-9061-40EE-AFA0-A4D421871233}.Debug|x86.ActiveCfg = Debug|Win32
 		{2F669034-9061-40EE-AFA0-A4D421871233}.Debug|x86.Build.0 = Debug|Win32
+		{2F669034-9061-40EE-AFA0-A4D421871233}.Release|x64.ActiveCfg = Release|Win32
 		{2F669034-9061-40EE-AFA0-A4D421871233}.Release|x86.ActiveCfg = Release|Win32
 		{2F669034-9061-40EE-AFA0-A4D421871233}.Release|x86.Build.0 = Release|Win32
+		{D0A7F720-EE75-4202-88DA-9A8692812D31}.Debug|x64.ActiveCfg = Debug|x64
+		{D0A7F720-EE75-4202-88DA-9A8692812D31}.Debug|x64.Build.0 = Debug|x64
+		{D0A7F720-EE75-4202-88DA-9A8692812D31}.Debug|x86.ActiveCfg = Debug|x64
+		{D0A7F720-EE75-4202-88DA-9A8692812D31}.Release|x64.ActiveCfg = Release|x64
+		{D0A7F720-EE75-4202-88DA-9A8692812D31}.Release|x64.Build.0 = Release|x64
+		{D0A7F720-EE75-4202-88DA-9A8692812D31}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
