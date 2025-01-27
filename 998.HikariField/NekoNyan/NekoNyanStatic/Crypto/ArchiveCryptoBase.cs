@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -18,7 +17,9 @@ namespace NekoNyanStatic.Crypto
         V12 = 2,
     }
 
-
+    /// <summary>
+    /// 封包加密基类
+    /// </summary>
     public abstract class ArchiveCryptoBase : IDisposable
     {
         /// <summary>
@@ -43,11 +44,11 @@ namespace NekoNyanStatic.Crypto
             /// </summary>
             public uint Key;
         }
-        protected FileStream mFileStream;
-        protected List<FileEntry> mFileEntries;         //文件表数组
+        protected Stream mFileStream = Stream.Null;
+        protected List<FileEntry> mFileEntries = new();
 
-        protected string mPackageName;        //封包名字
-        protected string mExtractDir;          //提取路径
+        protected string mPackageName = string.Empty;
+        protected string mExtractDir = string.Empty;
 
         /// <summary>
         /// 初始化
@@ -78,36 +79,35 @@ namespace NekoNyanStatic.Crypto
         /// <summary>
         /// 提取资源
         /// </summary>
-        public void Extract()
+        /// <param name="progress">进度回调</param>
+        public void Extract(IProgress<string>? progress = null)
         {
             for(int idx = 0; idx < this.mFileEntries.Count; ++idx)
             {
                 FileEntry entry = this.mFileEntries[idx];
 
                 string extractPath = Path.Combine(this.mExtractDir, entry.FileName);
-                string archiveDir = Path.GetDirectoryName(extractPath);
-                if (!Directory.Exists(archiveDir))
                 {
-                    Directory.CreateDirectory(archiveDir);
+                    if(Path.GetDirectoryName(extractPath) is string dir && !Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
                 }
 
                 //读取并解密资源
                 this.mFileStream.Position = entry.Offset;
-                byte[] buffer = ArrayPool<byte>.Shared.Rent((int)entry.Size);
+                byte[] buffer = new byte[entry.Size];
 
-                Span<byte> data = buffer.AsSpan(0, (int)entry.Size);
+                Span<byte> data = buffer;
                 this.mFileStream.Read(data);
                 this.Decrypt(data, entry.Key);
 
                 //回写解密后资源
-                using FileStream outStream = new(extractPath, FileMode.Create, FileAccess.ReadWrite, FileShare.Read);
+                using FileStream outStream = File.Create(extractPath);
                 outStream.Write(data);
                 outStream.Flush();
 
-                //释放
-                ArrayPool<byte>.Shared.Return(buffer);
-
-                Console.WriteLine("Extract ---> {0}/{1}", this.mPackageName, entry.FileName);
+                progress?.Report($"成功: {this.mPackageName}/{entry.FileName}");
             }
         }
 
@@ -120,7 +120,7 @@ namespace NekoNyanStatic.Crypto
         {
             this.mFileStream = File.OpenRead(pkgPath);
             this.mPackageName = Path.GetFileNameWithoutExtension(pkgPath);
-            this.mExtractDir = Path.Combine(Path.GetDirectoryName(pkgPath), "Extract_Static", this.mPackageName);
+            this.mExtractDir = Path.Combine(Path.GetDirectoryName(pkgPath)!, "Extract_Static", this.mPackageName);
             this.Initialize();
         }
 
@@ -130,9 +130,9 @@ namespace NekoNyanStatic.Crypto
         public void Dispose()
         {
             this.mFileEntries.Clear();
-
-            this.mFileStream.Close();
             this.mFileStream.Dispose();
+
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
@@ -141,9 +141,9 @@ namespace NekoNyanStatic.Crypto
         /// <param name="pkgPath">封包全路径</param>
         /// <param name="ver">加密版本</param>
         /// <returns></returns>
-        public static ArchiveCryptoBase Create(string pkgPath, CryptoVersion ver)
+        public static ArchiveCryptoBase? Create(string pkgPath, CryptoVersion ver)
         {
-            ArchiveCryptoBase filter;
+            ArchiveCryptoBase? filter;
             filter = ver switch
             {
                 CryptoVersion.V10 => new ArchiveCryptoV10(),
@@ -154,26 +154,5 @@ namespace NekoNyanStatic.Crypto
             filter?.InitializeWithPackagePath(pkgPath);
             return filter;
         }
-
-
-        /// <summary>
-        /// 枚举封包路径
-        /// </summary>
-        /// <param name="dirPath">封包文件夹路径</param>
-        /// <returns></returns>
-        public static IEnumerable<string> EnumeratePackagePaths(string dirPath)
-        {
-            return Directory.EnumerateFiles(dirPath, "*.dat");
-        }
-        /// <summary>
-        /// 检查是否合法封包
-        /// </summary>
-        /// <param name="path">封包路径</param>
-        /// <returns></returns>
-        public static bool IsVaildPackage(string path)
-        {
-            return Path.GetExtension(path) == ".dat";
-        }
-
     }
 }

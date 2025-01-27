@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.IO;
-using System.Buffers;
 using System.Text;
 
 namespace NekoNyanStatic.Crypto.V1
@@ -17,15 +16,15 @@ namespace NekoNyanStatic.Crypto.V1
         /// </summary>
         protected override void Initialize()
         {
-            this.mFileStream.Position = 0;
+            this.mFileStream.Position = 0L;
 
             //读取并解密原封包信息
             Span<byte> rawPkgInfo = stackalloc byte[1024];
             this.mFileStream.Read(rawPkgInfo);
 
             int fileCount = 0;              //文件个数
-            uint rawFileEntryKey = 0;        //原始文件表Key
-            uint rawFileNamesKey = 0;        //原始文件名Key
+            uint rawFileEntryKey = 0u;      //原始文件表Key
+            uint rawFileNamesKey = 0u;      //原始文件名Key
 
             //解密封包信息
             {
@@ -124,6 +123,5 @@ namespace NekoNyanStatic.Crypto.V1
                 data[i] = temp;
             }
         }
-
     }
 }

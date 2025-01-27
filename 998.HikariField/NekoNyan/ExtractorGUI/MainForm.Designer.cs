@@ -31,131 +31,135 @@ namespace ExtractorGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelCryptoVer = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbGameTitle = new System.Windows.Forms.ComboBox();
-            this.lbFilePath = new System.Windows.Forms.ListBox();
-            this.tbLog = new System.Windows.Forms.TextBox();
-            this.btnExtract = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            Label labelTitle;
+            Label labelFileList;
+            Label labelLog;
+            Button btnExtract;
+            labelCryptoVer = new Label();
+            cbGameTitle = new ComboBox();
+            lbFilePath = new ListBox();
+            tbLog = new TextBox();
+            labelTitle = new Label();
+            labelFileList = new Label();
+            labelLog = new Label();
+            btnExtract = new Button();
+            SuspendLayout();
             // 
-            // label1
+            // labelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "游戏名称";
+            labelTitle.AutoSize = true;
+            labelTitle.Location = new System.Drawing.Point(12, 14);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new System.Drawing.Size(61, 19);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "游戏名称";
             // 
-            // labelCryptoVer
+            // labelFileList
             // 
-            this.labelCryptoVer.Location = new System.Drawing.Point(727, 11);
-            this.labelCryptoVer.Name = "labelCryptoVer";
-            this.labelCryptoVer.Size = new System.Drawing.Size(148, 27);
-            this.labelCryptoVer.TabIndex = 1;
-            this.labelCryptoVer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            labelFileList.AutoSize = true;
+            labelFileList.Location = new System.Drawing.Point(12, 53);
+            labelFileList.Name = "labelFileList";
+            labelFileList.Size = new System.Drawing.Size(186, 19);
+            labelFileList.TabIndex = 2;
+            labelFileList.Text = "封包文件(拖拽封包到此列表框)";
             // 
-            // label3
+            // labelLog
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "封包文件(拖拽封包到此列表框)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 188);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "日志";
-            // 
-            // cbGameTitle
-            // 
-            this.cbGameTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGameTitle.FormattingEnabled = true;
-            this.cbGameTitle.Location = new System.Drawing.Point(79, 11);
-            this.cbGameTitle.Name = "cbGameTitle";
-            this.cbGameTitle.Size = new System.Drawing.Size(595, 27);
-            this.cbGameTitle.TabIndex = 4;
-            this.cbGameTitle.SelectedIndexChanged += new System.EventHandler(this.cbGameTitle_SelectedIndexChanged);
-            // 
-            // lbFilePath
-            // 
-            this.lbFilePath.AllowDrop = true;
-            this.lbFilePath.FormattingEnabled = true;
-            this.lbFilePath.HorizontalScrollbar = true;
-            this.lbFilePath.ItemHeight = 19;
-            this.lbFilePath.Location = new System.Drawing.Point(12, 86);
-            this.lbFilePath.Name = "lbFilePath";
-            this.lbFilePath.Size = new System.Drawing.Size(863, 99);
-            this.lbFilePath.TabIndex = 5;
-            this.lbFilePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbFilePath_DragDrop);
-            this.lbFilePath.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileDragEnter);
-            // 
-            // tbLog
-            // 
-            this.tbLog.Location = new System.Drawing.Point(12, 210);
-            this.tbLog.MaxLength = 65536;
-            this.tbLog.Multiline = true;
-            this.tbLog.Name = "tbLog";
-            this.tbLog.ReadOnly = true;
-            this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbLog.ShortcutsEnabled = false;
-            this.tbLog.Size = new System.Drawing.Size(863, 210);
-            this.tbLog.TabIndex = 6;
-            this.tbLog.TabStop = false;
-            this.tbLog.WordWrap = false;
+            labelLog.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelLog.AutoSize = true;
+            labelLog.Location = new System.Drawing.Point(12, 312);
+            labelLog.Name = "labelLog";
+            labelLog.Size = new System.Drawing.Size(35, 19);
+            labelLog.TabIndex = 3;
+            labelLog.Text = "日志";
             // 
             // btnExtract
             // 
-            this.btnExtract.Location = new System.Drawing.Point(727, 48);
-            this.btnExtract.Name = "btnExtract";
-            this.btnExtract.Size = new System.Drawing.Size(148, 29);
-            this.btnExtract.TabIndex = 7;
-            this.btnExtract.Text = "解包";
-            this.btnExtract.UseVisualStyleBackColor = true;
-            this.btnExtract.Click += new System.EventHandler(this.btnExtract_Click);
+            btnExtract.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExtract.Location = new System.Drawing.Point(624, 48);
+            btnExtract.Name = "btnExtract";
+            btnExtract.Size = new System.Drawing.Size(148, 29);
+            btnExtract.TabIndex = 7;
+            btnExtract.Text = "解包";
+            btnExtract.UseVisualStyleBackColor = true;
+            btnExtract.Click += BtnExtract_OnClick;
+            // 
+            // labelCryptoVer
+            // 
+            labelCryptoVer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelCryptoVer.Location = new System.Drawing.Point(624, 11);
+            labelCryptoVer.Name = "labelCryptoVer";
+            labelCryptoVer.Size = new System.Drawing.Size(148, 27);
+            labelCryptoVer.TabIndex = 1;
+            labelCryptoVer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbGameTitle
+            // 
+            cbGameTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbGameTitle.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGameTitle.FormattingEnabled = true;
+            cbGameTitle.Location = new System.Drawing.Point(79, 11);
+            cbGameTitle.Name = "cbGameTitle";
+            cbGameTitle.Size = new System.Drawing.Size(492, 27);
+            cbGameTitle.TabIndex = 4;
+            cbGameTitle.SelectedIndexChanged += CbGameTitle_OnSelectedIndexChanged;
+            // 
+            // lbFilePath
+            // 
+            lbFilePath.AllowDrop = true;
+            lbFilePath.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbFilePath.FormattingEnabled = true;
+            lbFilePath.HorizontalScrollbar = true;
+            lbFilePath.IntegralHeight = false;
+            lbFilePath.ItemHeight = 19;
+            lbFilePath.Location = new System.Drawing.Point(12, 83);
+            lbFilePath.Name = "lbFilePath";
+            lbFilePath.Size = new System.Drawing.Size(760, 226);
+            lbFilePath.TabIndex = 5;
+            lbFilePath.DragDrop += LbFilePath_OnDragDrop;
+            lbFilePath.DragEnter += FileDragEnter;
+            // 
+            // tbLog
+            // 
+            tbLog.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tbLog.Location = new System.Drawing.Point(12, 334);
+            tbLog.MaxLength = 65536;
+            tbLog.Multiline = true;
+            tbLog.Name = "tbLog";
+            tbLog.ReadOnly = true;
+            tbLog.ScrollBars = ScrollBars.Both;
+            tbLog.Size = new System.Drawing.Size(760, 216);
+            tbLog.TabIndex = 6;
+            tbLog.TabStop = false;
+            tbLog.WordWrap = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(887, 435);
-            this.Controls.Add(this.btnExtract);
-            this.Controls.Add(this.tbLog);
-            this.Controls.Add(this.lbFilePath);
-            this.Controls.Add(this.cbGameTitle);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.labelCryptoVer);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.Text = "NekoNyanExtractor - Static Mode";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(784, 562);
+            Controls.Add(btnExtract);
+            Controls.Add(tbLog);
+            Controls.Add(lbFilePath);
+            Controls.Add(cbGameTitle);
+            Controls.Add(labelLog);
+            Controls.Add(labelFileList);
+            Controls.Add(labelCryptoVer);
+            Controls.Add(labelTitle);
+            Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ImeMode = ImeMode.Disable;
+            MinimumSize = new System.Drawing.Size(800, 600);
+            Name = "MainForm";
+            Text = "NekoNyanExtractor - Static Mode";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
         private Label labelCryptoVer;
-        private Label label3;
-        private Label label4;
         private ComboBox cbGameTitle;
         private ListBox lbFilePath;
         private TextBox tbLog;
-        private Button btnExtract;
     }
 }

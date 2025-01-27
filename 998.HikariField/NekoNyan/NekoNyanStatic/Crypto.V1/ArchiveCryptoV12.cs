@@ -19,6 +19,5 @@ namespace NekoNyanStatic.Crypto.V1
                 data[i] = temp;
             }
         }
-
     }
 }
