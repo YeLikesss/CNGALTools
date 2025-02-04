@@ -279,11 +279,26 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
+* 魔改Krkr2 V1 (少量修改封包+Packman)
+
+    &emsp;TheCardinalMemoryNotch 适配《绯色的记忆之痕》 V2.01
+
+    &emsp;&emsp;动态提取壳VFS资源(ProtectorFileDumper)
+
+    &emsp;&emsp;静态解包(SPKExtractor)
+
+    &emsp;&emsp;编译环境 
+    
+    &emsp;&emsp;&emsp;MSVC2022 x86
+
+    &emsp;&emsp;&emsp;.Net 6.x
+
+
 * 状态说明
   
     &emsp;1.《亿万年的星光》不打算继续维护(游戏质量一般)
 
-    &emsp;2.《刻痕0》《绯色的记忆之痕》系列没人放流, 有放流再看看
+    &emsp;2.《刻痕0》系列没人放流, 有放流再看看
 
 #### 4.Fontainebleau/枫丹白露
 
