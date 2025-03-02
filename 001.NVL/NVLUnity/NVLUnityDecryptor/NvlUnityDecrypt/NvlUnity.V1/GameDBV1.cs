@@ -205,6 +205,17 @@ namespace NvlUnity.V1
         };
     }
 
+    /// <summary>
+    /// 梦见雪花
+    /// </summary>
+    internal class DreamOfTinySnow : NVLUnityV102
+    {
+        public override byte[] XorKey { get; } = new byte[]
+        {
+            0x7F, 0x45, 0xB7, 0x39, 0x2F, 0x69, 0x00, 0xE7, 0xB5, 0xAB, 0xA5, 0x46
+        };
+    }
+
     internal class DataManagerV1
     {
         private static readonly Dictionary<string, NVLUnityV1> mSGameInformation = new(16)
@@ -223,6 +234,7 @@ namespace NvlUnity.V1
             { "贝果爱情故事", new BagelLoveStory() },
             { "写真偶像 [Demo]", new SnowAlbum_Demo()},
             { "写真偶像", new SnowAlbum()},
+            { "梦见雪花", new DreamOfTinySnow() },
         };
         /// <summary>
         /// 游戏信息
