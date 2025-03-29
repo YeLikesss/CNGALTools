@@ -15,6 +15,7 @@ namespace NekoNyanStatic.Crypto
         V10 = 0,
         V11 = 1,
         V12 = 2,
+        V13 = 3,
     }
 
     /// <summary>
@@ -149,6 +150,7 @@ namespace NekoNyanStatic.Crypto
                 CryptoVersion.V10 => new ArchiveCryptoV10(),
                 CryptoVersion.V11 => new ArchiveCryptoV11(),
                 CryptoVersion.V12 => new ArchiveCryptoV12(),
+                CryptoVersion.V13 => new ArchiveCryptoV13(),
                 _ => null,
             };
             filter?.InitializeWithPackagePath(pkgPath);

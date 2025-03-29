@@ -703,6 +703,8 @@
 
     &emsp;&emsp;《Clover Day's Plus》 Chs-Cht-Jpn-Eng Release
 
+    &emsp;&emsp;《恋と選挙とチョコレート》 Chs-Cht-Jpn-Eng Release
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
