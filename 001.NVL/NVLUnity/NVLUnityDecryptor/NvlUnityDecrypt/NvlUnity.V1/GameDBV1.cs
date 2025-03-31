@@ -216,9 +216,20 @@ namespace NvlUnity.V1
         };
     }
 
+    /// <summary>
+    /// 泡芙爱情故事
+    /// </summary>
+    internal class PuffLoveStory : NVLUnityV102
+    {
+        public override byte[] XorKey { get; } = new byte[]
+        {
+            0x7F, 0x44, 0x64, 0x1D, 0x48, 0x07, 0xFE, 0x9C, 0xD9, 0xE3, 0x28, 0x25
+        };
+    }
+
     internal class DataManagerV1
     {
-        private static readonly Dictionary<string, NVLUnityV1> mSGameInformation = new(16)
+        private static readonly Dictionary<string, NVLUnityV1> mSGameInformation = new(32)
         {
             { "昙花", new EpiphyllumInLove() },
             { "梦末", new DreamEnding() },
@@ -235,6 +246,7 @@ namespace NvlUnity.V1
             { "写真偶像 [Demo]", new SnowAlbum_Demo()},
             { "写真偶像", new SnowAlbum()},
             { "梦见雪花", new DreamOfTinySnow() },
+            { "泡芙爱情故事", new PuffLoveStory() },
         };
         /// <summary>
         /// 游戏信息
