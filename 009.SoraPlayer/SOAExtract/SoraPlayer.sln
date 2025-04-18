@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleEx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoraPlayerStatic", "SoraPlayerStatic\SoraPlayerStatic.csproj", "{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoraPlayerExtractorV1", "SoraPlayerExtractorV1\SoraPlayerExtractorV1.csproj", "{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoraPlayerExtractorV1", "SoraPlayerExtractorV1\SoraPlayerExtractorV1.csproj", "{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,8 @@ Global
 		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Debug|x64.Build.0 = Debug|x64
 		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Release|x64.ActiveCfg = Release|x64
 		{0CD6DC70-BCE1-42FC-88BB-6C4A512232D2}.Release|x64.Build.0 = Release|x64
-		{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}.Debug|x64.Build.0 = Debug|Any CPU
+		{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}.Debug|x64.ActiveCfg = Debug|x64
+		{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}.Debug|x64.Build.0 = Debug|x64
 		{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}.Release|x64.ActiveCfg = Release|x64
 		{4AFF07E3-0474-42F8-A073-BA45BA12ACDF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection

@@ -469,6 +469,8 @@
 
     &emsp;&emsp;《夏花的轨迹 That Summer Of Eternal Eden》
 
+    &emsp;&emsp;《锈翅 逃离我的家乡》
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
