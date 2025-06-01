@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Platforms>x64</Platforms>
+    <ErrorReport>none</ErrorReport>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Enc_Key_V102" />
+    <None Remove="Patch_Key_V102" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Enc_Key_V102" />
+    <EmbeddedResource Include="Patch_Key_V102" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

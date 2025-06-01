@@ -547,7 +547,7 @@
 
     &emsp;注意
 
-    &emsp;1. 不是所有资源都进行了加密, 资源是否加密需要自行判断
+    &emsp;&emsp;1. 不是所有资源都进行了加密, 资源是否加密需要自行判断
 
 #### 13.哥布林软件
 
@@ -643,7 +643,7 @@
 
 #### 997.SyawaseWorks (官中发行商)
 
-* HamidashiCreative (Cracker/Dumper/Extractor)
+* HamidashiCreative (定制加密+Themida 3.x) (Cracker/Dumper/Extractor)
 
     &emsp;游戏测试
 
@@ -659,7 +659,7 @@
 
     &emsp;&emsp;.Net 7.x (静态解包)
 
-* HappyLiveShowUp (Cracker)
+* HappyLiveShowUp (定制加密+Themida 3.x) (Cracker/Decryptor)
 
     &emsp;游戏测试
 
@@ -669,9 +669,19 @@
 
     &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
 
-    &emsp;编译环境 
+    &emsp;&emsp;Nuget
+
+    &emsp;&emsp;&emsp;System.IO.Hashing
+
+    &emsp;编译环境
     
-    &emsp;&emsp;MSVC2022 x86
+    &emsp;&emsp;MSVC2022 x86 (破解)
+
+    &emsp;&emsp;.Net6.x (静态解密)
+
+    &emsp;注意
+
+    &emsp;&emsp;使用封包解密工具后, 保持目录不变使用[GARbro](https://github.com/crskycode/GARbro)打开dec_xxx.pack封包
 
 #### 998.HikariField (官中发行商)
 
