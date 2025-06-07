@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iFActionExtractor", "iFActi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{488B5F9F-B688-462D-A412-3E05F9E20AB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{2644D655-359E-44C4-8F2A-6A8ACBE13B29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,9 @@ Global
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Debug|x64.Build.0 = Debug|x64
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Release|x64.ActiveCfg = Release|x64
 		{488B5F9F-B688-462D-A412-3E05F9E20AB6}.Release|x64.Build.0 = Release|x64
+		{2644D655-359E-44C4-8F2A-6A8ACBE13B29}.Debug|x64.ActiveCfg = Debug|x64
+		{2644D655-359E-44C4-8F2A-6A8ACBE13B29}.Debug|x64.Build.0 = Debug|x64
+		{2644D655-359E-44C4-8F2A-6A8ACBE13B29}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
