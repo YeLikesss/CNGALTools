@@ -32,6 +32,8 @@
 
     &emsp;&emsp;&emsp;&emsp;《他人世界末》
 
+    &emsp;&emsp;&emsp;&emsp;《局外人 - L'Etranger》
+
     &emsp;&emsp;依赖库
 
     &emsp;&emsp;&emsp;NuGet
