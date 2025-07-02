@@ -113,9 +113,25 @@ namespace EngineCoreStatic
                     }
                     break;
                 }
+                case 5:
+                {
+                    //OGL(A) -> GDI(BGRA)    1 Channel   GL_ALPHA
+                    for (int i = 0; i < bmpPtr.Length; i += 4)
+                    {
+                        byte alpha = br.ReadByte();
+
+                        bmpPtr[i + 0] = alpha;
+                        bmpPtr[i + 1] = alpha;
+                        bmpPtr[i + 2] = alpha;
+                        bmpPtr[i + 3] = 0xFF;
+                    }
+                    break;
+                }
                 default:
                 {
+#if DEBUG
                     Debugger.Break();
+#endif
                     break;
                 }
             }
