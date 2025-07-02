@@ -200,6 +200,13 @@ namespace EngineCoreStatic
 
                             break;
                         }
+                        default:
+                        {
+#if DEBUG
+                            Debugger.Break();
+#endif
+                            break;
+                        }
                     }
 
                     break;

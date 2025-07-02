@@ -282,7 +282,6 @@ namespace EngineCoreStatic
         /// 提取PNG
         /// </summary>
         /// <param name="outputDirectory">输出目录</param>
-        /// <returns>图像流</returns>
         public void ExtractToPNG(string outputDirectory)
         {
             string path = Path.Combine(outputDirectory, this.mFileName) + ".png";
