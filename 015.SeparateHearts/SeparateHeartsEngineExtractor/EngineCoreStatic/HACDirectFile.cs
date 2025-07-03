@@ -69,15 +69,21 @@ namespace EngineCoreStatic
 
                         break;
                     }
-
                     case ".htp":
                     {
-                        //NotImpl
+                        createOutputDirectoryFunc();
+                        string tilePath = Path.Combine(resDirectory, relativeDirectory + ".htl");
+                        using FileStream htpStream = File.OpenRead(path);
+                        using FileStream htlStream = File.OpenRead(tilePath);
+
+                        HTPImageDecoder htpDecoder = new(htpStream, fileName);
+                        htpDecoder.ExtractToPNG(outputDirectory, htlStream);
+                        Console.WriteLine("成功: {0}", relativePath);
+
                         break;
                     }
                     case ".htl":
                     {
-                        //NotImpl
                         break;
                     }
 
