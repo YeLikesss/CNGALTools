@@ -575,7 +575,7 @@
 
 #### 15.SeparateHearts
 
-*   SeparateHearts Engine(Hac解包/Tex解码/Hgp解码)
+*   SeparateHearts Engine(古月引擎)(Hac解包/Tex解码/Hgp解码/HTP+HTL解码)
 
     &emsp;游戏测试
 
@@ -586,6 +586,8 @@
     &emsp;&emsp;《红楼梦: 林黛玉与北静王》
 
     &emsp;&emsp;《楼兰: 轮回之轨迹》
+
+    &emsp;&emsp;《楼兰: 轮回之轨迹 缘》
 
     &emsp;依赖库
 
