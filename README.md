@@ -625,6 +625,24 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 18.焦糖摩卡组/CaramelMochaStudio
+
+*   《仿徨之街》辅助(TheStreetOfAdriftToolkit)
+
+    &emsp;功能
+
+    &emsp;&emsp;连线关卡选项变得非常简单
+
+    &emsp;使用方法
+
+    &emsp;&emsp;将`TSOALoader.exe`与`TSOACheat.dll`置于游戏目录下
+    
+    &emsp;&emsp;双击启动`TSOALoader.exe`运行即可
+
+    &emsp;编译环境
+
+    &emsp;&emsp;MSVC2022 x64
+
 #### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)
