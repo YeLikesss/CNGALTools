@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCreatorStatic", "GameCreatorStatic\GameCreatorStatic.csproj", "{8F2F7F92-3157-4B28-BADE-BF081AB7A237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractorV1", "ExtractorV1\ExtractorV1.csproj", "{E58C6FCF-5C7A-4482-B470-38417F53D15D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F2F7F92-3157-4B28-BADE-BF081AB7A237}.Debug|x64.ActiveCfg = Debug|x64
+		{8F2F7F92-3157-4B28-BADE-BF081AB7A237}.Debug|x64.Build.0 = Debug|x64
+		{8F2F7F92-3157-4B28-BADE-BF081AB7A237}.Release|x64.ActiveCfg = Release|x64
+		{8F2F7F92-3157-4B28-BADE-BF081AB7A237}.Release|x64.Build.0 = Release|x64
+		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Debug|x64.ActiveCfg = Debug|x64
+		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Debug|x64.Build.0 = Debug|x64
+		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Release|x64.ActiveCfg = Release|x64
+		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Release|x64.Build.0 = Release|x64
+		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Debug|x64.ActiveCfg = Debug|x64
+		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Debug|x64.Build.0 = Debug|x64
+		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Release|x64.ActiveCfg = Release|x64
+		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B7DC70C-B412-4C27-85E2-E82F84AFEFB3}
+	EndGlobalSection
+EndGlobal
