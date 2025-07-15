@@ -563,6 +563,8 @@
 
     &emsp;&emsp;《令和罕见物语》
 
+    &emsp;&emsp;《我亲爱的妹妹》
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
