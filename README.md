@@ -1,12 +1,12 @@
 ### 国产/官中代理Galgame工具 Chinese Galgame/Visual Novel Tools
 
-### 游戏分析笔记 [点此处](https://github.com/YeLikesss/CNGALReverseNote)
+### 游戏分析笔记/IDA(IDB) [点此处](https://github.com/YeLikesss/CNGALReverseNote)
 
 #### 1.NVL(国G程序收费外包商)(Navila Software Japan)
 
-* BKEngine (加密资源 加密文本)
+* BKEngine
 
-    &emsp;BKEngineExtract (Ver2.0) (静态提取资源)
+    &emsp;BKEngineExtract(静态提取)
 
     &emsp;&emsp;解包.bkarc封包
 
@@ -54,19 +54,15 @@
 
     &emsp;&emsp;&emsp;&emsp;《十二色季节》
 
+    &emsp;&emsp;依赖库
+
+    &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
+
     &emsp;&emsp;编译环境
     
     &emsp;&emsp;&emsp;MSVC2022 x86
 
-    &emsp;状态说明
-
-    &emsp;&emsp;1.Ver2.0已经算是最终版, 仅仅解密除文本外的所有资源
-
-    &emsp;&emsp;2.游戏质量垃圾, 文本解密打不算研究
-
-    &emsp;&emsp;3.该引擎官方已弃用, 转为NVLUnity
-
-* NVLKRKR(内部定制收费版本) (加密资源 明文文本)
+* NVLKRKR(内部定制收费版本)
 
     &emsp;NVLKR2Extract (静态提取)
 
@@ -103,12 +99,6 @@
     &emsp;&emsp;&emsp;.Net 6.x
 
     &emsp;NVLKrkrDump (动态提取) (Dump资源 Hash文件名)
-
-    &emsp;&emsp;技术参考
-
-    &emsp;&emsp;&emsp;项目引用[KrkrDump](https://github.com/crskycode/KrkrDump)
-
-    &emsp;&emsp;&emsp;技术支持[crsky](https://github.com/crskycode)   [Dir-A](https://github.com/Dir-A)
 
     &emsp;&emsp;依赖库
 
@@ -147,13 +137,9 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-    &emsp;状态说明
+ * NVLUnity
 
-    &emsp;&emsp;1.该引擎官方已弃用, 转为NVLUnity
-
- * NVLUnity (加密资源 VM文本)
-
-    &emsp;NVLUnityDecryptor (Ver2.0) (静态解密)
+    &emsp;NVLUnityDecryptor (静态解密)
    
     &emsp;&emsp;用于解密.nvldata封包    解密完毕请使用[AssetStudio](https://github.com/Perfare/AssetStudio)解包
    
@@ -215,15 +201,15 @@
 
     &emsp;&emsp;使用方法
 
-    &emsp;&emsp;&emsp; 保证`Loader.exe`与`ScriptDumper.dll`与`DumperGUI.dll`在同一路径下, 将游戏exe拖到`Loader.exe`运行即可, 打开debugview观察log输出, 脚本拖拽到指定位置即可解出, 使用vscode去转义格式化json即可
+    &emsp;&emsp;&emsp; 保证`Loader.exe`与`ScriptDumper.dll`与`DumperGUI.dll`在同一路径下, 将游戏exe拖到`Loader.exe`运行即可, 打开debugview观察log输出, 脚本拖拽到指定位置即可解出
 
+    &emsp;&emsp;依赖库
+
+    &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
+    
     &emsp;&emsp;编译环境 
     
     &emsp;&emsp;&emsp;MSVC2022 x86
-
-    &emsp;状态说明
-
-    &emsp;&emsp;1.NVL目前主要使用该引擎
 
  * NVLWebCloud (加密资源 明文文本)
 
@@ -239,17 +225,11 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-    &emsp;状态说明
-
-    &emsp;&emsp;1.官方已弃用 转为NVLUnity
-
 #### 2.Strrationalism/弦语蝶梦
 
 * Snowing (加密资源 明文文本)
 
     &emsp;SnowingExtract  (静态提取)
-
-    &emsp;&emsp;静态解密游戏加密资源
     
     &emsp;&emsp;游戏测试
     
@@ -259,15 +239,9 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-    &emsp;状态说明
-
-    &emsp;&emsp;1.游戏质量垃圾, 代码不再更新或重构
-
-    &emsp;&emsp;2.官方只做了一作就弃用
-
 #### 3.蓝天使/BlueAngel
 
-* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (加密资源 明文文本) (静态提取)
+* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)
 
     &emsp;提取魔改XP3封包
 
@@ -299,20 +273,13 @@
 
     &emsp;&emsp;&emsp;.Net 6.x
 
-
-* 状态说明
-  
-    &emsp;1.《亿万年的星光》不打算继续维护(游戏质量一般)
-
-    &emsp;2.《刻痕0》系列没人放流, 有放流再看看
-
 #### 4.Fontainebleau/枫丹白露
 
 * 自研引擎加密coco2dx-V1 (加密资源 明文文本)
 
     &emsp;MeetInParisDumper (动态提取)
 
-    &emsp;&emsp;提取《花都之恋》CG资源 (本人无最新版资源  仅适配Steam 2022.5.1版本)
+    &emsp;&emsp;提取《花都之恋》CG资源 (适配Steam 2022.5.1版本)
 
     &emsp;&emsp;使用方法
 
@@ -324,21 +291,9 @@
     
     &emsp;&emsp;&emsp;MSVC2022 x86
 
-* 状态说明
-  
-    &emsp;1.官方已放弃自研 改为Unity
-
 #### 5.ZixSolution(国G程序收费外包商)
 
 * ZedraxloRenpy加密插件V1.0  (Renpy 7.x --- Python2.7) 魔改`.rpa` `.rpyc`封包  (静态提取)
-
-    解密编译后的`.pyc`文件, 位于`游戏目录/renpy`
-
-    &emsp;使用方法
-
-    &emsp;&emsp;解密后自行使用[python-uncompyle6](https://github.com/rocky/python-uncompyle6) 反编译`.pyc`
-
-    &emsp;&emsp;阅读反编译后的python代码修改或编写程序解包`.rpa` `.rpyc`资源
 
     &emsp;游戏测试
 
@@ -361,10 +316,6 @@
 * ZedraxloRenpy加密插件V1.1  (Renpy 8.x --- Python3.9) 魔改`.rpa` 封包  (静态提取)
 
     解密编译后的`.pye`文件, 位于`游戏目录/renpy`
-
-    &emsp;使用方法
-
-    &emsp;&emsp;(uncompyle6暂时不支持Python 3.9反编译)
 
     &emsp;游戏测试 (未测试:手上没有这个游戏)
 
@@ -394,10 +345,6 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-* 状态说明
-  
-    &emsp;1.官方已不做Gal外包
-
 #### 6.iFAction (国G程序收费框架商)
 
 * 自研引擎封包V1 (静态提取)
@@ -416,19 +363,9 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-* 状态说明
-  
-    &emsp;1.可能不再会跟进或重构
-
-    &emsp;&emsp;原因
-
-    &emsp;&emsp;&emsp;1.这个引擎做RPG为主
-
-    &emsp;&emsp;&emsp;2.Galgame部分游戏少且垃圾
-
 #### 7.AsicxArt
 
-* Unity+代码混淆+WxSQLite AES128加密数据库 V1 (加密资源 明文文本) (静态提取)
+* Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)
 
     &emsp;提取数据库游戏资源
 
@@ -447,11 +384,6 @@
     &emsp;注意事项
     
     &emsp;&emsp;如需查看文本或其他资源  可以使用SQLiteStudio等工具浏览  加密选项选择WxSQLite3 AES128
-
-* 状态说明
-  
-    &emsp;1.游戏质量较高, 出新作会第一时间跟进
-
 
 #### 8.心愿游戏
 
@@ -487,7 +419,7 @@
 
     &emsp;游戏测试
 
-    &emsp;&emsp;注:部分游戏使用molebox打包 请先使用demoleition解包
+    &emsp;&emsp;部分游戏使用molebox打包 请先使用[demoleition](https://lifeinhex.com/category/tools/)解包
 
     &emsp;&emsp;《彼岸花葬》
 
@@ -642,6 +574,10 @@
     &emsp;&emsp;将`TSOALoader.exe`与`TSOACheat.dll`置于游戏目录下
     
     &emsp;&emsp;双击启动`TSOALoader.exe`运行即可
+
+    &emsp;依赖库
+
+    &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
 
     &emsp;编译环境
 

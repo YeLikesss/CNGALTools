@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnowingStatic", "SnowingSta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VainRiserExtractor", "VainRiserExtractor\VainRiserExtractor.csproj", "{BC5EC866-4191-4AC3-94E6-0514379C802C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VainRiserExtractor", "VainRiserExtractor\VainRiserExtractor.csproj", "{BC5EC866-4191-4AC3-94E6-0514379C802C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,8 @@ Global
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Debug|x64.Build.0 = Debug|x64
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Release|x64.ActiveCfg = Release|x64
 		{881567D7-45B1-4D37-BEFF-4CD4DB754DF2}.Release|x64.Build.0 = Release|x64
-		{BC5EC866-4191-4AC3-94E6-0514379C802C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{BC5EC866-4191-4AC3-94E6-0514379C802C}.Debug|x64.Build.0 = Debug|Any CPU
+		{BC5EC866-4191-4AC3-94E6-0514379C802C}.Debug|x64.ActiveCfg = Debug|x64
+		{BC5EC866-4191-4AC3-94E6-0514379C802C}.Debug|x64.Build.0 = Debug|x64
 		{BC5EC866-4191-4AC3-94E6-0514379C802C}.Release|x64.ActiveCfg = Release|x64
 		{BC5EC866-4191-4AC3-94E6-0514379C802C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection

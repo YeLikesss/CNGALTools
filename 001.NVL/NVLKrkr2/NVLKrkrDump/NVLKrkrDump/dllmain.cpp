@@ -1,4 +1,10 @@
-﻿#include "util.h"
+﻿//参考:https://github.com/crskycode/KrkrDump
+// 
+//人员支持:
+//https://github.com/crskycode
+//https://github.com/Dir-A
+
+#include "util.h"
 #include "path.h"
 #include "log.h"
 #include "pe.h"

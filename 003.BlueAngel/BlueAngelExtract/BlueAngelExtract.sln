@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueAngelStaticExtract", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleExecute", "ConsoleExecute\ConsoleExecute.csproj", "{24BED4F3-856C-40E4-A3C0-3F8D145613B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarlightofAeonsExtractor", "StarlightofAeonsExtractor\StarlightofAeonsExtractor.csproj", "{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarlightofAeonsExtractor", "StarlightofAeonsExtractor\StarlightofAeonsExtractor.csproj", "{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,8 @@ Global
 		{24BED4F3-856C-40E4-A3C0-3F8D145613B9}.Debug|x64.Build.0 = Debug|x64
 		{24BED4F3-856C-40E4-A3C0-3F8D145613B9}.Release|x64.ActiveCfg = Release|x64
 		{24BED4F3-856C-40E4-A3C0-3F8D145613B9}.Release|x64.Build.0 = Release|x64
-		{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}.Debug|x64.ActiveCfg = Debug|x64
+		{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}.Debug|x64.Build.0 = Debug|x64
 		{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}.Release|x64.ActiveCfg = Release|x64
 		{3769ACFF-59E6-4ADC-B254-A16A41C5F5F3}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
