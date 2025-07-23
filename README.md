@@ -499,6 +499,8 @@
 
     &emsp;&emsp;《我亲爱的妹妹》
 
+    &emsp;&emsp;《鼓手余命十日谭》
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
