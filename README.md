@@ -596,10 +596,16 @@
 #### 19.PygmaGame
 
 * 修改版Renpy8 RPA封包(V1)
+    
+    &emsp;&emsp;PygmaGame
+    
+    &emsp;&emsp;零点世界工作室
 
     &emsp;游戏测试
 
-    &emsp;&emsp;《苍空的彼端》
+    &emsp;&emsp;《苍空的彼端》(PygmaGame)
+
+    &emsp;&emsp;《愚者之梦: 零时将至》(零点世界工作室)
 
     &emsp;依赖库
     

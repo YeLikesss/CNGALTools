@@ -186,7 +186,7 @@ namespace PygmaGameStatic
                     outFs.Write(buf);
                     outFs.Flush();
 
-                    Console.WriteLine($"提取成功: {pkgName}/{pkgPath}");
+                    Console.WriteLine($"提取成功: {pkgName}/{entry.FileName}");
                 }
             }
 
