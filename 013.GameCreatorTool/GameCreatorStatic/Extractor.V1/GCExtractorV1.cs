@@ -16,6 +16,13 @@ namespace GameCreatorStatic.Extractor.V1
             "asset\\image",
         };
 
+        private readonly HashSet<string> mEncryptExtension = new()
+        {
+            ".png",
+            ".jpeg",
+            ".jpg",
+        };
+
         /// <summary>
         /// 提取
         /// </summary>
@@ -29,34 +36,39 @@ namespace GameCreatorStatic.Extractor.V1
                 {
                     foreach(string filePath in Directory.EnumerateFiles(resourceDirectory, "*.*", SearchOption.AllDirectories))
                     {
-                        string relativePath = filePath[(gameRootDirectory.Length + 1)..];
-                        string outPath = Path.Combine(gameRootDirectory, "Extract_Static", relativePath);
+                        string ext = Path.GetExtension(filePath);
 
+                        if (this.mEncryptExtension.Contains(ext))
                         {
-                            string outDir = Path.GetDirectoryName(outPath)!;
-                            if (!Directory.Exists(outDir))
+                            string relativePath = filePath[(gameRootDirectory.Length + 1)..];
+                            string outPath = Path.Combine(gameRootDirectory, "Extract_Static", relativePath);
+
                             {
-                                Directory.CreateDirectory(outDir);
+                                string outDir = Path.GetDirectoryName(outPath)!;
+                                if (!Directory.Exists(outDir))
+                                {
+                                    Directory.CreateDirectory(outDir);
+                                }
                             }
+
+                            using FileStream outFs = File.Create(outPath);
+                            byte[] buf = File.ReadAllBytes(filePath);
+
+                            long length = buf.LongLength;
+                            long fakeBytePosition = (length - 1L) / 2L;
+
+                            {
+                                buf[1] ^= buf[2];
+                                buf[2] ^= buf[1];
+                                buf[1] ^= buf[2];
+                            }
+
+                            outFs.Write(buf, 0, (int)fakeBytePosition);
+                            outFs.Write(buf, (int)(fakeBytePosition + 1L), (int)(length - fakeBytePosition - 1L));
+                            outFs.Flush();
+
+                            Console.WriteLine("解码成功:{0}", relativePath);
                         }
-
-                        using FileStream outFs = File.Create(outPath);
-                        byte[] buf = File.ReadAllBytes(filePath);
-
-                        long length = buf.LongLength;
-                        long fakeBytePosition = (length - 1L) / 2L;
-
-                        {
-                            buf[1] ^= buf[2];
-                            buf[2] ^= buf[1];
-                            buf[1] ^= buf[2];
-                        }
-
-                        outFs.Write(buf, 0, (int)fakeBytePosition);
-                        outFs.Write(buf, (int)(fakeBytePosition + 1L), (int)(length - fakeBytePosition - 1L));
-                        outFs.Flush();
-
-                        Console.WriteLine("解码成功:{0}", relativePath);
                     }
                 }
                 else

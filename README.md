@@ -501,6 +501,10 @@
 
     &emsp;&emsp;《鼓手余命十日谭》
 
+    &emsp;&emsp;《叛军组织的我爱上了贵族大小姐》
+
+    &emsp;&emsp;《风之歌》
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
