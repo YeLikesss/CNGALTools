@@ -587,6 +587,24 @@
 
     &emsp;&emsp;MSVC2022 x64
 
+#### 19.PygmaGame
+
+* 修改版Renpy8 RPA封包(V1)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《苍空的彼端》
+
+    &emsp;依赖库
+    
+    &emsp;&emsp;NuGet
+    
+    &emsp;&emsp;&emsp;Razorvine.Pickle
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
 #### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)
