@@ -9,7 +9,7 @@ using System.Collections;
 namespace PygmaGameStatic
 {
     /// <summary>
-    /// 
+    /// WJZRenpy封包V1
     /// </summary>
     public class WJZRenpyPackageV1
     {

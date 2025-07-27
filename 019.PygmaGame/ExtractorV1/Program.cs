@@ -25,7 +25,10 @@ namespace ExtractorV1
                 foreach(string path in pkgs)
                 {
                     WJZRenpyPackageV1 packageV1 = new(path);
-                    packageV1.Extract(gameDir);
+                    if (!packageV1.Extract(gameDir))
+                    {
+                        Console.WriteLine($"错误: [{Path.GetFileName(packageV1.PackagePath)}]{packageV1.LastError}");
+                    }
                 }
                 Console.WriteLine("================ Pygma Game V1 提取完成 ====================\r\n");
             }
