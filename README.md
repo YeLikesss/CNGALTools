@@ -619,6 +619,24 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 20.Xso
+
+*  Xso制作组 修改版Renpy8 RPA封包(V1)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《不恋爱就完蛋了》
+
+    &emsp;依赖库
+    
+    &emsp;&emsp;NuGet
+    
+    &emsp;&emsp;&emsp;Razorvine.Pickle
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
 #### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)
