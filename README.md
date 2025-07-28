@@ -639,6 +639,22 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 21.UniversalRPAExtractor
+
+*  Renpy官方封包提取 (较多国Gal使用该引擎)
+    
+    &emsp;[官方源码](https://github.com/renpy/renpy/blob/master/renpy/loader.py)
+
+    &emsp;依赖库
+    
+    &emsp;&emsp;NuGet
+    
+    &emsp;&emsp;&emsp;Razorvine.Pickle
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
 #### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)

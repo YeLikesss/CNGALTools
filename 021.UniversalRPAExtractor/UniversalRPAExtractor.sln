@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPAArchive", "RPAArchive\RPAArchive.csproj", "{D84EF21E-11A5-4AAB-93D2-7E9E583DCEE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPAExtractorGUI", "RPAExtractorGUI\RPAExtractorGUI.csproj", "{C63340ED-1BA4-4022-9851-BDE4D87C25AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D84EF21E-11A5-4AAB-93D2-7E9E583DCEE3}.Debug|x64.ActiveCfg = Debug|x64
+		{D84EF21E-11A5-4AAB-93D2-7E9E583DCEE3}.Debug|x64.Build.0 = Debug|x64
+		{D84EF21E-11A5-4AAB-93D2-7E9E583DCEE3}.Release|x64.ActiveCfg = Release|x64
+		{D84EF21E-11A5-4AAB-93D2-7E9E583DCEE3}.Release|x64.Build.0 = Release|x64
+		{C63340ED-1BA4-4022-9851-BDE4D87C25AF}.Debug|x64.ActiveCfg = Debug|x64
+		{C63340ED-1BA4-4022-9851-BDE4D87C25AF}.Debug|x64.Build.0 = Debug|x64
+		{C63340ED-1BA4-4022-9851-BDE4D87C25AF}.Release|x64.ActiveCfg = Release|x64
+		{C63340ED-1BA4-4022-9851-BDE4D87C25AF}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C34849B0-2FBD-4074-9694-1D35281F3584}
+	EndGlobalSection
+EndGlobal
