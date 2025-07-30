@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiangSheStatic", "XiangSheStatic\XiangSheStatic.csproj", "{24E6B96C-38DA-42ED-971F-CFB10782A8F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{D50D5DDD-36C0-4F09-90CD-C58F2A35DF83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGreatScientistDecryptor", "AGreatScientistDecryptor\AGreatScientistDecryptor.csproj", "{69B7DA7D-2D12-4D3A-881A-07697A2EACB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24E6B96C-38DA-42ED-971F-CFB10782A8F7}.Debug|x64.ActiveCfg = Debug|x64
+		{24E6B96C-38DA-42ED-971F-CFB10782A8F7}.Debug|x64.Build.0 = Debug|x64
+		{24E6B96C-38DA-42ED-971F-CFB10782A8F7}.Release|x64.ActiveCfg = Release|x64
+		{24E6B96C-38DA-42ED-971F-CFB10782A8F7}.Release|x64.Build.0 = Release|x64
+		{D50D5DDD-36C0-4F09-90CD-C58F2A35DF83}.Debug|x64.ActiveCfg = Debug|x64
+		{D50D5DDD-36C0-4F09-90CD-C58F2A35DF83}.Debug|x64.Build.0 = Debug|x64
+		{D50D5DDD-36C0-4F09-90CD-C58F2A35DF83}.Release|x64.ActiveCfg = Release|x64
+		{D50D5DDD-36C0-4F09-90CD-C58F2A35DF83}.Release|x64.Build.0 = Release|x64
+		{69B7DA7D-2D12-4D3A-881A-07697A2EACB8}.Debug|x64.ActiveCfg = Debug|x64
+		{69B7DA7D-2D12-4D3A-881A-07697A2EACB8}.Debug|x64.Build.0 = Debug|x64
+		{69B7DA7D-2D12-4D3A-881A-07697A2EACB8}.Release|x64.ActiveCfg = Release|x64
+		{69B7DA7D-2D12-4D3A-881A-07697A2EACB8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5E5795B-EB9A-45CE-A4BC-37B6411877A7}
+	EndGlobalSection
+EndGlobal

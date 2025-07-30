@@ -639,6 +639,18 @@
 
     &emsp;&emsp;.Net 6.x
 
+#### 21.箱社
+
+*  IceCreamStick AVGEngine(V1)(Unity)
+
+    &emsp;游戏测试
+
+    &emsp;&emsp;《大科学家》
+
+    &emsp;编译环境
+
+    &emsp;&emsp;.Net 6.x
+
 #### 21.UniversalRPAExtractor
 
 *  Renpy官方封包提取 (较多国Gal使用该引擎)
