@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.35707.66
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCreatorStatic", "GameCreatorStatic\GameCreatorStatic.csproj", "{8F2F7F92-3157-4B28-BADE-BF081AB7A237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCreatorStatic", "GameCreatorStatic\GameCreatorStatic.csproj", "{8F2F7F92-3157-4B28-BADE-BF081AB7A237}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractorV1", "ExtractorV1\ExtractorV1.csproj", "{E58C6FCF-5C7A-4482-B470-38417F53D15D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GCExtractorGUI", "GCExtractorGUI\GCExtractorGUI.csproj", "{CE4E5589-D6FC-4E8E-A80E-A9550A04A45D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Debug|x64.Build.0 = Debug|x64
 		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Release|x64.ActiveCfg = Release|x64
 		{A0DB8E75-7F9B-4BC8-BA44-0AA710ADF62C}.Release|x64.Build.0 = Release|x64
-		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Debug|x64.ActiveCfg = Debug|x64
-		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Debug|x64.Build.0 = Debug|x64
-		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Release|x64.ActiveCfg = Release|x64
-		{E58C6FCF-5C7A-4482-B470-38417F53D15D}.Release|x64.Build.0 = Release|x64
+		{CE4E5589-D6FC-4E8E-A80E-A9550A04A45D}.Debug|x64.ActiveCfg = Debug|x64
+		{CE4E5589-D6FC-4E8E-A80E-A9550A04A45D}.Debug|x64.Build.0 = Debug|x64
+		{CE4E5589-D6FC-4E8E-A80E-A9550A04A45D}.Release|x64.ActiveCfg = Release|x64
+		{CE4E5589-D6FC-4E8E-A80E-A9550A04A45D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
