@@ -511,6 +511,14 @@
 
     &emsp;&emsp;《残神觉醒》
 
+    &emsp;&emsp;《暮雨流花+》
+
+    &emsp;依赖库
+
+    &emsp;&emsp;NuGet
+
+    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
+
     &emsp;编译环境
 
     &emsp;&emsp;.Net 6.x
