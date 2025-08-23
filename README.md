@@ -1,231 +1,32 @@
-### 国产/官中代理Galgame工具 Chinese Galgame/Visual Novel Tools
-
-### 游戏分析笔记/IDA(IDB) [点此处](https://github.com/YeLikesss/CNGALReverseNote)
-
-#### 1.NVL(国G程序收费外包商)(Navila Software Japan)
-
-* BKEngine
-
-    &emsp;BKEngineExtract(静态提取)
-
-    &emsp;&emsp;解包.bkarc封包
-
-    &emsp;&emsp;游戏测试
-
-    &emsp;&emsp;&emsp;V2.0
-
-    &emsp;&emsp;&emsp;&emsp;官网封包版本
-
-    &emsp;&emsp;&emsp;V2.1(V2.0 HashVer)
-
-    &emsp;&emsp;&emsp;&emsp;《十二色季节》
-
-    &emsp;&emsp;&emsp;&emsp;《灭魂·误佳期》
-
-    &emsp;&emsp;&emsp;V4.0
-
-    &emsp;&emsp;&emsp;&emsp;《遥望彼方》
-
-    &emsp;&emsp;&emsp;&emsp;《五等分的抢婚 三玖篇》
-
-    &emsp;&emsp;&emsp;&emsp;《某一种青春》
-
-    &emsp;&emsp;&emsp;&emsp;《他人世界末》
-
-    &emsp;&emsp;&emsp;&emsp;《局外人 - L'Etranger》
-
-    &emsp;&emsp;依赖库
-
-    &emsp;&emsp;&emsp;NuGet
-
-    &emsp;&emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
-
-    &emsp;&emsp;&emsp;&emsp;Zstd.Net
-
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-    &emsp;BKEFileNameDumper  (Dump V21Hash文件名)
-
-    &emsp;&emsp;游戏测试
-
-    &emsp;&emsp;&emsp;V2.1(V2.0 HashVer)
-
-    &emsp;&emsp;&emsp;&emsp;《十二色季节》
-
-    &emsp;&emsp;依赖库
-
-    &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
-
-    &emsp;&emsp;编译环境
-    
-    &emsp;&emsp;&emsp;MSVC2022 x86
-
-* NVLKRKR(内部定制收费版本)
-
-    &emsp;NVLKR2Extract (静态提取)
-
-    &emsp;&emsp;静态解包NVLKR2封包  
-
-    &emsp;&emsp;游戏测试
-
-    &emsp;&emsp;&emsp;《橘子班短篇合集》
-
-    &emsp;&emsp;&emsp;《高考恋爱100天》
-
-    &emsp;&emsp;&emsp;《虹色旋律》
-
-    &emsp;&emsp;&emsp;《祈风》
-
-    &emsp;&emsp;&emsp;《雾之本境S》
-
-    &emsp;&emsp;&emsp;《真恋寄语枫秋》
-
-    &emsp;&emsp;&emsp;《余香》
-
-    &emsp;&emsp;&emsp;《茸雪》
-
-    &emsp;&emsp;&emsp;《回忆忘却之匣》
-
-    &emsp;&emsp;&emsp;《花落冬阳》
-
-    &emsp;&emsp;&emsp;《雪之本境S》
-
-    &emsp;&emsp;&emsp;《丑小鸭的天鹅湖》
-
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-    &emsp;NVLKrkrDump (动态提取) (Dump资源 Hash文件名)
-
-    &emsp;&emsp;依赖库
-
-    &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
-
-    &emsp;&emsp;使用方法
-
-    &emsp;&emsp;&emsp;将`NVLKrkrDumpLoader.exe`与`NVLKrkrDump.dll`置于游戏目录下, 将游戏exe拖到`NVLKrkrDumpLoader.exe`运行即可, `游戏路径/Extract`为导出资源, `NVLKrkrDump.log`为运行日志, `FullPath.lst`为资源全路径列表, `RelativePath.lst`为资源相对路径列表,`AutoPath.lst`为游戏自动路径列表,可搭配hash算法进行碰撞还原
-
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;MSVC2022 x86
-
-    &emsp;NVLKR2 Hash Decoder (爆破hash文件名)
-
-    &emsp;&emsp;使用方法
-
-    &emsp;&emsp;&emsp;1."选择目标文件夹" -> 你要还原的资源文件名路径
-
-    &emsp;&emsp;&emsp;2."加载自动路径" -> NVLKrkrDump出来的AutoPath.lst (UTF-8)
-
-    &emsp;&emsp;&emsp;3."加载Dump的文件名还原" -> NVLKrkrDump出来的RelativePath.lst (UTF-8)
-
-    &emsp;&emsp;&emsp;4."使用本地路径还原" -> 选择本地路径用于遍历还原(比如相同厂商的游戏)
-
-    &emsp;&emsp;&emsp;5."使用本地路径还原(AutoPath)" -> 选择本地路径用于遍历还原(自动添加AutoPath路径) 
-    (比如使用NVLKrkrDump的Extract文件夹还原)
-
-    &emsp;&emsp;&emsp;6.左侧为字符串生成器  自己找规律生成爆破
-
-    &emsp;&emsp;注意
-
-    &emsp;&emsp;&emsp;1.该Hash算法碰撞率极高  不建议一次性加载太多AutoPath
-
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
- * NVLUnity
-
-    &emsp;NVLUnityDecryptor (静态解密)
-   
-    &emsp;&emsp;用于解密.nvldata封包    解密完毕请使用[AssetStudio](https://github.com/Perfare/AssetStudio)解包
-   
-    &emsp;&emsp;游戏测试
-    
-    &emsp;&emsp;&emsp;《梦末》
-    
-    &emsp;&emsp;&emsp;《昙花》
-    
-    &emsp;&emsp;&emsp;《小白兔电商》
-    
-    &emsp;&emsp;&emsp;《雪中花》
-    
-    &emsp;&emsp;&emsp;《女装少年短发妹》
-    
-    &emsp;&emsp;&emsp;《流浪小猫单身狗》
-    
-    &emsp;&emsp;&emsp;《重启》
-    
-    &emsp;&emsp;&emsp;《茸雪》
-    
-    &emsp;&emsp;&emsp;《山茶列车》
-    
-    &emsp;&emsp;&emsp;《青羽》
-    
-    &emsp;&emsp;&emsp;《死亡直播间》
-
-    &emsp;&emsp;&emsp;《贝果爱情故事》
-
-    &emsp;&emsp;&emsp;《写真偶像》
-
-    &emsp;&emsp;&emsp;《梦见雪花》
-
-    &emsp;&emsp;&emsp;《泡芙爱情故事》
-    
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-    &emsp;NVLUnityScriptDumper (动态解析脚本)
-
-    &emsp;&emsp;将bytecode脚本还原为AST JSON格式
-
-    &emsp;&emsp;游戏测试
-    
-    &emsp;&emsp;&emsp;《梦末》
-
-    &emsp;&emsp;&emsp;《昙花》
-
-    &emsp;&emsp;&emsp;《小白兔电商》
-
-    &emsp;&emsp;&emsp;《雪中花》
-
-    &emsp;&emsp;&emsp;《重启》
-
-    &emsp;&emsp;&emsp;《茸雪》
-
-    &emsp;&emsp;&emsp;《山茶列车》
-
-    &emsp;&emsp;使用方法
-
-    &emsp;&emsp;&emsp; 保证`Loader.exe`与`ScriptDumper.dll`与`DumperGUI.dll`在同一路径下, 将游戏exe拖到`Loader.exe`运行即可, 打开debugview观察log输出, 脚本拖拽到指定位置即可解出
-
-    &emsp;&emsp;依赖库
-
-    &emsp;&emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
-    
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;MSVC2022 x86
-
- * NVLWebCloud (加密资源 明文文本)
-
-    &emsp;NVLWeb (静态提取)
-
-    &emsp;&emsp;用于解密修改过的asar封包 图像AES加密
-   
-    &emsp;&emsp;游戏测试
-    
-    &emsp;&emsp;&emsp;《我和她的世界末日》
-    
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-#### 2.Strrationalism/弦语蝶梦
+# CNGALTools
+
+国产/官中代理Galgame工具套件
+
+Chinese Galgame Reverse Engineering Project
+
+---
+
+## 附录
+* [游戏分析笔记](https://github.com/YeLikesss/CNGALReverseNote)
+* 第三方工具与源码<br>
+&emsp;[AssetStudio (Unity解包)](https://github.com/Perfare/AssetStudio)<br>
+&emsp;[CNStudio (Unity中国版解包)](https://github.com/RazTools/Studio)<br>
+&emsp;[GARbro (Galgame解包)](https://github.com/crskycode/GARbro)<br>
+&emsp;[Detect It Easy (查壳工具)](https://github.com/horsicq/Detect-It-Easy)<br>
+&emsp;[demoleition (molebox脱壳提取工具)](https://lifeinhex.com/category/tools/)<br>
+&emsp;[Renpy](https://github.com/renpy/renpy)<br>
+&emsp;[uncompyle6 (Python反编译器)](https://github.com/rocky/python-uncompyle6)<br>
+&emsp;[debugview](https://learn.microsoft.com/zh-cn/sysinternals/downloads/debugview)<br>
+
+---
+
+## 工具支持
+### 001. NVL (Navila Software Japan)
+* [BKEngine](./001.NVL/BKEngine/Manual.md)
+* [NVLKRKR](./001.NVL/NVLKrkr2/Manual.md)
+* [NVLUnity](./001.NVL/NVLUnity/Manual.md)
+* [NVLWeb](./001.NVL/NVLWeb/Manual.md)
+### 002.Strrationalism/弦语蝶梦
 
 * Snowing (加密资源 明文文本)
 
@@ -239,7 +40,7 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-#### 3.蓝天使/BlueAngel
+### 003.蓝天使/BlueAngel
 
 * 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)
 
@@ -273,7 +74,7 @@
 
     &emsp;&emsp;&emsp;.Net 6.x
 
-#### 4.Fontainebleau/枫丹白露
+### 004.Fontainebleau/枫丹白露
 
 * 自研引擎加密coco2dx-V1 (加密资源 明文文本)
 
@@ -291,7 +92,7 @@
     
     &emsp;&emsp;&emsp;MSVC2022 x86
 
-#### 5.ZixSolution(国G程序收费外包商)
+### 005.ZixSolution(国G程序收费外包商)
 
 * ZedraxloRenpy加密插件V1.0  (Renpy 7.x --- Python2.7) 魔改`.rpa` `.rpyc`封包  (静态提取)
 
@@ -345,7 +146,7 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-#### 6.iFAction (国G程序收费框架商)
+### 006.iFAction (国G程序收费框架商)
 
 * 自研引擎封包V1 (静态提取)
 
@@ -365,7 +166,7 @@
     
     &emsp;&emsp;&emsp;.Net 6.x
 
-#### 7.AsicxArt
+### 007.AsicxArt
 
 * Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)
 
@@ -387,7 +188,7 @@
     
     &emsp;&emsp;如需查看文本或其他资源  可以使用SQLiteStudio等工具浏览  加密选项选择WxSQLite3 AES128
 
-#### 8.心愿游戏
+### 008.心愿游戏
 
 * 《十二刻度的月计时》  激活码KeyGen
 
@@ -401,7 +202,7 @@
 
     &emsp;游戏Key : 41394A3542384D4A50554D3539464B57
 
-#### 9.SoraPlayer
+### 009.SoraPlayer
 
 * 修改了Sign的Krkr2封包  (未加密)
 
@@ -417,7 +218,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 10.UniversalXP3DecFilter
+### 010.UniversalXP3DecFilter
 
 * 通用XP3加密接口 XP3ArchiveExtractionFilter
 
@@ -461,7 +262,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 11.Irregulars
+### 011.Irregulars
 
 * Irregulars Engine
 
@@ -473,7 +274,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 12.Visual Novel Maker
+### 012.Visual Novel Maker
 
 * XorFilter
 
@@ -491,7 +292,7 @@
 
     &emsp;&emsp;1. 不是所有资源都进行了加密, 资源是否加密需要自行判断
 
-#### 13.Game Creator
+### 013.Game Creator
 
 * V1版本加密 (图像/文本/音频)
 
@@ -523,7 +324,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 14.橙汁工作室
+### 014.橙汁工作室
 
 *  Lover (情人节:不见不散)
 
@@ -531,7 +332,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 15.SeparateHearts
+### 015.SeparateHearts
 
 *   SeparateHearts Engine(古月引擎)(Hac解包/Tex解码/Hgp解码/HTP+HTL解码)
 
@@ -559,7 +360,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 16.NekoNovel
+### 016.NekoNovel
 
 *   NekoNovel Package
 
@@ -571,7 +372,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 17.Ourshow Games
+### 017.Ourshow Games
 
 *   AGP封包
 
@@ -583,7 +384,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 18.焦糖摩卡组/CaramelMochaStudio
+### 018.焦糖摩卡组/CaramelMochaStudio
 
 *   《仿徨之街》辅助(TheStreetOfAdriftToolkit)
 
@@ -605,7 +406,7 @@
 
     &emsp;&emsp;MSVC2022 x64
 
-#### 19.PygmaGame
+### 019.PygmaGame
 
 * 修改版Renpy8 RPA封包(V1)
     
@@ -629,7 +430,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 20.Xso
+### 020.Xso
 
 *  Xso制作组 修改版Renpy8 RPA封包(V1)
 
@@ -647,7 +448,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 21.UniversalRPAExtractor
+### 021.UniversalRPAExtractor
 
 *  Renpy官方封包提取 (较多国Gal使用该引擎)
     
@@ -663,7 +464,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 22.箱社
+### 022.箱社
 
 *  IceCreamStick AVGEngine(V1)(Unity)
 
@@ -675,7 +476,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 995.Chatte Noire
+### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)
 
@@ -683,7 +484,7 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 996.LightVN
+### 996.LightVN
 
 * LightVN Engine
 
@@ -697,7 +498,7 @@
 
     &emsp;&emsp;.Net 7.x
 
-#### 997.SyawaseWorks (官中发行商)
+### 997.SyawaseWorks (官中发行商)
 
 * HamidashiCreative (定制加密+Themida 3.x) (Cracker/Dumper/Extractor)
 
@@ -739,7 +540,7 @@
 
     &emsp;&emsp;使用封包解密工具后, 保持目录不变使用[GARbro](https://github.com/crskycode/GARbro)打开dec_xxx.pack封包
 
-#### 998.HikariField (官中发行商)
+### 998.HikariField (官中发行商)
 
 * HFUnityV1 (HFUnityV1) (Extractor)
 
@@ -779,5 +580,5 @@
 
     &emsp;&emsp;.Net 6.x
 
-#### 999.Others
+### 999.Others
 
