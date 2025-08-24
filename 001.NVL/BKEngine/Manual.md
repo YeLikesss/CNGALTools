@@ -7,6 +7,10 @@ BKEngine 工具套件
 * BKEngine 解包
 * BKEngine 封包Hash文件名Dump
 
+## 保护
+---
+* Themida 2.x 加壳
+
 ## 使用
 ---
 
