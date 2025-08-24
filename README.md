@@ -26,20 +26,8 @@ Chinese Galgame Reverse Engineering Project
 * [NVLKRKR](./001.NVL/NVLKrkr2/Manual.md)
 * [NVLUnity](./001.NVL/NVLUnity/Manual.md)
 * [NVLWeb](./001.NVL/NVLWeb/Manual.md)
-### 002.Strrationalism/弦语蝶梦
-
-* Snowing (加密资源 明文文本)
-
-    &emsp;SnowingExtract  (静态提取)
-    
-    &emsp;&emsp;游戏测试
-    
-    &emsp;&emsp;&emsp;《空梦》
-    
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
+### 002.Strrationalism (弦语蝶梦)
+* [Snowing](./002.Strrationalism/Snowing/Manual.md)
 ### 003.蓝天使/BlueAngel
 
 * 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)
