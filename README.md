@@ -14,9 +14,10 @@ Chinese Galgame Reverse Engineering Project
 &emsp;[GARbro (Galgame解包)](https://github.com/crskycode/GARbro)<br>
 &emsp;[Detect It Easy (查壳工具)](https://github.com/horsicq/Detect-It-Easy)<br>
 &emsp;[demoleition (molebox脱壳提取工具)](https://lifeinhex.com/category/tools/)<br>
-&emsp;[Renpy](https://github.com/renpy/renpy)<br>
+&emsp;[Renpy (Galgame引擎)](https://github.com/renpy/renpy)<br>
 &emsp;[uncompyle6 (Python反编译器)](https://github.com/rocky/python-uncompyle6)<br>
-&emsp;[debugview](https://learn.microsoft.com/zh-cn/sysinternals/downloads/debugview)<br>
+&emsp;[debugview (Windows调试信息)](https://learn.microsoft.com/zh-cn/sysinternals/downloads/debugview)<br>
+&emsp;[texturepacker](https://www.codeandweb.com/texturepacker)<br>
 
 ---
 
@@ -28,58 +29,10 @@ Chinese Galgame Reverse Engineering Project
 * [NVLWeb](./001.NVL/NVLWeb/Manual.md)
 ### 002.Strrationalism (弦语蝶梦)
 * [Snowing](./002.Strrationalism/Snowing/Manual.md)
-### 003.蓝天使/BlueAngel
-
-* 魔改KrkrZ V1 (定制加密+VMProtect 3.x) (静态提取)
-
-    &emsp;提取魔改XP3封包
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《亿万年的星光》 Steam
-    
-    &emsp;依赖库
-    
-    &emsp;&emsp;NuGet
-    
-    &emsp;&emsp;&emsp;K4os.Compression.LZ4
-    
-    &emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-* 魔改Krkr2 V1 (少量修改封包+Packman)
-
-    &emsp;TheCardinalMemoryNotch 适配《绯色的记忆之痕》 V2.01
-
-    &emsp;&emsp;动态提取壳VFS资源(ProtectorFileDumper)
-
-    &emsp;&emsp;静态解包(SPKExtractor)
-
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;MSVC2022 x86
-
-    &emsp;&emsp;&emsp;.Net 6.x
-
-### 004.Fontainebleau/枫丹白露
-
-* 自研引擎加密coco2dx-V1 (加密资源 明文文本)
-
-    &emsp;MeetInParisDumper (动态提取)
-
-    &emsp;&emsp;提取《花都之恋》CG资源 (适配Steam 2022.5.1版本)
-
-    &emsp;&emsp;使用方法
-
-    &emsp;&emsp;&emsp;在游戏运行时, 使用DLL注入器注入到目标游戏进程, 即可提取所有CG资源
-
-    &emsp;&emsp;&emsp;使用`TexturePacker`转换`.pvr`资源为`.png`
-
-    &emsp;&emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;MSVC2022 x86
-
+### 003.BlueAngel (蓝天使)
+* [蓝天使制作组](./003.BlueAngel/Manual.md)
+### 004.Fontainebleau (枫丹白露)
+* [枫丹白露](./004.Fontainebleau/Manual.md)
 ### 005.ZixSolution(国G程序收费外包商)
 
 * ZedraxloRenpy加密插件V1.0  (Renpy 7.x --- Python2.7) 魔改`.rpa` `.rpyc`封包  (静态提取)
