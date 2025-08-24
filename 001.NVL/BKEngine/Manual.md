@@ -38,7 +38,7 @@ BKEngine 工具套件
 
 ## BKEFileNameDumper
 ### 描述
-* 封包Hash文件名Dump提取
+* 封包Hash文件名Dump
 ### 使用
 * 启动<br>
 &emsp;将`Loader.exe`与`BKEFileNameDumper.dll`置于游戏目录<br>
