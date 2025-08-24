@@ -32,7 +32,7 @@ Chinese Galgame Reverse Engineering Project
 ### 003.BlueAngel (蓝天使)
 * [蓝天使制作组](./003.BlueAngel/Manual.md)
 ### 004.Fontainebleau (枫丹白露)
-* [枫丹白露](./004.Fontainebleau/Manual.md)
+* [枫丹白露制作组](./004.Fontainebleau/Manual.md)
 ### 005.ZixSolution(国G程序收费外包商)
 
 * ZedraxloRenpy加密插件V1.0  (Renpy 7.x --- Python2.7) 魔改`.rpa` `.rpyc`封包  (静态提取)
