@@ -4,15 +4,15 @@ BKEngine 工具套件
 
 ## 功能
 ---
-* BKEngine 引擎解包
-* BKEngine 封包Hash文件名Dump提取
+* BKEngine 解包
+* BKEngine 封包Hash文件名Dump
 
 ## 使用
 ---
 
-## BKEngineExtract
+## BKEngine
 ### 描述
-* BKEngine 引擎解包
+* BKEngine 解包
 ### 使用
 * 按照GUI界面指引
 ### 游戏支持
@@ -44,7 +44,7 @@ BKEngine 工具套件
 &emsp;将`Loader.exe`与`BKEFileNameDumper.dll`置于游戏目录<br>
 &emsp;拖拽游戏Exe到`Loader.exe`上启动<br>
 * 输出<br>
-&emsp;`游戏目录\FileName.lst`<br>
+&emsp;`FileName.lst`<br>
 &emsp;&emsp;游戏封包文件列表<br>
 ### 游戏支持
 &emsp;&emsp;V2.1(V2.0 HashVer)<br>
