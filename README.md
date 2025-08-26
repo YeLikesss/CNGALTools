@@ -35,26 +35,8 @@ Chinese Galgame Reverse Engineering Project
 * [枫丹白露制作组](./004.Fontainebleau/Manual.md)
 ### 005.ZixSolution
 * [Renpy引擎加密定制](./005.ZixSolution/Manual.md)
-### 006.iFAction (国G程序收费框架商)
-
-* 自研引擎封包V1 (静态提取)
-
-    &emsp;解包iFCon文件
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《荧火微光》
-
-    &emsp;&emsp;《风物恋歌》
-
-    &emsp;&emsp;《暮雨流花floain》
-
-    &emsp;&emsp;《我的变色龙女友》
-
-    &emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
+### 006.iFAction
+* [iFAction引擎](./006.iFAction/iFActionTool/Manual.md)
 ### 007.AsicxArt
 
 * Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)
