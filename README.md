@@ -15,6 +15,7 @@ Chinese Galgame Reverse Engineering Project
 &emsp;[Detect It Easy (查壳工具)](https://github.com/horsicq/Detect-It-Easy)<br>
 &emsp;[demoleition (molebox脱壳提取工具)](https://lifeinhex.com/category/tools/)<br>
 &emsp;[Renpy (Galgame引擎)](https://github.com/renpy/renpy)<br>
+&emsp;[dnSpy (.Net反编译器)](https://github.com/dnSpyEx/dnSpy)<br>
 &emsp;[uncompyle6 (Python反编译器)](https://github.com/rocky/python-uncompyle6)<br>
 &emsp;[debugview (Windows调试信息)](https://learn.microsoft.com/zh-cn/sysinternals/downloads/debugview)<br>
 &emsp;[texturepacker](https://www.codeandweb.com/texturepacker)<br>
@@ -39,20 +40,8 @@ Chinese Galgame Reverse Engineering Project
 * [iFAction引擎](./006.iFAction/iFActionTool/Manual.md)
 ### 007.AsicxArt (芯片社)
 * [芯片社制作组](./007.AsicxArt/Manual.md)
-### 008.心愿游戏
-
-* 《十二刻度的月计时》  激活码KeyGen
-
-    &emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-* 《蔚蓝月下的回忆~SAPPHIRE MOON-FOREVER MEMORIES》   解包代码  (Unity自带的AssetBundle加密)
-
-    &emsp;可以使用[CNStudio](https://github.com/RazTools/Studio)提取 
-
-    &emsp;游戏Key : 41394A3542384D4A50554D3539464B57
-
+### 008.XinYvanGames (心愿游戏)
+* [心愿游戏制作组](./008.XinYvanGames/Manual.md)
 ### 009.SoraPlayer
 
 * 修改了Sign的Krkr2封包  (未加密)
