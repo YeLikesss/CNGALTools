@@ -43,21 +43,7 @@ Chinese Galgame Reverse Engineering Project
 ### 008.XinYvanGames (心愿游戏)
 * [心愿游戏制作组](./008.XinYvanGames/Manual.md)
 ### 009.SoraPlayer
-
-* 修改了Sign的Krkr2封包  (未加密)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《夏花的轨迹 That Summer Of Eternal Eden》
-
-    &emsp;&emsp;《锈翅 逃离我的家乡》
-
-    &emsp;&emsp;《夏雪花染》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [SoraPlayer制作组](./009.SoraPlayer/Manual.md)
 ### 010.UniversalXP3DecFilter
 
 * 通用XP3加密接口 XP3ArchiveExtractionFilter
