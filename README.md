@@ -37,28 +37,8 @@ Chinese Galgame Reverse Engineering Project
 * [Renpy引擎加密定制](./005.ZixSolution/Manual.md)
 ### 006.iFAction
 * [iFAction引擎](./006.iFAction/iFActionTool/Manual.md)
-### 007.AsicxArt
-
-* Unity+代码混淆+WxSQLite AES128加密数据库 V1 (静态提取)
-
-    &emsp;提取数据库游戏资源
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《茸茸便利店》
-
-    &emsp;&emsp;《吸血鬼旋律》
-
-    &emsp;&emsp;《吸血鬼旋律 2》
-
-    &emsp;编译环境 
-    
-    &emsp;&emsp;&emsp;.Net 6.x
-
-    &emsp;注意事项
-    
-    &emsp;&emsp;如需查看文本或其他资源  可以使用SQLiteStudio等工具浏览  加密选项选择WxSQLite3 AES128
-
+### 007.AsicxArt (芯片社)
+* [芯片社制作组](./007.AsicxArt/Manual.md)
 ### 008.心愿游戏
 
 * 《十二刻度的月计时》  激活码KeyGen
