@@ -51,37 +51,7 @@ Chinese Galgame Reverse Engineering Project
 ### 012.Visual Novel Maker
 * [VisualNovelMaker引擎](./012.VisualNovelMaker/Manual.md)
 ### 013.Game Creator
-
-* V1版本加密 (图像/文本/音频)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《令和罕见物语》
-
-    &emsp;&emsp;《我亲爱的妹妹》
-
-    &emsp;&emsp;《鼓手余命十日谭》
-
-    &emsp;&emsp;《叛军组织的我爱上了贵族大小姐》
-
-    &emsp;&emsp;《风之歌》
-
-    &emsp;&emsp;《在时间的尽头等你》
-
-    &emsp;&emsp;《残神觉醒》
-
-    &emsp;&emsp;《暮雨流花+》
-
-    &emsp;依赖库
-
-    &emsp;&emsp;NuGet
-
-    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [GameCreator引擎](./013.GameCreatorTool/Manual.md)
 ### 014.橙汁工作室
 
 *  Lover (情人节:不见不散)
