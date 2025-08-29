@@ -49,23 +49,7 @@ Chinese Galgame Reverse Engineering Project
 ### 011.Irregulars
 * [Irregulars制作组](./011.Irregulars/Manual.md)
 ### 012.Visual Novel Maker
-
-* XorFilter
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《执谕者：坠月之兆》
-
-    &emsp;&emsp;《爱与命的彼端》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
-    &emsp;注意
-
-    &emsp;&emsp;1. 不是所有资源都进行了加密, 资源是否加密需要自行判断
-
+* [VisualNovelMaker引擎](./012.VisualNovelMaker/Manual.md)
 ### 013.Game Creator
 
 * V1版本加密 (图像/文本/音频)
