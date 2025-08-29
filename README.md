@@ -52,14 +52,8 @@ Chinese Galgame Reverse Engineering Project
 * [VisualNovelMaker引擎](./012.VisualNovelMaker/Manual.md)
 ### 013.Game Creator
 * [GameCreator引擎](./013.GameCreatorTool/Manual.md)
-### 014.橙汁工作室
-
-*  Lover (情人节:不见不散)
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+### 014.OrangeStudio (橙汁工作室)
+* [橙汁工作室](./014.OrangeStudio/Manual.md)
 ### 015.SeparateHearts
 
 *   SeparateHearts Engine(古月引擎)(Hac解包/Tex解码/Hgp解码/HTP+HTL解码)
