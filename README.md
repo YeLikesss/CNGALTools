@@ -45,49 +45,7 @@ Chinese Galgame Reverse Engineering Project
 ### 009.SoraPlayer
 * [SoraPlayer制作组](./009.SoraPlayer/Manual.md)
 ### 010.UniversalXP3DecFilter
-
-* 通用XP3加密接口 XP3ArchiveExtractionFilter
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;部分游戏使用molebox打包 请先使用[demoleition](https://lifeinhex.com/category/tools/)解包
-
-    &emsp;&emsp;《彼岸花葬》
-
-    &emsp;&emsp;《翡翠月》
-
-    &emsp;&emsp;《雪之本境》 光盘版(2010)
-
-    &emsp;&emsp;《雪之本境解境篇》 光盘版
-
-    &emsp;&emsp;《雪之本境EX》 光盘版
-
-    &emsp;&emsp;《雾之本境》 光盘版
-
-    &emsp;&emsp;《雨港基隆》 Steam
-
-    &emsp;&emsp;《鸑鷟 镜花水月》
-
-    &emsp;&emsp;《鸑鷟 橘子传》
-
-    &emsp;&emsp;《叶之离别:若叶归尘》
-
-    &emsp;&emsp;《雨夜》
-
-    &emsp;&emsp;《吉祥铃》
-
-    &emsp;&emsp;《水滴里的夏天》
-
-    &emsp;&emsp;《宛若朝阳》
-
-    &emsp;&emsp;《遗忘花园》 光盘版
-
-    &emsp;&emsp;《紫罗兰-里: 水中倒影》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [通用XP3加密接口](./010.UniversalXP3DecFilter/Manual.md)
 ### 011.Irregulars
 
 * Irregulars Engine
