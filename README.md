@@ -47,17 +47,7 @@ Chinese Galgame Reverse Engineering Project
 ### 010.UniversalXP3DecFilter
 * [通用XP3加密接口](./010.UniversalXP3DecFilter/Manual.md)
 ### 011.Irregulars
-
-* Irregulars Engine
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《MOBIUS BAND*》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [Irregulars制作组](./011.Irregulars/Manual.md)
 ### 012.Visual Novel Maker
 
 * XorFilter
