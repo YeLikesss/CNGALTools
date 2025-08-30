@@ -63,29 +63,7 @@ Chinese Galgame Reverse Engineering Project
 ### 018.CaramelMochaStudio (焦糖摩卡组)
 * [仿徨之街](./018.CaramelMochaStudio/TheStreetOfAdriftToolkit/Manual.md)
 ### 019.PygmaGame
-
-* 修改版Renpy8 RPA封包(V1)
-    
-    &emsp;&emsp;PygmaGame
-    
-    &emsp;&emsp;零点世界工作室
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《苍空的彼端》(PygmaGame)
-
-    &emsp;&emsp;《愚者之梦: 零时将至》(零点世界工作室)
-
-    &emsp;依赖库
-    
-    &emsp;&emsp;NuGet
-    
-    &emsp;&emsp;&emsp;Razorvine.Pickle
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [PygmaGame/零点世界工作室](./019.PygmaGame/Manual.md)
 ### 020.Xso
 
 *  Xso制作组 修改版Renpy8 RPA封包(V1)
