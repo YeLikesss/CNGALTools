@@ -61,7 +61,7 @@ Chinese Galgame Reverse Engineering Project
 ### 017.OurshowGames
 * [傲雪制作组](./017.OurshowGames/Manual.md)
 ### 018.CaramelMochaStudio (焦糖摩卡组)
-* [仿徨之街](./018.CaramelMochaStudio/TheStreetOfAdriftToolkit/Manual.md)
+* [彷徨之街](./018.CaramelMochaStudio/TheStreetOfAdriftToolkit/Manual.md)
 ### 019.PygmaGame
 * [PygmaGame/零点世界工作室](./019.PygmaGame/Manual.md)
 ### 020.Xso
