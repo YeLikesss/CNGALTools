@@ -60,28 +60,8 @@ Chinese Galgame Reverse Engineering Project
 * [NekoNovel引擎](./016.NekoNovel/NekoNovel/Manual.md)
 ### 017.OurshowGames
 * [傲雪制作组](./017.OurshowGames/Manual.md)
-### 018.焦糖摩卡组/CaramelMochaStudio
-
-*   《仿徨之街》辅助(TheStreetOfAdriftToolkit)
-
-    &emsp;功能
-
-    &emsp;&emsp;连线关卡选项变得非常简单
-
-    &emsp;使用方法
-
-    &emsp;&emsp;将`TSOALoader.exe`与`TSOACheat.dll`置于游戏目录下
-    
-    &emsp;&emsp;双击启动`TSOALoader.exe`运行即可
-
-    &emsp;依赖库
-
-    &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
-
-    &emsp;编译环境
-
-    &emsp;&emsp;MSVC2022 x64
-
+### 018.CaramelMochaStudio (焦糖摩卡组)
+* [仿徨之街](./018.CaramelMochaStudio/TheStreetOfAdriftToolkit/Manual.md)
 ### 019.PygmaGame
 
 * 修改版Renpy8 RPA封包(V1)
