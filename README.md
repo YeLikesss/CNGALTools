@@ -67,21 +67,7 @@ Chinese Galgame Reverse Engineering Project
 ### 020.Xso
 * [Xso制作组](./020.Xso/Manual.md)
 ### 021.UniversalRPAExtractor
-
-*  Renpy官方封包提取 (较多国Gal使用该引擎)
-    
-    &emsp;[官方源码](https://github.com/renpy/renpy/blob/master/renpy/loader.py)
-
-    &emsp;依赖库
-    
-    &emsp;&emsp;NuGet
-    
-    &emsp;&emsp;&emsp;Razorvine.Pickle
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [标准Renpy封包](./021.UniversalRPAExtractor/Manual.md)
 ### 022.箱社
 
 *  IceCreamStick AVGEngine(V1)(Unity)
