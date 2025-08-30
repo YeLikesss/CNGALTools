@@ -57,17 +57,7 @@ Chinese Galgame Reverse Engineering Project
 ### 015.SeparateHearts
 * [古月引擎](./015.SeparateHearts/SeparateHeartsEngineExtractor/Manual.md)
 ### 016.NekoNovel
-
-*   NekoNovel Package
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《Lucy -The Eternity She Wished For-》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [NekoNovel引擎](./016.NekoNovel/NekoNovel/Manual.md)
 ### 017.Ourshow Games
 
 *   AGP封包
