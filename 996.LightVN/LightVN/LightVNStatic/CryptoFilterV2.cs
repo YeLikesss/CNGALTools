@@ -35,13 +35,11 @@ namespace LightVNStatic
             for(int i = 0; i < decLen; ++i)
             {
                 ulong v1 = (ulong)(long)i;           //movsxd reg64, reg32
-                UInt128 v2 = v1;   
-                UInt128 v3 = 0x47AE147AE147AE15ul;
-                ulong v4 = (ulong)((v2 * v3) >> 64);
-                ulong v5 = ((((v1 - v4) >> 1) + v4) >> 4) * 25ul;
-                ulong v6 = v1 - v5;
+                ulong v3 = Math.BigMul(v1, 0x47AE147AE147AE15ul, out ulong _);   //rdx:rax = mul reg64 (rax)
+                ulong v4 = ((((v1 - v3) >> 1) + v3) >> 4) * 25ul;
+                ulong v5 = v1 - v4;
 
-                byte k = key[v6];
+                byte k = key[v5];
 
                 if (i != 0)
                 {

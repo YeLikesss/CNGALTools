@@ -130,7 +130,7 @@ Chinese Galgame Reverse Engineering Project
 
     &emsp;编译环境
 
-    &emsp;&emsp;.Net 7.x
+    &emsp;&emsp;.Net 6.x
 
 ### 997.SyawaseWorks (官中发行商)
 
