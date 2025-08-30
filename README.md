@@ -65,23 +65,7 @@ Chinese Galgame Reverse Engineering Project
 ### 019.PygmaGame
 * [PygmaGame/零点世界工作室](./019.PygmaGame/Manual.md)
 ### 020.Xso
-
-*  Xso制作组 修改版Renpy8 RPA封包(V1)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《不恋爱就完蛋了》
-
-    &emsp;依赖库
-    
-    &emsp;&emsp;NuGet
-    
-    &emsp;&emsp;&emsp;Razorvine.Pickle
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [Xso制作组](./020.Xso/Manual.md)
 ### 021.UniversalRPAExtractor
 
 *  Renpy官方封包提取 (较多国Gal使用该引擎)
