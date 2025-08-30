@@ -55,33 +55,7 @@ Chinese Galgame Reverse Engineering Project
 ### 014.OrangeStudio (橙汁工作室)
 * [橙汁工作室](./014.OrangeStudio/Manual.md)
 ### 015.SeparateHearts
-
-*   SeparateHearts Engine(古月引擎)(Hac解包/Tex解码/Hgp解码/HTP+HTL解码)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《夏梦夜话》
-
-    &emsp;&emsp;《红楼梦》
-
-    &emsp;&emsp;《红楼梦: 林黛玉与北静王》
-
-    &emsp;&emsp;《楼兰: 轮回之轨迹》
-
-    &emsp;&emsp;《楼兰: 轮回之轨迹 缘》
-
-    &emsp;依赖库
-
-    &emsp;&emsp;Nuget
-
-    &emsp;&emsp;&emsp;ICSharpCode.SharpZipLib
-
-    &emsp;&emsp;&emsp;LZMA-SDK
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [古月引擎](./015.SeparateHearts/SeparateHeartsEngineExtractor/Manual.md)
 ### 016.NekoNovel
 
 *   NekoNovel Package
