@@ -69,17 +69,7 @@ Chinese Galgame Reverse Engineering Project
 ### 021.UniversalRPAExtractor
 * [标准Renpy封包](./021.UniversalRPAExtractor/Manual.md)
 ### 022.箱社
-
-*  IceCreamStick AVGEngine(V1)(Unity)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《大科学家》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [箱社制作组](./022.XiangShe/Manual.md)
 ### 995.Chatte Noire
 
 * Nie no Hakoniwa(贄の匣庭)
