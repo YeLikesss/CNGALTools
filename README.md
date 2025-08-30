@@ -58,18 +58,8 @@ Chinese Galgame Reverse Engineering Project
 * [古月引擎](./015.SeparateHearts/SeparateHeartsEngineExtractor/Manual.md)
 ### 016.NekoNovel
 * [NekoNovel引擎](./016.NekoNovel/NekoNovel/Manual.md)
-### 017.Ourshow Games
-
-*   AGP封包
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《李雷和韩梅梅:与你同在》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+### 017.OurshowGames
+* [傲雪制作组](./017.OurshowGames/Manual.md)
 ### 018.焦糖摩卡组/CaramelMochaStudio
 
 *   《仿徨之街》辅助(TheStreetOfAdriftToolkit)
