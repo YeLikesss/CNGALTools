@@ -73,19 +73,7 @@ Chinese Galgame Reverse Engineering Project
 ### 995.Chatte Noire
 * [ChatteNoire制作组](./995.Chatte%20Noire/Manual.md)
 ### 996.LightVN
-
-* LightVN Engine
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《U-ena 空焰火少女》
-
-    &emsp;&emsp;《プトリカ 1st.cut》
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [LightVN引擎](./996.LightVN/LightVN/Manual.md)
 ### 997.SyawaseWorks (官中发行商)
 
 * HamidashiCreative (定制加密+Themida 3.x) (Cracker/Dumper/Extractor)
