@@ -71,13 +71,7 @@ Chinese Galgame Reverse Engineering Project
 ### 022.箱社
 * [箱社制作组](./022.XiangShe/Manual.md)
 ### 995.Chatte Noire
-
-* Nie no Hakoniwa(贄の匣庭)
-
-    &emsp;编译环境
-
-    &emsp;&emsp;.Net 6.x
-
+* [ChatteNoire制作组](./995.Chatte%20Noire/Manual.md)
 ### 996.LightVN
 
 * LightVN Engine
