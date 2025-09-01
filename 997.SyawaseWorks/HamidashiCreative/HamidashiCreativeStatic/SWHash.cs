@@ -42,9 +42,9 @@ namespace HamidashiCreativeStatic
                 {
                     ulong v0 = hash ^ blockPack8[i];
 
-                    UInt128 v1 = (UInt128)v0 * (UInt128)0x1A6EC39A279322C7;
+                    ulong v2 = Math.BigMul(v0, 0x1A6EC39A279322C7, out ulong v1);
 
-                    hash = (ulong)((v1 >> 64) ^ v1);
+                    hash = v2 ^ v1;
                 }
             }
             
