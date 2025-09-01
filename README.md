@@ -75,47 +75,7 @@ Chinese Galgame Reverse Engineering Project
 ### 996.LightVN
 * [LightVN引擎](./996.LightVN/LightVN/Manual.md)
 ### 997.SyawaseWorks (官中发行商)
-
-* HamidashiCreative (定制加密+Themida 3.x) (Cracker/Dumper/Extractor)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《ハミダシクリエイティブ》 Chs Release
-
-    &emsp;依赖库
-
-    &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
-
-    &emsp;编译环境 
-    
-    &emsp;&emsp;MSVC2022 x86 (破解/Dump)
-
-    &emsp;&emsp;.Net 7.x (静态解包)
-
-* HappyLiveShowUp (定制加密+Themida 3.x) (Cracker/Decryptor)
-
-    &emsp;游戏测试
-
-    &emsp;&emsp;《ハッピーライヴ ショウアップ！》 Chs Release
-
-    &emsp;依赖库
-
-    &emsp;&emsp;[Detours](https://github.com/microsoft/Detours)
-
-    &emsp;&emsp;Nuget
-
-    &emsp;&emsp;&emsp;System.IO.Hashing
-
-    &emsp;编译环境
-    
-    &emsp;&emsp;MSVC2022 x86 (破解)
-
-    &emsp;&emsp;.Net6.x (静态解密)
-
-    &emsp;注意
-
-    &emsp;&emsp;使用封包解密工具后, 保持目录不变使用[GARbro](https://github.com/crskycode/GARbro)打开dec_xxx.pack封包
-
+* [SyawaseWorks代理](./997.SyawaseWorks/Manual.md)
 ### 998.HikariField (官中发行商)
 * [HFUnityV1](./998.HikariField/HFUnityV1/Manual.md)
 * [FutureRadio](./998.HikariField/FutureRadio/Manual.md)
