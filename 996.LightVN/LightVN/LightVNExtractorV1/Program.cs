@@ -13,6 +13,7 @@ namespace LightVNExtractorV1
             List<CryptoFilterV1> list = new()
             {
                 new UenaFarFireworks(),
+                new PrincessParadise(),
             };
 
             Console.WriteLine("请选择游戏:");

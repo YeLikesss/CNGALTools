@@ -16,6 +16,7 @@ LightVN 引擎工具套件
 * 按照GUI界面指引
 ### 游戏支持
 &emsp;《U-ena 空焰火少女》<br>
+&emsp;《姫の楽園》<br>
 ### 编译
 &emsp;&emsp;编译器<br>
 &emsp;&emsp;&emsp;.Net 6.x<br>

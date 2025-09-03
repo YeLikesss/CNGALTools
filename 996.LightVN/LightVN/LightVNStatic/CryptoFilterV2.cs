@@ -34,6 +34,9 @@ namespace LightVNStatic
 
             for(int i = 0; i < decLen; ++i)
             {
+                //编译器优化代码 快速除法 UInt64 Div 25
+                //Key有效区间位[0-24]
+
                 ulong v1 = (ulong)(long)i;           //movsxd reg64, reg32
                 ulong v3 = Math.BigMul(v1, 0x47AE147AE147AE15ul, out ulong _);   //rdx:rax = mul reg64 (rax)
                 ulong v4 = ((((v1 - v3) >> 1) + v3) >> 4) * 25ul;
