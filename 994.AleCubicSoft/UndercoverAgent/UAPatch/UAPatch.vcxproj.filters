@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Il2Cpp">
+      <UniqueIdentifier>{bf15d744-3bc8-477f-bd41-e0883baecc3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{3fd0604f-c503-49ad-b220-907229c18cc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Detours">
+      <UniqueIdentifier>{c1c753d3-cb3c-42f1-b438-656358efadd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ntdll">
+      <UniqueIdentifier>{affaf918-ba3e-4cd5-8bc2-2c2f1ecc212a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Il2Cpp\Il2CppApi.cpp">
+      <Filter>Il2Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Il2Cpp\Il2Cpp.cpp">
+      <Filter>Il2Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\directory.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\encoding.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\file.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\log.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\path.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\pe.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\stringhelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\util.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\creatwth.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\detours.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\disasm.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\image.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\modules.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="NtdllExtend.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveDataPatch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Il2Cpp\Il2CppHeader.h">
+      <Filter>Il2Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Il2Cpp\Il2CppApi.h">
+      <Filter>Il2Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Il2Cpp\Il2Cpp.h">
+      <Filter>Il2Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\directory.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\encoding.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\file.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\log.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\path.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\pe.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\stringhelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Detours\detours.h">
+      <Filter>Detours</Filter>
+    </ClInclude>
+    <ClInclude Include="Ntdll\ntdll.h">
+      <Filter>Ntdll</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtendUtils.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NtdllExtend.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveDataPatch.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TSKTContainer.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

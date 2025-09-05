@@ -70,6 +70,8 @@ Chinese Galgame Reverse Engineering Project
 * [标准Renpy封包](./021.UniversalRPAExtractor/Manual.md)
 ### 022.箱社
 * [箱社制作组](./022.XiangShe/Manual.md)
+### 994.AleCubicSoft
+* [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 995.Chatte Noire
 * [ChatteNoire制作组](./995.Chatte%20Noire/Manual.md)
 ### 996.LightVN
