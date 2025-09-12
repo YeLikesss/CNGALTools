@@ -86,4 +86,15 @@ namespace GameCreatorStatic.Extractor.V1
         public override string TextKey => "gc_zip_2024";
         public override string AudioKey => "gc_zip_2024";
     }
+
+    /// <summary>
+    /// 《重返大学时代》
+    /// </summary>
+    public class ReturnToCollegeAge : GCExtractorV1
+    {
+        public override string Title => "重返大学时代";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text;
+        public override string Version => "0.9917";
+        public override string TextKey => "gc_zip_2024";
+    }
 }
