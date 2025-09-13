@@ -23,6 +23,7 @@ GameCreator 引擎工具套件
 &emsp;《残神觉醒》<br>
 &emsp;《暮雨流花+》<br>
 &emsp;《重返大学时代》<br>
+&emsp;《同桌! 我喜欢你》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>
