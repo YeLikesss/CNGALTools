@@ -377,7 +377,54 @@ namespace GameCreatorStatic.Extractor.V1
         /// </summary>
         protected void ExtractVideo()
         {
-            //NotImpl
+            if (this.EntryptionFlag.HasFlag(GCEntryptionFlagV1.Video))
+            {
+                string gameRootDirectory = this.mGameDirectory;
+                IProgress<string>? msgCB = this.mMessageCallBack;
+                Encoding encoding = this.ZipEncoding;
+                string key = this.VideoKey;
+
+                foreach(string encryptFolder in this.VideoFolders)
+                {
+                    string resourceDirectory = Path.Combine(gameRootDirectory, encryptFolder);
+                    if (Directory.Exists(resourceDirectory))
+                    {
+                        foreach (string inPath in Directory.EnumerateFiles(resourceDirectory, "*.*", SearchOption.AllDirectories))
+                        {
+                            string relativePath = inPath[(gameRootDirectory.Length + 1)..];
+                            string outPath = Path.Combine(gameRootDirectory, "Extract_Static", relativePath);
+                            {
+                                string outDir = Path.GetDirectoryName(outPath)!;
+                                if (!Directory.Exists(outDir))
+                                {
+                                    Directory.CreateDirectory(outDir);
+                                }
+                            }
+
+                            //检查后缀解密
+                            string ext = Path.GetExtension(inPath).ToLower();
+                            if (this.VideoExtensions.Contains(ext))
+                            {
+                                using FileStream inFs = File.OpenRead(inPath);
+                                if (ZipStorage.Decompress(inFs, encoding, key, Path.GetDirectoryName(outPath)!, out string error))
+                                {
+                                    msgCB?.Report($"[视频]解密: {relativePath}");
+                                }
+                                else
+                                {
+                                    File.Copy(inPath, outPath, true);
+                                    msgCB?.Report($"[视频]仅拷贝: {relativePath} 解密错误: {error}");
+                                }
+                            }
+                            else
+                            {
+                                File.Copy(inPath, outPath, true);
+                                msgCB?.Report($"[视频]仅拷贝: {relativePath}");
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
