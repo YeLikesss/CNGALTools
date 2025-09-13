@@ -1,7 +1,9 @@
 # PygmaGame
 
-PygmaGame/零点世界工作室 工具套件
-
+魔改Renpy工具套件<br>
+PygmaGame<br>
+零点世界工作室<br> 
+思维度工作室<br>
 ## 功能
 ---
 * 提取魔改`Renpy`引擎`.blend`封包
@@ -17,6 +19,7 @@ PygmaGame/零点世界工作室 工具套件
 ### 游戏支持
 &emsp;《苍空的彼端》<br>
 &emsp;《愚者之梦: 零时将至》<br>
+&emsp;《缚戎人: 唐建中十三年》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>
