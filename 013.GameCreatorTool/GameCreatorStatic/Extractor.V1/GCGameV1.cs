@@ -12,7 +12,6 @@ namespace GameCreatorStatic.Extractor.V1
         public override string Version => "0.9902";
     }
 
-
     /// <summary>
     /// 《叛军组织的我爱上了贵族大小姐》
     /// </summary>
@@ -96,5 +95,18 @@ namespace GameCreatorStatic.Extractor.V1
         public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text;
         public override string Version => "0.9917";
         public override string TextKey => "gc_zip_2024";
+    }
+
+    /// <summary>
+    /// 《同桌! 我喜欢你》
+    /// </summary>
+    public class LovelyDeskmateLovelyLife : GCExtractorV1
+    {
+        public override string Title => "同桌! 我喜欢你";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio | GCEntryptionFlagV1.Video;
+        public override string Version => "0.9917";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+        public override string VideoKey => "gc_zip_2024";
     }
 }
