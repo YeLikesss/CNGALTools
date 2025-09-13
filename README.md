@@ -63,7 +63,10 @@ Chinese Galgame Reverse Engineering Project
 ### 018.CaramelMochaStudio (焦糖摩卡组)
 * [彷徨之街](./018.CaramelMochaStudio/TheStreetOfAdriftToolkit/Manual.md)
 ### 019.PygmaGame
-* [PygmaGame/零点世界工作室](./019.PygmaGame/Manual.md)
+* [魔改Renpy](./019.PygmaGame/Manual.md)<br>
+&emsp;PygmaGame<br>
+&emsp;零点世界工作室<br>
+&emsp;思维度工作室<br>
 ### 020.Xso
 * [Xso制作组](./020.Xso/Manual.md)
 ### 021.UniversalRPAExtractor
