@@ -44,6 +44,17 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《你的牛子》
+    /// </summary>
+    public class YourCow : GCExtractorV1
+    {
+        public override string Title => "你的牛子";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text;
+        public override string Version => "0.99131";
+        public override string TextKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《在时间的尽头等你》
     /// </summary>
     public class WaitingForYouAtTheEndOfTime : GCExtractorV1
