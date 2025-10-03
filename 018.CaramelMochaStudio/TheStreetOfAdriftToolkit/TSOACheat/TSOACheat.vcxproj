@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletHellCheat.cpp" />
     <ClCompile Include="Common\directory.cpp" />
     <ClCompile Include="Common\encoding.cpp" />
     <ClCompile Include="Common\file.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="UnityEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletHellCheat.h" />
     <ClInclude Include="Common\directory.h" />
     <ClInclude Include="Common\encoding.h" />
     <ClInclude Include="Common\file.h" />

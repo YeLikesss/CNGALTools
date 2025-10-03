@@ -11,8 +11,9 @@
 
 ## TSOACheat
 ### 描述
-* 《彷徨之街》游戏辅助
-* 降低分支选项连线关卡难度
+* \[选项\] 几乎无限时间限制
+* \[选项\] 大幅降低关卡难度
+* \[弹幕游戏\] 大幅降低敌人血量
 ### 使用
 &emsp;&emsp;将`TSOALoader.exe`与`TSOACheat.dll`置于游戏目录下<br>
 &emsp;&emsp;双击启动`TSOALoader.exe`运行<br>

@@ -1,6 +1,7 @@
 ﻿#include "NtdllExtend.h"
 #include "ExtendUtils.h"
 #include "GameDotCheat.h"
+#include "BulletHellCheat.h"
 
 #pragma comment(linker, "/MERGE:\".detourd=.data\"")
 #pragma comment(linker, "/MERGE:\".detourc=.rdata\"")
@@ -45,6 +46,11 @@ DWORD WINAPI Process(PVOID dllBase)
 
         g_tGameDotConnectUI_Awake_Func = (GameDotCheat::GameDotConnectUI::tGameDotConnectUI_Awake)method_awake->methodPointer;
         HookUtils::InlineHook::Hook(g_tGameDotConnectUI_Awake_Func, Hook_GameDotConnectUI_Awake);
+    }
+
+    //弹幕游戏
+    {
+        BulletHellCheat::BulletHellManager::Patch();
     }
 
     il2cpp_thread_detach(thread);

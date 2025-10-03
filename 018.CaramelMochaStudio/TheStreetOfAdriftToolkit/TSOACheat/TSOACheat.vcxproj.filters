@@ -87,6 +87,9 @@
     <ClCompile Include="System.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BulletHellCheat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Il2Cpp\Il2CppAPI.h">
@@ -141,6 +144,9 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="System.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletHellCheat.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
