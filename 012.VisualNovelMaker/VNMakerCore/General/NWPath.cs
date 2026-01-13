@@ -21,7 +21,7 @@ namespace VNMakerCore.General
                 string? dir = Path.GetDirectoryName(path);
                 while(dir is not null)
                 {
-                    if (File.Exists(Path.Combine(dir, "nw.dll")))
+                    if (File.Exists(Path.Combine(dir, "nw.dll")) || File.Exists(Path.Combine(dir, "snapshot_blob.bin")))
                     {
                         rootDir = dir;
                         break;
