@@ -3,6 +3,16 @@
 namespace GameCreatorStatic.Extractor.V1
 {
     /// <summary>
+    /// 《致命终局》
+    /// </summary>
+    public class DeadlyEndgame : GCExtractorV1
+    {
+        public override string Title => "致命终局";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image;
+        public override string Version => "0.9891";
+    }
+
+    /// <summary>
     /// 《令和罕见物语》
     /// </summary>
     public class LingHeHanJianWuYv : GCExtractorV1
@@ -34,7 +44,7 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
-    /// 鼓手余命十日谭
+    /// 《鼓手余命十日谭》
     /// </summary>
     public class ShiinaTakisDecameron : GCExtractorV1
     {
