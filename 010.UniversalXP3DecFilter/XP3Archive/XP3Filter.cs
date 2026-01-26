@@ -236,6 +236,9 @@ namespace XP3Archive
         }
     }
 
+    /// <summary>
+    /// 水滴里的夏天
+    /// </summary>
     public class SummerInWaterDroplets : IXP3Filter
     {
         public void Decrypt(Span<byte> data, uint hash, long offset = 0)
@@ -318,6 +321,25 @@ namespace XP3Archive
         public override string ToString()
         {
             return "紫罗兰-里: 水中倒影";
+        }
+    }
+
+    /// <summary>
+    /// 五月茉莉 Episode01
+    /// </summary>
+    public class MayjasmineEP1 : IXP3Filter
+    {
+        public void Decrypt(Span<byte> data, uint hash, long offset = 0)
+        {
+            for (int i = 0; i < data.Length; ++i)
+            {
+                data[i] = (byte)~(data[i] ^ (hash + 1));
+            }
+        }
+
+        public override string ToString()
+        {
+            return "五月茉莉 Episode01";
         }
     }
 }

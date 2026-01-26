@@ -33,6 +33,7 @@ namespace MainFrom
                 titles.Items.Add(new WanRuoZhaoYang());
                 titles.Items.Add(new ObliviousGarden());
                 titles.Items.Add(new VioletInsideSummer());
+                titles.Items.Add(new MayjasmineEP1());
 
                 titles.EndUpdate();
             }

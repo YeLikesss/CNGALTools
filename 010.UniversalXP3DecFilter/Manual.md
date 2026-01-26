@@ -31,6 +31,7 @@ Krkr引擎XP3ArchiveExtractionFilter通用XP3加密接口
 &emsp;《宛若朝阳》<br>
 &emsp;《遗忘花园》 光盘版<br>
 &emsp;《紫罗兰-里: 水中倒影》<br>
+&emsp;《五月茉莉 Episode01》<br>
 ### 编译
 &emsp;&emsp;编译器<br>
 &emsp;&emsp;&emsp;.Net 6.x<br>
