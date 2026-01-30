@@ -16,6 +16,7 @@ GameCreator 引擎工具套件
 ### 游戏支持
 &emsp;《致命终局》<br>
 &emsp;《令和罕见物语》<br>
+&emsp;《皎月坠落之时》<br>
 &emsp;《我亲爱的妹妹》<br>
 &emsp;《鼓手余命十日谭》<br>
 &emsp;《叛军组织的我爱上了贵族大小姐》<br>

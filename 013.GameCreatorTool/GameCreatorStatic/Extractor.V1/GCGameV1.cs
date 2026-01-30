@@ -23,6 +23,16 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《皎月坠落之时》
+    /// </summary>
+    public class MomentOfMoonset : GCExtractorV1
+    {
+        public override string Title => "皎月坠落之时";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.None;       //没有加密资源 只加密了startup.json
+        public override string Version => "0.99055";
+    }
+
+    /// <summary>
     /// 《叛军组织的我爱上了贵族大小姐》
     /// </summary>
     public class FellInLoveWithTheNobilityGirlAsAMemberOfTheRebelOrganization : GCExtractorV1
