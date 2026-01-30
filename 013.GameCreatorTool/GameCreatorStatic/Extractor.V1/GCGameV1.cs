@@ -33,6 +33,16 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《我的魅魔库库拉》
+    /// </summary>
+    public class MySuccubusKukula : GCExtractorV1
+    {
+        public override string Title => "我的魅魔库库拉";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image;
+        public override string Version => "0.99072";
+    }
+
+    /// <summary>
     /// 《残神觉醒》
     /// </summary>
     public class BrokenGodAwakening : GCExtractorV1

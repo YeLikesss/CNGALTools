@@ -21,6 +21,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new DeadlyEndgame());
                 cb.Items.Add(new LingHeHanJianWuYv());
                 cb.Items.Add(new FellInLoveWithTheNobilityGirlAsAMemberOfTheRebelOrganization());
+                cb.Items.Add(new MySuccubusKukula());
                 cb.Items.Add(new BrokenGodAwakening());
                 cb.Items.Add(new ShiinaTakisDecameron());
                 cb.Items.Add(new YourCow());
