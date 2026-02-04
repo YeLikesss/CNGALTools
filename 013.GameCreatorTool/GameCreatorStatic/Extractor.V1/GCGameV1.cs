@@ -53,6 +53,16 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《致命终局》 重制版
+    /// </summary>
+    public class DeadlyEndgameRemaster : GCExtractorV1
+    {
+        public override string Title => "致命终局 重制版";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.None;       //重制版无资源加密 只加密了startup.json
+        public override string Version => "0.9912";
+    }
+
+    /// <summary>
     /// 《残神觉醒》
     /// </summary>
     public class BrokenGodAwakening : GCExtractorV1

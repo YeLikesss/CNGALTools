@@ -23,6 +23,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new MomentOfMoonset());
                 cb.Items.Add(new FellInLoveWithTheNobilityGirlAsAMemberOfTheRebelOrganization());
                 cb.Items.Add(new MySuccubusKukula());
+                cb.Items.Add(new DeadlyEndgameRemaster());
                 cb.Items.Add(new BrokenGodAwakening());
                 cb.Items.Add(new ShiinaTakisDecameron());
                 cb.Items.Add(new YourCow());

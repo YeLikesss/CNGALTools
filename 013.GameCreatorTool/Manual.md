@@ -21,6 +21,7 @@ GameCreator 引擎工具套件
 &emsp;《鼓手余命十日谭》<br>
 &emsp;《叛军组织的我爱上了贵族大小姐》<br>
 &emsp;《我的魅魔库库拉》<br>
+&emsp;《致命终局》 Steam重制版<br>
 &emsp;《风之歌》<br>
 &emsp;《在时间的尽头等你》<br>
 &emsp;《残神觉醒》<br>
