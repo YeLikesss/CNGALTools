@@ -77,6 +77,8 @@ Chinese Galgame Reverse Engineering Project
 * [YuriAVGEngine引擎](./023.YuriAVGEngine/Manual.md)
 ### 024.SanHuaMiao
 * [三花喵工作室](./024.SanHuaMiao/Manual.md)
+### 025.SugarRush
+* [Sugar Rush工作室](./025.SugarRush/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 995.Chatte Noire
