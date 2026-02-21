@@ -14,6 +14,7 @@ GameCreator 引擎工具套件
 ### 使用
 * 按照GUI界面指引解密
 ### 游戏支持
+&emsp;《筮灵》<br>
 &emsp;《致命终局》<br>
 &emsp;《令和罕见物语》<br>
 &emsp;《皎月坠落之时》<br>

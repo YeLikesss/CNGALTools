@@ -3,6 +3,16 @@
 namespace GameCreatorStatic.Extractor.V1
 {
     /// <summary>
+    /// 《筮灵》
+    /// </summary>
+    public class ShiLing : GCExtractorV1
+    {
+        public override string Title => "筮灵";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image;
+        public override string Version => "0.98851";
+    }
+
+    /// <summary>
     /// 《致命终局》
     /// </summary>
     public class DeadlyEndgame : GCExtractorV1

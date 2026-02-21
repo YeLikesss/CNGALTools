@@ -18,6 +18,7 @@ namespace GCExtractorGUI
                 cb.BeginUpdate();
                 cb.Items.Clear();
 
+                cb.Items.Add(new ShiLing());
                 cb.Items.Add(new DeadlyEndgame());
                 cb.Items.Add(new LingHeHanJianWuYv());
                 cb.Items.Add(new MomentOfMoonset());
