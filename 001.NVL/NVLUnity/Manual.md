@@ -32,6 +32,7 @@ NVLUnity 工具套件
 &emsp;《写真偶像》<br>
 &emsp;《梦见雪花》<br>
 &emsp;《泡芙爱情故事》<br>
+&emsp;《高考恋爱一百天HD 十年后的约定》<br>
 ### 编译
 &emsp;&emsp;编译器<br>
 &emsp;&emsp;&emsp;.Net 6.x<br>

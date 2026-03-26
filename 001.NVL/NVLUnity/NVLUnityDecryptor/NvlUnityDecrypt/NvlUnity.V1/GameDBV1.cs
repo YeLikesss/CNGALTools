@@ -48,6 +48,18 @@ namespace NvlUnity.V1
         };
     }
 
+    /// <summary>
+    /// UnityFS 5.x.x 6000.0.42f1
+    /// </summary>
+    internal abstract class NVLUnityV103 : NVLUnityV1
+    {
+        public sealed override byte[] Header { get; } = new byte[]
+        {
+            0x55, 0x6E, 0x69, 0x74, 0x79, 0x46, 0x53, 0x00, 0x00, 0x00, 0x00, 0x08, 0x35, 0x2E, 0x78, 0x2E,
+            0x78, 0x00, 0x36, 0x30, 0x30, 0x30, 0x2E, 0x30, 0x2E, 0x34, 0x32, 0x66, 0x31, 0x00, 0x00, 0x00,
+        };
+    }
+
     //*******************************************下面为游戏**********************************************//
 
 
@@ -227,6 +239,17 @@ namespace NvlUnity.V1
         };
     }
 
+    /// <summary>
+    /// 高考恋爱100天 [十年后的约定]
+    /// </summary>
+    internal class GaoKaoLove100HD : NVLUnityV103
+    {
+        public override byte[] XorKey { get; } = new byte[]
+        {
+            0xA5, 0xF0, 0xF7, 0x35, 0xBE, 0xB5, 0xC7, 0x1D, 0x00, 0xB2, 0x71, 0x4F
+        };
+    }
+
     internal class DataManagerV1
     {
         private static readonly Dictionary<string, NVLUnityV1> mSGameInformation = new(32)
@@ -247,6 +270,7 @@ namespace NvlUnity.V1
             { "写真偶像", new SnowAlbum()},
             { "梦见雪花", new DreamOfTinySnow() },
             { "泡芙爱情故事", new PuffLoveStory() },
+            { "高考恋爱100天 十年后的约定", new GaoKaoLove100HD() },
         };
         /// <summary>
         /// 游戏信息
