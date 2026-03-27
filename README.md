@@ -9,8 +9,7 @@ Chinese Galgame Reverse Engineering Project
 ## 附录
 * [游戏分析笔记](https://github.com/YeLikesss/CNGALReverseNote)
 * 第三方工具与源码<br>
-&emsp;[AssetStudio (Unity解包)](https://github.com/Perfare/AssetStudio)<br>
-&emsp;[CNStudio (Unity中国版解包)](https://github.com/RazTools/Studio)<br>
+&emsp;[AssetStudio (Unity解包)](https://github.com/Escartem/AnimeStudio)<br>
 &emsp;[GARbro (Galgame解包)](https://github.com/crskycode/GARbro)<br>
 &emsp;[Detect It Easy (查壳工具)](https://github.com/horsicq/Detect-It-Easy)<br>
 &emsp;[demoleition (molebox脱壳提取工具)](https://lifeinhex.com/category/tools/)<br>
