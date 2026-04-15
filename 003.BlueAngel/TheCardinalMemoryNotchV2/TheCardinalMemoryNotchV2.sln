@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KrkrFileDumper", "KrkrFileDumper\KrkrFileDumper.vcxproj", "{998BFF88-449F-4743-B68A-025A77F3F6EB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KrkrFileDumperLoader", "KrkrFileDumperLoader\KrkrFileDumperLoader.vcxproj", "{732437F2-1018-43F2-A4D1-AE09454C055E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{998BFF88-449F-4743-B68A-025A77F3F6EB}.Debug|x64.ActiveCfg = Debug|Win32
+		{998BFF88-449F-4743-B68A-025A77F3F6EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{998BFF88-449F-4743-B68A-025A77F3F6EB}.Debug|x86.Build.0 = Debug|Win32
+		{998BFF88-449F-4743-B68A-025A77F3F6EB}.Release|x64.ActiveCfg = Release|Win32
+		{998BFF88-449F-4743-B68A-025A77F3F6EB}.Release|x86.ActiveCfg = Release|Win32
+		{998BFF88-449F-4743-B68A-025A77F3F6EB}.Release|x86.Build.0 = Release|Win32
+		{732437F2-1018-43F2-A4D1-AE09454C055E}.Debug|x64.ActiveCfg = Debug|Win32
+		{732437F2-1018-43F2-A4D1-AE09454C055E}.Debug|x86.ActiveCfg = Debug|Win32
+		{732437F2-1018-43F2-A4D1-AE09454C055E}.Debug|x86.Build.0 = Debug|Win32
+		{732437F2-1018-43F2-A4D1-AE09454C055E}.Release|x64.ActiveCfg = Release|Win32
+		{732437F2-1018-43F2-A4D1-AE09454C055E}.Release|x86.ActiveCfg = Release|Win32
+		{732437F2-1018-43F2-A4D1-AE09454C055E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1B29D93-B328-4EC8-9AB7-976602D86017}
+	EndGlobalSection
+EndGlobal
