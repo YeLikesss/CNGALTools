@@ -131,8 +131,10 @@
             tbLog.Multiline = true;
             tbLog.Name = "tbLog";
             tbLog.ReadOnly = true;
+            tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             tbLog.Size = new System.Drawing.Size(760, 150);
             tbLog.TabIndex = 7;
+            tbLog.WordWrap = false;
             // 
             // MainForm
             // 

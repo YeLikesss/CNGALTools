@@ -43,4 +43,17 @@ namespace VNMakerCore.Crypto.V1.Games
             return "星空骑士";
         }
     }
+
+    /// <summary>
+    /// 姬恋~缚羽的欠片
+    /// </summary>
+    public class JiLian_FuYvDeQianPian : XorFilter
+    {
+        public override byte[] Key { get; } = new byte[] { 0x0A, 0x2B, 0x36, 0x6F, 0x0B };
+
+        public override string ToString()
+        {
+            return "姬恋~缚羽的欠片";
+        }
+    }
 }

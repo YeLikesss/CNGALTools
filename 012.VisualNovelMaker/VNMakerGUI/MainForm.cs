@@ -26,6 +26,7 @@ namespace VNMakerGUI
                 items.Add(new AiYvMingDeBiDuan());
                 items.Add(new ArchenemyLunafall());
                 items.Add(new XingKongQiShi());
+                items.Add(new JiLian_FuYvDeQianPian());
 
                 cbGames.EndUpdate();
             }
