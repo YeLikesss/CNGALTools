@@ -55,8 +55,7 @@ Chinese Galgame Reverse Engineering Project
 * [橙汁工作室](./014.OrangeStudio/Manual.md)
 ### 015.SeparateHearts
 * [古月引擎](./015.SeparateHearts/SeparateHeartsEngineExtractor/Manual.md)
-### 016.NekoNovel
-* [NekoNovel引擎](./016.NekoNovel/NekoNovel/Manual.md)
+### 016.
 ### 017.OurshowGames
 * [傲雪制作组](./017.OurshowGames/Manual.md)
 ### 018.CaramelMochaStudio (焦糖摩卡组)
@@ -87,8 +86,7 @@ Chinese Galgame Reverse Engineering Project
 ### 997.SyawaseWorks (官中发行商)
 * [SyawaseWorks代理](./997.SyawaseWorks/Manual.md)
 ### 998.HikariField (官中发行商)
-* [HFUnityV1](./998.HikariField/HFUnityV1/Manual.md)
-* [FutureRadio](./998.HikariField/FutureRadio/Manual.md)
 * [NekoNyan](./998.HikariField/NekoNyan/Manual.md)
-### 999.Others
+### 999.Deprecated (已弃用)
+* [弃用说明](./999.Deprecated/Manual.md)
 
