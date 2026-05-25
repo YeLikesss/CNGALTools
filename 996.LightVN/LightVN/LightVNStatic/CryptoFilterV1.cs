@@ -30,7 +30,10 @@ namespace LightVNStatic
                 byte k = key[i % keyLen];
 
                 data[i] ^= k;
-                data[dataLen - i - 1] ^= k;
+                if (i != 0)
+                {
+                    data[dataLen - i] ^= k;
+                }
             }
         }
     }
