@@ -81,8 +81,6 @@ Chinese Galgame Reverse Engineering Project
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 995.Chatte Noire
 * [ChatteNoire制作组](./995.Chatte%20Noire/Manual.md)
-### 996.LightVN
-* [LightVN引擎](./996.LightVN/LightVN/Manual.md)
 ### 997.SyawaseWorks (官中发行商)
 * [SyawaseWorks代理](./997.SyawaseWorks/Manual.md)
 ### 998.HikariField (官中发行商)
