@@ -55,7 +55,8 @@ Chinese Galgame Reverse Engineering Project
 * [橙汁工作室](./014.OrangeStudio/Manual.md)
 ### 015.SeparateHearts
 * [古月引擎](./015.SeparateHearts/SeparateHeartsEngineExtractor/Manual.md)
-### 016.
+### 016.YeTuGames
+* [夜兔游戏](./016.YeTuGames/Manual.md)
 ### 017.OurshowGames
 * [傲雪制作组](./017.OurshowGames/Manual.md)
 ### 018.CaramelMochaStudio (焦糖摩卡组)
