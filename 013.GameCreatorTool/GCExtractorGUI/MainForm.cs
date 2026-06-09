@@ -28,12 +28,14 @@ namespace GCExtractorGUI
                 cb.Items.Add(new BrokenGodAwakening());
                 cb.Items.Add(new ShiinaTakisDecameron());
                 cb.Items.Add(new YourCow());
+                cb.Items.Add(new GuangShiShuangMaWeiDeBaoEn());
                 cb.Items.Add(new WaitingForYouAtTheEndOfTime());
                 cb.Items.Add(new HappySistersLife());
                 cb.Items.Add(new WindsPoem());
                 cb.Items.Add(new FloainPlus());
                 cb.Items.Add(new ReturnToCollegeAge());
                 cb.Items.Add(new LovelyDeskmateLovelyLife());
+                cb.Items.Add(new ToBeYourSisterSomeday());
 
                 cb.EndUpdate();
             }

@@ -105,6 +105,17 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《广式双马尾的报恩》
+    /// </summary>
+    public class GuangShiShuangMaWeiDeBaoEn : GCExtractorV1
+    {
+        public override string Title => "广式双马尾的报恩";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text;
+        public override string Version => "0.99131";
+        public override string TextKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《在时间的尽头等你》
     /// </summary>
     public class WaitingForYouAtTheEndOfTime : GCExtractorV1
@@ -169,5 +180,17 @@ namespace GameCreatorStatic.Extractor.V1
         public override string TextKey => "gc_zip_2024";
         public override string AudioKey => "gc_zip_2024";
         public override string VideoKey => "gc_zip_2024";
+    }
+
+    /// <summary>
+    /// 《某天成为妹妹》
+    /// </summary>
+    public class ToBeYourSisterSomeday : GCExtractorV1
+    {
+        public override string Title => "某天成为妹妹";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio;
+        public override string Version => "0.99182";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
     }
 }
