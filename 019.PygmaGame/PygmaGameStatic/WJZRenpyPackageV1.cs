@@ -97,10 +97,15 @@ namespace PygmaGameStatic
                 this.mLastError = "封包文件长度错误";
                 return false;
             }
-            if (Encoding.UTF8.GetString(header[..8]) != "WJZ-4.9 ")
+
             {
-                this.mLastError = "文件标记不一致";
-                return false;
+                string sign = Encoding.UTF8.GetString(header[..8]);
+                if (sign != "WJZ-4.9 " &&
+                    sign != "RPA-3.0 ")
+                {
+                    this.mLastError = "文件标记不一致";
+                    return false;
+                }
             }
 
             if (!long.TryParse(Encoding.UTF8.GetString(header[8..24]), NumberStyles.HexNumber, null, out long indexOffset) ||

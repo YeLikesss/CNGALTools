@@ -21,6 +21,7 @@ PygmaGame<br>
 &emsp;《苍空的彼端》<br>
 &emsp;《愚者之梦: 零时将至》<br>
 &emsp;《缚戎人: 唐建中十三年》<br>
+&emsp;《终曲》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>
