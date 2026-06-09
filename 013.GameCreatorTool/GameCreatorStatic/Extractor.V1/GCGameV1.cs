@@ -147,6 +147,20 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《落星》
+    /// </summary>
+    public class MeteoriteFall : GCExtractorV1
+    {
+        public override string Title => "落星";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio | GCEntryptionFlagV1.Video;
+
+        public override string Version => "0.9914";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+        public override string VideoKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《暮雨流花+》
     /// </summary>
     public class FloainPlus : GCExtractorV1
