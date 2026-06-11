@@ -9,6 +9,9 @@ Chinese Galgame Reverse Engineering Project
 ## 附录
 * [游戏分析笔记](https://github.com/YeLikesss/CNGALReverseNote)
 * 第三方工具与源码<br>
+&emsp;[gdsdecomp (godot解包)](https://github.com/GDRETools/gdsdecomp)<br>
+&emsp;[UndertaleModTool (GameMaker解包)](https://github.com/UnderminersTeam/UndertaleModTool)<br>
+&emsp;[FModel (UE解包)](https://github.com/4sval/FModel)<br>
 &emsp;[AssetStudio (Unity解包)](https://github.com/Escartem/AnimeStudio)<br>
 &emsp;[GARbro (Galgame解包)](https://github.com/crskycode/GARbro)<br>
 &emsp;[Detect It Easy (查壳工具)](https://github.com/horsicq/Detect-It-Easy)<br>
