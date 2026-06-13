@@ -22,6 +22,7 @@ PygmaGame<br>
 &emsp;《愚者之梦: 零时将至》<br>
 &emsp;《缚戎人: 唐建中十三年》<br>
 &emsp;《终曲》<br>
+&emsp;《我与她们的大学画相》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>
