@@ -38,6 +38,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new LovelyDeskmateLovelyLife());
                 cb.Items.Add(new ToBeYourSisterSomeday());
                 cb.Items.Add(new AYearInSeasons());
+                cb.Items.Add(new OneDay());
 
                 cb.EndUpdate();
             }

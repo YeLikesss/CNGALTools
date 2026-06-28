@@ -34,6 +34,7 @@ GameCreator 引擎工具套件
 &emsp;《某天成为妹妹》<br>
 &emsp;《落星》<br>
 &emsp;《某一年四季》<br>
+&emsp;《One Day》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>
