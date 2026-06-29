@@ -35,6 +35,7 @@ GameCreator 引擎工具套件
 &emsp;《落星》<br>
 &emsp;《某一年四季》<br>
 &emsp;《One Day》<br>
+&emsp;《巴比伦:人与人之战》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>

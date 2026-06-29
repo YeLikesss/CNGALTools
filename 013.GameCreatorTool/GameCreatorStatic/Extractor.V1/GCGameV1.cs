@@ -231,4 +231,14 @@ namespace GameCreatorStatic.Extractor.V1
         public override string TextKey => "gc_zip_2024";
         public override string AudioKey => "gc_zip_2024";
     }
+
+    /// <summary>
+    /// 《巴比伦:人与人之战》
+    /// </summary>
+    public class BaBiLun_RenYuRenZhiZhan : GCExtractorV1
+    {
+        public override string Title => "巴比伦:人与人之战";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.None;       //只加密了startup.json
+        public override string Version => "0.9921";
+    }
 }

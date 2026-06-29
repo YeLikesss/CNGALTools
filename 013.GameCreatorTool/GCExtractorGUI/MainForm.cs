@@ -39,6 +39,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new ToBeYourSisterSomeday());
                 cb.Items.Add(new AYearInSeasons());
                 cb.Items.Add(new OneDay());
+                cb.Items.Add(new BaBiLun_RenYuRenZhiZhan());
 
                 cb.EndUpdate();
             }
