@@ -88,6 +88,8 @@ Chinese Galgame Reverse Engineering Project
 * [通用UE](./026.UniversalUE/Manual.md)
 ### 027.JveXingGames
 * [觉醒之刻](./027.JveXingGames/TheTimeofAwakening/Manual.md)
+### 028.PotatoFlowerProduction (土豆花制作组)
+* [永恒与星辰与日常](./028.PotatoFlowerProduction/OurBriefEternity/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 995.Chatte Noire

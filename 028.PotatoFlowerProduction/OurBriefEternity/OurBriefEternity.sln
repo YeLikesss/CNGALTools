@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Patch", "Patch\Patch.vcxproj", "{D9643EFA-69F4-4172-A077-CBB00D445C35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extractor", "Extractor\Extractor.csproj", "{1610D496-B1FC-4DF3-B6B5-39FD91A7B102}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9643EFA-69F4-4172-A077-CBB00D445C35}.Debug|x64.ActiveCfg = Debug|x64
+		{D9643EFA-69F4-4172-A077-CBB00D445C35}.Debug|x64.Build.0 = Debug|x64
+		{D9643EFA-69F4-4172-A077-CBB00D445C35}.Release|x64.ActiveCfg = Release|x64
+		{D9643EFA-69F4-4172-A077-CBB00D445C35}.Release|x64.Build.0 = Release|x64
+		{1610D496-B1FC-4DF3-B6B5-39FD91A7B102}.Debug|x64.ActiveCfg = Debug|x64
+		{1610D496-B1FC-4DF3-B6B5-39FD91A7B102}.Debug|x64.Build.0 = Debug|x64
+		{1610D496-B1FC-4DF3-B6B5-39FD91A7B102}.Release|x64.ActiveCfg = Release|x64
+		{1610D496-B1FC-4DF3-B6B5-39FD91A7B102}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28077EA5-7AAD-4346-988C-5FA95A33961D}
+	EndGlobalSection
+EndGlobal
