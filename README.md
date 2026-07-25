@@ -9,6 +9,8 @@ Chinese Galgame Reverse Engineering Project
 ## 附录
 * [游戏分析笔记](https://github.com/YeLikesss/CNGALReverseNote)
 * 第三方工具与源码<br>
+&emsp;[Steamless (SteamDRM移除)](https://github.com/atom0s/Steamless)<br>
+&emsp;[GoldbergSteamEmu (SteamAPI模拟)](https://github.com/Detanup01/gbe_fork)<br>
 &emsp;[gdsdecomp (godot解包)](https://github.com/GDRETools/gdsdecomp)<br>
 &emsp;[UndertaleModTool (GameMaker解包)](https://github.com/UnderminersTeam/UndertaleModTool)<br>
 &emsp;[FModel (UE解包)](https://github.com/4sval/FModel)<br>
