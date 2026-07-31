@@ -72,7 +72,7 @@
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;`StaticExtractor`<br>
-&emsp;&emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>
+&emsp;&emsp;&emsp;&emsp;\[Nuget\] K4os.Compression.LZ4<br>
 &emsp;&emsp;编译器<br>
 &emsp;&emsp;&emsp;`KrkrFileDumper`<br>
 &emsp;&emsp;&emsp;&emsp;MSVC2022 x86<br>
