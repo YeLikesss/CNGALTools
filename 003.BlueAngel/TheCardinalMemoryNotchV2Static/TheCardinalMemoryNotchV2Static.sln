@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticExtractor", "StaticExtractor\StaticExtractor.csproj", "{BB23258F-8001-47EE-A9A5-2513315A9379}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB23258F-8001-47EE-A9A5-2513315A9379}.Debug|x64.ActiveCfg = Debug|x64
+		{BB23258F-8001-47EE-A9A5-2513315A9379}.Debug|x64.Build.0 = Debug|x64
+		{BB23258F-8001-47EE-A9A5-2513315A9379}.Release|x64.ActiveCfg = Release|x64
+		{BB23258F-8001-47EE-A9A5-2513315A9379}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C07C7F1-76A9-4342-B0C7-F154F1CC2D41}
+	EndGlobalSection
+EndGlobal

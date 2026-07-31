@@ -51,12 +51,13 @@
 ---
 
 ## TheCardinalMemoryNotchV2
+## TheCardinalMemoryNotchV2Static
 ### 描述
 * 解包SPK-XP3v2封包资源
 ### 保护
 * Safengine V2.3.7.0 加壳
 ### 使用
-* `KrkrFileDumper`<br>
+* \[动态版\] `KrkrFileDumper`<br>
 &emsp;`KrkrFileDumperLoader`必需使用`Release`档编译<br>
 &emsp;`KrkrFileDumperLoader.exe`与`KrkrFileDumper.dll`放置于游戏目录下<br>
 &emsp;游戏exe拖拽到`KrkrFileDumperLoader.exe`运行<br>
@@ -64,11 +65,18 @@
 &emsp;&emsp;使用`debugview`查看输出<br>
 &emsp;`资源文件输出`<br>
 &emsp;&emsp;游戏目录/File_Dumper<br>
+* \[静态版\] `StaticExtractor`<br>
+&emsp;按照GUI界面指引<br>
 ### 游戏支持
 &emsp;《绯色的记忆之痕 Notch Series Episode 2》<br>
 ### 编译
+&emsp;&emsp;依赖库<br>
+&emsp;&emsp;&emsp;`StaticExtractor`<br>
+&emsp;&emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>
 &emsp;&emsp;编译器<br>
 &emsp;&emsp;&emsp;`KrkrFileDumper`<br>
 &emsp;&emsp;&emsp;&emsp;MSVC2022 x86<br>
+&emsp;&emsp;&emsp;`StaticExtractor`<br>
+&emsp;&emsp;&emsp;&emsp;.Net 6.x<br>
 
 ---
