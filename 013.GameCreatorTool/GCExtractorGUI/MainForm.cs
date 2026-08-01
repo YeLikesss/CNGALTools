@@ -30,6 +30,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new YourCow());
                 cb.Items.Add(new GuangShiShuangMaWeiDeBaoEn());
                 cb.Items.Add(new Mirage_Episode_1());
+                cb.Items.Add(new XiaZhiWeiLai());
                 cb.Items.Add(new WaitingForYouAtTheEndOfTime());
                 cb.Items.Add(new HappySistersLife());
                 cb.Items.Add(new WindsPoem());
@@ -39,12 +40,14 @@ namespace GCExtractorGUI
                 cb.Items.Add(new LovelyDeskmateLovelyLife());
                 cb.Items.Add(new FeiChangGuiFangSongBu());
                 cb.Items.Add(new XvnZhaoMeiMei());
+                cb.Items.Add(new CosdaricaJourneyAtTheEndOfTheWorld());
                 cb.Items.Add(new ToBeYourSisterSomeday());
                 cb.Items.Add(new AYearInSeasons());
                 cb.Items.Add(new OneDay());
                 cb.Items.Add(new BaBiLun_RenYuRenZhiZhan());
                 cb.Items.Add(new YourColors());
                 cb.Items.Add(new ZaiJian_YouLiDiXi());
+                cb.Items.Add(new JieJiNvHaiBuHuiRenShu());
 
                 cb.EndUpdate();
             }

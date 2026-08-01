@@ -129,6 +129,19 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《夏至未来》
+    /// </summary>
+    public class XiaZhiWeiLai : GCExtractorV1
+    {
+        public override string Title => "夏至未来";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio | GCEntryptionFlagV1.Video;
+        public override string Version => "0.99131";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+        public override string VideoKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《在时间的尽头等你》
     /// </summary>
     public class WaitingForYouAtTheEndOfTime : GCExtractorV1
@@ -233,6 +246,19 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《科斯达丽佳的世末终之旅途》
+    /// </summary>
+    public class CosdaricaJourneyAtTheEndOfTheWorld : GCExtractorV1
+    {
+        public override string Title => "科斯达丽佳的世末终之旅途";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio | GCEntryptionFlagV1.Video;
+        public override string Version => "0.9917";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+        public override string VideoKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《某天成为妹妹》
     /// </summary>
     public class ToBeYourSisterSomeday : GCExtractorV1
@@ -300,5 +326,16 @@ namespace GameCreatorStatic.Extractor.V1
         public override string Version => "0.994";
         public override string TextKey => "gc_zip_2024";
         public override string AudioKey => "gc_zip_2024";
+    }
+
+    /// <summary>
+    /// 《街机女孩不会认输》
+    /// </summary>
+    public class JieJiNvHaiBuHuiRenShu : GCExtractorV1
+    {
+        public override string Title => "街机女孩不会认输";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Text;
+        public override string Version => "0.994";
+        public override string TextKey => "gc_zip_2024";
     }
 }
