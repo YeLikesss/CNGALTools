@@ -19,6 +19,8 @@ VisualNovelMaker 引擎工具套件
 &emsp;《爱与命的彼端》<br>
 &emsp;《星空骑士》<br>
 &emsp;《姬恋~缚羽的欠片》<br>
+&emsp;《死掉的女儿》<br>
+&emsp;《魔女低语时》<br>
 ### 编译
 &emsp;&emsp;编译器<br>
 &emsp;&emsp;&emsp;.Net 6.x<br>

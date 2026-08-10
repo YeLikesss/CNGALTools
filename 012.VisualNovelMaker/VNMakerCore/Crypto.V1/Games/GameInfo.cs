@@ -56,4 +56,30 @@ namespace VNMakerCore.Crypto.V1.Games
             return "姬恋~缚羽的欠片";
         }
     }
+
+    /// <summary>
+    /// 死掉的女儿
+    /// </summary>
+    public class TheDeadDaughter : XorFilter
+    {
+        public override byte[] Key { get; } = new byte[] { 0x2A, 0x0B, 0x16, 0x4F, 0x2B, 0x25, 0x0E, 0x0B, 0x18, 0x1E };
+
+        public override string ToString()
+        {
+            return "死掉的女儿";
+        }
+    }
+
+    /// <summary>
+    /// 魔女低语时
+    /// </summary>
+    public class MoNvDiYvShi : XorFilter
+    {
+        public override byte[] Key { get; } = new byte[] { 0x2A, 0x0B, 0x16, 0x4F, 0x2B, 0x25, 0x0E, 0x0B, 0x18, 0x1E };
+
+        public override string ToString()
+        {
+            return "魔女低语时";
+        }
+    }
 }
