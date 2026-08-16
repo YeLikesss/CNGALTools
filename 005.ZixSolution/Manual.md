@@ -20,6 +20,7 @@ ZixSolution Renpy定制化引擎工具套件
 * 按照GUI界面指引
 ### 游戏支持
 &emsp;《时间碎片 奇迹》 (Renpy 7)<br>
+&emsp;《王牌社团》 (Renpy 7)<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>

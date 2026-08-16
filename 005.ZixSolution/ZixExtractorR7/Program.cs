@@ -14,6 +14,7 @@ namespace ZixExtractorR7
             Console.WriteLine("Zix Renpy 7 版本解包\n\n");
             Console.WriteLine("请选择游戏:");
             Console.WriteLine("1. 时间记忆:碎片");
+            Console.WriteLine("2. 王牌社团");
 
             if (Console.ReadLine() is string s && int.TryParse(s, out int ordinal))
             {
@@ -36,6 +37,7 @@ namespace ZixExtractorR7
                     object game = ordinal switch
                     {
                         1 => new AeonOnMosaicAnemone(),
+                        2 => new AceClub(),
                         _ => null,
                     };
 

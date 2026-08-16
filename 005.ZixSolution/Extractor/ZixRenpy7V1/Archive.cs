@@ -2,6 +2,7 @@
 using System.Buffers;
 using System.Collections;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Extractor.Untils;
 using Extractor.ZixRenpy7V1.Crypto;
@@ -32,48 +33,16 @@ namespace Extractor.ZixRenpy7V1.Renpy
         /// <param name="fileInfo">文件表信息</param>
         public FileEntry(object[] fileInfo)
         {
-            {
-                if (fileInfo[0] is long i64)
-                {
-                    this.Offset = i64;
-                }
-                else if (fileInfo[0] is int i32)
-                {
-                    this.Offset = i32;
-                }
-            }
+            this.Offset = Convert.ToInt64(fileInfo[0]);
+            this.Size = Convert.ToInt64(fileInfo[1]);
 
+            this.Header = fileInfo[2] switch
             {
-                if (fileInfo[1] is long i64)
-                {
-                    this.Size = i64;
-                }
-                else if (fileInfo[1] is int i32)
-                {
-                    this.Size = i32;
-                }
-            }
-
-            if(fileInfo[2] is string strHeader)
-            {
-                ReadOnlySpan<char> header = strHeader.AsSpan();
-                if (header.Length == 16)
-                {
-                    this.Header = new byte[16];
-                    for (int i = 0; i < 16; ++i)
-                    {
-                        this.Header[i] = (byte)(header[i] & 0xFF);
-                    }
-                }
-                else
-                {
-                    this.Header = Array.Empty<byte>();
-                }
-            }
-            else
-            {
-                this.Header = Array.Empty<byte>();
-            }
+                null => Array.Empty<byte>(),
+                string s => s.Select(c => (byte)c).ToArray(),
+                byte[] bytes => bytes,
+                _ => throw new InvalidDataException($"不支持的数据前缀 {fileInfo[2].GetType().Name}"),
+            };
         }
     }
 
@@ -202,10 +171,25 @@ namespace Extractor.ZixRenpy7V1.Renpy
     }
 
     /// <summary>
-    /// 时间记忆:碎片 Renpy7.3.5
+    /// ZixRenpy7V1 解包例程
     /// </summary>
-    public class AeonOnMosaicAnemone : KeyInformationBase, IExtractor
+    public abstract class ZixRenpy7V1Proc : KeyInformationBase, IExtractor
     {
+        /// <summary>
+        /// 索引key
+        /// </summary>
+        protected virtual uint IndexKey { get; } = 0x154AEF91u;
+
+        /// <summary>
+        /// 头字节key 16字节
+        /// </summary>
+        protected abstract uint[] HeaderKey { get; }
+
+        /// <summary>
+        /// 启用额外key
+        /// </summary>
+        protected abstract bool EnableSKey { get; }
+
         public void Extract(string filePath, string extractPath)
         {
             string extractDir = Path.Combine(extractPath, Path.GetFileNameWithoutExtension(filePath));
@@ -217,9 +201,13 @@ namespace Extractor.ZixRenpy7V1.Renpy
             mFs.Seek(96, SeekOrigin.Begin);
 
             //分别读取 文件表key 资源key 文件表offset
-            uint key = mBr.ReadUInt32() ^ 0x154AEF91;
-            uint skey = mBr.ReadUInt32() ^ 0x154AEF91;
-            uint entryOffset = mBr.ReadUInt32() ^ 0x154AEF91;
+            uint key = mBr.ReadUInt32() ^ this.IndexKey;
+            uint skey = 0u;
+            if (this.EnableSKey)
+            {
+                skey = mBr.ReadUInt32() ^ this.IndexKey;
+            }
+            uint entryOffset = mBr.ReadUInt32() ^ this.IndexKey;
 
             //读表
             byte[] entry = new byte[mFs.Length - entryOffset];
@@ -232,7 +220,7 @@ namespace Extractor.ZixRenpy7V1.Renpy
             Hashtable entryInfo = (Hashtable)Pickle.Decode(entry);
 
             //文件头key
-            Span<uint> headerKey = stackalloc uint[4] { 0x641F6916, 0x7EA54007, 0x1E20D401, 0x11A27A20 };
+            ReadOnlySpan<uint> headerKey = this.HeaderKey;
 
             //遍历文件表
             foreach (DictionaryEntry archiveInfo in entryInfo)
@@ -351,5 +339,21 @@ namespace Extractor.ZixRenpy7V1.Renpy
         }
     }
 
+    /// <summary>
+    /// 时间记忆:碎片 Renpy7.3.5
+    /// </summary>
+    public class AeonOnMosaicAnemone : ZixRenpy7V1Proc
+    {
+        protected override uint[] HeaderKey { get; } = new uint[4] { 0x641F6916, 0x7EA54007, 0x1E20D401, 0x11A27A20 };
+        protected override bool EnableSKey => true;
+    }
 
+    /// <summary>
+    /// 王牌社团
+    /// </summary>
+    public class AceClub : ZixRenpy7V1Proc
+    {
+        protected override uint[] HeaderKey { get; } = new uint[4] { 0x641F6916, 0x7EA54007, 0x1E20D401, 0x11A27A20 };
+        protected override bool EnableSKey => false;
+    }
 }
