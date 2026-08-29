@@ -94,8 +94,6 @@ Chinese Galgame Reverse Engineering Project
 * [永恒与星辰与日常](./028.PotatoFlowerProduction/OurBriefEternity/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
-### 995.Chatte Noire
-* [ChatteNoire制作组](./995.Chatte%20Noire/Manual.md)
 ### 997.SyawaseWorks (官中发行商)
 * [SyawaseWorks代理](./997.SyawaseWorks/Manual.md)
 ### 998.HikariField (官中发行商)
