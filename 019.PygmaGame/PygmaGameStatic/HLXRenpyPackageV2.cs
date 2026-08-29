@@ -51,6 +51,12 @@ namespace PygmaGameStatic
             }
         }
 
+        //标记信息
+        private static readonly HashSet<string> smSignatures = new()
+        {
+            "HLXZMENG", "BRONZEKB",
+        };
+
         private readonly string mPackagePath;
         private string mLastError = string.Empty;
 
@@ -98,10 +104,14 @@ namespace PygmaGameStatic
                 this.mLastError = "封包文件长度错误";
                 return false;
             }
-            if (Encoding.UTF8.GetString(header[..8]) != "HLXZMENG")
+            
             {
-                this.mLastError = "文件标记不一致";
-                return false;
+                string sign = Encoding.UTF8.GetString(header[..8]);
+                if (!HLXRenpyPackageV2.smSignatures.Contains(sign))
+                {
+                    this.mLastError = "文件标记不一致";
+                    return false;
+                }
             }
 
             if (!long.TryParse(Encoding.UTF8.GetString(header[8..24]), NumberStyles.HexNumber, null, out long indexOffset) ||

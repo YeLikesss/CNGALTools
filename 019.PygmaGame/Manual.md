@@ -38,6 +38,7 @@ PygmaGame<br>
 * 按照GUI界面指引
 ### 游戏支持
 &emsp;《海蓝星之梦》<br>
+&emsp;《铜刀银剑》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] Razorvine.Pickle<br>

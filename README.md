@@ -74,6 +74,7 @@ Chinese Galgame Reverse Engineering Project
 &emsp;思维度工作室<br>
 &emsp;青空社<br>
 &emsp;月乃社<br>
+&emsp;念绣科技<br>
 ### 020.Xso
 * [Xso制作组](./020.Xso/Manual.md)
 ### 021.UniversalRPAExtractor
