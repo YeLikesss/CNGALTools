@@ -186,6 +186,17 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《井域:喀洛之血》
+    /// </summary>
+    public class TheWorldWell_BloodOfCaro : GCExtractorV1
+    {
+        public override string Title => "井域:喀洛之血";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text;
+        public override string Version => "0.9914";
+        public override string TextKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《暮雨流花+》
     /// </summary>
     public class FloainPlus : GCExtractorV1

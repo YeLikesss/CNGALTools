@@ -44,6 +44,7 @@ GameCreator 引擎工具套件
 &emsp;《街机女孩不会认输》<br>
 &emsp;《夏至未来》<br>
 &emsp;《科斯达丽佳的世末终之旅途》<br>
+&emsp;《井域:喀洛之血》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>
