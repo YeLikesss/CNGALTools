@@ -1,6 +1,6 @@
 # SyawaseWorks
 
-SyawaseWorks 官中代理工具套件
+SyawaseWorks 工具套件
 
 ## 功能
 ---

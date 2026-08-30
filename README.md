@@ -93,10 +93,10 @@ Chinese Galgame Reverse Engineering Project
 * [觉醒之刻](./027.JveXingGames/TheTimeofAwakening/Manual.md)
 ### 028.PotatoFlowerProduction (土豆花制作组)
 * [永恒与星辰与日常](./028.PotatoFlowerProduction/OurBriefEternity/Manual.md)
+### 029.SyawaseWorks (官中发行商)
+* [SyawaseWorks](./029.SyawaseWorks/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
-### 997.SyawaseWorks (官中发行商)
-* [SyawaseWorks代理](./997.SyawaseWorks/Manual.md)
 ### 998.HikariField (官中发行商)
 * [NekoNyan](./998.HikariField/NekoNyan/Manual.md)
 ### 999.Deprecated (已弃用)
