@@ -43,6 +43,17 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《小夜怪奇物语》
+    /// </summary>
+    public class XiaoYeGuaiQiWuYv : GCExtractorV1
+    {
+        public override string Title => "小夜怪奇物语";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text;
+        public override string Version => "0.99055";
+        public override string TextKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《叛军组织的我爱上了贵族大小姐》
     /// </summary>
     public class FellInLoveWithTheNobilityGirlAsAMemberOfTheRebelOrganization : GCExtractorV1
@@ -69,6 +80,16 @@ namespace GameCreatorStatic.Extractor.V1
     {
         public override string Title => "致命终局 重制版";
         public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.None;       //重制版无资源加密 只加密了startup.json
+        public override string Version => "0.9912";
+    }
+
+    /// <summary>
+    /// 《夜弦酒吧员工守则》
+    /// </summary>
+    public class EmployeeRulesOfTheNightStrings : GCExtractorV1
+    {
+        public override string Title => "夜弦酒吧员工守则";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image;
         public override string Version => "0.9912";
     }
 
@@ -275,6 +296,18 @@ namespace GameCreatorStatic.Extractor.V1
     public class ToBeYourSisterSomeday : GCExtractorV1
     {
         public override string Title => "某天成为妹妹";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio;
+        public override string Version => "0.99182";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+    }
+
+    /// <summary>
+    /// 《栖霞日记》
+    /// </summary>
+    public class QiXiaNote : GCExtractorV1
+    {
+        public override string Title => "栖霞日记";
         public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio;
         public override string Version => "0.99182";
         public override string TextKey => "gc_zip_2024";

@@ -22,9 +22,11 @@ namespace GCExtractorGUI
                 cb.Items.Add(new DeadlyEndgame());
                 cb.Items.Add(new LingHeHanJianWuYv());
                 cb.Items.Add(new MomentOfMoonset());
+                cb.Items.Add(new XiaoYeGuaiQiWuYv());
                 cb.Items.Add(new FellInLoveWithTheNobilityGirlAsAMemberOfTheRebelOrganization());
                 cb.Items.Add(new MySuccubusKukula());
                 cb.Items.Add(new DeadlyEndgameRemaster());
+                cb.Items.Add(new EmployeeRulesOfTheNightStrings());
                 cb.Items.Add(new BrokenGodAwakening());
                 cb.Items.Add(new ShiinaTakisDecameron());
                 cb.Items.Add(new YourCow());
@@ -43,6 +45,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new XvnZhaoMeiMei());
                 cb.Items.Add(new CosdaricaJourneyAtTheEndOfTheWorld());
                 cb.Items.Add(new ToBeYourSisterSomeday());
+                cb.Items.Add(new QiXiaNote());
                 cb.Items.Add(new AYearInSeasons());
                 cb.Items.Add(new OneDay());
                 cb.Items.Add(new BaBiLun_RenYuRenZhiZhan());

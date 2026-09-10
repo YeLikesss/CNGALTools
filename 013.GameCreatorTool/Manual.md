@@ -45,6 +45,9 @@ GameCreator 引擎工具套件
 &emsp;《夏至未来》<br>
 &emsp;《科斯达丽佳的世末终之旅途》<br>
 &emsp;《井域:喀洛之血》<br>
+&emsp;《小夜怪奇物语》<br>
+&emsp;《夜弦酒吧员工守则》<br>
+&emsp;《栖霞日记》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>
