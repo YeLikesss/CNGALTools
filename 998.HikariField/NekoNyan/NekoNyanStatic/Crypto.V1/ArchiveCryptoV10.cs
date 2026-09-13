@@ -78,7 +78,7 @@ namespace NekoNyanStatic.Crypto.V1
                 int fileNameLen = rawFileNamesData.Slice(fileNameOffset).IndexOf((byte)0x00);
 
                 //获得文件名
-                entry.FileName = Encoding.UTF8.GetString(rawFileNamesData.Slice(fileNameOffset, fileNameLen));
+                entry.FileName = Encoding.UTF8.GetString(rawFileNamesData.Slice(fileNameOffset, fileNameLen)).ToLower();
 
                 this.mFileEntries.Add(entry);
             }

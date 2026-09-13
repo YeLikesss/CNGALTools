@@ -18,7 +18,7 @@ namespace NekoNyanStatic.Crypto
             { "Ao no Kanata no Four Rhythm Extra 1", CryptoVersion.V10 },
             { "Kinkoi: Golden Loveriche", CryptoVersion.V10},
             { "Ao no Kanata no Four Rhythm Extra 2", CryptoVersion.V11},
-            { "Clover Days", CryptoVersion.V12 },
+            { "Clover Days Plus", CryptoVersion.V12 },
             { "Love Election and Chocolate", CryptoVersion.V13 },
         };
     }
