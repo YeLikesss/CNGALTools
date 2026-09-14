@@ -1,6 +1,6 @@
 # CNGALTools
 
-国产/官中代理Galgame工具套件
+国产Galgame工具套件
 
 Chinese Galgame Reverse Engineering Project
 
