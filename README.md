@@ -97,8 +97,6 @@ Chinese Galgame Reverse Engineering Project
 * [SyawaseWorks](./029.SyawaseWorks/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
-### 998.HikariField (官中发行商)
-* [NekoNyan](./998.HikariField/NekoNyan/Manual.md)
 ### 999.Deprecated (已弃用)
 * [弃用说明](./999.Deprecated/Manual.md)
 
