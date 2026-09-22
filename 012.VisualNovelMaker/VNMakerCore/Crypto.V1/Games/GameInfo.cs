@@ -82,4 +82,17 @@ namespace VNMakerCore.Crypto.V1.Games
             return "魔女低语时";
         }
     }
+
+    /// <summary>
+    /// 线缘交织-世道
+    /// </summary>
+    public class XianYvanJiaoZhi_ShiDao : XorFilter
+    {
+        public override byte[] Key { get; } = new byte[] { 0x2A, 0x0B, 0x16, 0x4F, 0x2B, 0x25, 0x0E, 0x0B, 0x18, 0x1E };
+
+        public override string ToString()
+        {
+            return "线缘交织-世道";
+        }
+    }
 }

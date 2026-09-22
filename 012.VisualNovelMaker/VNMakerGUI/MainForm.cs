@@ -29,6 +29,7 @@ namespace VNMakerGUI
                 items.Add(new JiLian_FuYvDeQianPian());
                 items.Add(new TheDeadDaughter());
                 items.Add(new MoNvDiYvShi());
+                items.Add(new XianYvanJiaoZhi_ShiDao());
 
                 cbGames.EndUpdate();
             }
