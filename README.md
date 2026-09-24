@@ -95,6 +95,8 @@ Chinese Galgame Reverse Engineering Project
 * [永恒与星辰与日常](./028.PotatoFlowerProduction/OurBriefEternity/Manual.md)
 ### 029.SyawaseWorks (官中发行商)
 * [SyawaseWorks](./029.SyawaseWorks/Manual.md)
+### 030.SakiEngine
+* [SakiEngine](./030.SakiEngine/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 999.Deprecated (已弃用)

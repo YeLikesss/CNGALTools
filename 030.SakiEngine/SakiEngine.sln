@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractV1", "ExtractV1\ExtractV1.csproj", "{5C51BC7C-8CDD-4322-96AB-514A5CD20106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SakiStatic", "SakiStatic\SakiStatic.csproj", "{347E3CE7-F725-4019-A71F-D2311E455C5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C51BC7C-8CDD-4322-96AB-514A5CD20106}.Debug|x64.ActiveCfg = Debug|x64
+		{5C51BC7C-8CDD-4322-96AB-514A5CD20106}.Debug|x64.Build.0 = Debug|x64
+		{5C51BC7C-8CDD-4322-96AB-514A5CD20106}.Release|x64.ActiveCfg = Release|x64
+		{5C51BC7C-8CDD-4322-96AB-514A5CD20106}.Release|x64.Build.0 = Release|x64
+		{347E3CE7-F725-4019-A71F-D2311E455C5A}.Debug|x64.ActiveCfg = Debug|x64
+		{347E3CE7-F725-4019-A71F-D2311E455C5A}.Debug|x64.Build.0 = Debug|x64
+		{347E3CE7-F725-4019-A71F-D2311E455C5A}.Release|x64.ActiveCfg = Release|x64
+		{347E3CE7-F725-4019-A71F-D2311E455C5A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E0815C4-C950-4B8E-B084-370BB55656B5}
+	EndGlobalSection
+EndGlobal
