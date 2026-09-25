@@ -97,6 +97,8 @@ Chinese Galgame Reverse Engineering Project
 * [SyawaseWorks](./029.SyawaseWorks/Manual.md)
 ### 030.SakiEngine
 * [SakiEngine](./030.SakiEngine/Manual.md)
+### 031.BoneNailStudio
+* [骨钉工作室](./031.BoneNailStudio/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 999.Deprecated (已弃用)

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoneNailStatic", "BoneNailStatic\BoneNailStatic.csproj", "{039872B6-BDFE-4406-9160-07D90B2EE3B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractorV1", "ExtractorV1\ExtractorV1.csproj", "{A9BB1F2B-255D-48C3-BDC6-F9D7EA027941}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{039872B6-BDFE-4406-9160-07D90B2EE3B8}.Debug|x64.ActiveCfg = Debug|x64
+		{039872B6-BDFE-4406-9160-07D90B2EE3B8}.Debug|x64.Build.0 = Debug|x64
+		{039872B6-BDFE-4406-9160-07D90B2EE3B8}.Release|x64.ActiveCfg = Release|x64
+		{039872B6-BDFE-4406-9160-07D90B2EE3B8}.Release|x64.Build.0 = Release|x64
+		{A9BB1F2B-255D-48C3-BDC6-F9D7EA027941}.Debug|x64.ActiveCfg = Debug|x64
+		{A9BB1F2B-255D-48C3-BDC6-F9D7EA027941}.Debug|x64.Build.0 = Debug|x64
+		{A9BB1F2B-255D-48C3-BDC6-F9D7EA027941}.Release|x64.ActiveCfg = Release|x64
+		{A9BB1F2B-255D-48C3-BDC6-F9D7EA027941}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28C3E089-EABD-4EC3-A727-DA8D3073988E}
+	EndGlobalSection
+EndGlobal
