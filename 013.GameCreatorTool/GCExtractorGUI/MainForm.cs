@@ -48,6 +48,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new QiXiaNote());
                 cb.Items.Add(new AYearInSeasons());
                 cb.Items.Add(new OneDay());
+                cb.Items.Add(new BestPuppyCertificate());
                 cb.Items.Add(new BaBiLun_RenYuRenZhiZhan());
                 cb.Items.Add(new YourColors());
                 cb.Items.Add(new ZaiJian_YouLiDiXi());

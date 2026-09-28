@@ -48,6 +48,7 @@ GameCreator 引擎工具套件
 &emsp;《小夜怪奇物语》<br>
 &emsp;《夜弦酒吧员工守则》<br>
 &emsp;《栖霞日记》<br>
+&emsp;《最佳小狗证》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>
