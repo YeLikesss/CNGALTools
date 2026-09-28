@@ -33,6 +33,18 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《爱之巢~V0.098~》
+    /// </summary>
+    public class LoveNest0098 : GCExtractorV1
+    {
+        public override string Title => "爱之巢~V0.098~";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio;
+        public override string Version => "0.9902";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《皎月坠落之时》
     /// </summary>
     public class MomentOfMoonset : GCExtractorV1

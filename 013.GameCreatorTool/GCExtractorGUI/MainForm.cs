@@ -21,6 +21,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new ShiLing());
                 cb.Items.Add(new DeadlyEndgame());
                 cb.Items.Add(new LingHeHanJianWuYv());
+                cb.Items.Add(new LoveNest0098());
                 cb.Items.Add(new MomentOfMoonset());
                 cb.Items.Add(new XiaoYeGuaiQiWuYv());
                 cb.Items.Add(new FellInLoveWithTheNobilityGirlAsAMemberOfTheRebelOrganization());
