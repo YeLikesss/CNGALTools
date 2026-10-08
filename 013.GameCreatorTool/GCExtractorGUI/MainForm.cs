@@ -39,6 +39,7 @@ namespace GCExtractorGUI
                 cb.Items.Add(new WindsPoem());
                 cb.Items.Add(new MeteoriteFall());
                 cb.Items.Add(new TheWorldWell_BloodOfCaro());
+                cb.Items.Add(new DichotomyIllusionTheCoserDisassemblyIncident());
                 cb.Items.Add(new FloainPlus());
                 cb.Items.Add(new ReturnToCollegeAge());
                 cb.Items.Add(new LovelyDeskmateLovelyLife());

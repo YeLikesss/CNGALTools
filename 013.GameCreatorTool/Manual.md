@@ -50,6 +50,7 @@ GameCreator 引擎工具套件
 &emsp;《栖霞日记》<br>
 &emsp;《最佳小狗证》<br>
 &emsp;《爱之巢~V0.098~》<br>
+&emsp;《二分光景--COSER解体事件》<br>
 ### 编译
 &emsp;&emsp;依赖库<br>
 &emsp;&emsp;&emsp;\[Nuget\] ICSharpCode.SharpZipLib<br>

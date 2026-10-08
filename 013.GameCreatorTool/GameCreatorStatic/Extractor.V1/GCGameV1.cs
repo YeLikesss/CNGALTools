@@ -230,6 +230,18 @@ namespace GameCreatorStatic.Extractor.V1
     }
 
     /// <summary>
+    /// 《二分光景--COSER解体事件》
+    /// </summary>
+    public class DichotomyIllusionTheCoserDisassemblyIncident : GCExtractorV1
+    {
+        public override string Title => "二分光景--COSER解体事件";
+        public override GCEntryptionFlagV1 EntryptionFlag => GCEntryptionFlagV1.Image | GCEntryptionFlagV1.Text | GCEntryptionFlagV1.Audio;
+        public override string Version => "0.9914";
+        public override string TextKey => "gc_zip_2024";
+        public override string AudioKey => "gc_zip_2024";
+    }
+
+    /// <summary>
     /// 《暮雨流花+》
     /// </summary>
     public class FloainPlus : GCExtractorV1
