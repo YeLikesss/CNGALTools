@@ -99,6 +99,8 @@ Chinese Galgame Reverse Engineering Project
 * [SakiEngine](./030.SakiEngine/Manual.md)
 ### 031.BoneNailStudio
 * [骨钉工作室](./031.BoneNailStudio/Manual.md)
+### 032.ParadoxSoft (悖论软件)
+* [黄梅C](./032.ParadoxSoft/HuangmeiC/Manual.md)
 ### 994.AleCubicSoft
 * [UndercoverAgent](./994.AleCubicSoft/UndercoverAgent/Manual.md)
 ### 999.Deprecated (已弃用)
