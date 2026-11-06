@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.35707.66
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtractorV1", "ExtractorV1\ExtractorV1.csproj", "{6E3D8C88-BC61-48CE-B2E4-DC98E42AB937}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E3D8C88-BC61-48CE-B2E4-DC98E42AB937}.Debug|x64.ActiveCfg = Debug|x64
+		{6E3D8C88-BC61-48CE-B2E4-DC98E42AB937}.Debug|x64.Build.0 = Debug|x64
+		{6E3D8C88-BC61-48CE-B2E4-DC98E42AB937}.Release|x64.ActiveCfg = Release|x64
+		{6E3D8C88-BC61-48CE-B2E4-DC98E42AB937}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F01FB5D1-E863-4414-B9DD-BA36CBEF790E}
+	EndGlobalSection
+EndGlobal
